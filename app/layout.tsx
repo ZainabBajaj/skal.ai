@@ -1,35 +1,36 @@
 import type { Metadata } from "next";
-import localFont from "next/font/local";
+import { GeistSans } from "geist/font";
 import "./globals.css";
 
-const geistSans = localFont({
-  src: "./fonts/GeistVF.woff",
-  variable: "--font-geist-sans",
-  weight: "100 900",
-});
-const geistMono = localFont({
-  src: "./fonts/GeistMonoVF.woff",
-  variable: "--font-geist-mono",
-  weight: "100 900",
-});
-
 export const metadata: Metadata = {
-  title: "Skal.ai",
-  description: "Generated for Skal.ai",
+  title: "SKAL - AI, Data Science & Full Stack Solutions",
+  description: "Transforming businesses through innovative AI, Data Science, and Full Stack solutions",
+  icons: {
+    icon: [
+      { url: "/skal-logo.png", sizes: "16x16", type: "image/png" },
+      { url: "/skal-logo.png", sizes: "32x32", type: "image/png" },
+      { url: "/skal-logo.png", sizes: "48x48", type: "image/png" }
+    ],
+    shortcut: [{ url: "/skal-logo.png" }],
+    apple: [
+      { url: "/skal-logo.png", sizes: "180x180", type: "image/png" }
+    ],
+  }
 };
 
 export default function RootLayout({
   children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+}: {
+  children: React.ReactNode
+}) {
   return (
     <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-        {children}
-      </body>
+      <head>
+        <link rel="icon" type="image/png" sizes="32x32" href="/skal-logo.png" />
+        <link rel="shortcut icon" type="image/png" href="/skal-logo.png" />
+        <link rel="apple-touch-icon" sizes="180x180" href="/skal-logo.png" />
+      </head>
+      <body className={GeistSans.className}>{children}</body>
     </html>
   );
 }
