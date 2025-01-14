@@ -30,7 +30,7 @@ export default function Achievements() {
     }, 3000);
 
     return () => clearInterval(timer);
-  }, []);
+  }, [awards.length]);
 
   return (
     <section className="py-16 bg-[#2E2E2E]">

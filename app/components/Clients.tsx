@@ -13,7 +13,7 @@ const Clients = () => {
     },
     {
       image: "/clients/client2.jpg",
-      quote: "The team's expertise in both AI and full-stack development helped us create a seamless, intelligent platform that our users love.",
+      quote: "The team&apos;s expertise in both AI and full-stack development helped us create a seamless, intelligent platform that our users love.",
       name: "Michael Chen",
       title: "CEO, InnovateTech"
     },

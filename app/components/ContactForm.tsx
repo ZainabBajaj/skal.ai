@@ -55,6 +55,7 @@ export default function ContactForm() {
         type: 'error',
         message: 'Failed to send message. Please try again.'
       });
+      console.error('Error sending email:', error);
     }
   };
 
@@ -64,7 +65,7 @@ export default function ContactForm() {
         <div className="max-w-3xl mx-auto">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold text-[#1a1a1a] mb-4">Get In Touch</h2>
-            <p className="text-gray-600">Let's discuss your project and explore how we can help.</p>
+            <p className="text-gray-600">Let&aposs discuss your project and explore how we can help.</p>
           </div>
 
           <form onSubmit={handleSubmit} className="space-y-6">
