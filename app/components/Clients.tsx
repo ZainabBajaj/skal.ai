@@ -26,21 +26,38 @@ const Clients = () => {
   ];
 
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [isAutoPlaying, setIsAutoPlaying] = useState(true);
 
   useEffect(() => {
-    const timer = setInterval(() => {
-      setCurrentIndex((prevIndex) => (prevIndex + 1) % testimonials.length);
-    }, 5000);
+    let intervalId: NodeJS.Timeout;
 
-    return () => clearInterval(timer);
-  }, []);
+    if (isAutoPlaying) {
+      intervalId = setInterval(() => {
+        setCurrentIndex((prevIndex) => 
+          prevIndex === testimonials.length - 1 ? 0 : prevIndex + 1
+        );
+      }, 5000);
+    }
+
+    return () => {
+      if (intervalId) {
+        clearInterval(intervalId);
+      }
+    };
+  }, [isAutoPlaying, testimonials.length]);
 
   const nextTestimonial = () => {
-    setCurrentIndex((prevIndex) => (prevIndex + 1) % testimonials.length);
+    setIsAutoPlaying(false);
+    setCurrentIndex((prevIndex) => 
+      prevIndex === testimonials.length - 1 ? 0 : prevIndex + 1
+    );
   };
 
   const prevTestimonial = () => {
-    setCurrentIndex((prevIndex) => (prevIndex - 1 + testimonials.length) % testimonials.length);
+    setIsAutoPlaying(false);
+    setCurrentIndex((prevIndex) => 
+      prevIndex === 0 ? testimonials.length - 1 : prevIndex - 1
+    );
   };
 
   return (
@@ -74,7 +91,7 @@ const Clients = () => {
                 />
               </div>
               <p className="text-gray-600 italic mb-6 relative">
-                "{testimonials[currentIndex].quote}"
+                &quot;{testimonials[currentIndex].quote}&quot;
               </p>
               <h3 className="text-[#1a1a1a] font-bold">{testimonials[currentIndex].name}</h3>
               <p className="text-[#009bd7]">{testimonials[currentIndex].title}</p>

@@ -3,21 +3,17 @@
 import { useState } from 'react';
 import emailjs from '@emailjs/browser';
 
-interface FormData {
+type FormStatus = {
+  type: 'idle' | 'sending' | 'success' | 'error';
+  message?: string;
+};
+
+type FormData = {
   name: string;
   email: string;
   subject: string;
   message: string;
-}
-
-interface FormStatus {
-  submitted: boolean;
-  submitting: boolean;
-  info: {
-    error: boolean;
-    msg: string | null;
-  };
-}
+};
 
 export default function ContactForm() {
   const [formData, setFormData] = useState<FormData>({
@@ -27,11 +23,7 @@ export default function ContactForm() {
     message: ''
   });
 
-  const [status, setStatus] = useState<FormStatus>({
-    submitted: false,
-    submitting: false,
-    info: { error: false, msg: null }
-  });
+  const [status, setStatus] = useState<FormStatus>({ type: 'idle' });
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setFormData({
@@ -42,116 +34,124 @@ export default function ContactForm() {
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    setStatus(prevStatus => ({ ...prevStatus, submitting: true }));
-
+    
     try {
+      setStatus({ type: 'sending' });
       await emailjs.send(
-        process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID!, // EmailJS service ID
-        process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID!, // EmailJS template ID
+        process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID!,
+        process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID!,
         {
           from_name: formData.name,
           reply_to: formData.email,
           subject: formData.subject,
           message: formData.message
         },
-        process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY! // EmailJS public key
+        process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY!
       );
-
-      setStatus({
-        submitted: true,
-        submitting: false,
-        info: { error: false, msg: 'Message sent successfully!' }
-      });
-      setFormData({
-        name: '',
-        email: '',
-        subject: '',
-        message: ''
-      });
+      setStatus({ type: 'success', message: 'Message sent successfully!' });
+      setFormData({ name: '', email: '', subject: '', message: '' });
     } catch (error) {
-      setStatus({
-        submitted: false,
-        submitting: false,
-        info: { error: true, msg: 'An error occurred. Please try again later.' }
+      setStatus({ 
+        type: 'error',
+        message: 'Failed to send message. Please try again.'
       });
     }
   };
 
   return (
-    <form onSubmit={handleSubmit} className="grid md:grid-cols-2 gap-6">
-      <div className="relative">
-        <input
-          type="text"
-          name="name"
-          value={formData.name}
-          onChange={handleChange}
-          placeholder="Name"
-          required
-          className="w-full px-6 py-4 bg-white border border-[#009bd7]/20 rounded-lg focus:outline-none focus:border-[#009bd7] focus:ring-2 focus:ring-[#009bd7]/10 text-gray-800 transition-colors placeholder-gray-400"
-        />
-      </div>
+    <section id="contact" className="bg-[#f8faff] py-16 sm:py-24">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-3xl mx-auto">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold text-[#1a1a1a] mb-4">Get In Touch</h2>
+            <p className="text-gray-600">Let's discuss your project and explore how we can help.</p>
+          </div>
 
-      <div className="relative">
-        <input
-          type="email"
-          name="email"
-          value={formData.email}
-          onChange={handleChange}
-          placeholder="Email"
-          required
-          className="w-full px-6 py-4 bg-white border border-[#009bd7]/20 rounded-lg focus:outline-none focus:border-[#009bd7] focus:ring-2 focus:ring-[#009bd7]/10 text-gray-800 transition-colors placeholder-gray-400"
-        />
-      </div>
+          <form onSubmit={handleSubmit} className="space-y-6">
+            <div>
+              <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">
+                Name
+              </label>
+              <input
+                type="text"
+                id="name"
+                name="name"
+                value={formData.name}
+                onChange={handleChange}
+                required
+                className="w-full px-4 py-2 border border-[#009bd7]/20 rounded-lg focus:ring-2 focus:ring-[#009bd7]/10 focus:border-[#009bd7] bg-white text-gray-800 placeholder-gray-400"
+                placeholder="Your name"
+              />
+            </div>
 
-      <div className="relative md:col-span-2">
-        <input
-          type="text"
-          name="subject"
-          value={formData.subject}
-          onChange={handleChange}
-          placeholder="Subject"
-          required
-          className="w-full px-6 py-4 bg-white border border-[#009bd7]/20 rounded-lg focus:outline-none focus:border-[#009bd7] focus:ring-2 focus:ring-[#009bd7]/10 text-gray-800 transition-colors placeholder-gray-400"
-        />
-      </div>
+            <div>
+              <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">
+                Email
+              </label>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                value={formData.email}
+                onChange={handleChange}
+                required
+                className="w-full px-4 py-2 border border-[#009bd7]/20 rounded-lg focus:ring-2 focus:ring-[#009bd7]/10 focus:border-[#009bd7] bg-white text-gray-800 placeholder-gray-400"
+                placeholder="Your email"
+              />
+            </div>
 
-      <div className="relative md:col-span-2">
-        <textarea
-          name="message"
-          value={formData.message}
-          onChange={handleChange}
-          placeholder="Message"
-          required
-          rows={6}
-          className="w-full px-6 py-4 bg-white border border-[#009bd7]/20 rounded-lg focus:outline-none focus:border-[#009bd7] focus:ring-2 focus:ring-[#009bd7]/10 text-gray-800 transition-colors placeholder-gray-400 resize-none"
-        ></textarea>
-      </div>
+            <div>
+              <label htmlFor="subject" className="block text-sm font-medium text-gray-700 mb-1">
+                Subject
+              </label>
+              <input
+                type="text"
+                id="subject"
+                name="subject"
+                value={formData.subject}
+                onChange={handleChange}
+                required
+                className="w-full px-4 py-2 border border-[#009bd7]/20 rounded-lg focus:ring-2 focus:ring-[#009bd7]/10 focus:border-[#009bd7] bg-white text-gray-800 placeholder-gray-400"
+                placeholder="Subject"
+              />
+            </div>
 
-      <div className="md:col-span-2">
-        <button
-          type="submit"
-          disabled={status.submitting}
-          className="w-full py-4 bg-gradient-to-r from-[#009bd7] to-[#00E1FF] text-white rounded-lg font-semibold hover:shadow-lg transition-all disabled:opacity-50 disabled:cursor-not-allowed group relative overflow-hidden"
-        >
-          <div className="absolute inset-0 bg-white/20 translate-y-full group-hover:translate-y-0 transition-transform"></div>
-          <span className="relative inline-flex items-center justify-center">
-            {status.submitting ? 'Sending...' : 'Send Message'}
-            {!status.submitting && (
-              <svg className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
-              </svg>
-            )}
-          </span>
-        </button>
-      </div>
+            <div>
+              <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-1">
+                Message
+              </label>
+              <textarea
+                id="message"
+                name="message"
+                value={formData.message}
+                onChange={handleChange}
+                required
+                rows={4}
+                className="w-full px-4 py-2 border border-[#009bd7]/20 rounded-lg focus:ring-2 focus:ring-[#009bd7]/10 focus:border-[#009bd7] bg-white text-gray-800 placeholder-gray-400"
+                placeholder="Your message"
+              />
+            </div>
 
-      {status.info.msg && (
-        <div className={`md:col-span-2 p-4 rounded-lg ${
-          status.info.error ? 'bg-red-500/10 text-red-500' : 'bg-green-500/10 text-green-500'
-        }`}>
-          {status.info.msg}
+            <div className="flex flex-col items-center gap-4">
+              <button
+                type="submit"
+                disabled={status.type === 'sending'}
+                className={`w-full sm:w-auto px-8 py-3 bg-gradient-to-r from-[#009bd7] to-[#00E1FF] text-white font-semibold rounded-lg transition-all duration-200 hover:from-[#008bc1] hover:to-[#00c7e3] disabled:opacity-50 disabled:cursor-not-allowed`}
+              >
+                {status.type === 'sending' ? 'Sending...' : 'Send Message'}
+              </button>
+              
+              {status.type === 'success' && (
+                <p className="text-green-600">{status.message}</p>
+              )}
+              
+              {status.type === 'error' && (
+                <p className="text-red-600">{status.message}</p>
+              )}
+            </div>
+          </form>
         </div>
-      )}
-    </form>
+      </div>
+    </section>
   );
 } 
