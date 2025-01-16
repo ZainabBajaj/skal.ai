@@ -27,7 +27,7 @@ const Hero = () => {
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
             {/* Badge */}
-            <div className="md:inline-flex hidden items-center space-x-2 bg-gradient-to-r from-[#009bd7]/5 to-[#00E1FF]/5 rounded-full px-6 py-2 mb-8 backdrop-blur-sm border border-[#009bd7]/10">
+            <div className="md:inline-flex hidden items-center space-x-2 bg-gradient-to-r from-[#009bd7]/5 to-[#00E1FF]/5 rounded-full px-6 py-2 mb-8 backdrop-blur-sm border border-[#009bd7]/10 mt-24">
               <span className="relative flex h-2 w-2">
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#009bd7] opacity-75"></span>
                 <span className="relative inline-flex rounded-full h-2 w-2 bg-[#009bd7]"></span>
