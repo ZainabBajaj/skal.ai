@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { GeistSans } from "geist/font";
 import "./globals.css";
+import GoogleAnalytics from "./components/GoogleAnalytics";
+import { Suspense } from "react";
 
 export const metadata: Metadata = {
   title: "SKAL - AI, Data Science & Full Stack Solutions",
@@ -30,7 +32,12 @@ export default function RootLayout({
         <link rel="shortcut icon" type="image/png" href="/skal-logo.png" />
         <link rel="apple-touch-icon" sizes="180x180" href="/skal-logo.png" />
       </head>
-      <body className={GeistSans.className}>{children}</body>
+      <body className={GeistSans.className}>
+        <Suspense>
+          <GoogleAnalytics />
+        </Suspense>
+        {children}
+      </body>
     </html>
   );
 }
