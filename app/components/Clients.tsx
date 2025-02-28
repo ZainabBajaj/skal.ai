@@ -8,7 +8,7 @@ const Clients = () => {
     {
       image: "/clients/client1.jpg",
       quote: "SKAL has been instrumental in transforming our data infrastructure. Their AI solutions have significantly improved our decision-making process.",
-      name: "Sarah Johnson",
+      name: "Sam Johnson",
       title: "CTO, TechCorp"
     },
     {
@@ -20,7 +20,7 @@ const Clients = () => {
     {
       image: "/clients/client3.jpg",
       quote: "Working with SKAL has been a game-changer. Their data science solutions have helped us achieve unprecedented growth.",
-      name: "Emily Rodriguez",
+      name: "Emil Rodriguez",
       title: "Director of Innovation, DataFlow"
     }
   ];

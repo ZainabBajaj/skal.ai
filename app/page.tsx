@@ -21,14 +21,6 @@ export default function Home() {
       <section id="contact" className="py-24 bg-white">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-4xl mx-auto">
-            <div className="text-center mb-16">
-              <span className="text-[#009bd7] text-sm font-medium uppercase tracking-wider">Get in Touch</span>
-              <h2 className="text-3xl font-bold text-[#1a1a1a] mt-4 mb-6">Start Your Project</h2>
-              <p className="text-gray-600 max-w-2xl mx-auto">
-                Ready to transform your business? Contact us to discuss how we can help you achieve your goals with our cutting-edge solutions
-              </p>
-            </div>
-
             <ContactForm />
           </div>
         </div>

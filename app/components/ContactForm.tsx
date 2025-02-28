@@ -60,13 +60,16 @@ export default function ContactForm() {
   };
 
   return (
-    <section id="contact" className="bg-[#f8faff] py-16 sm:py-24">
+    <section id="contact" className="bg-[#f8faff] py-16">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="max-w-3xl mx-auto">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-[#1a1a1a] mb-4">Get In Touch</h2>
-            <p className="text-gray-600">Let&aposs discuss your project and explore how we can help.</p>
-          </div>
+            <div className="text-center mb-16">
+              <span className="text-[#009bd7] text-sm font-medium uppercase tracking-wider">Get in Touch</span>
+              <h2 className="text-3xl font-bold text-[#1a1a1a] mt-4 mb-4">To Start Your Project</h2>
+              <p className="text-gray-600 max-w-2xl mx-auto">
+                Ready to transform your business? Contact us to discuss how we can help you achieve your goals with our cutting-edge solutions
+              </p>
+            </div>
 
           <form onSubmit={handleSubmit} className="space-y-6">
             <div>
