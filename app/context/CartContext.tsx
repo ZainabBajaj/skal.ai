@@ -36,24 +36,36 @@ export const CartProvider = ({ children }: { children: ReactNode }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [isInitialized, setIsInitialized] = useState(false);
 
-  // Initialize cart from localStorage
+  // Initialize cart from localStorage - safely handling SSR
   useEffect(() => {
-    const storedItems = localStorage.getItem('cart');
-    if (storedItems) {
-      try {
-        setItems(JSON.parse(storedItems));
-      } catch (error) {
-        console.error('Error parsing cart from localStorage:', error);
-        setItems([]);
+    // Safe check for window object (SSR compatibility)
+    if (typeof window === 'undefined') return;
+    
+    try {
+      const storedItems = localStorage.getItem('cart');
+      if (storedItems) {
+        const parsedItems = JSON.parse(storedItems);
+        // Validate the parsed data is an array
+        if (Array.isArray(parsedItems)) {
+          setItems(parsedItems);
+        }
       }
+    } catch (error) {
+      console.error('Error parsing cart from localStorage:', error);
     }
+    
     setIsInitialized(true);
   }, []);
 
-  // Save cart to localStorage
+  // Save cart to localStorage - safely handling SSR
   useEffect(() => {
-    if (isInitialized) {
+    // Safe check for window object (SSR compatibility)
+    if (typeof window === 'undefined' || !isInitialized) return;
+    
+    try {
       localStorage.setItem('cart', JSON.stringify(items));
+    } catch (error) {
+      console.error('Error saving cart to localStorage:', error);
     }
   }, [items, isInitialized]);
 

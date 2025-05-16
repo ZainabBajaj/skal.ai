@@ -12,8 +12,11 @@ export default function Cart() {
   }, []);
 
   const handleHireNow = () => {
-    // Create message for contact form
-    if (items.length > 0) {
+    // Safe check for window and items
+    if (typeof window === 'undefined' || items.length === 0) return;
+    
+    try {
+      // Create message for contact form
       let message = "Hi,\nI'm looking to hire the following professionals for my project:\n\n";
       
       // Group items for display
@@ -41,9 +44,7 @@ export default function Cart() {
       sessionStorage.setItem('contactSubject', subject);
       
       // Dispatch custom event to notify page component
-      if (typeof window !== 'undefined') {
-        window.dispatchEvent(new Event('sessionStorageUpdated'));
-      }
+      window.dispatchEvent(new Event('sessionStorageUpdated'));
       
       // Scroll to contact section
       const contactSection = document.getElementById('contact');
@@ -52,12 +53,14 @@ export default function Cart() {
         // Close cart
         closeCart();
       }
+    } catch (error) {
+      console.error('Error in handleHireNow:', error);
     }
   };
 
   // Helper function to group similar items
-  const groupSimilarItems = (cartItems: CartItem[]) => {
-    const groups: Record<string, { item: CartItem, count: number }> = {};
+  const groupSimilarItems = (cartItems: CartItem[]): Record<string, { item: CartItem, count: number, ids: string[] }> => {
+    const groups: Record<string, { item: CartItem, count: number, ids: string[] }> = {};
     
     cartItems.forEach(item => {
       // Create a key that identifies similar items (ignoring the unique ID)
@@ -65,21 +68,31 @@ export default function Cart() {
       
       if (groups[key]) {
         groups[key].count += 1;
+        groups[key].ids.push(item.id);
       } else {
-        groups[key] = { item, count: 1 };
+        groups[key] = { 
+          item, 
+          count: 1,
+          ids: [item.id]
+        };
       }
     });
     
     return groups;
   };
 
-  const getPriceTypeDisplay = (priceType: string) => {
+  const getPriceTypeDisplay = (priceType: string): string => {
     switch(priceType) {
       case 'fullTime': return 'Full Time';
       case 'hourly': return 'Hourly';
       case 'partTime': return 'Part Time';
       default: return priceType;
     }
+  };
+  
+  // Handle removing all instances of a grouped item
+  const handleRemoveGroup = (ids: string[]): void => {
+    ids.forEach(id => removeItem(id));
   };
 
   const totalItems = items.length;
@@ -119,7 +132,7 @@ export default function Cart() {
             ) : (
               <ul className="space-y-3">
                 {Object.values(groupSimilarItems(items)).map((group) => (
-                  <li key={group.item.id} className="bg-gray-50 p-3 rounded border border-gray-200">
+                  <li key={`group-${group.item.id}`} className="bg-gray-50 p-3 rounded border border-gray-200">
                     <div className="flex justify-between items-start">
                       <div>
                         <h4 className="font-medium text-gray-800">
@@ -138,8 +151,9 @@ export default function Cart() {
                           </span>
                         )}
                         <button 
-                          onClick={() => removeItem(group.item.id)}
+                          onClick={() => handleRemoveGroup(group.ids)}
                           className="text-red-500 hover:text-red-700"
+                          title="Remove all"
                         >
                           <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
                             <path fillRule="evenodd" d="M9 2a1 1 0 00-.894.553L7.382 4H4a1 1 0 000 2v10a2 2 0 002 2h8a2 2 0 002-2V6a1 1 0 100-2h-3.382l-.724-1.447A1 1 0 0011 2H9zM7 8a1 1 0 012 0v6a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v6a1 1 0 102 0V8a1 1 0 00-1-1z" clipRule="evenodd" />

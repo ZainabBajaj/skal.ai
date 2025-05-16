@@ -4,8 +4,8 @@ import { useCart } from "../context/CartContext";
 
 declare global {
   interface Window {
-    gtag?: (...args: any[]) => void;
-    dataLayer?: any[];
+    gtag?: (command: string, action: string, params: Record<string, unknown>) => void;
+    dataLayer?: Array<Record<string, unknown>>;
   }
 }
 
