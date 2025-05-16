@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import emailjs from '@emailjs/browser';
 
 type FormStatus = {
@@ -15,15 +15,46 @@ type FormData = {
   message: string;
 };
 
-export default function ContactForm() {
+type ContactFormProps = {
+  initialSubject?: string;
+  initialMessage?: string;
+};
+
+export default function ContactForm({ initialSubject = '', initialMessage = '' }: ContactFormProps) {
   const [formData, setFormData] = useState<FormData>({
     name: '',
     email: '',
-    subject: '',
-    message: ''
+    subject: initialSubject,
+    message: initialMessage
   });
 
   const [status, setStatus] = useState<FormStatus>({ type: 'idle' });
+
+  // Debug logs
+  console.log('ContactForm rendered with:', { initialSubject, initialMessage });
+
+  // Update form data when initialSubject or initialMessage changes
+  useEffect(() => {
+    console.log('useEffect triggered with:', { initialSubject, initialMessage });
+    
+    // Only update if initialSubject or initialMessage is not empty
+    const updates: Partial<FormData> = {};
+    
+    if (initialSubject) {
+      updates.subject = initialSubject;
+    }
+    
+    if (initialMessage) {
+      updates.message = initialMessage;
+    }
+    
+    if (Object.keys(updates).length > 0) {
+      setFormData(prev => ({
+        ...prev,
+        ...updates
+      }));
+    }
+  }, [initialSubject, initialMessage]);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setFormData({
