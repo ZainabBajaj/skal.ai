@@ -30,13 +30,8 @@ export default function ContactForm({ initialSubject = '', initialMessage = '' }
 
   const [status, setStatus] = useState<FormStatus>({ type: 'idle' });
 
-  // Debug logs
-  console.log('ContactForm rendered with:', { initialSubject, initialMessage });
-
   // Update form data when initialSubject or initialMessage changes
   useEffect(() => {
-    console.log('useEffect triggered with:', { initialSubject, initialMessage });
-    
     // Only update if initialSubject or initialMessage is not empty
     const updates: Partial<FormData> = {};
     

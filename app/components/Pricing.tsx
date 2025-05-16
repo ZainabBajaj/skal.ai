@@ -2,24 +2,19 @@
 import { useEffect } from "react";
 import { useCart } from "../context/CartContext";
 
-declare global {
-  interface Window {
-    gtag?: (...args: any[]) => void;
-    dataLayer?: any[];
-  }
-}
-
 const Pricing = () => {
   const { addItem } = useCart();
 
   useEffect(() => {
     if (typeof window !== "undefined") {
-      if (window.gtag) {
-        window.gtag("event", "view_pricing_section", {
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      const w = window as any;
+      if (w.gtag) {
+        w.gtag("event", "view_pricing_section", {
           event_category: "engagement",
         });
-      } else if (window.dataLayer) {
-        window.dataLayer.push({
+      } else if (w.dataLayer) {
+        w.dataLayer.push({
           event: "view_pricing_section",
           event_category: "engagement",
         });
@@ -30,16 +25,18 @@ const Pricing = () => {
   const handleAddToCart = (role: string, experience: string, priceType: 'fullTime' | 'hourly' | 'partTime', price: number) => {
     // Log GA event
     if (typeof window !== "undefined") {
-      if (window.gtag) {
-        window.gtag("event", "pricing_intent", {
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      const w = window as any;
+      if (w.gtag) {
+        w.gtag("event", "pricing_intent", {
           event_category: "engagement",
           role,
           experience,
           price_type: priceType,
           price,
         });
-      } else if (window.dataLayer) {
-        window.dataLayer.push({
+      } else if (w.dataLayer) {
+        w.dataLayer.push({
           event: "pricing_intent",
           event_category: "engagement",
           role,
