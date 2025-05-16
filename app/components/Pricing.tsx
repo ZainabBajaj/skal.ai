@@ -151,10 +151,10 @@ const Pricing = () => {
                 <th className="bg-[#606060] text-white p-4 text-center">
                   DEVELOPERS/<br/>ENGINEERS
                 </th>
-                <th className="bg-[#f4d03f] p-4 text-center">
+                <th className="bg-[#f4d03f] p-4 text-center text-gray-900">
                   2 TO 3.5 YEARS<br/>EXPERIENCE
                 </th>
-                <th className="bg-[#e9a467] p-4 text-center">
+                <th className="bg-[#e9a467] p-4 text-centertext-gray-900">
                   3.5 TO 5 YEARS<br/>EXPERIENCE
                 </th>
                 <th className="bg-[#c0392b] text-white p-4 text-center">
@@ -165,11 +165,11 @@ const Pricing = () => {
             <tbody>
               {pricingData.map((item, index) => (
                 <tr key={index} className={index % 2 === 0 ? "bg-white" : "bg-gray-50"}>
-                  <td className="p-4 font-medium text-center border">{item.role}</td>
+                  <td className="p-4 font-medium text-center border text-gray-900">{item.role}</td>
                   {item.pricing.map((price, i) => (
                     <td key={i} className="p-4 text-center border">
                       <div className="flex items-center justify-between mb-3">
-                        <span>${price.fullTime}/month (Full time)</span>
+                        <span className="text-gray-900">${price.fullTime}/month <span className="text-gray-700">(Full time)</span></span>
                         <button 
                           onClick={() => handleAddToCart(item.role, price.experience, 'fullTime', price.fullTime)}
                           className="w-8 h-8 flex items-center justify-center text-[#009bd7] hover:text-[#00E1FF] transition-transform hover:scale-125 ml-2"
@@ -180,7 +180,7 @@ const Pricing = () => {
                       </div>
                       
                       <div className="flex items-center justify-between mb-3">
-                        <span>${price.hourly}/hr (hourly)</span>
+                        <span className="text-gray-900">${price.hourly}/hr <span className="text-gray-700">(hourly)</span></span>
                         <button 
                           onClick={() => handleAddToCart(item.role, price.experience, 'hourly', price.hourly)}
                           className="w-8 h-8 flex items-center justify-center text-[#009bd7] hover:text-[#00E1FF] transition-transform hover:scale-125 ml-2"
@@ -191,7 +191,7 @@ const Pricing = () => {
                       </div>
                       
                       <div className="flex items-center justify-between">
-                        <span>${price.partTime}/month (Part-time)</span>
+                        <span className="text-gray-900">${price.partTime}/month <span className="text-gray-700">(Part-time)</span></span>
                         <button 
                           onClick={() => handleAddToCart(item.role, price.experience, 'partTime', price.partTime)}
                           className="w-8 h-8 flex items-center justify-center text-[#009bd7] hover:text-[#00E1FF] transition-transform hover:scale-125 ml-2"
@@ -208,7 +208,7 @@ const Pricing = () => {
           </table>
         </div>
 
-        <div className="mt-8 text-center text-gray-600">
+        <div className="mt-8 text-center text-gray-700 font-medium">
           <p>*Elixir, Go, RoR prices may vary depending on the availability of developers.</p>
           <p>CTO, Architect (10+ years of experience) also available.</p>
         </div>
