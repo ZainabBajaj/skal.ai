@@ -18,23 +18,31 @@ export default function Home() {
 
   // Function to check for session storage data
   const checkSessionStorage = () => {
-    // Check for subject
-    const prefillSubject = sessionStorage.getItem('contactSubject');
-    if (prefillSubject) {
-      setContactSubject(prefillSubject);
-      sessionStorage.removeItem('contactSubject');
-    }
-    
-    // Check for message
-    const prefillMessage = sessionStorage.getItem('contactMessage');
-    if (prefillMessage) {
-      setContactMessage(prefillMessage);
-      sessionStorage.removeItem('contactMessage');
+    if (typeof window === 'undefined') return;
+
+    try {
+      // Check for subject
+      const prefillSubject = sessionStorage.getItem('contactSubject');
+      if (prefillSubject) {
+        setContactSubject(prefillSubject);
+        sessionStorage.removeItem('contactSubject');
+      }
+      
+      // Check for message
+      const prefillMessage = sessionStorage.getItem('contactMessage');
+      if (prefillMessage) {
+        setContactMessage(prefillMessage);
+        sessionStorage.removeItem('contactMessage');
+      }
+    } catch (error) {
+      console.error('Error accessing sessionStorage:', error);
     }
   };
 
   useEffect(() => {
-    if (typeof window !== 'undefined') {
+    if (typeof window === 'undefined') return;
+
+    try {
       // Initial check
       checkSessionStorage();
       
@@ -49,6 +57,8 @@ export default function Home() {
       return () => {
         window.removeEventListener('sessionStorageUpdated', handleStorageChange);
       };
+    } catch (error) {
+      console.error('Error setting up storage event listener:', error);
     }
   }, []);
 
