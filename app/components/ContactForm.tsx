@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import emailjs from '@emailjs/browser';
 
 type FormStatus = {
@@ -15,15 +15,41 @@ type FormData = {
   message: string;
 };
 
-export default function ContactForm() {
+type ContactFormProps = {
+  initialSubject?: string;
+  initialMessage?: string;
+};
+
+export default function ContactForm({ initialSubject = '', initialMessage = '' }: ContactFormProps) {
   const [formData, setFormData] = useState<FormData>({
     name: '',
     email: '',
-    subject: '',
-    message: ''
+    subject: initialSubject,
+    message: initialMessage
   });
 
   const [status, setStatus] = useState<FormStatus>({ type: 'idle' });
+
+  // Update form data when initialSubject or initialMessage changes
+  useEffect(() => {
+    // Only update if initialSubject or initialMessage is not empty
+    const updates: Partial<FormData> = {};
+    
+    if (initialSubject) {
+      updates.subject = initialSubject;
+    }
+    
+    if (initialMessage) {
+      updates.message = initialMessage;
+    }
+    
+    if (Object.keys(updates).length > 0) {
+      setFormData(prev => ({
+        ...prev,
+        ...updates
+      }));
+    }
+  }, [initialSubject, initialMessage]);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setFormData({
@@ -37,17 +63,26 @@ export default function ContactForm() {
     
     try {
       setStatus({ type: 'sending' });
+      
+      // Make sure environment variables exist
+      if (!process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID || 
+          !process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID || 
+          !process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY) {
+        throw new Error('EmailJS environment variables are not set');
+      }
+      
       await emailjs.send(
-        process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID!,
-        process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID!,
+        process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID,
+        process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID,
         {
           from_name: formData.name,
           reply_to: formData.email,
           subject: formData.subject,
           message: formData.message
         },
-        process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY!
+        process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY
       );
+      
       setStatus({ type: 'success', message: 'Message sent successfully!' });
       setFormData({ name: '', email: '', subject: '', message: '' });
     } catch (error) {
@@ -60,13 +95,16 @@ export default function ContactForm() {
   };
 
   return (
-    <section id="contact" className="bg-[#f8faff] py-16 sm:py-24">
+    <section id="contact" className="bg-[#f8faff] py-16">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="max-w-3xl mx-auto">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-[#1a1a1a] mb-4">Get In Touch</h2>
-            <p className="text-gray-600">Let&aposs discuss your project and explore how we can help.</p>
-          </div>
+            <div className="text-center mb-16">
+              <span className="text-[#009bd7] text-sm font-medium uppercase tracking-wider">Get in Touch</span>
+              <h2 className="text-3xl font-bold text-[#1a1a1a] mt-4 mb-4">To Start Your Project</h2>
+              <p className="text-gray-600 max-w-2xl mx-auto">
+                Ready to transform your business? Contact us to discuss how we can help you achieve your goals with our cutting-edge solutions
+              </p>
+            </div>
 
           <form onSubmit={handleSubmit} className="space-y-6">
             <div>
