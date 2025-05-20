@@ -131,6 +131,14 @@ const Pricing = () => {
         { experience: "5+ YEARS", fullTime: 5000, hourly: 30, partTime: 2500 },
       ]
     },
+    {
+      role: "GDPR Compliance Specialist",
+      pricing: [
+        { experience: "2 TO 3.5 YEARS", fullTime: 500, hourly: 10, partTime: 250 },
+        { experience: "3.5 TO 5 YEARS", fullTime: 800, hourly: 15, partTime: 400 },
+        { experience: "5+ YEARS", fullTime: 1200, hourly: 20, partTime: 600 },
+      ]
+    },
   ];
 
   return (
