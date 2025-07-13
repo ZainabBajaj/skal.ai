@@ -3,6 +3,7 @@ import { GeistSans } from "geist/font";
 import "./globals.css";
 import GoogleAnalytics from "./components/GoogleAnalytics";
 import { Suspense } from "react";
+import Script from 'next/script';
 
 export const metadata: Metadata = {
   title: "SKAL - AI, Data Science & Full Stack Solutions",
@@ -31,24 +32,24 @@ export default function RootLayout({
         <link rel="icon" type="image/png" sizes="32x32" href="/skal-logo.png" />
         <link rel="shortcut icon" type="image/png" href="/skal-logo.png" />
         <link rel="apple-touch-icon" sizes="180x180" href="/skal-logo.png" />
+      </head>
+      <body className={GeistSans.className}>
+        <Suspense>
+          <GoogleAnalytics />
+        </Suspense>
         {/* GhostTrace AI Bot Tracker for skal.ai */}
-        <script src="https://cemoyczgfrsspjdgczys.supabase.co/functions/v1/ghosttrace-universal-js"></script>
-        <script dangerouslySetInnerHTML={{
-          __html: `
+        <Script src="https://cemoyczgfrsspjdgczys.supabase.co/functions/v1/ghosttrace-universal-js" />
+        <Script id="ghosttrace-init">
+          {`
             window.GhostTrace.init({
               trackingCode: '65b176e1fe89f021f4565f57a709f7cb',
               siteId: 'cd05923b-954f-4329-8c4f-415644a18ca7',
               userId: '02122bc0-283b-4ea8-bbd0-2ed844a95a9b',
               domain: 'skal.ai'
             });
-          `
-        }} />
+          `}
+        </Script>
         {/* End GhostTrace */}
-      </head>
-      <body className={GeistSans.className}>
-        <Suspense>
-          <GoogleAnalytics />
-        </Suspense>
         {children}
       </body>
     </html>
