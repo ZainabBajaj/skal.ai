@@ -37,19 +37,18 @@ export default function RootLayout({
         <Suspense>
           <GoogleAnalytics />
         </Suspense>
-        {/* GhostTrace AI Bot Tracker for skal.ai */}
-        <Script src="https://cemoyczgfrsspjdgczys.supabase.co/functions/v1/ghosttrace-universal-js" />
-        <Script id="ghosttrace-init">
-          {`
-            window.GhostTrace.init({
-              trackingCode: '65b176e1fe89f021f4565f57a709f7cb',
-              siteId: 'cd05923b-954f-4329-8c4f-415644a18ca7',
-              userId: '02122bc0-283b-4ea8-bbd0-2ed844a95a9b',
-              domain: 'skal.ai'
-            });
-          `}
-        </Script>
-        {/* End GhostTrace */}
+        <!-- GhostTrace AI Bot Tracker for skal.ai -->
+        <script src="https://cemoyczgfrsspjdgczys.supabase.co/storage/v1/object/public/website-assets/ghosttrace-universal.js"></script>
+        <script>
+          // Initialize GhostTrace with your site configuration
+          window.GhostTrace.init({
+            trackingCode: '65b176e1fe89f021f4565f57a709f7cb',
+            siteId: 'cd05923b-954f-4329-8c4f-415644a18ca7',
+            userId: '02122bc0-283b-4ea8-bbd0-2ed844a95a9b',
+            domain: 'skal.ai'
+          });
+        </script>
+        <!-- End GhostTrace -->
         {children}
       </body>
     </html>
