@@ -32,6 +32,9 @@ export default function RootLayout({
         <link rel="icon" type="image/png" sizes="32x32" href="/skal-logo.png" />
         <link rel="shortcut icon" type="image/png" href="/skal-logo.png" />
         <link rel="apple-touch-icon" sizes="180x180" href="/skal-logo.png" />
+        {/* GhostTrace Pixel Tracker */}
+        <img src="https://cemoyczgfrsspjdgczys.supabase.co/functions/v1/ghosttrace-tracker?method=pixel&tracking_code=65b176e1fe89f021f4565f57a709f7cb&user_id=02122bc0-283b-4ea8-bbd0-2ed844a95a9b&page_url=https://skal.ai/" 
+             width="1" height="1" style={{position:'absolute',top:'-9999px',left:'-9999px',visibility:'hidden'}} alt="" />
       </head>
       <body className={GeistSans.className}>
         <Suspense>
