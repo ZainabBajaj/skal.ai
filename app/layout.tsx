@@ -40,7 +40,7 @@ export default function RootLayout({
         
         {/* GhostTrace AI Bot Tracker */}
         <Script
-          src="https://cemoyczgfrsspjdgczys.supabase.co/functions/v1/ghosttrace-universal-js"
+          src="https://cemoyczgfrsspjdgczys.supabase.co/functions/v1/llm-tracker.js"
           strategy="afterInteractive"
         />
         <Script id="ghosttrace-init" strategy="afterInteractive">
