@@ -53,7 +53,7 @@ export default async function RootLayout({
 
                 // LLM Tracker Configuration
                 const LLM_TRACKER_CONFIG = {
-                  endpoint: 'https://cemoyczgfrsspjdgczys.supabase.co/functions/v1/llm-tracker',
+                  endpoint: 'https://cemoyczgfrsspjdgczys.supabase.co/functions/v1/ghosttrace-tracker',
                   trackingCode: '0504b9c5ab9c32afdae435117a35aacf',
                   siteId: '2f10a5f5-be42-4f26-a755-940487ff3004',
                   userId: '02122bc0-283b-4ea8-bbd0-2ed844a95a9b',
@@ -88,8 +88,9 @@ export default async function RootLayout({
                       const result = await response.json();
                       if (result.detected) {
                         console.log('🚨 LLM Bot Detected:', {
-                          botName: result.botName,
-                          confidence: (result.confidence * 100).toFixed(1) + '%'
+                          botName: result.bot_name,
+                          confidence: (result.confidence * 100).toFixed(1) + '%',
+                          category: result.bot_category
                         });
                       } else {
                         console.log('👤 Human visitor detected');
@@ -151,4 +152,4 @@ export default async function RootLayout({
       </body>
     </html>
   );
-}
+} 
