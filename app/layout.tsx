@@ -39,10 +39,6 @@ export default function RootLayout({
         </Suspense>
         
         {/* GhostTrace AI Bot Tracker */}
-        <Script
-          src="https://cemoyczgfrsspjdgczys.supabase.co/functions/v1/llm-tracker"
-          strategy="afterInteractive"
-        />
         <Script id="ghosttrace-init" strategy="afterInteractive">
           {`
             // Initialize GhostTrace with your site configuration
@@ -71,12 +67,12 @@ export default function RootLayout({
           `}
         </Script>
         
-        {/* HTML Fallback for when JavaScript is disabled */}
+        {/* HTML Fallback for when JavaScript is disabled - This will catch ChatGPT */}
         <noscript>
           <img 
-            src="https://cemoyczgfrsspjdgczys.supabase.co/functions/v1/ghosttrace-pixel?trackingCode=0504b9c5ab9c32afdae435117a35aacf&siteId=2f10a5f5-be42-4f26-a755-940487ff3004&userId=02122bc0-283b-4ea8-bbd0-2ed844a95a9b&domain=skal.ai" 
+            src="https://cemoyczgfrsspjdgczys.supabase.co/functions/v1/llm-tracker?method=GET&tracking_code=0504b9c5ab9c32afdae435117a35aacf&url=skal.ai&test_mode=false" 
             alt="" 
-            style={{ display: 'none' }} 
+            style={{ display: 'none' }}
           />
         </noscript>
         
