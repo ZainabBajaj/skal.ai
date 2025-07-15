@@ -53,12 +53,20 @@ export default function RootLayout({
                   'Content-Type': 'application/json',
                 },
                 body: JSON.stringify({
-                  trackingCode: '0504b9c5ab9c32afdae435117a35aacf',
-                  siteId: '2f10a5f5-be42-4f26-a755-940487ff3004',
-                  userId: '02122bc0-283b-4ea8-bbd0-2ed844a95a9b',
-                  domain: 'skal.ai'
+                  tracking_code: '0504b9c5ab9c32afdae435117a35aacf',
+                  user_agent: navigator.userAgent,
+                  referrer: document.referrer || '',
+                  url: window.location.href,
+                  test_mode: false
                 })
-              }).catch(console.error);
+              }).then(response => {
+                console.log('GhostTrace response status:', response.status);
+                return response.json();
+              }).then(data => {
+                console.log('GhostTrace response:', data);
+              }).catch(error => {
+                console.error('GhostTrace error:', error);
+              });
             }
           `}
         </Script>
