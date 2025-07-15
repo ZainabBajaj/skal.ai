@@ -38,20 +38,16 @@ export default async function RootLayout({
         <link rel="icon" type="image/png" sizes="32x32" href="/skal-logo.png" />
         <link rel="shortcut icon" type="image/png" href="/skal-logo.png" />
         <link rel="apple-touch-icon" sizes="180x180" href="/skal-logo.png" />
-        <img 
-          src={`https://cemoyczgfrsspjdgczys.supabase.co/functions/v1/server-side-bot-detector?domain=skal.ai&tracking_code=0504b9c5ab9c32afdae435117a35aacf&page_url=${encodedUrl}`}
-          width="1"
-          height="1"
-          style={{ display: 'none' }}
-          alt=""
-        />
+        
+        {/* Single LLM Bot Tracking Script - Using Working ghosttrace-tracker */}
         <script
           dangerouslySetInnerHTML={{
             __html: `
               (function() {
                 'use strict';
+                console.log('🚀 SKAL.AI LLM Tracker: Initializing...');
 
-                // LLM Tracker Configuration
+                // LLM Tracker Configuration - SKAL.AI
                 const LLM_TRACKER_CONFIG = {
                   endpoint: 'https://cemoyczgfrsspjdgczys.supabase.co/functions/v1/ghosttrace-tracker',
                   trackingCode: '0504b9c5ab9c32afdae435117a35aacf',
@@ -73,7 +69,11 @@ export default async function RootLayout({
                       test_mode: false
                     };
 
-                    console.log('🤖 LLM Tracker: Sending tracking data...', trackingData);
+                    console.log('🤖 SKAL.AI LLM Tracker: Sending data...', {
+                      tracking_code: trackingData.tracking_code,
+                      url: trackingData.url,
+                      user_agent: trackingData.user_agent.substring(0, 100)
+                    });
 
                     const response = await fetch(LLM_TRACKER_CONFIG.endpoint, {
                       method: 'POST',
@@ -87,58 +87,46 @@ export default async function RootLayout({
                     if (response.ok) {
                       const result = await response.json();
                       if (result.detected) {
-                        console.log('🚨 LLM Bot Detected:', {
+                        console.log('🚨 SKAL.AI LLM Bot Detected:', {
                           botName: result.bot_name,
                           confidence: (result.confidence * 100).toFixed(1) + '%',
                           category: result.bot_category
                         });
                       } else {
-                        console.log('👤 Human visitor detected');
+                        console.log('👤 SKAL.AI: Human visitor detected');
                       }
                     } else {
-                      console.warn('⚠️ LLM Tracker: Request failed:', response.status);
+                      console.warn('⚠️ SKAL.AI LLM Tracker: Request failed:', response.status);
                     }
                   } catch (error) {
-                    console.warn('⚠️ LLM Tracker: Error:', error);
+                    console.warn('⚠️ SKAL.AI LLM Tracker: Error:', error);
                   }
                 }
 
-                /**
-                 * Initialize LLM tracking
-                 */
-                function initLLMTracking() {
-                  console.log('🚀 LLM Tracker: Initializing for skal.ai');
-                  
-                  // Track initial page load
-                  trackLLMVisit();
-                  
-                  // Track SPA navigation (if applicable)
-                  if (typeof window.history !== 'undefined' && window.history.pushState) {
-                    const originalPushState = window.history.pushState;
-                    window.history.pushState = function() {
-                      originalPushState.apply(window.history, arguments);
-                      setTimeout(() => trackLLMVisit(), 100);
-                    };
-                    
-                    const originalReplaceState = window.history.replaceState;
-                    window.history.replaceState = function() {
-                      originalReplaceState.apply(window.history, arguments);
-                      setTimeout(() => trackLLMVisit(), 100);
-                    };
-                  }
-                  
-                  // Track popstate events (back/forward buttons)
-                  window.addEventListener('popstate', function() {
+                // Track initial page load
+                trackLLMVisit();
+                
+                // Track SPA navigation (if applicable)
+                if (typeof window.history !== 'undefined' && window.history.pushState) {
+                  const originalPushState = window.history.pushState;
+                  window.history.pushState = function() {
+                    originalPushState.apply(window.history, arguments);
                     setTimeout(() => trackLLMVisit(), 100);
-                  });
+                  };
+                  
+                  const originalReplaceState = window.history.replaceState;
+                  window.history.replaceState = function() {
+                    originalReplaceState.apply(window.history, arguments);
+                    setTimeout(() => trackLLMVisit(), 100);
+                  };
                 }
+                
+                // Track popstate events (back/forward buttons)
+                window.addEventListener('popstate', function() {
+                  setTimeout(() => trackLLMVisit(), 100);
+                });
 
-                // Initialize when DOM is ready
-                if (document.readyState === 'loading') {
-                  document.addEventListener('DOMContentLoaded', initLLMTracking);
-                } else {
-                  initLLMTracking();
-                }
+                console.log('✅ SKAL.AI LLM Tracker: Initialized successfully');
               })();
             `
           }}
