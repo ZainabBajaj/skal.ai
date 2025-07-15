@@ -1,112 +1,47 @@
 import { NextResponse } from 'next/server'
 import type { NextRequest } from 'next/server'
 
-// AI Bot Detection Patterns
-const AI_BOT_PATTERNS = [
-  // OpenAI bots
-  /GPTBot/i,
-  /ChatGPT-User/i,
-  /OAI-SearchBot/i,
-  /OpenAI-SearchBot/i,
-  
-  // Anthropic bots
-  /ClaudeBot/i,
-  /Claude-Web/i,
-  /anthropic-ai/i,
-  
-  // Perplexity bots
-  /PerplexityBot/i,
-  /Perplexity-User/i,
-  
-  // Google AI bots
-  /Google-Extended/i,
-  /GoogleOther/i,
-  /Bard-Bot/i,
-  
-  // Microsoft AI bots
-  /BingBot.*AI/i,
-  /Microsoft-AI/i,
-  
-  // Other AI bots
-  /Meta-AI/i,
-  /YouBot/i,
-  /cohere-ai/i,
-  /AI2Bot/i,
-  /DuckAssistBot/i
-];
-
 const TRACKING_CONFIG = {
   endpoint: 'https://cemoyczgfrsspjdgczys.supabase.co/functions/v1/ghosttrace-tracker',
-  trackingCode: '0504b9c5ab9c32afdae435117a35aacf'
+  trackingCode: 'f2fc46b6518c600a965b97732ca2e952',
+  siteId: '2f82d2b4-ca47-4145-9a1b-abb6f6f9d732',
+  userId: '02122bc0-283b-4ea8-bbd0-2ed844a95a9b',
+  domain: 'skal.ai'
 };
 
-async function trackAIBot(request: NextRequest, detectedBot: string) {
+export async function middleware(request: NextRequest) {
   try {
-    const userAgent = request.headers.get('user-agent') || '';
-    const url = request.nextUrl.href;
-    const referrer = request.headers.get('referer') || '';
-    
-    console.log('🤖 SKAL.AI Server-Side: AI Bot detected!', {
-      bot: detectedBot,
-      url: url,
-      userAgent: userAgent.substring(0, 100)
-    });
-
-    const trackingData = {
-      tracking_code: TRACKING_CONFIG.trackingCode,
-      user_agent: userAgent,
-      referrer: referrer,
-      page_url: url,
-      test_mode: false
-    };
-
-    // Fire and forget - don't wait for response to avoid slowing down the request
+    // Forward request data to GhostTrace
     fetch(TRACKING_CONFIG.endpoint, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify(trackingData)
-    }).catch(error => {
-      console.warn('⚠️ SKAL.AI Server-Side: Tracking failed:', error);
+      body: JSON.stringify({
+        tracking_code: TRACKING_CONFIG.trackingCode,
+        site_id: TRACKING_CONFIG.siteId,
+        user_id: TRACKING_CONFIG.userId,
+        domain: TRACKING_CONFIG.domain,
+        user_agent: request.headers.get('user-agent') || '',
+        referrer: request.headers.get('referer') || '',
+        url: request.nextUrl.href,
+        test_mode: false,
+        server_side: true
+      })
+    }).catch(() => {
+      // Silently fail - don't block the request
     });
-
-  } catch (error) {
-    console.warn('⚠️ SKAL.AI Server-Side: Error tracking bot:', error);
-  }
-}
-
-export function middleware(request: NextRequest) {
-  const userAgent = request.headers.get('user-agent') || '';
-  
-  // Check if this is an AI bot
-  for (const pattern of AI_BOT_PATTERNS) {
-    if (pattern.test(userAgent)) {
-      const botName = userAgent.match(pattern)?.[0] || 'Unknown AI Bot';
-      
-      // Track the bot visit (fire and forget)
-      trackAIBot(request, botName);
-      
-      break; // Only track once per request
-    }
+  } catch {
+    // Ignore errors - don't block the request
   }
   
-  // Continue with the request
+  // Always continue with the request
   return NextResponse.next();
 }
 
 // Configure which paths the middleware should run on
 export const config = {
   matcher: [
-    /*
-     * Match all request paths except for the ones starting with:
-     * - api (API routes)
-     * - _next/static (static files)
-     * - _next/image (image optimization files)
-     * - favicon.ico (favicon file)
-     * - robots.txt
-     * - sitemap.xml
-     */
     '/((?!api|_next/static|_next/image|favicon.ico|robots.txt|sitemap.xml).*)',
   ],
 } 
