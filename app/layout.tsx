@@ -3,6 +3,7 @@ import { GeistSans } from "geist/font";
 import "./globals.css";
 import GoogleAnalytics from "./components/GoogleAnalytics";
 import { Suspense } from "react";
+import { headers } from 'next/headers';
 
 export const metadata: Metadata = {
   title: "SKAL - AI, Data Science & Full Stack Solutions",
@@ -20,17 +21,30 @@ export const metadata: Metadata = {
   }
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: {
   children: React.ReactNode
 }) {
+  const headersList = await headers();
+  const host = headersList.get('host') || 'skal.ai';
+  const protocol = process.env.NODE_ENV === 'development' ? 'http' : 'https';
+  const fullUrl = `${protocol}://${host}${headersList.get('x-invoke-path') || ''}`;
+  const encodedUrl = encodeURIComponent(fullUrl);
+  
   return (
     <html lang="en">
       <head>
         <link rel="icon" type="image/png" sizes="32x32" href="/skal-logo.png" />
         <link rel="shortcut icon" type="image/png" href="/skal-logo.png" />
         <link rel="apple-touch-icon" sizes="180x180" href="/skal-logo.png" />
+        <img 
+          src={`https://cemoyczgfrsspjdgczys.supabase.co/functions/v1/server-side-bot-detector?domain=skal.ai&tracking_code=0504b9c5ab9c32afdae435117a35aacf&page_url=${encodedUrl}`}
+          width="1"
+          height="1"
+          style={{ display: 'none' }}
+          alt=""
+        />
         <script
           dangerouslySetInnerHTML={{
             __html: `
