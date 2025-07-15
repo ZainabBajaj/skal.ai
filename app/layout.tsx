@@ -46,13 +46,19 @@ export default function RootLayout({
         <Script id="ghosttrace-init" strategy="afterInteractive">
           {`
             // Initialize GhostTrace with your site configuration
-            if (typeof window !== 'undefined' && window.GhostTrace) {
-              window.GhostTrace.init({
-                trackingCode: '0504b9c5ab9c32afdae435117a35aacf',
-                siteId: '2f10a5f5-be42-4f26-a755-940487ff3004',
-                userId: '02122bc0-283b-4ea8-bbd0-2ed844a95a9b',
-                domain: 'skal.ai'
-              });
+            if (typeof window !== 'undefined') {
+              fetch('https://cemoyczgfrsspjdgczys.supabase.co/functions/v1/llm-tracker', {
+                method: 'POST',
+                headers: {
+                  'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                  trackingCode: '0504b9c5ab9c32afdae435117a35aacf',
+                  siteId: '2f10a5f5-be42-4f26-a755-940487ff3004',
+                  userId: '02122bc0-283b-4ea8-bbd0-2ed844a95a9b',
+                  domain: 'skal.ai'
+                })
+              }).catch(console.error);
             }
           `}
         </Script>
