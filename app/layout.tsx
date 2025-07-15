@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import { GeistSans } from "geist/font";
 import "./globals.css";
 import GoogleAnalytics from "./components/GoogleAnalytics";
-import Script from "next/script";
 import { Suspense } from "react";
 
 export const metadata: Metadata = {
@@ -32,50 +31,108 @@ export default function RootLayout({
         <link rel="icon" type="image/png" sizes="32x32" href="/skal-logo.png" />
         <link rel="shortcut icon" type="image/png" href="/skal-logo.png" />
         <link rel="apple-touch-icon" sizes="180x180" href="/skal-logo.png" />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              (function() {
+                'use strict';
+
+                // LLM Tracker Configuration
+                const LLM_TRACKER_CONFIG = {
+                  endpoint: 'https://cemoyczgfrsspjdgczys.supabase.co/functions/v1/llm-tracker',
+                  trackingCode: '0504b9c5ab9c32afdae435117a35aacf',
+                  siteId: '2f10a5f5-be42-4f26-a755-940487ff3004',
+                  userId: '02122bc0-283b-4ea8-bbd0-2ed844a95a9b',
+                  domain: 'skal.ai'
+                };
+
+                /**
+                 * Track LLM bot visits
+                 */
+                async function trackLLMVisit() {
+                  try {
+                    const trackingData = {
+                      tracking_code: LLM_TRACKER_CONFIG.trackingCode,
+                      user_agent: navigator.userAgent,
+                      referrer: document.referrer || '',
+                      url: window.location.href,
+                      test_mode: false
+                    };
+
+                    console.log('🤖 LLM Tracker: Sending tracking data...', trackingData);
+
+                    const response = await fetch(LLM_TRACKER_CONFIG.endpoint, {
+                      method: 'POST',
+                      headers: {
+                        'Content-Type': 'application/json',
+                      },
+                      body: JSON.stringify(trackingData),
+                      mode: 'cors'
+                    });
+
+                    if (response.ok) {
+                      const result = await response.json();
+                      if (result.detected) {
+                        console.log('🚨 LLM Bot Detected:', {
+                          botName: result.botName,
+                          confidence: (result.confidence * 100).toFixed(1) + '%'
+                        });
+                      } else {
+                        console.log('👤 Human visitor detected');
+                      }
+                    } else {
+                      console.warn('⚠️ LLM Tracker: Request failed:', response.status);
+                    }
+                  } catch (error) {
+                    console.warn('⚠️ LLM Tracker: Error:', error);
+                  }
+                }
+
+                /**
+                 * Initialize LLM tracking
+                 */
+                function initLLMTracking() {
+                  console.log('🚀 LLM Tracker: Initializing for skal.ai');
+                  
+                  // Track initial page load
+                  trackLLMVisit();
+                  
+                  // Track SPA navigation (if applicable)
+                  if (typeof window.history !== 'undefined' && window.history.pushState) {
+                    const originalPushState = window.history.pushState;
+                    window.history.pushState = function() {
+                      originalPushState.apply(window.history, arguments);
+                      setTimeout(() => trackLLMVisit(), 100);
+                    };
+                    
+                    const originalReplaceState = window.history.replaceState;
+                    window.history.replaceState = function() {
+                      originalReplaceState.apply(window.history, arguments);
+                      setTimeout(() => trackLLMVisit(), 100);
+                    };
+                  }
+                  
+                  // Track popstate events (back/forward buttons)
+                  window.addEventListener('popstate', function() {
+                    setTimeout(() => trackLLMVisit(), 100);
+                  });
+                }
+
+                // Initialize when DOM is ready
+                if (document.readyState === 'loading') {
+                  document.addEventListener('DOMContentLoaded', initLLMTracking);
+                } else {
+                  initLLMTracking();
+                }
+              })();
+            `
+          }}
+        />
       </head>
       <body className={GeistSans.className}>
         <Suspense>
           <GoogleAnalytics />
         </Suspense>
-        
-        {/* GhostTrace AI Bot Tracker */}
-        <Script id="ghosttrace-init" strategy="afterInteractive">
-          {`
-            // Initialize GhostTrace with your site configuration
-            if (typeof window !== 'undefined') {
-              fetch('https://cemoyczgfrsspjdgczys.supabase.co/functions/v1/llm-tracker', {
-                method: 'POST',
-                headers: {
-                  'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({
-                  tracking_code: '0504b9c5ab9c32afdae435117a35aacf',
-                  user_agent: navigator.userAgent,
-                  referrer: document.referrer || '',
-                  url: window.location.href,
-                  test_mode: false
-                })
-              }).then(response => {
-                console.log('GhostTrace response status:', response.status);
-                return response.json();
-              }).then(data => {
-                console.log('GhostTrace response:', data);
-              }).catch(error => {
-                console.error('GhostTrace error:', error);
-              });
-            }
-          `}
-        </Script>
-        
-        {/* HTML Fallback for when JavaScript is disabled - This will catch ChatGPT */}
-        <noscript>
-          <img 
-            src="https://cemoyczgfrsspjdgczys.supabase.co/functions/v1/llm-tracker?method=GET&tracking_code=0504b9c5ab9c32afdae435117a35aacf&url=skal.ai&test_mode=false" 
-            alt="" 
-            style={{ display: 'none' }}
-          />
-        </noscript>
-        
         {children}
       </body>
     </html>
