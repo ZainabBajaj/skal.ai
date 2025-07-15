@@ -3,7 +3,6 @@ import { GeistSans } from "geist/font";
 import "./globals.css";
 import GoogleAnalytics from "./components/GoogleAnalytics";
 import { Suspense } from "react";
-import { headers } from 'next/headers';
 
 export const metadata: Metadata = {
   title: "SKAL - AI, Data Science & Full Stack Solutions",
@@ -26,12 +25,6 @@ export default async function RootLayout({
 }: {
   children: React.ReactNode
 }) {
-  const headersList = await headers();
-  const host = headersList.get('host') || 'skal.ai';
-  const protocol = process.env.NODE_ENV === 'development' ? 'http' : 'https';
-  const fullUrl = `${protocol}://${host}${headersList.get('x-invoke-path') || ''}`;
-  const encodedUrl = encodeURIComponent(fullUrl);
-  
   return (
     <html lang="en">
       <head>
