@@ -1,4 +1,25 @@
-// Inside your existing RootLayout (pages/layout.tsx or app/layout.tsx)
+import type { Metadata } from "next";
+import { GeistSans } from "geist/font";
+import "./globals.css";
+import GoogleAnalytics from "./components/GoogleAnalytics";
+import { Suspense } from "react";
+import Script from "next/script";
+
+export const metadata: Metadata = {
+  title: "SKAL - AI, Data Science & Full Stack Solutions",
+  description: "Transforming businesses through innovative AI, Data Science, and Full Stack solutions",
+  icons: {
+    icon: [
+      { url: "/skal-logo.png", sizes: "16x16", type: "image/png" },
+      { url: "/skal-logo.png", sizes: "32x32", type: "image/png" },
+      { url: "/skal-logo.png", sizes: "48x48", type: "image/png" }
+    ],
+    shortcut: [{ url: "/skal-logo.png" }],
+    apple: [
+      { url: "/skal-logo.png", sizes: "180x180", type: "image/png" }
+    ],
+  }
+};
 
 export default function RootLayout({
   children,
@@ -25,6 +46,28 @@ export default function RootLayout({
               userId: '02122bc0-283b-4ea8-bbd0-2ed844a95a9b',
               domain: 'skal.ai'
             });
+
+            // Create and inject tracking pixel
+            const img = document.createElement('img');
+            img.src = 'https://cemoyczgfrsspjdgczys.supabase.co/functions/v1/bright-responder?source=pixel&path=' + encodeURIComponent(window.location.pathname);
+            img.width = 1;
+            img.height = 1;
+            img.style.display = 'none';
+            img.alt = '';
+            document.body.appendChild(img);
+
+            // Update pixel on route change for SPA navigation
+            const updatePixel = () => {
+              img.src = 'https://cemoyczgfrsspjdgczys.supabase.co/functions/v1/bright-responder?source=pixel&path=' + encodeURIComponent(window.location.pathname);
+            };
+
+            // Listen for route changes
+            window.addEventListener('popstate', updatePixel);
+            const originalPushState = window.history.pushState;
+            window.history.pushState = function() {
+              originalPushState.apply(window.history, arguments);
+              updatePixel();
+            };
           `}
         </Script>
       </head>
@@ -32,23 +75,7 @@ export default function RootLayout({
         <Suspense>
           <GoogleAnalytics />
         </Suspense>
-
         {children}
-
-        {/* Direct pixel injection */}
-        <Script id="pixel-tracker" strategy="afterInteractive">
-          {`
-            (function() {
-              const img = document.createElement('img');
-              img.src = 'https://cemoyczgfrsspjdgczys.supabase.co/functions/v1/bright-responder?source=pixel&path=' + encodeURIComponent(window.location.pathname);
-              img.width = 1;
-              img.height = 1;
-              img.style.display = 'none';
-              img.alt = '';
-              document.body.appendChild(img);
-            })();
-          `}
-        </Script>
       </body>
     </html>
   );
