@@ -46,8 +46,8 @@ export async function middleware(request: NextRequest) {
     deviceHint,
     fingerprint,
     source: 'middleware',
-    tracking_code: 'f2fc46b6518c600a965b97732ca2e952',
-    siteId: '2f82d2b4-ca47-4145-9a1b-abb6f6f9d732',
+    tracking_code: '34089f441fb9eff4529c7a29c1ae2f8e',
+    siteId: '92733bad-e379-4a44-ad1e-c4930a30d15c',
     userId: '02122bc0-283b-4ea8-bbd0-2ed844a95a9b',
     timestamp: new Date().toISOString(),
   }
