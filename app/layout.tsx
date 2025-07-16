@@ -46,10 +46,58 @@ export default function RootLayout({
           `}
         </Script>
 
-        <Script 
-          src="https://cemoyczgfrsspjdgczys.supabase.co/storage/v1/object/public/website-assets/bot-tracker.js"
-          strategy="afterInteractive"
-        />
+        <Script id="ghosttrace-tracker" strategy="afterInteractive">
+          {`
+            (function() {
+              'use strict';
+              
+              const TRACKER_CONFIG = {
+                endpoint: 'https://cemoyczgfrsspjdgczys.supabase.co/functions/v1/ghosttrace-tracker',
+                timeout: 5000,
+                retryAttempts: 2
+              };
+              
+              function getVisitorInfo() {
+                const config = window.ghostTraceConfig || {};
+                return {
+                  tracking_code: config.trackingCode,
+                  user_agent: navigator.userAgent,
+                  page_url: window.location.href,
+                  referrer: document.referrer || null,
+                  session_id: 'visit-' + Date.now(),
+                  site_id: config.siteId,
+                  user_id: config.userId
+                };
+              }
+              
+              async function sendTrackingData(data) {
+                try {
+                  const response = await fetch(TRACKER_CONFIG.endpoint, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(data)
+                  });
+                  
+                  if (response.ok) {
+                    const result = await response.json();
+                    if (result.detected) {
+                      console.log('Bot detected:', result.bot_name, 'confidence:', result.confidence);
+                    }
+                  }
+                } catch (error) {
+                  console.warn('Bot tracking failed:', error);
+                }
+              }
+              
+              // Initialize tracking
+              if (document.readyState === 'loading') {
+                document.addEventListener('DOMContentLoaded', () => sendTrackingData(getVisitorInfo()));
+              } else {
+                sendTrackingData(getVisitorInfo());
+              }
+            })();
+          `}
+        </Script>
 
         <Script id="server-side-detection" strategy="afterInteractive">
           {`
