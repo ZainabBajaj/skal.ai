@@ -33,12 +33,12 @@ export default function RootLayout({
         <link rel="shortcut icon" type="image/png" href="/skal-logo.png" />
         <link rel="apple-touch-icon" sizes="180x180" href="/skal-logo.png" />
         
-        {/* GhostTrace AI Bot Tracker */}
+        {/* GhostTrace Universal AI Bot Tracker */}
         <Script 
-          src="https://cemoyczgfrsspjdgczys.supabase.co/functions/v1/ghosttrace-tracker" 
+          src="https://cemoyczgfrsspjdgczys.supabase.co/functions/v1/ghosttrace-universal-js"
           strategy="beforeInteractive"
         />
-        <Script id="ghosttrace-init" strategy="afterInteractive">
+        <Script id="ghosttrace-init">
           {`
             window.GhostTrace.init({
               trackingCode: 'f2fc46b6518c600a965b97732ca2e952',
@@ -46,28 +46,6 @@ export default function RootLayout({
               userId: '02122bc0-283b-4ea8-bbd0-2ed844a95a9b',
               domain: 'skal.ai'
             });
-
-            // Create and inject tracking pixel
-            const img = document.createElement('img');
-            img.src = 'https://cemoyczgfrsspjdgczys.supabase.co/functions/v1/bright-responder?source=pixel&path=' + encodeURIComponent(window.location.pathname);
-            img.width = 1;
-            img.height = 1;
-            img.style.display = 'none';
-            img.alt = '';
-            document.body.appendChild(img);
-
-            // Update pixel on route change for SPA navigation
-            const updatePixel = () => {
-              img.src = 'https://cemoyczgfrsspjdgczys.supabase.co/functions/v1/bright-responder?source=pixel&path=' + encodeURIComponent(window.location.pathname);
-            };
-
-            // Listen for route changes
-            window.addEventListener('popstate', updatePixel);
-            const originalPushState = window.history.pushState;
-            window.history.pushState = function() {
-              originalPushState.apply(window.history, arguments);
-              updatePixel();
-            };
           `}
         </Script>
       </head>
