@@ -1,12 +1,20 @@
-// middleware.ts
 import { NextRequest, NextResponse } from 'next/server'
-import crypto from 'crypto'
 
 export const config = {
-  matcher: ['/((?!_next|favicon.ico|images|fonts|api).*)'], // don't match static assets
+  matcher: ['/((?!_next|favicon.ico|images|fonts|api).*)'],
 }
 
-export function middleware(request: NextRequest) {
+// Edge-compatible SHA256 hashing
+async function hash(input: string): Promise<string> {
+  const encoder = new TextEncoder()
+  const data = encoder.encode(input)
+  const hashBuffer = await crypto.subtle.digest('SHA-256', data)
+  return Array.from(new Uint8Array(hashBuffer))
+    .map((b) => b.toString(16).padStart(2, '0'))
+    .join('')
+}
+
+export async function middleware(request: NextRequest) {
   const userAgent = request.headers.get('user-agent') || ''
   const ip = request.headers.get('x-forwarded-for') ?? 'unknown'
   const accept = request.headers.get('accept') || ''
@@ -20,10 +28,7 @@ export function middleware(request: NextRequest) {
   const uaMobile = request.headers.get('sec-ch-ua-mobile') || ''
   const deviceHint = request.headers.get('sec-fetch-dest') || ''
 
-  const fingerprint = crypto
-    .createHash('sha256')
-    .update(userAgent + ip + accept + language + platform)
-    .digest('hex')
+  const fingerprint = await hash(userAgent + ip + accept + language + platform)
 
   const botData = {
     userAgent,
@@ -45,17 +50,19 @@ export function middleware(request: NextRequest) {
     timestamp: new Date().toISOString(),
   }
 
-  // Fire-and-forget async call
-  fetch('https://cemoyczgfrsspjdgczys.supabase.co/functions/v1/ghosttrace-server', {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify(botData),
-  }).catch((err) => {
-    console.warn('Bot notification failed:', err)
-  })
+  // Send request and ignore result safely
+  try {
+    await fetch('https://cemoyczgfrsspjdgczys.supabase.co/functions/v1/ghosttrace-server', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(botData),
+    })
+  } catch (err) {
+    // Log to edge runtime-compatible logger
+    console.warn('Ghosttrace fetch failed')
+  }
 
   const response = NextResponse.next()
-  response.headers.set('X-Middleware-Fingerprint', fingerprint.slice(0, 12)) // Optional
-
+  response.headers.set('X-Middleware-Fingerprint', fingerprint.slice(0, 12))
   return response
 }
