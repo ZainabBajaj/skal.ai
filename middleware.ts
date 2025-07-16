@@ -46,7 +46,9 @@ export async function middleware(request: NextRequest) {
     deviceHint,
     fingerprint,
     source: 'middleware',
-    tracking_code: '__middleware_request__',
+    tracking_code: 'f2fc46b6518c600a965b97732ca2e952',
+    siteId: '2f82d2b4-ca47-4145-9a1b-abb6f6f9d732',
+    userId: '02122bc0-283b-4ea8-bbd0-2ed844a95a9b',
     timestamp: new Date().toISOString(),
   }
 
@@ -59,10 +61,10 @@ export async function middleware(request: NextRequest) {
     })
   } catch (err) {
     // Log to edge runtime-compatible logger
-    console.warn('Ghosttrace fetch failed')
+    console.warn('GhostTrace fetch failed')
   }
 
   const response = NextResponse.next()
-  response.headers.set('X-Middleware-Fingerprint', fingerprint.slice(0, 12))
+  response.headers.set('X-GhostTrace-Fingerprint', fingerprint.slice(0, 12))
   return response
 }
