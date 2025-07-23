@@ -111,7 +111,7 @@ export default function ContactForm({ initialSubject = '', initialMessage = '' }
           <div className="text-center mb-16">
             <div className="inline-flex items-center space-x-2 bg-gradient-to-r from-[#009bd7]/10 to-[#00E1FF]/10 rounded-full px-6 py-2 mb-6 backdrop-blur-sm border border-[#009bd7]/20">
               <Sparkles className="w-4 h-4 text-[#009bd7] animate-pulse" />
-              <span className="text-[#009bd7] text-sm font-bold tracking-wider">LET'S CONNECT</span>
+              <span className="text-[#009bd7] text-sm font-bold tracking-wider">LET&apos;S CONNECT</span>
             </div>
             
             <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#1a1a1a] via-[#009bd7] to-[#00E1FF] mb-6 leading-tight">
@@ -119,7 +119,7 @@ export default function ContactForm({ initialSubject = '', initialMessage = '' }
             </h2>
             
             <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed font-medium">
-              Ready to transform your business with cutting-edge AI solutions? Let's discuss your project and{' '}
+              Ready to transform your business with cutting-edge AI solutions? Let&apos;s discuss your project and{' '}
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#009bd7] to-[#00E1FF] font-bold">
                 bring your vision to life
               </span>
@@ -257,7 +257,7 @@ export default function ContactForm({ initialSubject = '', initialMessage = '' }
           {/* Contact Info */}
           <div className="text-center mt-12">
             <p className="text-gray-600 mb-4">
-              Prefer to reach out directly? We'd love to hear from you!
+              Prefer to reach out directly? We&apos;d love to hear from you!
             </p>
             <div className="flex flex-wrap justify-center gap-6 text-sm">
               <a href="mailto:hello@skal.ai" className="flex items-center gap-2 text-[#009bd7] hover:text-[#00E1FF] transition-colors font-medium">

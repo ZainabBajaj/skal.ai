@@ -97,7 +97,7 @@ const NewsletterSection = () => {
                 Successfully Subscribed!
               </h2>
               <p className="text-gray-600 mb-8 text-lg">
-                Welcome to our AI community! You'll receive cutting-edge insights and automation tips directly in your inbox.
+                Welcome to our AI community! You&apos;ll receive cutting-edge insights and automation tips directly in your inbox.
               </p>
               <button 
                 onClick={resetForm}
@@ -122,7 +122,7 @@ const NewsletterSection = () => {
                 </span>
               </h2>
               <p className="text-xl text-gray-600 leading-relaxed">
-                Get the <strong>weekly newsletter</strong> keeping +20,000 businesses in the loop with the latest AI automation insights.
+                Discover how <strong>AI automation</strong> can transform your business operations and unlock significant value for your organization.
               </p>
             </div>
 

@@ -113,7 +113,7 @@ const Clients = () => {
           <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed font-medium">
             Hear from our valued clients about their experience working with us and the{' '}
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#009bd7] to-[#00E1FF] font-bold">
-              results we've achieved
+              results we&apos;ve achieved
             </span>{' '}
             together
           </p>
@@ -160,7 +160,7 @@ const Clients = () => {
               <div className="flex-1 text-center md:text-left">
                 <StarRating rating={testimonials[currentIndex].rating} />
                 <blockquote className="text-lg md:text-xl text-gray-700 mb-6 leading-relaxed italic">
-                  "{testimonials[currentIndex].quote}"
+                  &ldquo;{testimonials[currentIndex].quote}&rdquo;
                 </blockquote>
                 <div>
                   <h4 className="text-xl font-bold text-[#1a1a1a] mb-1">

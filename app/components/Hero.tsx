@@ -6,19 +6,28 @@ import { ChevronRight, Sparkles, Zap, Target, Users, Award } from 'lucide-react'
 const Hero = () => {
   const [isVisible, setIsVisible] = useState(false);
   const [currentWord, setCurrentWord] = useState(0);
+  const [isMounted, setIsMounted] = useState(false);
 
   const rotatingWords = ["AI", "Innovation", "Growth", "Success"];
 
   useEffect(() => {
-    setIsVisible(true);
+    setIsMounted(true);
+    
+    // Small delay to trigger drop-down animation
+    const timer = setTimeout(() => {
+      setIsVisible(true);
+    }, 100);
     
     // Rotating words animation
     const interval = setInterval(() => {
       setCurrentWord((prev) => (prev + 1) % rotatingWords.length);
     }, 2000);
 
-    return () => clearInterval(interval);
-  }, []);
+    return () => {
+      clearTimeout(timer);
+      clearInterval(interval);
+    };
+  }, [rotatingWords.length]);
 
   const FloatingParticles = () => {
     const [particles, setParticles] = useState<{
@@ -29,7 +38,9 @@ const Hero = () => {
     }[]>([]);
 
     useEffect(() => {
-      // Only runs on the client
+      if (!isMounted) return;
+      
+      // Only runs on the client after mount
       setParticles(
         Array.from({ length: 20 }).map(() => ({
           left: Math.random() * 100,
@@ -39,6 +50,10 @@ const Hero = () => {
         }))
       );
     }, []);
+
+    if (!isMounted) {
+      return null;
+    }
 
     return (
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
@@ -56,6 +71,111 @@ const Hero = () => {
       </div>
     );
   };
+
+  // Show a simplified version during SSR/hydration but with the same structure for smooth transition
+  if (!isMounted) {
+    return (
+      <section 
+        id="home" 
+        className="relative min-h-screen flex items-center bg-gradient-to-br from-slate-50 via-white to-blue-50 overflow-hidden"
+      >
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-20">
+          <div className="max-w-7xl mx-auto">
+            <div className="text-center mb-16 opacity-0 translate-y-10 transition-all duration-1000">
+              
+              {/* Static Badge */}
+              <div className="inline-flex items-center space-x-3 bg-gradient-to-r from-[#009bd7]/10 to-[#00E1FF]/10 rounded-full px-8 py-3 mb-8 backdrop-blur-md border border-[#009bd7]/20 mt-24">
+                <Sparkles className="w-4 h-4 text-[#009bd7]" />
+                <span className="text-[#009bd7] text-sm font-bold tracking-wider">NEXT-GEN AI SOLUTIONS</span>
+                <ChevronRight className="w-4 h-4 text-[#009bd7]" />
+              </div>
+
+              {/* Static Main Heading */}
+              <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-[#1a1a1a] mb-6 leading-tight mt-24 lg:mt-0">
+                Transform Your Organization
+                <span className="block text-transparent bg-clip-text bg-gradient-to-r from-[#009bd7] via-[#00E1FF] to-[#1DB5C5] mt-2">
+                  with AI
+                </span>
+                <span className="block text-transparent bg-clip-text bg-gradient-to-r from-[#009bd7] via-[#00E1FF] to-[#1DB5C5] mt-2">
+                  Innovation
+                </span>
+              </h1>
+
+              <p className="text-lg md:text-xl text-gray-600 mb-12 max-w-3xl mx-auto leading-relaxed font-medium">
+                Empowering businesses with cutting-edge AI, Data Science, and Full Stack solutions that drive{' '}
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#009bd7] to-[#00E1FF] font-bold">
+                  exponential growth
+                </span>
+              </p>
+
+              {/* CTA Button */}
+              <div className="flex justify-center mb-16">
+                <a 
+                  href="https://calendly.com/skal-ai/discovery-call?month=2025-07"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group relative px-8 py-4 bg-gradient-to-r from-[#009bd7] to-[#00E1FF] text-white rounded-2xl font-bold overflow-hidden transition-all hover:shadow-2xl hover:shadow-[#009bd7]/30 hover:scale-105 active:scale-95 inline-flex items-center justify-center"
+                >
+                  <span className="relative flex items-center justify-center">
+                    <Zap className="w-5 h-5 mr-2" />
+                    Start Your Project
+                    <ChevronRight className="w-5 h-5 ml-2" />
+                  </span>
+                </a>
+              </div>
+
+              {/* Static Stats */}
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+                {[
+                  { 
+                    number: "50+", 
+                    label: "Projects Delivered", 
+                    icon: Target, 
+                    description: "Successful implementations",
+                    color: "from-blue-500 to-cyan-500"
+                  },
+                  { 
+                    number: "10+", 
+                    label: "Tech Experts", 
+                    icon: Users, 
+                    description: "Skilled professionals",
+                    color: "from-purple-500 to-pink-500"
+                  },
+                  { 
+                    number: "99%", 
+                    label: "Client Satisfaction", 
+                    icon: Award, 
+                    description: "Happy customers",
+                    color: "from-green-500 to-emerald-500"
+                  }
+                ].map((stat, index) => {
+                  const IconComponent = stat.icon;
+                  return (
+                    <div 
+                      key={index} 
+                      className="group bg-white/80 backdrop-blur-sm rounded-2xl p-8 hover:bg-white transition-all border border-[#009bd7]/10 shadow-lg hover:shadow-2xl hover:scale-105 cursor-pointer"
+                    >
+                      <div className="flex items-center justify-center mb-4">
+                        <div className={`p-3 rounded-full bg-gradient-to-r ${stat.color}`}>
+                          <IconComponent className="w-6 h-6 text-white" />
+                        </div>
+                      </div>
+                      <div className="text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#009bd7] to-[#00E1FF] mb-2">
+                        {stat.number}
+                      </div>
+                      <div className="text-[#1a1a1a] font-bold mb-2 text-lg">{stat.label}</div>
+                      <div className="text-sm text-gray-600 font-medium">{stat.description}</div>
+                      <div className="mt-4 h-1 bg-gradient-to-r from-[#009bd7] to-[#00E1FF] rounded-full transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left"></div>
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    );
+  }
 
   return (
     <section 
@@ -79,7 +199,7 @@ const Hero = () => {
 
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-20">
         <div className="max-w-7xl mx-auto">
-          <div className={`text-center mb-16 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+          <div className={`text-center mb-16 transition-all duration-1000 ease-out ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
             
             {/* Enhanced Badge */}
             <div className="inline-flex items-center space-x-3 bg-gradient-to-r from-[#009bd7]/10 to-[#00E1FF]/10 rounded-full px-8 py-3 mb-8 backdrop-blur-md border border-[#009bd7]/20 mt-24 hover:scale-105 transition-transform cursor-pointer group">

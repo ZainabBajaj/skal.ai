@@ -2,6 +2,13 @@
 
 import { useState } from 'react';
 
+interface Technology {
+  name: string;
+  icon: string;
+  color: string;
+  bgGradient: string;
+}
+
 const Services = () => {
   const [activeTab, setActiveTab] = useState('All');
 
@@ -129,7 +136,7 @@ const Services = () => {
         <div className="max-w-7xl mx-auto">
           {activeTab === 'All' ? (
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
-              {Object.values(getDisplayedTechnologies()).flat().map((tech: any, index: number) => (
+              {Object.values(getDisplayedTechnologies()).flat().map((tech: Technology, index: number) => (
                 <div
                   key={`${tech.name}-${index}`}
                   className={`group relative bg-gradient-to-br ${tech.bgGradient} rounded-3xl p-8 hover:shadow-2xl transition-all duration-500 border border-white/50 hover:border-[#009bd7]/30 hover:scale-110 cursor-pointer backdrop-blur-sm overflow-hidden`}
@@ -169,7 +176,7 @@ const Services = () => {
             Object.entries(getDisplayedTechnologies()).map(([category, techs]) => (
               <div key={category} className="mb-16">
                 <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
-                {techs.map((tech: any, index: number) => (
+                {techs.map((tech: Technology, index: number) => (
                   <div
                     key={`${tech.name}-${index}`}
                     className={`group relative bg-gradient-to-br ${tech.bgGradient} rounded-3xl p-8 hover:shadow-2xl transition-all duration-500 border border-white/50 hover:border-[#009bd7]/30 hover:scale-110 cursor-pointer backdrop-blur-sm overflow-hidden`}

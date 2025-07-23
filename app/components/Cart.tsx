@@ -362,7 +362,7 @@ export default function Cart() {
               </div>
             ) : (
               <div className="space-y-4">
-                {Object.values(groupSimilarItems(items)).map((group, index) => (
+                {Object.values(groupSimilarItems(items)).map((group) => (
                   <div 
                     key={`group-${group.item.id}`} 
                     className="group relative bg-gradient-to-r from-white to-gray-50/50 p-4 rounded-xl border border-gray-200/50 hover:border-[#009bd7]/30 hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1"
