@@ -3,12 +3,13 @@ import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import About from './components/About';
 import Services from './components/Services';
-import Technologies from './components/Technologies';
+//import Technologies from './components/Technologies';
 import Clients from './components/Clients';
 import ContactForm from './components/ContactForm';
 import Footer from './components/Footer';
 import Pricing from './components/Pricing';
 import Cart from './components/Cart';
+import NewsletterSection from './components/Newsletter';
 import { CartProvider } from './context/CartContext';
 import { useState, useEffect } from 'react';
 
@@ -69,8 +70,6 @@ export default function Home() {
         <Hero />
         <About />
         <Services />
-        <Technologies />
-        <Pricing />
         <Clients />
         
         {/* Contact Section */}
@@ -82,6 +81,7 @@ export default function Home() {
           </div>
         </section>
 
+        <NewsletterSection />
         <Footer />
         <Cart />
       </div>
