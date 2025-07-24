@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect } from 'react';
-import { ChevronRight, Sparkles, Zap, Target, Users, Award } from 'lucide-react';
+import { ChevronRight, Sparkles, Zap, Target, Users, TrendingUp } from 'lucide-react';
 
 const Hero = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -49,7 +49,7 @@ const Hero = () => {
           delay: Math.random() * 2,
         }))
       );
-    }, []);
+    }, [isMounted]);
 
     if (!isMounted) {
       return null;
@@ -77,21 +77,21 @@ const Hero = () => {
     return (
       <section 
         id="home" 
-        className="relative min-h-screen flex items-center bg-gradient-to-br from-slate-50 via-white to-blue-50 overflow-hidden"
+        className="relative min-h-screen flex items-center bg-gradient-to-br from-slate-50 via-white to-blue-50 dark:from-gray-900 dark:via-gray-800 dark:to-blue-900 overflow-hidden"
       >
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-20">
           <div className="max-w-7xl mx-auto">
             <div className="text-center mb-16 opacity-0 translate-y-10 transition-all duration-1000">
               
               {/* Static Badge */}
-              <div className="inline-flex items-center space-x-3 bg-gradient-to-r from-[#009bd7]/10 to-[#00E1FF]/10 rounded-full px-8 py-3 mb-8 backdrop-blur-md border border-[#009bd7]/20 mt-24">
+              <div className="inline-flex items-center space-x-3 bg-gradient-to-r from-[#009bd7]/10 to-[#00E1FF]/10 dark:from-[#009bd7]/20 dark:to-[#00E1FF]/20 rounded-full px-8 py-3 mb-8 backdrop-blur-md border border-[#009bd7]/20 dark:border-[#009bd7]/30 mt-24">
                 <Sparkles className="w-4 h-4 text-[#009bd7]" />
                 <span className="text-[#009bd7] text-sm font-bold tracking-wider">NEXT-GEN AI SOLUTIONS</span>
                 <ChevronRight className="w-4 h-4 text-[#009bd7]" />
               </div>
 
               {/* Static Main Heading */}
-              <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-[#1a1a1a] mb-6 leading-tight mt-24 lg:mt-0">
+              <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-[#1a1a1a] dark:text-white mb-6 leading-tight mt-24 lg:mt-0">
                 Transform Your Organization
                 <span className="block text-transparent bg-clip-text bg-gradient-to-r from-[#009bd7] via-[#00E1FF] to-[#1DB5C5] mt-2">
                   with AI
@@ -101,7 +101,7 @@ const Hero = () => {
                 </span>
               </h1>
 
-              <p className="text-lg md:text-xl text-gray-600 mb-12 max-w-3xl mx-auto leading-relaxed font-medium">
+              <p className="text-lg md:text-xl text-gray-600 dark:text-gray-300 mb-12 max-w-3xl mx-auto leading-relaxed font-medium">
                 Empowering businesses with cutting-edge AI, Data Science, and Full Stack solutions that drive{' '}
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#009bd7] to-[#00E1FF] font-bold">
                   exponential growth
@@ -128,8 +128,8 @@ const Hero = () => {
               <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
                 {[
                   { 
-                    number: "50+", 
-                    label: "Projects Delivered", 
+                    number: "250+", 
+                    label: "AI Systems Integrated", 
                     icon: Target, 
                     description: "Successful implementations",
                     color: "from-blue-500 to-cyan-500"
@@ -142,10 +142,10 @@ const Hero = () => {
                     color: "from-purple-500 to-pink-500"
                   },
                   { 
-                    number: "99%", 
-                    label: "Client Satisfaction", 
-                    icon: Award, 
-                    description: "Happy customers",
+                    number: "5X", 
+                    label: "Average ROI per Project", 
+                    icon: TrendingUp, 
+                    description: "Return on investment",
                     color: "from-green-500 to-emerald-500"
                   }
                 ].map((stat, index) => {
@@ -153,7 +153,7 @@ const Hero = () => {
                   return (
                     <div 
                       key={index} 
-                      className="group bg-white/80 backdrop-blur-sm rounded-2xl p-8 hover:bg-white transition-all border border-[#009bd7]/10 shadow-lg hover:shadow-2xl hover:scale-105 cursor-pointer"
+                      className="group bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm rounded-2xl p-8 hover:bg-white dark:hover:bg-gray-800 transition-all border border-[#009bd7]/10 dark:border-[#009bd7]/20 shadow-lg hover:shadow-2xl hover:scale-105 cursor-pointer"
                     >
                       <div className="flex items-center justify-center mb-4">
                         <div className={`p-3 rounded-full bg-gradient-to-r ${stat.color}`}>
@@ -163,8 +163,8 @@ const Hero = () => {
                       <div className="text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#009bd7] to-[#00E1FF] mb-2">
                         {stat.number}
                       </div>
-                      <div className="text-[#1a1a1a] font-bold mb-2 text-lg">{stat.label}</div>
-                      <div className="text-sm text-gray-600 font-medium">{stat.description}</div>
+                      <div className="text-[#1a1a1a] dark:text-white font-bold mb-2 text-lg">{stat.label}</div>
+                      <div className="text-sm text-gray-600 dark:text-gray-300 font-medium">{stat.description}</div>
                       <div className="mt-4 h-1 bg-gradient-to-r from-[#009bd7] to-[#00E1FF] rounded-full transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left"></div>
                     </div>
                   );
@@ -180,12 +180,12 @@ const Hero = () => {
   return (
     <section 
       id="home" 
-      className="relative min-h-screen flex items-center bg-gradient-to-br from-slate-50 via-white to-blue-50 overflow-hidden"
+      className="relative min-h-screen flex items-center bg-gradient-to-br from-slate-50 via-white to-blue-50 dark:from-gray-900 dark:via-gray-800 dark:to-blue-900 overflow-hidden"
     >
       {/* Simplified Background Elements */}
       <div className="absolute inset-0 pointer-events-none z-5">
         {/* Enhanced grid pattern */}
-        <div className="absolute inset-0 opacity-[0.02]">
+        <div className="absolute inset-0 opacity-[0.02] dark:opacity-[0.05]">
           <div className="absolute inset-0 bg-[linear-gradient(rgba(0,155,215,0.1)_1px,transparent_1px),linear-gradient(90deg,rgba(0,155,215,0.1)_1px,transparent_1px)] bg-[size:50px_50px]"></div>
         </div>
         
@@ -202,9 +202,9 @@ const Hero = () => {
           <div className={`text-center mb-16 transition-all duration-1000 ease-out ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
             
             {/* Enhanced Badge */}
-            <div className="inline-flex items-center space-x-3 bg-gradient-to-r from-[#009bd7]/10 to-[#00E1FF]/10 rounded-full px-8 py-3 mb-8 backdrop-blur-md border border-[#009bd7]/20 mt-24 hover:scale-105 transition-transform cursor-pointer group">
+            <div className="inline-flex items-center space-x-3 bg-gradient-to-r from-[#009bd7]/10 to-[#00E1FF]/10 dark:from-[#009bd7]/20 dark:to-[#00E1FF]/20 rounded-full px-8 py-3 mb-8 backdrop-blur-md border border-[#009bd7]/20 dark:border-[#009bd7]/30 mt-24 hover:scale-105 transition-transform cursor-pointer group">
               <div className="relative">
-                <Sparkles className="w-4 h-4 text-[#009bd7] animate-pulse" />
+                <Sparkles className="w-4 h-4 text-[#009bd7]" />
                 <div className="absolute -top-1 -right-1 w-2 h-2 bg-[#00E1FF] rounded-full animate-ping"></div>
               </div>
               <span className="text-[#009bd7] text-sm font-bold tracking-wider">NEXT-GEN AI SOLUTIONS</span>
@@ -212,7 +212,7 @@ const Hero = () => {
             </div>
 
             {/* Dynamic Main Heading */}
-            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-[#1a1a1a] mb-6 leading-tight mt-24 lg:mt-0">
+            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-[#1a1a1a] dark:text-white mb-6 leading-tight mt-24 lg:mt-0">
               Transform Your Organization
               <span className="block text-transparent bg-clip-text bg-gradient-to-r from-[#009bd7] via-[#00E1FF] to-[#1DB5C5] mt-2 relative text-center w-full">
                 with AI
@@ -235,7 +235,7 @@ const Hero = () => {
               </span>
             </h1>
 
-            <p className="text-lg md:text-xl text-gray-600 mb-12 max-w-3xl mx-auto leading-relaxed font-medium">
+            <p className="text-lg md:text-xl text-gray-600 dark:text-gray-300 mb-12 max-w-3xl mx-auto leading-relaxed font-medium">
               Empowering businesses with cutting-edge AI, Data Science, and Full Stack solutions that drive{' '}
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#009bd7] to-[#00E1FF] font-bold">
                 exponential growth
@@ -259,12 +259,12 @@ const Hero = () => {
               </a>
             </div>
 
-            {/* Enhanced Stats with Icons */}
+            {/* Static Stats - No Animation */}
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
               {[
                 { 
-                  number: "50+", 
-                  label: "Projects Delivered", 
+                  number: "250+", 
+                  label: "AI Systems Integrated", 
                   icon: Target, 
                   description: "Successful implementations",
                   color: "from-blue-500 to-cyan-500"
@@ -277,10 +277,10 @@ const Hero = () => {
                   color: "from-purple-500 to-pink-500"
                 },
                 { 
-                  number: "99%", 
-                  label: "Client Satisfaction", 
-                  icon: Award, 
-                  description: "Happy customers",
+                  number: "5X", 
+                  label: "Average ROI per Project", 
+                  icon: TrendingUp, 
+                  description: "Return on investment",
                   color: "from-green-500 to-emerald-500"
                 }
               ].map((stat, index) => {
@@ -288,7 +288,7 @@ const Hero = () => {
                 return (
                   <div 
                     key={index} 
-                    className="group bg-white/80 backdrop-blur-sm rounded-2xl p-8 hover:bg-white transition-all border border-[#009bd7]/10 shadow-lg hover:shadow-2xl hover:scale-105 cursor-pointer"
+                    className="group bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm rounded-2xl p-8 hover:bg-white dark:hover:bg-gray-800 transition-all border border-[#009bd7]/10 dark:border-[#009bd7]/20 shadow-lg hover:shadow-2xl hover:scale-105 cursor-pointer"
                     style={{
                       animationDelay: `${index * 200}ms`,
                     }}
@@ -301,8 +301,8 @@ const Hero = () => {
                     <div className="text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#009bd7] to-[#00E1FF] mb-2 group-hover:scale-110 transition-transform">
                       {stat.number}
                     </div>
-                    <div className="text-[#1a1a1a] font-bold mb-2 text-lg">{stat.label}</div>
-                    <div className="text-sm text-gray-600 font-medium">{stat.description}</div>
+                    <div className="text-[#1a1a1a] dark:text-white font-bold mb-2 text-lg">{stat.label}</div>
+                    <div className="text-sm text-gray-600 dark:text-gray-300 font-medium">{stat.description}</div>
                     <div className="mt-4 h-1 bg-gradient-to-r from-[#009bd7] to-[#00E1FF] rounded-full transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left"></div>
                   </div>
                 );
@@ -310,11 +310,11 @@ const Hero = () => {
             </div>
 
             {/* Trust Indicators */}
-            <div className="mt-16 pt-12 border-t border-gray-200/50">
-              <p className="text-sm text-gray-500 mb-6 font-medium">TRUSTED BY LEADING COMPANIES</p>
+            <div className="mt-16 pt-12 border-t border-gray-200/50 dark:border-gray-700/50">
+              <p className="text-sm text-gray-500 dark:text-gray-400 mb-6 font-medium">TRUSTED BY LEADING COMPANIES</p>
               <div className="flex justify-center items-center space-x-12 opacity-50 hover:opacity-80 transition-opacity">
                 {['Google', 'Microsoft', 'AWS', 'OpenAI', 'Meta'].map((company, index) => (
-                  <div key={index} className="text-lg font-bold text-gray-400 hover:text-[#009bd7] transition-colors">
+                  <div key={index} className="text-lg font-bold text-gray-400 dark:text-gray-500 hover:text-[#009bd7] dark:hover:text-[#00E1FF] transition-colors">
                     {company}
                   </div>
                 ))}

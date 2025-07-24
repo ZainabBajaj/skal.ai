@@ -16,7 +16,11 @@ const Logo = ({ isScrolled = false }: LogoProps) => {
         height={60} 
         className="object-contain"
       />
-      <span className={`text-2xl font-bold ${isScrolled ? 'text-white' : 'text-[#1a1a1a]'}`}>
+      <span className={`text-2xl font-bold transition-colors duration-300 ${
+        isScrolled 
+          ? 'text-gray-800 dark:text-white' 
+          : 'text-[#1a1a1a] dark:text-white'
+      }`}>
         SKAL
       </span>
     </div>

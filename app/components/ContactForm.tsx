@@ -96,29 +96,29 @@ export default function ContactForm({ initialSubject = '', initialMessage = '' }
   };
 
   return (
-    <section className="relative py-24 bg-gradient-to-br from-slate-50 via-white to-blue-50 overflow-hidden">
+    <section id="contact" className="relative py-16 sm:py-20 lg:py-24 bg-gradient-to-br from-slate-50 via-white to-blue-50 overflow-hidden">
       {/* Background Elements */}
       <div className="absolute inset-0 pointer-events-none">
         {/* Animated background gradients */}
-        <div className="absolute top-20 left-10 w-72 h-72 bg-gradient-to-r from-[#009bd7]/8 to-[#00E1FF]/6 rounded-full blur-3xl animate-pulse"></div>
-        <div className="absolute bottom-20 right-10 w-96 h-96 bg-gradient-to-r from-[#00E1FF]/6 to-purple-300/4 rounded-full blur-3xl animate-pulse" style={{animationDelay: '2s'}}></div>
-        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-gradient-to-r from-purple-300/4 to-pink-300/3 rounded-full blur-3xl animate-pulse" style={{animationDelay: '4s'}}></div>
+        <div className="absolute top-20 left-10 w-48 h-48 sm:w-72 sm:h-72 bg-gradient-to-r from-[#009bd7]/8 to-[#00E1FF]/6 rounded-full blur-3xl animate-pulse"></div>
+        <div className="absolute bottom-20 right-10 w-64 h-64 sm:w-96 sm:h-96 bg-gradient-to-r from-[#00E1FF]/6 to-purple-300/4 rounded-full blur-3xl animate-pulse" style={{animationDelay: '2s'}}></div>
+        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-48 h-48 sm:w-64 sm:h-64 bg-gradient-to-r from-purple-300/4 to-pink-300/3 rounded-full blur-3xl animate-pulse" style={{animationDelay: '4s'}}></div>
       </div>
 
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="max-w-4xl mx-auto">
           {/* Header Section */}
-          <div className="text-center mb-16">
-            <div className="inline-flex items-center space-x-2 bg-gradient-to-r from-[#009bd7]/10 to-[#00E1FF]/10 rounded-full px-6 py-2 mb-6 backdrop-blur-sm border border-[#009bd7]/20">
-              <Sparkles className="w-4 h-4 text-[#009bd7] animate-pulse" />
-              <span className="text-[#009bd7] text-sm font-bold tracking-wider">LET&apos;S CONNECT</span>
+          <div className="text-center mb-12 sm:mb-16">
+            <div className="inline-flex items-center space-x-2 bg-gradient-to-r from-[#009bd7]/10 to-[#00E1FF]/10 rounded-full px-4 sm:px-6 py-2 mb-4 sm:mb-6 backdrop-blur-sm border border-[#009bd7]/20">
+              <Sparkles className="w-3 h-3 sm:w-4 sm:h-4 text-[#009bd7] animate-pulse" />
+              <span className="text-[#009bd7] text-xs sm:text-sm font-bold tracking-wider">LET&apos;S CONNECT</span>
             </div>
             
-            <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#1a1a1a] via-[#009bd7] to-[#00E1FF] mb-6 leading-tight">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#1a1a1a] via-[#009bd7] to-[#00E1FF] mb-4 sm:mb-6 leading-tight">
               Start Your AI Journey
             </h2>
             
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed font-medium">
+            <p className="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed font-medium px-4">
               Ready to transform your business with cutting-edge AI solutions? Let&apos;s discuss your project and{' '}
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#009bd7] to-[#00E1FF] font-bold">
                 bring your vision to life
@@ -127,17 +127,17 @@ export default function ContactForm({ initialSubject = '', initialMessage = '' }
           </div>
 
           {/* Contact Form */}
-          <div className="bg-white/80 backdrop-blur-xl rounded-3xl shadow-2xl p-8 md:p-12 border border-white/50 relative overflow-hidden">
+          <div className="bg-white/80 backdrop-blur-xl rounded-2xl sm:rounded-3xl shadow-2xl p-6 sm:p-8 md:p-12 border border-white/50 relative overflow-hidden">
             {/* Form Background Effects */}
             <div className="absolute inset-0 bg-gradient-to-br from-[#009bd7]/5 via-transparent to-[#00E1FF]/5 pointer-events-none"></div>
-            <div className="absolute top-0 right-0 w-64 h-64 bg-gradient-to-bl from-[#00E1FF]/10 to-transparent rounded-full blur-3xl"></div>
-            <div className="absolute bottom-0 left-0 w-64 h-64 bg-gradient-to-tr from-[#009bd7]/10 to-transparent rounded-full blur-3xl"></div>
+            <div className="absolute top-0 right-0 w-32 h-32 sm:w-64 sm:h-64 bg-gradient-to-bl from-[#00E1FF]/10 to-transparent rounded-full blur-3xl"></div>
+            <div className="absolute bottom-0 left-0 w-32 h-32 sm:w-64 sm:h-64 bg-gradient-to-tr from-[#009bd7]/10 to-transparent rounded-full blur-3xl"></div>
 
-            <form onSubmit={handleSubmit} className="relative z-10 space-y-8">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <form onSubmit={handleSubmit} className="relative z-10 space-y-6 sm:space-y-8">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
                 {/* Name Field */}
                 <div className="group">
-                  <label htmlFor="name" className="flex items-center gap-2 text-sm font-bold text-gray-700 mb-3">
+                  <label htmlFor="name" className="flex items-center gap-2 text-sm font-bold text-gray-700 mb-2 sm:mb-3">
                     <User className="w-4 h-4 text-[#009bd7]" />
                     Full Name
                   </label>
@@ -149,16 +149,16 @@ export default function ContactForm({ initialSubject = '', initialMessage = '' }
                       value={formData.name}
                       onChange={handleChange}
                       required
-                      className="w-full px-6 py-4 border border-gray-200 rounded-2xl focus:ring-2 focus:ring-[#009bd7]/20 focus:border-[#009bd7] bg-white/90 text-gray-800 placeholder-gray-400 transition-all duration-300 group-hover:shadow-lg backdrop-blur-sm"
+                      className="w-full px-4 sm:px-6 py-3 sm:py-4 border border-gray-200 rounded-xl sm:rounded-2xl focus:ring-2 focus:ring-[#009bd7]/20 focus:border-[#009bd7] bg-white/90 text-gray-800 placeholder-gray-400 transition-all duration-300 group-hover:shadow-lg backdrop-blur-sm text-sm sm:text-base"
                       placeholder="Enter your full name"
                     />
-                    <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-[#009bd7]/0 to-[#00E1FF]/0 group-focus-within:from-[#009bd7]/5 group-focus-within:to-[#00E1FF]/5 transition-all duration-300 pointer-events-none"></div>
+                    <div className="absolute inset-0 rounded-xl sm:rounded-2xl bg-gradient-to-r from-[#009bd7]/0 to-[#00E1FF]/0 group-focus-within:from-[#009bd7]/5 group-focus-within:to-[#00E1FF]/5 transition-all duration-300 pointer-events-none"></div>
                   </div>
                 </div>
 
                 {/* Email Field */}
                 <div className="group">
-                  <label htmlFor="email" className="flex items-center gap-2 text-sm font-bold text-gray-700 mb-3">
+                  <label htmlFor="email" className="flex items-center gap-2 text-sm font-bold text-gray-700 mb-2 sm:mb-3">
                     <Mail className="w-4 h-4 text-[#009bd7]" />
                     Email Address
                   </label>
@@ -170,17 +170,17 @@ export default function ContactForm({ initialSubject = '', initialMessage = '' }
                       value={formData.email}
                       onChange={handleChange}
                       required
-                      className="w-full px-6 py-4 border border-gray-200 rounded-2xl focus:ring-2 focus:ring-[#009bd7]/20 focus:border-[#009bd7] bg-white/90 text-gray-800 placeholder-gray-400 transition-all duration-300 group-hover:shadow-lg backdrop-blur-sm"
+                      className="w-full px-4 sm:px-6 py-3 sm:py-4 border border-gray-200 rounded-xl sm:rounded-2xl focus:ring-2 focus:ring-[#009bd7]/20 focus:border-[#009bd7] bg-white/90 text-gray-800 placeholder-gray-400 transition-all duration-300 group-hover:shadow-lg backdrop-blur-sm text-sm sm:text-base"
                       placeholder="your.email@company.com"
                     />
-                    <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-[#009bd7]/0 to-[#00E1FF]/0 group-focus-within:from-[#009bd7]/5 group-focus-within:to-[#00E1FF]/5 transition-all duration-300 pointer-events-none"></div>
+                    <div className="absolute inset-0 rounded-xl sm:rounded-2xl bg-gradient-to-r from-[#009bd7]/0 to-[#00E1FF]/0 group-focus-within:from-[#009bd7]/5 group-focus-within:to-[#00E1FF]/5 transition-all duration-300 pointer-events-none"></div>
                   </div>
                 </div>
               </div>
 
               {/* Subject Field */}
               <div className="group">
-                <label htmlFor="subject" className="flex items-center gap-2 text-sm font-bold text-gray-700 mb-3">
+                <label htmlFor="subject" className="flex items-center gap-2 text-sm font-bold text-gray-700 mb-2 sm:mb-3">
                   <MessageCircle className="w-4 h-4 text-[#009bd7]" />
                   Project Subject
                 </label>
@@ -192,16 +192,16 @@ export default function ContactForm({ initialSubject = '', initialMessage = '' }
                     value={formData.subject}
                     onChange={handleChange}
                     required
-                    className="w-full px-6 py-4 border border-gray-200 rounded-2xl focus:ring-2 focus:ring-[#009bd7]/20 focus:border-[#009bd7] bg-white/90 text-gray-800 placeholder-gray-400 transition-all duration-300 group-hover:shadow-lg backdrop-blur-sm"
+                    className="w-full px-4 sm:px-6 py-3 sm:py-4 border border-gray-200 rounded-xl sm:rounded-2xl focus:ring-2 focus:ring-[#009bd7]/20 focus:border-[#009bd7] bg-white/90 text-gray-800 placeholder-gray-400 transition-all duration-300 group-hover:shadow-lg backdrop-blur-sm text-sm sm:text-base"
                     placeholder="AI Implementation, Web Development, Mobile App..."
                   />
-                  <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-[#009bd7]/0 to-[#00E1FF]/0 group-focus-within:from-[#009bd7]/5 group-focus-within:to-[#00E1FF]/5 transition-all duration-300 pointer-events-none"></div>
+                  <div className="absolute inset-0 rounded-xl sm:rounded-2xl bg-gradient-to-r from-[#009bd7]/0 to-[#00E1FF]/0 group-focus-within:from-[#009bd7]/5 group-focus-within:to-[#00E1FF]/5 transition-all duration-300 pointer-events-none"></div>
                 </div>
               </div>
 
               {/* Message Field */}
               <div className="group">
-                <label htmlFor="message" className="flex items-center gap-2 text-sm font-bold text-gray-700 mb-3">
+                <label htmlFor="message" className="flex items-center gap-2 text-sm font-bold text-gray-700 mb-2 sm:mb-3">
                   <MessageCircle className="w-4 h-4 text-[#009bd7]" />
                   Project Details
                 </label>
@@ -212,42 +212,42 @@ export default function ContactForm({ initialSubject = '', initialMessage = '' }
                     value={formData.message}
                     onChange={handleChange}
                     required
-                    rows={6}
-                    className="w-full px-6 py-4 border border-gray-200 rounded-2xl focus:ring-2 focus:ring-[#009bd7]/20 focus:border-[#009bd7] bg-white/90 text-gray-800 placeholder-gray-400 transition-all duration-300 group-hover:shadow-lg backdrop-blur-sm resize-none"
+                    rows={4}
+                    className="w-full px-4 sm:px-6 py-3 sm:py-4 border border-gray-200 rounded-xl sm:rounded-2xl focus:ring-2 focus:ring-[#009bd7]/20 focus:border-[#009bd7] bg-white/90 text-gray-800 placeholder-gray-400 transition-all duration-300 group-hover:shadow-lg backdrop-blur-sm resize-none text-sm sm:text-base"
                     placeholder="Tell us about your project goals, timeline, and any specific requirements..."
                   />
-                  <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-[#009bd7]/0 to-[#00E1FF]/0 group-focus-within:from-[#009bd7]/5 group-focus-within:to-[#00E1FF]/5 transition-all duration-300 pointer-events-none"></div>
+                  <div className="absolute inset-0 rounded-xl sm:rounded-2xl bg-gradient-to-r from-[#009bd7]/0 to-[#00E1FF]/0 group-focus-within:from-[#009bd7]/5 group-focus-within:to-[#00E1FF]/5 transition-all duration-300 pointer-events-none"></div>
                 </div>
               </div>
 
               {/* Submit Section */}
-              <div className="flex flex-col items-center gap-6 pt-4">
+              <div className="flex flex-col items-center gap-4 sm:gap-6 pt-4">
                 <button
                   type="submit"
                   disabled={status.type === 'sending'}
-                  className={`group relative inline-flex items-center gap-3 px-12 py-4 bg-gradient-to-r from-[#009bd7] to-[#00E1FF] text-white font-bold rounded-2xl transition-all duration-300 hover:from-[#008bc1] hover:to-[#00c7e3] hover:scale-105 hover:shadow-xl disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100 transform`}
+                  className={`group relative inline-flex items-center gap-2 sm:gap-3 px-8 sm:px-12 py-3 sm:py-4 bg-gradient-to-r from-[#009bd7] to-[#00E1FF] text-white font-bold rounded-xl sm:rounded-2xl transition-all duration-300 hover:from-[#008bc1] hover:to-[#00c7e3] hover:scale-105 hover:shadow-xl disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100 transform text-sm sm:text-base w-full sm:w-auto justify-center`}
                 >
                   <span className="relative z-10">
                     {status.type === 'sending' ? 'Sending Message...' : 'Send Message'}
                   </span>
-                  <Send className={`w-5 h-5 relative z-10 transition-transform duration-300 ${status.type === 'sending' ? 'animate-pulse' : 'group-hover:translate-x-1'}`} />
+                  <Send className={`w-4 h-4 sm:w-5 sm:h-5 relative z-10 transition-transform duration-300 ${status.type === 'sending' ? 'animate-pulse' : 'group-hover:translate-x-1'}`} />
                   
                   {/* Button glow effect */}
-                  <div className="absolute inset-0 bg-gradient-to-r from-[#009bd7] to-[#00E1FF] rounded-2xl blur-xl opacity-0 group-hover:opacity-30 transition-opacity duration-300"></div>
+                  <div className="absolute inset-0 bg-gradient-to-r from-[#009bd7] to-[#00E1FF] rounded-xl sm:rounded-2xl blur-xl opacity-0 group-hover:opacity-30 transition-opacity duration-300"></div>
                 </button>
                 
                 {/* Status Messages */}
                 {status.type === 'success' && (
-                  <div className="flex items-center gap-2 px-6 py-3 bg-green-50 border border-green-200 rounded-xl">
+                  <div className="flex items-center gap-2 px-4 sm:px-6 py-3 bg-green-50 border border-green-200 rounded-xl w-full sm:w-auto">
                     <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
-                    <p className="text-green-700 font-medium">{status.message}</p>
+                    <p className="text-green-700 font-medium text-sm sm:text-base">{status.message}</p>
                   </div>
                 )}
                 
                 {status.type === 'error' && (
-                  <div className="flex items-center gap-2 px-6 py-3 bg-red-50 border border-red-200 rounded-xl">
+                  <div className="flex items-center gap-2 px-4 sm:px-6 py-3 bg-red-50 border border-red-200 rounded-xl w-full sm:w-auto">
                     <div className="w-2 h-2 bg-red-500 rounded-full"></div>
-                    <p className="text-red-700 font-medium">{status.message}</p>
+                    <p className="text-red-700 font-medium text-sm sm:text-base">{status.message}</p>
                   </div>
                 )}
               </div>
@@ -255,16 +255,16 @@ export default function ContactForm({ initialSubject = '', initialMessage = '' }
           </div>
 
           {/* Contact Info */}
-          <div className="text-center mt-12">
-            <p className="text-gray-600 mb-4">
+          <div className="text-center mt-8 sm:mt-12">
+            <p className="text-gray-600 mb-4 text-sm sm:text-base">
               Prefer to reach out directly? We&apos;d love to hear from you!
             </p>
-            <div className="flex flex-wrap justify-center gap-6 text-sm">
-              <a href="mailto:hello@skal.ai" className="flex items-center gap-2 text-[#009bd7] hover:text-[#00E1FF] transition-colors font-medium">
+            <div className="flex flex-col sm:flex-row flex-wrap justify-center gap-4 sm:gap-6 text-sm">
+              <a href="mailto:hello@skal.ai" className="flex items-center justify-center gap-2 text-[#009bd7] hover:text-[#00E1FF] transition-colors font-medium">
                 <Mail className="w-4 h-4" />
                 hello@skal.ai
               </a>
-              <span className="text-gray-300">|</span>
+              <span className="hidden sm:inline text-gray-300">|</span>
               <span className="text-gray-600">
                 Response within 24 hours
               </span>

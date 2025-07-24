@@ -5,6 +5,7 @@ import GlobalSquidBackground from "./components/GlobalSquidBackground";
 import GoogleAnalytics from "./components/GoogleAnalytics";
 import { Suspense } from "react";
 import Script from 'next/script';
+import { ThemeProvider } from './context/ThemeContext';
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -125,11 +126,13 @@ export default function RootLayout({
           />
         </noscript>
 
-        <GlobalSquidBackground />
-        <Suspense>
-          <GoogleAnalytics />
-        </Suspense>
-        {children}
+        <ThemeProvider>
+          <GlobalSquidBackground />
+          <Suspense>
+            <GoogleAnalytics />
+          </Suspense>
+          {children}
+        </ThemeProvider>
       </body>
     </html>
   );
