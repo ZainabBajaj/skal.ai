@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect, useRef } from 'react';
+import Image from 'next/image';
 
 const Clients = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -148,9 +149,11 @@ const Clients = () => {
               {/* Profile image */}
               <div className="flex-shrink-0">
                 <div className="w-24 h-24 md:w-32 md:h-32 rounded-full overflow-hidden border-4 border-gradient-to-r from-[#009bd7] to-[#00E1FF] p-1 bg-gradient-to-r from-[#009bd7] to-[#00E1FF]">
-                  <img
+                  <Image
                     src={testimonials[currentIndex].image}
                     alt={testimonials[currentIndex].name}
+                    width={128}
+                    height={128}
                     className="w-full h-full rounded-full object-cover bg-white"
                   />
                 </div>
