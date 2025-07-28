@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from 'react';
-import { ChevronDown, ChevronUp, Sparkles } from 'lucide-react';
+import { ChevronDown, ChevronUp } from 'lucide-react';
 
 interface FAQItem {
   question: string;
@@ -126,7 +126,7 @@ export default function FAQ() {
           {/* Header Section */}
           <div className="text-center mb-12 sm:mb-16">
             <div className="inline-flex items-center space-x-2 bg-gradient-to-r from-[#009bd7]/10 to-[#00E1FF]/10 rounded-full px-4 sm:px-6 py-2 mb-4 sm:mb-6 backdrop-blur-sm border border-[#009bd7]/20">
-              <Sparkles className="w-3 h-3 sm:w-4 sm:h-4 text-[#009bd7] animate-pulse" />
+              <div className="w-2 h-2 bg-gradient-to-r from-[#009bd7] to-[#00E1FF] rounded-full animate-ping"></div>
               <span className="text-[#009bd7] text-xs sm:text-sm font-bold tracking-wider">FREQUENTLY ASKED QUESTIONS</span>
             </div>
             

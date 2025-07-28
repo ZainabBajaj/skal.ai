@@ -80,10 +80,10 @@ const Services = () => {
   };
 
   return (
-    <section 
-      id="services" 
-      className="relative py-24 bg-gradient-to-br from-slate-50 via-white to-blue-50 overflow-hidden"
-    >
+          <section 
+        id="services" 
+        className="relative py-24 bg-gradient-to-br from-slate-50 via-white to-blue-50 dark:from-gray-900 dark:via-gray-800 dark:to-blue-900 overflow-hidden"
+      >
       {/* Simplified Background Elements */}
       <div className="absolute inset-0 pointer-events-none z-5">
         {/* Static background gradients for depth */}
@@ -94,16 +94,16 @@ const Services = () => {
 
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-20">
         <div className="text-center mb-20">
-          <div className="inline-flex items-center space-x-2 bg-gradient-to-r from-[#009bd7]/10 to-[#00E1FF]/10 rounded-full px-6 py-2 mb-6 backdrop-blur-sm border border-[#009bd7]/20">
-            <div className="w-2 h-2 bg-gradient-to-r from-[#009bd7] to-[#00E1FF] rounded-full animate-ping"></div>
-            <span className="text-[#009bd7] text-sm font-bold tracking-wider">OUR TECH STACK</span>
-          </div>
+                      <div className="inline-flex items-center space-x-2 bg-gradient-to-r from-[#009bd7]/10 to-[#00E1FF]/10 dark:from-[#009bd7]/20 dark:to-[#00E1FF]/20 rounded-full px-6 py-2 mb-6 backdrop-blur-sm border border-[#009bd7]/20 dark:border-[#00E1FF]/30">
+              <div className="w-2 h-2 bg-gradient-to-r from-[#009bd7] to-[#00E1FF] rounded-full animate-ping"></div>
+              <span className="text-[#009bd7] dark:text-[#00E1FF] text-sm font-bold tracking-wider">OUR TECH STACK</span>
+            </div>
           
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#1a1a1a] via-[#009bd7] to-[#00E1FF] mb-6 leading-tight">
-            Technologies We Master
-          </h2>
-          
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed font-medium">
+                      <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#1a1a1a] via-[#009bd7] to-[#00E1FF] dark:from-white dark:via-[#009bd7] dark:to-[#00E1FF] mb-6 leading-tight">
+              Technologies We Master
+            </h2>
+            
+            <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto leading-relaxed font-medium">
             Cutting-edge technologies and frameworks we use to build{' '}
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#009bd7] to-[#00E1FF] font-bold">
               exceptional solutions
@@ -112,7 +112,7 @@ const Services = () => {
         </div>
 
         {/* Enhanced Tab Navigation */}
-        <div className="flex flex-wrap justify-center mb-16 bg-white/80 backdrop-blur-xl rounded-3xl shadow-2xl p-3 max-w-5xl mx-auto border border-white/50 relative overflow-hidden">
+        <div className="flex flex-wrap justify-center mb-16 bg-white/80 dark:bg-gray-800/80 backdrop-blur-xl rounded-3xl shadow-2xl p-3 max-w-5xl mx-auto border border-white/50 dark:border-gray-700/50 relative overflow-hidden">
           <div className="absolute inset-0 bg-gradient-to-r from-[#009bd7]/5 via-transparent to-[#00E1FF]/5"></div>
           {tabs.map((tab) => (
             <button
@@ -121,7 +121,7 @@ const Services = () => {
               className={`relative px-6 py-4 rounded-2xl font-bold transition-all duration-500 m-1 transform hover:scale-105 ${
                 activeTab === tab
                   ? 'bg-gradient-to-r from-[#009bd7] to-[#00E1FF] text-white shadow-xl scale-105 shadow-[#009bd7]/30'
-                  : 'text-gray-600 hover:text-[#009bd7] hover:bg-white/80 hover:shadow-lg'
+                  : 'text-gray-600 dark:text-gray-300 hover:text-[#009bd7] hover:bg-white/80 dark:hover:bg-gray-700/80 hover:shadow-lg'
               }`}
             >
               <span className="relative z-10">{tab}</span>
@@ -139,7 +139,7 @@ const Services = () => {
               {Object.values(getDisplayedTechnologies()).flat().map((tech: Technology, index: number) => (
                 <div
                   key={`${tech.name}-${index}`}
-                  className={`group relative bg-gradient-to-br ${tech.bgGradient} rounded-3xl p-8 hover:shadow-2xl transition-all duration-500 border border-white/50 hover:border-[#009bd7]/30 hover:scale-110 cursor-pointer backdrop-blur-sm overflow-hidden`}
+                  className={`group relative bg-gradient-to-br ${tech.bgGradient} dark:from-gray-800/80 dark:to-gray-700/80 rounded-3xl p-8 hover:shadow-2xl transition-all duration-500 border border-white/50 dark:border-gray-600/50 hover:border-[#009bd7]/30 hover:scale-110 cursor-pointer backdrop-blur-sm overflow-hidden`}
                   style={{
                     animationDelay: `${index * 100}ms`,
                   }}
@@ -155,7 +155,7 @@ const Services = () => {
                       {tech.icon}
                     </div>
                     
-                    <h3 className="font-bold text-gray-800 text-base group-hover:text-[#009bd7] transition-all duration-300 mb-2">
+                    <h3 className="font-bold text-gray-800 dark:text-white text-base group-hover:text-[#009bd7] transition-all duration-300 mb-2">
                       {tech.name}
                     </h3>
                     
@@ -179,7 +179,7 @@ const Services = () => {
                 {techs.map((tech: Technology, index: number) => (
                   <div
                     key={`${tech.name}-${index}`}
-                    className={`group relative bg-gradient-to-br ${tech.bgGradient} rounded-3xl p-8 hover:shadow-2xl transition-all duration-500 border border-white/50 hover:border-[#009bd7]/30 hover:scale-110 cursor-pointer backdrop-blur-sm overflow-hidden`}
+                    className={`group relative bg-gradient-to-br ${tech.bgGradient} dark:from-gray-800/80 dark:to-gray-700/80 rounded-3xl p-8 hover:shadow-2xl transition-all duration-500 border border-white/50 dark:border-gray-600/50 hover:border-[#009bd7]/30 hover:scale-110 cursor-pointer backdrop-blur-sm overflow-hidden`}
                     style={{
                       animationDelay: `${index * 100}ms`,
                     }}
@@ -195,7 +195,7 @@ const Services = () => {
                         {tech.icon}
                       </div>
                       
-                      <h3 className="font-bold text-gray-800 text-base group-hover:text-[#009bd7] transition-all duration-300 mb-2">
+                      <h3 className="font-bold text-gray-800 dark:text-white text-base group-hover:text-[#009bd7] dark:group-hover:text-[#00E1FF] transition-all duration-300 mb-2">
                         {tech.name}
                       </h3>
                       

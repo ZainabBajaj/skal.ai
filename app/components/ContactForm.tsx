@@ -96,7 +96,7 @@ export default function ContactForm({ initialSubject = '', initialMessage = '' }
   };
 
   return (
-    <section id="contact" className="relative py-16 sm:py-20 lg:py-24 bg-gradient-to-br from-slate-50 via-white to-blue-50 overflow-hidden">
+    <section id="contact" className="relative py-16 sm:py-20 lg:py-24 bg-gradient-to-br from-slate-50 via-white to-blue-50 dark:from-gray-900 dark:via-gray-800 dark:to-blue-900 overflow-hidden">
       {/* Background Elements */}
       <div className="absolute inset-0 pointer-events-none">
         {/* Animated background gradients */}
@@ -109,16 +109,16 @@ export default function ContactForm({ initialSubject = '', initialMessage = '' }
         <div className="max-w-4xl mx-auto">
           {/* Header Section */}
           <div className="text-center mb-12 sm:mb-16">
-            <div className="inline-flex items-center space-x-2 bg-gradient-to-r from-[#009bd7]/10 to-[#00E1FF]/10 rounded-full px-4 sm:px-6 py-2 mb-4 sm:mb-6 backdrop-blur-sm border border-[#009bd7]/20">
-              <Sparkles className="w-3 h-3 sm:w-4 sm:h-4 text-[#009bd7] animate-pulse" />
-              <span className="text-[#009bd7] text-xs sm:text-sm font-bold tracking-wider">LET&apos;S CONNECT</span>
+            <div className="inline-flex items-center space-x-2 bg-gradient-to-r from-[#009bd7]/10 to-[#00E1FF]/10 dark:from-[#009bd7]/20 dark:to-[#00E1FF]/20 rounded-full px-4 sm:px-6 py-2 mb-4 sm:mb-6 backdrop-blur-sm border border-[#009bd7]/20 dark:border-[#00E1FF]/30">
+              <Sparkles className="w-3 h-3 sm:w-4 sm:h-4 text-[#009bd7] dark:text-[#00E1FF] animate-pulse" />
+              <span className="text-[#009bd7] dark:text-[#00E1FF] text-xs sm:text-sm font-bold tracking-wider">LET&apos;S CONNECT</span>
             </div>
             
-            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#1a1a1a] via-[#009bd7] to-[#00E1FF] mb-4 sm:mb-6 leading-tight">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#1a1a1a] via-[#009bd7] to-[#00E1FF] dark:from-white dark:via-[#009bd7] dark:to-[#00E1FF] mb-4 sm:mb-6 leading-tight">
               Start Your AI Journey
             </h2>
             
-            <p className="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed font-medium px-4">
+            <p className="text-lg sm:text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto leading-relaxed font-medium px-4">
               Ready to transform your business with cutting-edge AI solutions? Let&apos;s discuss your project and{' '}
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#009bd7] to-[#00E1FF] font-bold">
                 bring your vision to life
@@ -127,7 +127,7 @@ export default function ContactForm({ initialSubject = '', initialMessage = '' }
           </div>
 
           {/* Contact Form */}
-          <div className="bg-white/80 backdrop-blur-xl rounded-2xl sm:rounded-3xl shadow-2xl p-6 sm:p-8 md:p-12 border border-white/50 relative overflow-hidden">
+          <div className="bg-white/80 dark:bg-gray-800/80 backdrop-blur-xl rounded-2xl sm:rounded-3xl shadow-2xl p-6 sm:p-8 md:p-12 border border-white/50 dark:border-gray-700/50 relative overflow-hidden">
             {/* Form Background Effects */}
             <div className="absolute inset-0 bg-gradient-to-br from-[#009bd7]/5 via-transparent to-[#00E1FF]/5 pointer-events-none"></div>
             <div className="absolute top-0 right-0 w-32 h-32 sm:w-64 sm:h-64 bg-gradient-to-bl from-[#00E1FF]/10 to-transparent rounded-full blur-3xl"></div>
@@ -137,42 +137,42 @@ export default function ContactForm({ initialSubject = '', initialMessage = '' }
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
                 {/* Name Field */}
                 <div className="group">
-                  <label htmlFor="name" className="flex items-center gap-2 text-sm font-bold text-gray-700 mb-2 sm:mb-3">
+                  <label htmlFor="name" className="flex items-center gap-2 text-sm font-bold text-gray-700 dark:text-gray-200 mb-2 sm:mb-3">
                     <User className="w-4 h-4 text-[#009bd7]" />
                     Full Name
                   </label>
                   <div className="relative">
-                    <input
-                      type="text"
-                      id="name"
-                      name="name"
-                      value={formData.name}
-                      onChange={handleChange}
-                      required
-                      className="w-full px-4 sm:px-6 py-3 sm:py-4 border border-gray-200 rounded-xl sm:rounded-2xl focus:ring-2 focus:ring-[#009bd7]/20 focus:border-[#009bd7] bg-white/90 text-gray-800 placeholder-gray-400 transition-all duration-300 group-hover:shadow-lg backdrop-blur-sm text-sm sm:text-base"
-                      placeholder="Enter your full name"
-                    />
+                                      <input
+                    type="text"
+                    id="name"
+                    name="name"
+                    value={formData.name}
+                    onChange={handleChange}
+                    required
+                    className="w-full px-4 sm:px-6 py-3 sm:py-4 border border-gray-200 dark:border-gray-600 rounded-xl sm:rounded-2xl focus:ring-2 focus:ring-[#009bd7]/20 focus:border-[#009bd7] dark:focus:border-[#00E1FF] bg-white/90 dark:bg-gray-700/90 text-gray-800 dark:text-white placeholder-gray-400 dark:placeholder-gray-400 transition-all duration-300 group-hover:shadow-lg backdrop-blur-sm text-sm sm:text-base"
+                    placeholder="Enter your full name"
+                  />
                     <div className="absolute inset-0 rounded-xl sm:rounded-2xl bg-gradient-to-r from-[#009bd7]/0 to-[#00E1FF]/0 group-focus-within:from-[#009bd7]/5 group-focus-within:to-[#00E1FF]/5 transition-all duration-300 pointer-events-none"></div>
                   </div>
                 </div>
 
                 {/* Email Field */}
                 <div className="group">
-                  <label htmlFor="email" className="flex items-center gap-2 text-sm font-bold text-gray-700 mb-2 sm:mb-3">
+                  <label htmlFor="email" className="flex items-center gap-2 text-sm font-bold text-gray-700 dark:text-gray-200 mb-2 sm:mb-3">
                     <Mail className="w-4 h-4 text-[#009bd7]" />
                     Email Address
                   </label>
                   <div className="relative">
-                    <input
-                      type="email"
-                      id="email"
-                      name="email"
-                      value={formData.email}
-                      onChange={handleChange}
-                      required
-                      className="w-full px-4 sm:px-6 py-3 sm:py-4 border border-gray-200 rounded-xl sm:rounded-2xl focus:ring-2 focus:ring-[#009bd7]/20 focus:border-[#009bd7] bg-white/90 text-gray-800 placeholder-gray-400 transition-all duration-300 group-hover:shadow-lg backdrop-blur-sm text-sm sm:text-base"
-                      placeholder="your.email@company.com"
-                    />
+                                      <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    value={formData.email}
+                    onChange={handleChange}
+                    required
+                    className="w-full px-4 sm:px-6 py-3 sm:py-4 border border-gray-200 dark:border-gray-600 rounded-xl sm:rounded-2xl focus:ring-2 focus:ring-[#009bd7]/20 focus:border-[#009bd7] dark:focus:border-[#00E1FF] bg-white/90 dark:bg-gray-700/90 text-gray-800 dark:text-white placeholder-gray-400 dark:placeholder-gray-400 transition-all duration-300 group-hover:shadow-lg backdrop-blur-sm text-sm sm:text-base"
+                    placeholder="your.email@company.com"
+                  />
                     <div className="absolute inset-0 rounded-xl sm:rounded-2xl bg-gradient-to-r from-[#009bd7]/0 to-[#00E1FF]/0 group-focus-within:from-[#009bd7]/5 group-focus-within:to-[#00E1FF]/5 transition-all duration-300 pointer-events-none"></div>
                   </div>
                 </div>
@@ -180,7 +180,7 @@ export default function ContactForm({ initialSubject = '', initialMessage = '' }
 
               {/* Subject Field */}
               <div className="group">
-                <label htmlFor="subject" className="flex items-center gap-2 text-sm font-bold text-gray-700 mb-2 sm:mb-3">
+                <label htmlFor="subject" className="flex items-center gap-2 text-sm font-bold text-gray-700 dark:text-gray-200 mb-2 sm:mb-3">
                   <MessageCircle className="w-4 h-4 text-[#009bd7]" />
                   Project Subject
                 </label>
@@ -192,7 +192,7 @@ export default function ContactForm({ initialSubject = '', initialMessage = '' }
                     value={formData.subject}
                     onChange={handleChange}
                     required
-                    className="w-full px-4 sm:px-6 py-3 sm:py-4 border border-gray-200 rounded-xl sm:rounded-2xl focus:ring-2 focus:ring-[#009bd7]/20 focus:border-[#009bd7] bg-white/90 text-gray-800 placeholder-gray-400 transition-all duration-300 group-hover:shadow-lg backdrop-blur-sm text-sm sm:text-base"
+                    className="w-full px-4 sm:px-6 py-3 sm:py-4 border border-gray-200 dark:border-gray-600 rounded-xl sm:rounded-2xl focus:ring-2 focus:ring-[#009bd7]/20 focus:border-[#009bd7] dark:focus:border-[#00E1FF] bg-white/90 dark:bg-gray-700/90 text-gray-800 dark:text-white placeholder-gray-400 dark:placeholder-gray-400 transition-all duration-300 group-hover:shadow-lg backdrop-blur-sm text-sm sm:text-base"
                     placeholder="AI Implementation, Web Development, Mobile App..."
                   />
                   <div className="absolute inset-0 rounded-xl sm:rounded-2xl bg-gradient-to-r from-[#009bd7]/0 to-[#00E1FF]/0 group-focus-within:from-[#009bd7]/5 group-focus-within:to-[#00E1FF]/5 transition-all duration-300 pointer-events-none"></div>
@@ -201,7 +201,7 @@ export default function ContactForm({ initialSubject = '', initialMessage = '' }
 
               {/* Message Field */}
               <div className="group">
-                <label htmlFor="message" className="flex items-center gap-2 text-sm font-bold text-gray-700 mb-2 sm:mb-3">
+                <label htmlFor="message" className="flex items-center gap-2 text-sm font-bold text-gray-700 dark:text-gray-200 mb-2 sm:mb-3">
                   <MessageCircle className="w-4 h-4 text-[#009bd7]" />
                   Project Details
                 </label>
@@ -213,7 +213,7 @@ export default function ContactForm({ initialSubject = '', initialMessage = '' }
                     onChange={handleChange}
                     required
                     rows={4}
-                    className="w-full px-4 sm:px-6 py-3 sm:py-4 border border-gray-200 rounded-xl sm:rounded-2xl focus:ring-2 focus:ring-[#009bd7]/20 focus:border-[#009bd7] bg-white/90 text-gray-800 placeholder-gray-400 transition-all duration-300 group-hover:shadow-lg backdrop-blur-sm resize-none text-sm sm:text-base"
+                    className="w-full px-4 sm:px-6 py-3 sm:py-4 border border-gray-200 dark:border-gray-600 rounded-xl sm:rounded-2xl focus:ring-2 focus:ring-[#009bd7]/20 focus:border-[#009bd7] dark:focus:border-[#00E1FF] bg-white/90 dark:bg-gray-700/90 text-gray-800 dark:text-white placeholder-gray-400 dark:placeholder-gray-400 transition-all duration-300 group-hover:shadow-lg backdrop-blur-sm resize-none text-sm sm:text-base"
                     placeholder="Tell us about your project goals, timeline, and any specific requirements..."
                   />
                   <div className="absolute inset-0 rounded-xl sm:rounded-2xl bg-gradient-to-r from-[#009bd7]/0 to-[#00E1FF]/0 group-focus-within:from-[#009bd7]/5 group-focus-within:to-[#00E1FF]/5 transition-all duration-300 pointer-events-none"></div>
@@ -238,16 +238,16 @@ export default function ContactForm({ initialSubject = '', initialMessage = '' }
                 
                 {/* Status Messages */}
                 {status.type === 'success' && (
-                  <div className="flex items-center gap-2 px-4 sm:px-6 py-3 bg-green-50 border border-green-200 rounded-xl w-full sm:w-auto">
+                  <div className="flex items-center gap-2 px-4 sm:px-6 py-3 bg-green-50 dark:bg-green-900/20 border border-green-200 dark:border-green-800 rounded-xl w-full sm:w-auto">
                     <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
-                    <p className="text-green-700 font-medium text-sm sm:text-base">{status.message}</p>
+                    <p className="text-green-700 dark:text-green-400 font-medium text-sm sm:text-base">{status.message}</p>
                   </div>
                 )}
                 
                 {status.type === 'error' && (
-                  <div className="flex items-center gap-2 px-4 sm:px-6 py-3 bg-red-50 border border-red-200 rounded-xl w-full sm:w-auto">
+                  <div className="flex items-center gap-2 px-4 sm:px-6 py-3 bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 rounded-xl w-full sm:w-auto">
                     <div className="w-2 h-2 bg-red-500 rounded-full"></div>
-                    <p className="text-red-700 font-medium text-sm sm:text-base">{status.message}</p>
+                    <p className="text-red-700 dark:text-red-400 font-medium text-sm sm:text-base">{status.message}</p>
                   </div>
                 )}
               </div>
@@ -256,16 +256,16 @@ export default function ContactForm({ initialSubject = '', initialMessage = '' }
 
           {/* Contact Info */}
           <div className="text-center mt-8 sm:mt-12">
-            <p className="text-gray-600 mb-4 text-sm sm:text-base">
+            <p className="text-gray-600 dark:text-gray-300 mb-4 text-sm sm:text-base">
               Prefer to reach out directly? We&apos;d love to hear from you!
             </p>
             <div className="flex flex-col sm:flex-row flex-wrap justify-center gap-4 sm:gap-6 text-sm">
-              <a href="mailto:hello@skal.ai" className="flex items-center justify-center gap-2 text-[#009bd7] hover:text-[#00E1FF] transition-colors font-medium">
+              <a href="mailto:hello@skal.ai" className="flex items-center justify-center gap-2 text-[#009bd7] dark:text-[#00E1FF] hover:text-[#00E1FF] dark:hover:text-[#009bd7] transition-colors font-medium">
                 <Mail className="w-4 h-4" />
                 hello@skal.ai
               </a>
-              <span className="hidden sm:inline text-gray-300">|</span>
-              <span className="text-gray-600">
+              <span className="hidden sm:inline text-gray-300 dark:text-gray-500">|</span>
+              <span className="text-gray-600 dark:text-gray-300">
                 Response within 24 hours
               </span>
             </div>

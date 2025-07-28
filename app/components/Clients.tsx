@@ -90,7 +90,7 @@ const Clients = () => {
 
   return (
     <section 
-      className="relative py-24 bg-gradient-to-br from-[#f8faff] via-white to-[#f0f7ff] overflow-hidden"
+      className="relative py-24 bg-gradient-to-br from-[#f8faff] via-white to-[#f0f7ff] dark:from-gray-900 dark:via-gray-800 dark:to-blue-900 overflow-hidden"
     >
       {/* Simplified Background Elements */}
       <div className="absolute inset-0 pointer-events-none z-5">
@@ -103,14 +103,14 @@ const Clients = () => {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-20">
         {/* Enhanced header */}
         <div className="text-center mb-20">
-          <div className="inline-flex items-center space-x-2 bg-gradient-to-r from-[#009bd7]/10 to-[#00E1FF]/10 rounded-full px-6 py-2 mb-6 backdrop-blur-sm border border-[#009bd7]/20">
-            <div className="w-2 h-2 bg-gradient-to-r from-[#009bd7] to-[#00E1FF] rounded-full animate-ping"></div>
-            <span className="text-[#009bd7] text-sm font-bold tracking-wider">TESTIMONIALS</span>
-          </div>
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#1a1a1a] via-[#009bd7] to-[#00E1FF] mb-6 leading-tight">
+                      <div className="inline-flex items-center space-x-2 bg-gradient-to-r from-[#009bd7]/10 to-[#00E1FF]/10 dark:from-[#009bd7]/20 dark:to-[#00E1FF]/20 rounded-full px-6 py-2 mb-6 backdrop-blur-sm border border-[#009bd7]/20 dark:border-[#00E1FF]/30">
+              <div className="w-2 h-2 bg-gradient-to-r from-[#009bd7] to-[#00E1FF] rounded-full animate-ping"></div>
+              <span className="text-[#009bd7] dark:text-[#00E1FF] text-sm font-bold tracking-wider">TESTIMONIALS</span>
+            </div>
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#1a1a1a] via-[#009bd7] to-[#00E1FF] dark:from-white dark:via-[#009bd7] dark:to-[#00E1FF] mb-6 leading-tight">
             What Our Clients Say
           </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed font-medium">
+          <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto leading-relaxed font-medium">
             Hear from our valued clients about their experience working with us and the{' '}
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#009bd7] to-[#00E1FF] font-bold">
               results we&apos;ve achieved
@@ -124,7 +124,7 @@ const Clients = () => {
           {/* Navigation buttons */}
           <button
             onClick={prevTestimonial}
-            className="absolute left-[-80px] top-1/2 transform -translate-y-1/2 w-14 h-14 rounded-full bg-white/80 backdrop-blur-sm border border-[#009bd7]/20 hover:border-[#009bd7] text-[#009bd7] flex items-center justify-center transition-all duration-300 hover:scale-110 shadow-lg z-10"
+            className="absolute left-[-80px] top-1/2 transform -translate-y-1/2 w-14 h-14 rounded-full bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm border border-[#009bd7]/20 dark:border-[#00E1FF]/30 hover:border-[#009bd7] dark:hover:border-[#00E1FF] text-[#009bd7] dark:text-[#00E1FF] flex items-center justify-center transition-all duration-300 hover:scale-110 shadow-lg z-10"
             aria-label="Previous testimonial"
           >
             <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -134,7 +134,7 @@ const Clients = () => {
 
           <button
             onClick={nextTestimonial}
-            className="absolute right-[-80px] top-1/2 transform -translate-y-1/2 w-14 h-14 rounded-full bg-white/80 backdrop-blur-sm border border-[#009bd7]/20 hover:border-[#009bd7] text-[#009bd7] flex items-center justify-center transition-all duration-300 hover:scale-110 shadow-lg z-10"
+            className="absolute right-[-80px] top-1/2 transform -translate-y-1/2 w-14 h-14 rounded-full bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm border border-[#009bd7]/20 dark:border-[#00E1FF]/30 hover:border-[#009bd7] dark:hover:border-[#00E1FF] text-[#009bd7] dark:text-[#00E1FF] flex items-center justify-center transition-all duration-300 hover:scale-110 shadow-lg z-10"
             aria-label="Next testimonial"
           >
             <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -143,7 +143,7 @@ const Clients = () => {
           </button>
 
           {/* Main testimonial card */}
-          <div className="bg-white/90 backdrop-blur-xl rounded-3xl p-8 md:p-12 shadow-2xl border border-white/50 hover:shadow-3xl transition-all duration-500">
+          <div className="bg-white/90 dark:bg-gray-800/90 backdrop-blur-xl rounded-3xl p-8 md:p-12 shadow-2xl border border-white/50 dark:border-gray-700/50 hover:shadow-3xl transition-all duration-500">
             <div className="flex flex-col md:flex-row items-center md:items-start space-y-6 md:space-y-0 md:space-x-8">
               {/* Profile image */}
               <div className="flex-shrink-0">
@@ -159,14 +159,14 @@ const Clients = () => {
               {/* Testimonial content */}
               <div className="flex-1 text-center md:text-left">
                 <StarRating rating={testimonials[currentIndex].rating} />
-                <blockquote className="text-lg md:text-xl text-gray-700 mb-6 leading-relaxed italic">
+                <blockquote className="text-lg md:text-xl text-gray-700 dark:text-gray-300 mb-6 leading-relaxed italic">
                   &ldquo;{testimonials[currentIndex].quote}&rdquo;
                 </blockquote>
                 <div>
-                  <h4 className="text-xl font-bold text-[#1a1a1a] mb-1">
+                  <h4 className="text-xl font-bold text-[#1a1a1a] dark:text-white mb-1">
                     {testimonials[currentIndex].name}
                   </h4>
-                  <p className="text-[#009bd7] font-medium">
+                  <p className="text-[#009bd7] dark:text-[#00E1FF] font-medium">
                     {testimonials[currentIndex].title}
                   </p>
                 </div>
@@ -182,8 +182,8 @@ const Clients = () => {
                 onClick={() => goToTestimonial(index)}
                 className={`w-3 h-3 rounded-full transition-all duration-300 ${
                   index === currentIndex
-                    ? 'bg-gradient-to-r from-[#009bd7] to-[#00E1FF] scale-125'
-                    : 'bg-gray-300 hover:bg-gray-400'
+                    ? 'bg-gradient-to-r from-[#009bd7] to-[#00E1FF] dark:from-[#00E1FF] dark:to-[#009bd7] scale-125'
+                    : 'bg-gray-300 hover:bg-gray-400 dark:bg-gray-500 dark:hover:bg-gray-400'
                 }`}
                 aria-label={`Go to testimonial ${index + 1}`}
               />
@@ -193,13 +193,13 @@ const Clients = () => {
 
         {/* Client logos section */}
         <div className="mt-20 text-center">
-          <p className="text-sm text-gray-500 mb-8 font-medium">TRUSTED BY INDUSTRY LEADERS</p>
+          <p className="text-sm text-gray-500 dark:text-gray-300 mb-8 font-medium">TRUSTED BY INDUSTRY LEADERS</p>
           <div className="flex flex-wrap justify-center items-center gap-8 md:gap-12 opacity-60 hover:opacity-80 transition-opacity">
-            <div className="text-2xl font-bold text-gray-400">TechInnovate</div>
-            <div className="text-2xl font-bold text-gray-400">GlobalTech</div>
-            <div className="text-2xl font-bold text-gray-400">FutureVision</div>
-            <div className="text-2xl font-bold text-gray-400">InnovateLab</div>
-            <div className="text-2xl font-bold text-gray-400">DataFlow</div>
+            <div className="text-2xl font-bold text-gray-400 dark:text-gray-300">TechInnovate</div>
+            <div className="text-2xl font-bold text-gray-400 dark:text-gray-300">GlobalTech</div>
+            <div className="text-2xl font-bold text-gray-400 dark:text-gray-300">FutureVision</div>
+            <div className="text-2xl font-bold text-gray-400 dark:text-gray-300">InnovateLab</div>
+            <div className="text-2xl font-bold text-gray-400 dark:text-gray-300">DataFlow</div>
           </div>
         </div>
       </div>

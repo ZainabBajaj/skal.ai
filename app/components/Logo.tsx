@@ -7,8 +7,28 @@ interface LogoProps {
 }
 
 const Logo = ({ isScrolled = false }: LogoProps) => {
+  const handleLogoClick = () => {
+    // Scroll to the top of the page smoothly
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+  };
+
   return (
-    <div className="flex items-center gap-1">
+    <div 
+      className="flex items-center gap-1 cursor-pointer hover:opacity-80 transition-opacity duration-300"
+      onClick={handleLogoClick}
+      role="button"
+      tabIndex={0}
+      onKeyDown={(e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          handleLogoClick();
+        }
+      }}
+      aria-label="Go to top of page"
+    >
       <Image 
         src="/skal-logo.png" 
         alt="SKAL Logo" 

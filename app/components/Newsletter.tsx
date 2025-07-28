@@ -78,11 +78,11 @@ const NewsletterSection = () => {
 
     return (
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50">
-      <div className="relative w-full max-w-2xl mx-auto bg-white rounded-3xl shadow-xl border border-[#009bd7]/10 p-8 sm:p-12">
+      <div className="relative w-full max-w-2xl mx-auto bg-white dark:bg-gray-900 rounded-3xl shadow-xl border border-[#009bd7]/10 dark:border-[#009bd7]/20 p-8 sm:p-12">
         {/* Close Button */}
         <button
           onClick={handleClose}
-          className="absolute top-4 right-4 text-gray-400 hover:text-gray-600 transition-colors"
+          className="absolute top-4 right-4 text-gray-400 hover:text-gray-600 dark:text-gray-500 dark:hover:text-gray-300 transition-colors"
         >
           <X className="w-6 h-6" />
         </button>
@@ -93,10 +93,10 @@ const NewsletterSection = () => {
               <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-r from-green-500 to-emerald-500 rounded-full mb-6">
                 <CheckCircle className="w-8 h-8 text-white" />
               </div>
-              <h2 className="text-3xl font-bold text-[#1a1a1a] mb-4">
+              <h2 className="text-3xl font-bold text-[#1a1a1a] dark:text-white mb-4">
                 Successfully Subscribed!
               </h2>
-              <p className="text-gray-600 mb-8 text-lg">
+              <p className="text-gray-600 dark:text-gray-300 mb-8 text-lg">
                 Welcome to our AI community! You&apos;ll receive cutting-edge insights and automation tips directly in your inbox.
               </p>
               <button 
@@ -114,21 +114,21 @@ const NewsletterSection = () => {
               <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-r from-[#009bd7] to-[#00E1FF] rounded-full mb-6">
                 <Mail className="w-8 h-8 text-white" />
               </div>
-              <h2 className="text-4xl font-bold text-[#1a1a1a] mb-4">
+              <h2 className="text-4xl font-bold text-[#1a1a1a] dark:text-white mb-4">
                 Keep up with
                 <br />
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#009bd7] to-[#00E1FF]">
                   AI automation trends
                 </span>
               </h2>
-              <p className="text-xl text-gray-600 leading-relaxed">
+              <p className="text-xl text-gray-600 dark:text-gray-300 leading-relaxed">
                 Discover how <strong>AI automation</strong> can transform your business operations and unlock significant value for your organization.
               </p>
             </div>
 
             {/* Error Message */}
             {error && (
-              <div className="mb-6 p-4 bg-red-50 border border-red-200 rounded-xl flex items-center text-red-700">
+              <div className="mb-6 p-4 bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 rounded-xl flex items-center text-red-700 dark:text-red-400">
                 <AlertCircle className="w-5 h-5 mr-2 flex-shrink-0" />
                 <span className="text-sm">{error}</span>
               </div>
@@ -142,7 +142,7 @@ const NewsletterSection = () => {
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                     placeholder="Enter your email"
-                    className="w-full px-6 py-4 border-2 border-gray-200 rounded-xl focus:border-[#009bd7] focus:outline-none text-gray-800 font-medium transition-colors"
+                    className="w-full px-6 py-4 border-2 border-gray-200 dark:border-gray-600 rounded-xl focus:border-[#009bd7] focus:outline-none text-gray-800 dark:text-white dark:bg-gray-800 font-medium transition-colors"
                   disabled={isLoading}
                   />
                 <button
@@ -162,7 +162,7 @@ const NewsletterSection = () => {
               </div>
             </div>
 
-            <p className="text-sm text-gray-500 mb-6">
+            <p className="text-sm text-gray-500 dark:text-gray-400 mb-6">
               Unsubscribe any time, no hard feelings.
             </p>
           </div>
