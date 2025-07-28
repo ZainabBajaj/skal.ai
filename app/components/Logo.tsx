@@ -1,18 +1,25 @@
 "use client";
 
 import Image from 'next/image';
+import { usePathname } from 'next/navigation';
 
 interface LogoProps {
   isScrolled?: boolean;
 }
 
 const Logo = ({ isScrolled = false }: LogoProps) => {
-  const handleLogoClick = () => {
-    // Scroll to the top of the page smoothly
-    window.scrollTo({
-      top: 0,
-      behavior: 'smooth'
-    });
+  const pathname = usePathname();
+
+  const handleLogoClick = (e: React.MouseEvent) => {
+    // If we're already on the home page, just scroll to top
+    if (pathname === '/') {
+      e.preventDefault();
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    }
+    // Otherwise, the Link component will handle navigation
   };
 
   return (
@@ -24,10 +31,10 @@ const Logo = ({ isScrolled = false }: LogoProps) => {
       onKeyDown={(e) => {
         if (e.key === 'Enter' || e.key === ' ') {
           e.preventDefault();
-          handleLogoClick();
+          handleLogoClick(e as unknown as React.MouseEvent);
         }
       }}
-      aria-label="Go to top of page"
+      aria-label="Go to homepage"
     >
       <Image 
         src="/skal-logo.png" 

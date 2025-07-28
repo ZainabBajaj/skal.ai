@@ -11,7 +11,7 @@ const Clients = () => {
   const testimonials = [
     {
       quote: "Skal AI transformed our business operations with their cutting-edge AI solutions. The automation they implemented saved us 40% in operational costs while improving our customer satisfaction dramatically.",
-      name: "Sarah Johnson",
+      name: "David Johnson",
       title: "CEO, TechInnovate Solutions",
       image: "/clients/client1.jpg",
       rating: 5
@@ -32,7 +32,7 @@ const Clients = () => {
     },
     {
       quote: "Exceptional work on our full-stack development project. The team delivered a robust, scalable solution that exceeded our expectations and timeline.",
-      name: "David Thompson",
+      name: "Sara Thompson",
       title: "CTO, InnovateLab",
       image: "/clients/client4.jpg",
       rating: 5

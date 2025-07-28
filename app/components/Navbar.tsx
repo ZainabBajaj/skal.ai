@@ -3,41 +3,56 @@
 import { useState, useEffect } from 'react';
 import Logo from './Logo';
 import { Menu, X, ChevronDown } from 'lucide-react';
+import Link from 'next/link';
+import { usePathname, useRouter } from 'next/navigation';
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const [activeSection, setActiveSection] = useState('');
+  const pathname = usePathname();
+  const router = useRouter();
+  const is99Page = pathname === '/99';
 
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 20);
       
-      // Update active section based on scroll position
-      const sections = ['about', 'services', 'faq', 'contact'];
-      const current = sections.find(section => {
-        const element = document.getElementById(section);
-        if (element) {
-          const rect = element.getBoundingClientRect();
-          return rect.top <= 100 && rect.bottom >= 100;
-        }
-        return false;
-      });
-      setActiveSection(current || '');
+      // Only track sections on main page
+      if (!is99Page) {
+        // Update active section based on scroll position
+        const sections = ['about', 'services', 'faq', 'contact'];
+        const current = sections.find(section => {
+          const element = document.getElementById(section);
+          if (element) {
+            const rect = element.getBoundingClientRect();
+            return rect.top <= 100 && rect.bottom >= 100;
+          }
+          return false;
+        });
+        setActiveSection(current || '');
+      }
     };
 
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+  }, [is99Page]);
 
   const handleNavClick = (href: string) => {
     setIsOpen(false);
-    const element = document.querySelector(href);
-    if (element) {
-      element.scrollIntoView({ 
-        behavior: 'smooth',
-        block: 'start'
-      });
+    
+    if (is99Page) {
+      // On the 99 page, navigate to main page with section hash
+      router.push(`/${href}`);
+    } else {
+      // On main page, scroll to section
+      const element = document.querySelector(href);
+      if (element) {
+        element.scrollIntoView({ 
+          behavior: 'smooth',
+          block: 'start'
+        });
+      }
     }
   };
 
@@ -58,7 +73,9 @@ export default function Navbar() {
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
           <div className="flex-shrink-0">
-            <Logo isScrolled={isScrolled} />
+            <Link href="/">
+              <Logo isScrolled={isScrolled} />
+            </Link>
           </div>
 
           {/* Desktop Navigation */}
@@ -68,7 +85,7 @@ export default function Navbar() {
                 key={link.name}
                 onClick={() => handleNavClick(link.href)}
                 className={`relative px-4 py-2 rounded-lg font-medium transition-all duration-300 group ${
-                  activeSection === link.name.toLowerCase()
+                  activeSection === link.name.toLowerCase() && !is99Page
                     ? 'text-[#009bd7] bg-[#009bd7]/10 dark:bg-[#009bd7]/20'
                     : isScrolled 
                       ? 'text-gray-700 dark:text-gray-300 hover:text-[#009bd7] hover:bg-[#009bd7]/5 dark:hover:bg-[#009bd7]/10'
@@ -77,10 +94,22 @@ export default function Navbar() {
               >
                 {link.name}
                 <span className={`absolute bottom-0 left-1/2 w-0 h-0.5 bg-gradient-to-r from-[#009bd7] to-[#00E1FF] transition-all duration-300 group-hover:w-full group-hover:left-0 ${
-                  activeSection === link.name.toLowerCase() ? 'w-full left-0' : ''
+                  activeSection === link.name.toLowerCase() && !is99Page ? 'w-full left-0' : ''
                 }`}></span>
               </button>
             ))}
+            
+            <Link href="/99" className="relative px-4 py-2 rounded-lg font-medium transition-all duration-300 group bg-red-500/10 dark:bg-amber-500/20 text-red-600 dark:text-amber-400 hover:bg-red-500/20 dark:hover:bg-amber-500/30">
+              <span className="relative flex items-center">
+                $99 MVP
+                <span className="absolute -top-1 -right-1 flex h-2 w-2">
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 dark:bg-amber-400 opacity-75"></span>
+                  <span className="relative inline-flex rounded-full h-2 w-2 bg-red-500 dark:bg-amber-500"></span>
+                </span>
+              </span>
+              <span className="absolute bottom-0 left-1/2 w-0 h-0.5 bg-gradient-to-r from-red-500 to-amber-500 transition-all duration-300 group-hover:w-full group-hover:left-0"></span>
+            </Link>
+
           </div>
 
           {/* Desktop Right Side - CTA */}
@@ -140,7 +169,7 @@ export default function Navbar() {
                 key={link.name}
                 onClick={() => handleNavClick(link.href)}
                 className={`block w-full text-left px-4 py-3 rounded-lg font-medium transition-all duration-300 transform ${
-                  activeSection === link.name.toLowerCase()
+                  activeSection === link.name.toLowerCase() && !is99Page
                     ? 'text-[#009bd7] bg-[#009bd7]/10 dark:bg-[#009bd7]/20 border-l-4 border-[#009bd7]'
                     : 'text-gray-700 dark:text-gray-300 hover:text-[#009bd7] hover:bg-[#009bd7]/5 dark:hover:bg-[#009bd7]/10'
                 } ${
@@ -152,7 +181,23 @@ export default function Navbar() {
               </button>
             ))}
             
-
+            <Link 
+              href="/99"
+              className={`block w-full text-left px-4 py-3 rounded-lg font-medium transition-all duration-300 transform bg-red-500/10 dark:bg-amber-500/20 text-red-600 dark:text-amber-400 hover:bg-red-500/20 dark:hover:bg-amber-500/30 ${
+                isOpen ? 'translate-x-0' : 'translate-x-4'
+              }`}
+              style={{ transitionDelay: `${navLinks.length * 100}ms` }}
+              onClick={() => setIsOpen(false)}
+            >
+              <div className="flex items-center">
+                $99 MVP
+                <span className="relative ml-2">
+                  <span className="animate-ping absolute inline-flex h-2 w-2 rounded-full bg-red-400 dark:bg-amber-400 opacity-75"></span>
+                  <span className="relative inline-flex rounded-full h-2 w-2 bg-red-500 dark:bg-amber-500"></span>
+                </span>
+              </div>
+            </Link>
+            
             
             <div className="pt-2">
               <button
