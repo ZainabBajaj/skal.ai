@@ -1,7 +1,6 @@
 'use client';
 
 import { useState, useRef } from 'react';
-import { useRouter } from 'next/navigation';
 import emailjs from '@emailjs/browser';
 import { PartyPopper, Sparkles, User, Mail, Globe, Brain, Target, CreditCard, Send, ArrowRight, Clock, Code, MessageSquare } from 'lucide-react';
 import Navbar from '../components/Navbar';
@@ -24,7 +23,6 @@ type FormData = {
 };
 
 export default function MVPOffer() {
-  const router = useRouter();
   const formRef = useRef<HTMLDivElement>(null);
   const [formData, setFormData] = useState<FormData>({
     name: '',
@@ -42,6 +40,10 @@ export default function MVPOffer() {
       ...formData,
       [e.target.name]: e.target.value
     });
+  };
+
+  const scrollToForm = () => {
+    formRef.current?.scrollIntoView({ behavior: 'smooth' });
   };
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
@@ -74,7 +76,7 @@ Budget: ${formData.budget}
         process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY
       );
       
-      setStatus({ type: 'success', message: 'Request submitted successfully! We\'ll contact you within 1-2 hours.' });
+      setStatus({ type: 'success', message: 'Request submitted successfully! We&apos;ll contact you within 1-2 hours.' });
       setFormData({ name: '', email: '', website: '', idea: '', outcome: '', budget: '$99 - MVP Only' });
     } catch (error) {
       setStatus({ 
@@ -83,10 +85,6 @@ Budget: ${formData.budget}
       });
       console.error('Error sending email:', error);
     }
-  };
-
-  const scrollToForm = () => {
-    formRef.current?.scrollIntoView({ behavior: 'smooth' });
   };
 
   return (
@@ -122,7 +120,7 @@ Budget: ${formData.budget}
             
             <p className="text-lg sm:text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto leading-relaxed font-medium">
               Launch your AI-powered idea quickly and affordably. Our expert team will build a 
-              functional MVP that demonstrates your concept's potential to investors and early users.
+              functional MVP that demonstrates your concept&apos;s potential to investors and early users.
             </p>
             
             <div className="mt-8 inline-flex items-center gap-2 bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800 rounded-full px-6 py-3">
@@ -144,7 +142,7 @@ Budget: ${formData.budget}
               </h3>
               
               <p className="text-center text-gray-600 dark:text-gray-300 mb-8">
-                Fill out this form and we'll contact you within 1-2 hours to begin work on your MVP
+                Fill out this form and we&apos;ll contact you within 1-2 hours to begin work on your MVP
               </p>
 
               <form onSubmit={handleSubmit} className="relative z-10 space-y-6 sm:space-y-8">
@@ -194,7 +192,7 @@ Budget: ${formData.budget}
                 <div className="group">
                   <label htmlFor="website" className="flex items-center gap-2 text-sm font-bold text-gray-700 dark:text-gray-200 mb-2 sm:mb-3">
                     <Globe className="w-4 h-4 text-[#009bd7]" />
-                    Please enter your business website's URL
+                    Please enter your business website&apos;s URL
                   </label>
                   <div className="relative">
                     <input
@@ -214,7 +212,7 @@ Budget: ${formData.budget}
                 <div className="group">
                   <label htmlFor="idea" className="flex items-center gap-2 text-sm font-bold text-gray-700 dark:text-gray-200 mb-2 sm:mb-3">
                     <Brain className="w-4 h-4 text-[#009bd7]" />
-                    Is there a specific AI system or workflow in mind that you want built out, or would you like help figuring out what's possible?
+                    Is there a specific AI system or workflow in mind that you want built out, or would you like help figuring out what&apos;s possible?
                   </label>
                   <div className="relative">
                     <textarea
@@ -235,7 +233,7 @@ Budget: ${formData.budget}
                 <div className="group">
                   <label htmlFor="outcome" className="flex items-center gap-2 text-sm font-bold text-gray-700 dark:text-gray-200 mb-2 sm:mb-3">
                     <Target className="w-4 h-4 text-[#009bd7]" />
-                    What's the main outcome you're hoping to achieve by working with us?
+                    What&apos;s the main outcome you&apos;re hoping to achieve by working with us?
                   </label>
                   <div className="relative">
                     <textarea
@@ -256,7 +254,7 @@ Budget: ${formData.budget}
                 <div className="group">
                   <label htmlFor="budget" className="flex items-center gap-2 text-sm font-bold text-gray-700 dark:text-gray-200 mb-2 sm:mb-3">
                     <CreditCard className="w-4 h-4 text-[#009bd7]" />
-                    Is there a budget range you're considering for this project?
+                    Is there a budget range you&apos;re considering for this project?
                   </label>
                   <div className="relative">
                     <select
@@ -335,7 +333,7 @@ Budget: ${formData.budget}
                 </h3>
                 
                 <p className="text-gray-600 dark:text-gray-300 text-center">
-                  A functional MVP that demonstrates your AI concept's core functionality
+                  A functional MVP that demonstrates your AI concept&apos;s core functionality
                 </p>
               </div>
 

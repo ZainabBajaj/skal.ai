@@ -6,6 +6,9 @@ const nextConfig: NextConfig = {
   poweredByHeader: false,
   generateEtags: true,
   
+  /* Static Export Configuration */
+  output: 'export',
+  
   /* Image Optimization */
   images: {
     formats: ['image/webp', 'image/avif'],
@@ -14,6 +17,7 @@ const nextConfig: NextConfig = {
     minimumCacheTTL: 60,
     dangerouslyAllowSVG: true,
     contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;",
+    unoptimized: true, // Required for static export
   },
 
   /* Headers for Security and Performance */
