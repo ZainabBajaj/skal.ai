@@ -2,6 +2,26 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Custom animations for footer background */
+@keyframes slide {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-100px); }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+
+/* Apply animations to footer elements */
+.footer-slide {
+  animation: slide 20s linear infinite;
+}
+
+.footer-float {
+  animation: float 15s ease-in-out infinite;
+}
+
 @keyframes blob {
   0% {
     transform: translate(0px, 0px) scale(1);

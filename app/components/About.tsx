@@ -9,6 +9,7 @@ export default function About() {
   const statsRef = useRef(null);
 
   useEffect(() => {
+    const currentRef = statsRef.current;
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting && !hasAnimated) {
@@ -60,12 +61,11 @@ export default function About() {
       { threshold: 0.3 }
     );
 
-    if (statsRef.current) {
-      observer.observe(statsRef.current);
+    if (currentRef) {
+      observer.observe(currentRef);
     }
 
     return () => {
-      const currentRef = statsRef.current;
       if (currentRef) {
         observer.unobserve(currentRef);
       }

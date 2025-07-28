@@ -49,7 +49,7 @@ const Hero = () => {
           delay: Math.random() * 2,
         }))
       );
-    }, [isMounted]);
+    }, []);
 
     if (!isMounted) {
       return null;
