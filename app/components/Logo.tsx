@@ -24,7 +24,7 @@ const Logo = ({ isScrolled = false }: LogoProps) => {
 
   return (
     <div 
-      className="flex items-center gap-1 cursor-pointer hover:opacity-80 transition-opacity duration-300"
+      className="flex items-center gap-1 sm:gap-2 cursor-pointer hover:opacity-80 transition-opacity duration-300"
       onClick={handleLogoClick}
       role="button"
       tabIndex={0}
@@ -39,14 +39,15 @@ const Logo = ({ isScrolled = false }: LogoProps) => {
       <Image 
         src="/skal-logo.png" 
         alt="SKAL Logo" 
-        width={60} 
-        height={60} 
-        className="object-contain"
+        width={40} 
+        height={40} 
+        className="object-contain w-8 h-8 sm:w-10 sm:h-10 lg:w-12 lg:h-12"
+        priority
       />
-      <span className={`text-2xl font-bold transition-colors duration-300 ${
+      <span className={`text-lg sm:text-xl lg:text-2xl font-bold transition-colors duration-300 ${
         isScrolled 
-          ? 'text-gray-800 dark:text-white' 
-          : 'text-[#1a1a1a] dark:text-white'
+          ? 'text-gray-900 dark:text-white' 
+          : 'text-gray-900 dark:text-white'
       }`}>
         SKAL
       </span>

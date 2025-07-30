@@ -75,8 +75,8 @@ const GlobalSquidBackground = () => {
       PRESSURE: 0.6,
       PRESSURE_ITERATIONS: 15,
       CURL: 20,
-      SPLAT_RADIUS: 0.15,
-      SPLAT_FORCE: 4000,
+      SPLAT_RADIUS: 0.25,  // Increased from 0.12 to 0.25 for much bigger fluid size
+      SPLAT_FORCE: 2500,   // Increased from 1500 to 2500 for bigger effects
       SHADING: true,
       COLOR_UPDATE_SPEED: 15,
       PAUSED: false,
@@ -551,35 +551,44 @@ const GlobalSquidBackground = () => {
     });
 
     function generateColor(): { r: number; g: number; b: number } {
-      const c = HSVtoRGB(Math.random(), 1.0, 1.0);
-      c.r *= 0.15;
-      c.g *= 0.15;
-      c.b *= 0.15;
-      return c;
+      // Generate smoke-like RGB color combinations with minimal hue, saturation, and value - NO WHITE
+      const colorSchemes = [
+        // Very subtle dark blue-gray (no white)
+        () => ({ r: Math.random() * 2 + 1, g: Math.random() * 3 + 1, b: Math.random() * 5 + 2 }),
+        
+        // Very subtle dark green-gray (no white)
+        () => ({ r: Math.random() * 1 + 1, g: Math.random() * 2 + 1, b: Math.random() * 3 + 1 }),
+        
+        // Very subtle dark gray (no white)
+        () => ({ r: Math.random() * 2 + 1, g: Math.random() * 2 + 1, b: Math.random() * 2 + 1 }),
+        
+        // Very subtle dark blue (no white)
+        () => ({ r: Math.random() * 1 + 1, g: Math.random() * 2 + 1, b: Math.random() * 4 + 2 }),
+        
+        // Very subtle dark green (no white)
+        () => ({ r: Math.random() * 1 + 1, g: Math.random() * 2 + 1, b: Math.random() * 2 + 1 }),
+        
+        // Very subtle dark cyan-gray (no white)
+        () => ({ r: Math.random() * 1 + 1, g: Math.random() * 3 + 1, b: Math.random() * 3 + 1 }),
+        
+        // Very subtle dark teal-gray (no white)
+        () => ({ r: Math.random() * 1 + 1, g: Math.random() * 2 + 1, b: Math.random() * 2 + 1 }),
+        
+        // Very subtle dark navy-gray (no white)
+        () => ({ r: Math.random() * 1 + 1, g: Math.random() * 1 + 1, b: Math.random() * 3 + 1 })
+      ];
+      
+      // Randomly select a color scheme and generate RGB values
+      const selectedScheme = colorSchemes[Math.floor(Math.random() * colorSchemes.length)];
+      const rgbColor = selectedScheme();
+      
+      // Apply very low intensity for maximum transparency (reduced from 0.06 to 0.03)
+      return {
+        r: rgbColor.r * 0.03,
+        g: rgbColor.g * 0.03,
+        b: rgbColor.b * 0.03
+      };
     }
-
-    function HSVtoRGB(h: number, s: number, v: number): { r: number; g: number; b: number } {
-      let r, g, b;
-      const i = Math.floor(h * 6);
-      const f = h * 6 - i;
-      const p = v * (1 - s);
-      const q = v * (1 - f * s);
-      const t = v * (1 - (1 - f) * s);
-
-      switch (i % 6) {
-        case 0: r = v; g = t; b = p; break;
-        case 1: r = q; g = v; b = p; break;
-        case 2: r = p; g = v; b = t; break;
-        case 3: r = p; g = q; b = v; break;
-        case 4: r = t; g = p; b = v; break;
-        case 5: r = v; g = p; b = q; break;
-        default: r = g = b = 0;
-      }
-
-      return { r, g, b };
-    }
-
-
 
     function correctRadius(radius: number): number {
       const aspectRatio = canvas.width / canvas.height;
@@ -630,14 +639,14 @@ const GlobalSquidBackground = () => {
       pointer.deltaX = (pointer.texcoordX - pointer.prevTexcoordX);
       pointer.deltaY = (pointer.texcoordY - pointer.prevTexcoordY);
       
-      // Apply movement threshold to prevent micro-movements
-      const deltaThreshold = 0.001;
+      // Apply lower movement threshold for smoother following (reduced from 0.003 to 0.001)
+      const deltaThreshold = 0.001; // Reduced for smoother cursor following
       pointer.moved = Math.abs(pointer.deltaX) > deltaThreshold || Math.abs(pointer.deltaY) > deltaThreshold;
       
       if (pointer.moved) {
-        // Scale force based on device characteristics for consistent feel
+        // Scale force based on device characteristics for consistent feel - increased force for smoother following
         const deviceScale = Math.min(window.devicePixelRatio || 1, 2);
-        const adaptiveForce = config.SPLAT_FORCE / deviceScale;
+        const adaptiveForce = (config.SPLAT_FORCE / deviceScale) * 0.8; // Increased from 0.5 to 0.8 for smoother following
         
         const dx = pointer.deltaX * adaptiveForce;
         const dy = pointer.deltaY * adaptiveForce;

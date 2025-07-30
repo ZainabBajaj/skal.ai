@@ -84,19 +84,19 @@ const Hero = () => {
             <div className="text-center mb-16 opacity-0 translate-y-10 transition-all duration-1000">
               
               {/* Static Badge */}
-              <div className="inline-flex items-center space-x-3 bg-gradient-to-r from-[#009bd7]/10 to-[#00E1FF]/10 dark:from-[#009bd7]/20 dark:to-[#00E1FF]/20 rounded-full px-8 py-3 mb-8 backdrop-blur-md border border-[#009bd7]/20 dark:border-[#009bd7]/30 mt-24">
-                <Sparkles className="w-4 h-4 text-[#009bd7]" />
-                <span className="text-[#009bd7] text-sm font-bold tracking-wider">NEXT-GEN AI SOLUTIONS</span>
-                <ChevronRight className="w-4 h-4 text-[#009bd7]" />
+              <div className="inline-flex items-center space-x-2 sm:space-x-3 bg-gradient-to-r from-[#009bd7]/10 to-[#00E1FF]/10 dark:from-[#009bd7]/20 dark:to-[#00E1FF]/20 rounded-full px-4 sm:px-6 lg:px-8 py-2 sm:py-3 mb-6 sm:mb-8 backdrop-blur-md border border-[#009bd7]/20 dark:border-[#009bd7]/30 mt-16 sm:mt-20 lg:mt-24">
+                <Sparkles className="w-3 h-3 sm:w-4 sm:h-4 text-[#009bd7]" />
+                <span className="text-[#009bd7] text-xs sm:text-sm font-bold tracking-wider">NEXT-GEN AI SOLUTIONS</span>
+                <ChevronRight className="w-3 h-3 sm:w-4 sm:h-4 text-[#009bd7]" />
               </div>
 
               {/* Static Main Heading */}
-              <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-[#1a1a1a] dark:text-white mb-6 leading-tight mt-24 lg:mt-0">
+              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-[#1a1a1a] dark:text-white mb-4 sm:mb-6 leading-tight mt-8 sm:mt-12 lg:mt-0">
                 Transform Your Organization
-                <span className="block text-transparent bg-clip-text bg-gradient-to-r from-[#009bd7] via-[#00E1FF] to-[#1DB5C5] mt-2">
+                <span className="block text-transparent bg-clip-text bg-gradient-to-r from-[#009bd7] via-[#00E1FF] to-[#1DB5C5] mt-1 sm:mt-2">
                   with AI
                 </span>
-                <span className="block text-transparent bg-clip-text bg-gradient-to-r from-[#009bd7] via-[#00E1FF] to-[#1DB5C5] mt-2">
+                <span className="block text-transparent bg-clip-text bg-gradient-to-r from-[#009bd7] via-[#00E1FF] to-[#1DB5C5] mt-1 sm:mt-2">
                   Innovation
                 </span>
               </h1>

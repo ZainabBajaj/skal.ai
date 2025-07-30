@@ -126,6 +126,9 @@ body {
   background: var(--background);
   font-family: Arial, Helvetica, sans-serif;
   transition: background-color 0.15s ease-out, color 0.15s ease-out;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
 }
 
 /* Faster theme transitions for all elements */
@@ -134,4 +137,30 @@ body {
               color 0.15s ease-out, 
               border-color 0.15s ease-out, 
               box-shadow 0.15s ease-out;
+}
+
+/* Improve text rendering for better clarity */
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Navbar specific improvements */
+nav {
+  -webkit-backdrop-filter: blur(20px);
+  backdrop-filter: blur(20px);
+  text-rendering: optimizeLegibility;
+}
+
+/* Mobile specific improvements */
+@media (max-width: 768px) {
+  nav {
+    -webkit-backdrop-filter: blur(24px);
+    backdrop-filter: blur(24px);
+  }
+  
+  * {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
 }
