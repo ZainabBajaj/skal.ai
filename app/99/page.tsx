@@ -111,11 +111,11 @@ Budget: ${formData.budget}
             </div>
             
             <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#1a1a1a] via-[#009bd7] to-[#00E1FF] dark:from-white dark:via-[#009bd7] dark:to-[#00E1FF] mb-4 sm:mb-6 leading-tight">
-              Your MVP for just <span className="text-red-500 dark:text-amber-400">$99</span>
+              Build your MVP for just <span className="text-red-500 dark:text-amber-400">$99</span>
             </h1>
             
             <h2 className="text-xl sm:text-2xl md:text-3xl font-semibold text-gray-700 dark:text-gray-300 mb-6">
-              Built in 48 hours or less
+              In 48 hours or less
             </h2>
             
             <p className="text-lg sm:text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto leading-relaxed font-medium">
