@@ -186,11 +186,16 @@ Package: Startup
           {/* Form Section */}
           <div className="max-w-4xl mx-auto" ref={formRef}>
             <div className="bg-white/80 dark:bg-gray-800/80 backdrop-blur-xl rounded-2xl sm:rounded-3xl shadow-2xl p-6 sm:p-8 md:p-12 border border-white/50 dark:border-gray-700/50 relative overflow-hidden">
-              <h3 className="text-2xl sm:text-3xl font-bold text-gray-800 dark:text-white mb-6 text-center">
+              {/* Form Background Effects */}
+              <div className="absolute inset-0 bg-gradient-to-br from-blue-600/5 via-transparent to-cyan-500/5 pointer-events-none"></div>
+              <div className="absolute top-0 right-0 w-32 h-32 sm:w-64 sm:h-64 bg-gradient-to-bl from-cyan-500/10 to-transparent rounded-full blur-3xl"></div>
+              <div className="absolute bottom-0 left-0 w-32 h-32 sm:w-64 sm:h-64 bg-gradient-to-tr from-blue-600/10 to-transparent rounded-full blur-3xl"></div>
+
+              <h3 className="text-2xl sm:text-3xl font-bold text-gray-800 dark:text-white mb-6 text-center relative z-10">
                 Get Started with Your Startup
               </h3>
               
-              <p className="text-center text-gray-600 dark:text-gray-300 mb-8">
+              <p className="text-center text-gray-600 dark:text-gray-300 mb-8 relative z-10">
                 Fill out this form and we&apos;ll contact you within 1-2 hours to discuss your startup needs
               </p>
 
@@ -201,16 +206,19 @@ Package: Startup
                     <User className="w-4 h-4 text-blue-600" />
                     Name
                   </label>
-                  <input
-                    type="text"
-                    id="name"
-                    name="name"
-                    value={formData.name}
-                    onChange={handleChange}
-                    required
-                    className="w-full px-4 sm:px-6 py-3 sm:py-4 border border-gray-200 dark:border-gray-600 rounded-xl sm:rounded-2xl focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 dark:focus:border-cyan-400 bg-white/90 dark:bg-gray-700/90 text-gray-800 dark:text-white placeholder-gray-400 dark:placeholder-gray-400 transition-all duration-300"
-                    placeholder="Your name"
-                  />
+                  <div className="relative">
+                    <input
+                      type="text"
+                      id="name"
+                      name="name"
+                      value={formData.name}
+                      onChange={handleChange}
+                      required
+                      className="w-full px-4 sm:px-6 py-3 sm:py-4 border border-gray-200 dark:border-gray-600 rounded-xl sm:rounded-2xl focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 dark:focus:border-cyan-400 bg-white/90 dark:bg-gray-700/90 text-gray-800 dark:text-white placeholder-gray-400 dark:placeholder-gray-400 transition-all duration-300 group-hover:shadow-lg backdrop-blur-sm text-sm sm:text-base"
+                      placeholder="Your name"
+                    />
+                    <div className="absolute inset-0 rounded-xl sm:rounded-2xl bg-gradient-to-r from-blue-600/0 to-cyan-500/0 group-focus-within:from-blue-600/5 group-focus-within:to-cyan-500/5 transition-all duration-300 pointer-events-none"></div>
+                  </div>
                 </div>
 
                 {/* Email Field */}
@@ -297,11 +305,12 @@ Package: Startup
                     onChange={handleChange}
                     className="w-full px-4 sm:px-6 py-3 sm:py-4 border border-gray-200 dark:border-gray-600 rounded-xl sm:rounded-2xl focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 dark:focus:border-cyan-400 bg-white/90 dark:bg-gray-700/90 text-gray-800 dark:text-white transition-all duration-300"
                   >
-                    <option value="Startup Package">Startup Package</option>
-                    <option value="$1000-$5000">$1000-$5000</option>
-                    <option value="$5000-$15000">$5000-$15000</option>
-                    <option value="$15000-$50000">$15000-$50000</option>
-                    <option value="$50000+">$50000+</option>
+                    <option value="Under $1,000">Under $1,000</option>
+                    <option value="$1,000-$3,000">$1,000-$3,000</option>
+                    <option value="$3,000-$5,000">$3,000-$5,000</option>
+                    <option value="$5,000-$10,000">$5,000-$10,000</option>
+                    <option value="$10,000-$50,000">$10,000-$50,000</option>
+                    <option value="$50,000+">$50,000+</option>
                   </select>
                 </div>
 

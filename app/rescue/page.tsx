@@ -304,11 +304,10 @@ Package: Rescue
                     onChange={handleChange}
                     className="w-full px-4 sm:px-6 py-3 sm:py-4 border border-gray-200 dark:border-gray-600 rounded-xl sm:rounded-2xl focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 dark:focus:border-cyan-400 bg-white/90 dark:bg-gray-700/90 text-gray-800 dark:text-white transition-all duration-300"
                   >
-                    <option value="Rescue Package">Rescue Package</option>
-                    <option value="$2000-$5000">$2000-$5000</option>
-                    <option value="$5000-$15000">$5000-$15000</option>
-                    <option value="$15000-$50000">$15000-$50000</option>
-                    <option value="$50000+">$50000+</option>
+                    <option value="$2,000-$5,000">$2,000-$5,000</option>
+                    <option value="$5,000-$15,000">$5,000-$15,000</option>
+                    <option value="$15,000-$50,000">$15,000-$50,000</option>
+                    <option value="$50,000+">$50,000+</option>
                   </select>
                 </div>
 

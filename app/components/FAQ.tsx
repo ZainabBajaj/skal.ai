@@ -12,7 +12,7 @@ interface FAQItem {
 const faqData: FAQItem[] = [
   {
     question: "How much does AI development cost?",
-    answer: "AI development costs vary based on project complexity, ranging from $15,000 for basic chatbots to $100,000+ for enterprise AI solutions. We offer flexible pricing models including hourly rates ($15-30/hr), monthly retainers ($2,500-5,000/month), and project-based pricing. Contact us for a free consultation and custom quote.",
+    answer: "AI development costs vary based on project complexity, ranging from $1,000 for basic chatbots to $100,000+ for enterprise AI solutions. We offer flexible pricing models including hourly rates ($15-45/hr), monthly retainers ($2,500-5,000/month), and project-based pricing. Contact us for a free consultation and custom quote.",
     category: "Pricing"
   },
   {

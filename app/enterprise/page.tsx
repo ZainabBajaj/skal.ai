@@ -186,11 +186,16 @@ Package: Enterprise
           {/* Form Section */}
           <div className="max-w-4xl mx-auto" ref={formRef}>
             <div className="bg-white/80 dark:bg-gray-800/80 backdrop-blur-xl rounded-2xl sm:rounded-3xl shadow-2xl p-6 sm:p-8 md:p-12 border border-white/50 dark:border-gray-700/50 relative overflow-hidden">
-              <h3 className="text-2xl sm:text-3xl font-bold text-gray-800 dark:text-white mb-6 text-center">
+              {/* Form Background Effects */}
+              <div className="absolute inset-0 bg-gradient-to-br from-gray-800/5 via-transparent to-blue-700/5 pointer-events-none"></div>
+              <div className="absolute top-0 right-0 w-32 h-32 sm:w-64 sm:h-64 bg-gradient-to-bl from-blue-700/10 to-transparent rounded-full blur-3xl"></div>
+              <div className="absolute bottom-0 left-0 w-32 h-32 sm:w-64 sm:h-64 bg-gradient-to-tr from-gray-800/10 to-transparent rounded-full blur-3xl"></div>
+
+              <h3 className="text-2xl sm:text-3xl font-bold text-gray-800 dark:text-white mb-6 text-center relative z-10">
                 Enterprise Solutions Inquiry
               </h3>
               
-              <p className="text-center text-gray-600 dark:text-gray-300 mb-8">
+              <p className="text-center text-gray-600 dark:text-gray-300 mb-8 relative z-10">
                 Fill out this form and we&apos;ll contact you within 1-2 hours to discuss your enterprise needs
               </p>
 
@@ -201,16 +206,19 @@ Package: Enterprise
                     <User className="w-4 h-4 text-gray-600 dark:text-blue-400" />
                     Name
                   </label>
-                  <input
-                    type="text"
-                    id="name"
-                    name="name"
-                    value={formData.name}
-                    onChange={handleChange}
-                    required
-                    className="w-full px-4 sm:px-6 py-3 sm:py-4 border border-gray-200 dark:border-gray-600 rounded-xl sm:rounded-2xl focus:ring-2 focus:ring-gray-500/20 focus:border-gray-500 dark:focus:border-blue-400 bg-white/90 dark:bg-gray-700/90 text-gray-800 dark:text-white placeholder-gray-400 dark:placeholder-gray-400 transition-all duration-300"
-                    placeholder="Your name"
-                  />
+                  <div className="relative">
+                    <input
+                      type="text"
+                      id="name"
+                      name="name"
+                      value={formData.name}
+                      onChange={handleChange}
+                      required
+                      className="w-full px-4 sm:px-6 py-3 sm:py-4 border border-gray-200 dark:border-gray-600 rounded-xl sm:rounded-2xl focus:ring-2 focus:ring-gray-500/20 focus:border-gray-500 dark:focus:border-blue-400 bg-white/90 dark:bg-gray-700/90 text-gray-800 dark:text-white placeholder-gray-400 dark:placeholder-gray-400 transition-all duration-300 group-hover:shadow-lg backdrop-blur-sm text-sm sm:text-base"
+                      placeholder="Your name"
+                    />
+                    <div className="absolute inset-0 rounded-xl sm:rounded-2xl bg-gradient-to-r from-gray-800/0 to-blue-700/0 group-focus-within:from-gray-800/5 group-focus-within:to-blue-700/5 transition-all duration-300 pointer-events-none"></div>
+                  </div>
                 </div>
 
                 {/* Email Field */}
@@ -219,16 +227,19 @@ Package: Enterprise
                     <Mail className="w-4 h-4 text-gray-600 dark:text-blue-400" />
                     Email
                   </label>
-                  <input
-                    type="email"
-                    id="email"
-                    name="email"
-                    value={formData.email}
-                    onChange={handleChange}
-                    required
-                    className="w-full px-4 sm:px-6 py-3 sm:py-4 border border-gray-200 dark:border-gray-600 rounded-xl sm:rounded-2xl focus:ring-2 focus:ring-gray-500/20 focus:border-gray-500 dark:focus:border-blue-400 bg-white/90 dark:bg-gray-700/90 text-gray-800 dark:text-white placeholder-gray-400 dark:placeholder-gray-400 transition-all duration-300"
-                    placeholder="Your email"
-                  />
+                  <div className="relative">
+                    <input
+                      type="email"
+                      id="email"
+                      name="email"
+                      value={formData.email}
+                      onChange={handleChange}
+                      required
+                      className="w-full px-4 sm:px-6 py-3 sm:py-4 border border-gray-200 dark:border-gray-600 rounded-xl sm:rounded-2xl focus:ring-2 focus:ring-gray-500/20 focus:border-gray-500 dark:focus:border-blue-400 bg-white/90 dark:bg-gray-700/90 text-gray-800 dark:text-white placeholder-gray-400 dark:placeholder-gray-400 transition-all duration-300 group-hover:shadow-lg backdrop-blur-sm text-sm sm:text-base"
+                      placeholder="Your email"
+                    />
+                    <div className="absolute inset-0 rounded-xl sm:rounded-2xl bg-gradient-to-r from-gray-800/0 to-blue-700/0 group-focus-within:from-gray-800/5 group-focus-within:to-blue-700/5 transition-all duration-300 pointer-events-none"></div>
+                  </div>
                 </div>
 
                 {/* Company Field */}
@@ -237,16 +248,19 @@ Package: Enterprise
                     <Building2 className="w-4 h-4 text-gray-600 dark:text-blue-400" />
                     Company Name
                   </label>
-                  <input
-                    type="text"
-                    id="company"
-                    name="company"
-                    value={formData.company}
-                    onChange={handleChange}
-                    required
-                    className="w-full px-4 sm:px-6 py-3 sm:py-4 border border-gray-200 dark:border-gray-600 rounded-xl sm:rounded-2xl focus:ring-2 focus:ring-gray-500/20 focus:border-gray-500 dark:focus:border-blue-400 bg-white/90 dark:bg-gray-700/90 text-gray-800 dark:text-white placeholder-gray-400 dark:placeholder-gray-400 transition-all duration-300"
-                    placeholder="Your company name"
-                  />
+                  <div className="relative">
+                    <input
+                      type="text"
+                      id="company"
+                      name="company"
+                      value={formData.company}
+                      onChange={handleChange}
+                      required
+                      className="w-full px-4 sm:px-6 py-3 sm:py-4 border border-gray-200 dark:border-gray-600 rounded-xl sm:rounded-2xl focus:ring-2 focus:ring-gray-500/20 focus:border-gray-500 dark:focus:border-blue-400 bg-white/90 dark:bg-gray-700/90 text-gray-800 dark:text-white placeholder-gray-400 dark:placeholder-gray-400 transition-all duration-300 group-hover:shadow-lg backdrop-blur-sm text-sm sm:text-base"
+                      placeholder="Your company name"
+                    />
+                    <div className="absolute inset-0 rounded-xl sm:rounded-2xl bg-gradient-to-r from-gray-800/0 to-blue-700/0 group-focus-within:from-gray-800/5 group-focus-within:to-blue-700/5 transition-all duration-300 pointer-events-none"></div>
+                  </div>
                 </div>
 
                 {/* Project Field */}
@@ -255,16 +269,19 @@ Package: Enterprise
                     <Brain className="w-4 h-4 text-gray-600 dark:text-blue-400" />
                     Tell us about your enterprise project
                   </label>
-                  <textarea
-                    id="project"
-                    name="project"
-                    value={formData.project}
-                    onChange={handleChange}
-                    required
-                    rows={4}
-                    className="w-full px-4 sm:px-6 py-3 sm:py-4 border border-gray-200 dark:border-gray-600 rounded-xl sm:rounded-2xl focus:ring-2 focus:ring-gray-500/20 focus:border-gray-500 dark:focus:border-blue-400 bg-white/90 dark:bg-gray-700/90 text-gray-800 dark:text-white placeholder-gray-400 dark:placeholder-gray-400 transition-all duration-300 resize-none"
-                    placeholder="Describe your enterprise project and technical requirements"
-                  />
+                  <div className="relative">
+                    <textarea
+                      id="project"
+                      name="project"
+                      value={formData.project}
+                      onChange={handleChange}
+                      required
+                      rows={4}
+                      className="w-full px-4 sm:px-6 py-3 sm:py-4 border border-gray-200 dark:border-gray-600 rounded-xl sm:rounded-2xl focus:ring-2 focus:ring-gray-500/20 focus:border-gray-500 dark:focus:border-blue-400 bg-white/90 dark:bg-gray-700/90 text-gray-800 dark:text-white placeholder-gray-400 dark:placeholder-gray-400 transition-all duration-300 group-hover:shadow-lg backdrop-blur-sm resize-none text-sm sm:text-base"
+                      placeholder="Describe your enterprise project and technical requirements"
+                    />
+                    <div className="absolute inset-0 rounded-xl sm:rounded-2xl bg-gradient-to-r from-gray-800/0 to-blue-700/0 group-focus-within:from-gray-800/5 group-focus-within:to-blue-700/5 transition-all duration-300 pointer-events-none"></div>
+                  </div>
                 </div>
 
                 {/* Outcome Field */}
@@ -273,16 +290,19 @@ Package: Enterprise
                     <Target className="w-4 h-4 text-gray-600 dark:text-blue-400" />
                     What business outcomes are you looking to achieve?
                   </label>
-                  <textarea
-                    id="outcome"
-                    name="outcome"
-                    value={formData.outcome}
-                    onChange={handleChange}
-                    required
-                    rows={3}
-                    className="w-full px-4 sm:px-6 py-3 sm:py-4 border border-gray-200 dark:border-gray-600 rounded-xl sm:rounded-2xl focus:ring-2 focus:ring-gray-500/20 focus:border-gray-500 dark:focus:border-blue-400 bg-white/90 dark:bg-gray-700/90 text-gray-800 dark:text-white placeholder-gray-400 dark:placeholder-gray-400 transition-all duration-300 resize-none"
-                    placeholder="Tell us about your business goals and success metrics"
-                  />
+                  <div className="relative">
+                    <textarea
+                      id="outcome"
+                      name="outcome"
+                      value={formData.outcome}
+                      onChange={handleChange}
+                      required
+                      rows={3}
+                      className="w-full px-4 sm:px-6 py-3 sm:py-4 border border-gray-200 dark:border-gray-600 rounded-xl sm:rounded-2xl focus:ring-2 focus:ring-gray-500/20 focus:border-gray-500 dark:focus:border-blue-400 bg-white/90 dark:bg-gray-700/90 text-gray-800 dark:text-white placeholder-gray-400 dark:placeholder-gray-400 transition-all duration-300 group-hover:shadow-lg backdrop-blur-sm resize-none text-sm sm:text-base"
+                      placeholder="Tell us about your business goals and success metrics"
+                    />
+                    <div className="absolute inset-0 rounded-xl sm:rounded-2xl bg-gradient-to-r from-gray-800/0 to-blue-700/0 group-focus-within:from-gray-800/5 group-focus-within:to-blue-700/5 transition-all duration-300 pointer-events-none"></div>
+                  </div>
                 </div>
 
                 {/* Budget Field */}
@@ -291,19 +311,28 @@ Package: Enterprise
                     <CreditCard className="w-4 h-4 text-gray-600 dark:text-blue-400" />
                     Budget Range
                   </label>
-                  <select
-                    id="budget"
-                    name="budget"
-                    value={formData.budget}
-                    onChange={handleChange}
-                    className="w-full px-4 sm:px-6 py-3 sm:py-4 border border-gray-200 dark:border-gray-600 rounded-xl sm:rounded-2xl focus:ring-2 focus:ring-gray-500/20 focus:border-gray-500 dark:focus:border-blue-400 bg-white/90 dark:bg-gray-700/90 text-gray-800 dark:text-white transition-all duration-300"
-                  >
-                    <option value="Enterprise Package">Enterprise Package</option>
-                    <option value="$50000-$100000">$50000-$100000</option>
-                    <option value="$100000-$250000">$100000-$250000</option>
-                    <option value="$250000-$500000">$250000-$500000</option>
-                    <option value="$500000+">$500000+</option>
+                  <div className="relative">
+                    <select
+                      id="budget"
+                      name="budget"
+                      value={formData.budget}
+                      onChange={handleChange}
+                      className="w-full px-4 sm:px-6 py-3 sm:py-4 border border-gray-200 dark:border-gray-600 rounded-xl sm:rounded-2xl focus:ring-2 focus:ring-gray-500/20 focus:border-gray-500 dark:focus:border-blue-400 bg-white/90 dark:bg-gray-700/90 text-gray-800 dark:text-white placeholder-gray-400 dark:placeholder-gray-400 transition-all duration-300 group-hover:shadow-lg backdrop-blur-sm text-sm sm:text-base appearance-none"
+                    >
+                    <option value="$50,000-$100,000">$50,000-$100,000</option>
+                    <option value="$100,000-$250,000">$100,000-$250,000</option>
+                    <option value="$250,000-$500,000">$250,000-$500,000</option>
+                    <option value="$500,000-$1,000,000">$500,000-$1,000,000</option>
+                    <option value="$1,000,000-$2,500,000">$1,000,000-$2,500,000</option>
+                    <option value="$2,500,000-$5,000,000">$2,500,000-$5,000,000</option>
+                    <option value="$5,000,000-$10,000,000">$5,000,000-$10,000,000</option>
+                    <option value="$10,000,000+">$10,000,000+</option>
                   </select>
+                  <div className="absolute inset-0 rounded-xl sm:rounded-2xl bg-gradient-to-r from-gray-800/0 to-blue-700/0 group-focus-within:from-gray-800/5 group-focus-within:to-blue-700/5 transition-all duration-300 pointer-events-none"></div>
+                  <div className="absolute right-4 top-1/2 transform -translate-y-1/2 pointer-events-none">
+                    <ChevronDown className="w-5 h-5 text-gray-500 dark:text-gray-400" />
+                  </div>
+                </div>
                 </div>
 
                 {/* Submit Button */}
@@ -316,6 +345,9 @@ Package: Enterprise
                     {status.type === 'sending' ? 'Submitting Request...' : 'Submit Request'}
                   </span>
                   <Send className={`w-4 h-4 sm:w-5 sm:h-5 relative z-10 transition-transform duration-300 ${status.type === 'sending' ? 'animate-pulse' : 'group-hover:translate-x-1'}`} />
+                  
+                  {/* Button glow effect */}
+                  <div className="absolute inset-0 bg-gradient-to-r from-gray-800 to-blue-700 rounded-xl sm:rounded-2xl blur-xl opacity-0 group-hover:opacity-30 transition-opacity duration-300"></div>
                 </button>
                 
                 {/* Status Messages */}
@@ -412,5 +444,23 @@ Package: Enterprise
       <Footer />
       <FloatingThemeToggle />
     </main>
+  );
+}
+
+// Helper component for dropdown icon
+function ChevronDown(props: React.SVGProps<SVGSVGElement>) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      {...props}
+    >
+      <polyline points="6 9 12 15 18 9"></polyline>
+    </svg>
   );
 } 
