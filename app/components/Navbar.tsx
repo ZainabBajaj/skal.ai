@@ -13,36 +13,50 @@ export default function Navbar() {
   const pathname = usePathname();
   const router = useRouter();
   const is99Page = pathname === '/99';
+  const isNewPage = pathname === '/startup' || pathname === '/enterprise' || pathname === '/rescue';
+  const isMainPage = pathname === '/';
 
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 20);
       
       // Only track sections on main page
-      if (!is99Page) {
+      if (isMainPage) {
         // Update active section based on scroll position
         const sections = ['about', 'services', 'faq', 'contact'];
-        const current = sections.find(section => {
+        const scrollPosition = window.scrollY + 120; // Offset for navbar height
+        
+        let current = '';
+        for (const section of sections) {
           const element = document.getElementById(section);
           if (element) {
-            const rect = element.getBoundingClientRect();
-            return rect.top <= 100 && rect.bottom >= 100;
+            const elementTop = element.offsetTop;
+            const elementBottom = elementTop + element.offsetHeight;
+            
+            if (scrollPosition >= elementTop && scrollPosition < elementBottom) {
+              current = section;
+              break;
+            }
           }
-          return false;
-        });
-        setActiveSection(current || '');
+        }
+        setActiveSection(current);
       }
     };
 
+    // Initial check for active section
+    if (isMainPage) {
+      handleScroll();
+    }
+
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
-  }, [is99Page]);
+  }, [isMainPage]);
 
   const handleNavClick = (href: string) => {
     setIsOpen(false);
     
-    if (is99Page) {
-      // On the 99 page, navigate to main page with section hash
+    if (is99Page || isNewPage) {
+      // On any sub-page, navigate to main page with section hash
       router.push(`/${href}`);
     } else {
       // On main page, scroll to section
@@ -66,11 +80,11 @@ export default function Navbar() {
   return (
     <nav className={`fixed w-full z-50 transition-all duration-500 ${
       isScrolled 
-        ? 'bg-white/90 dark:bg-gray-900/90 backdrop-blur-xl shadow-lg border-b border-gray-200/30 dark:border-gray-700/30' 
-        : 'bg-transparent'
+        ? 'bg-white/98 dark:bg-gray-900/98 backdrop-blur-2xl shadow-xl border-b border-gray-200/50 dark:border-gray-700/50' 
+        : 'bg-white/95 dark:bg-gray-900/95 backdrop-blur-xl'
     }`}>
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-20">
+        <div className="flex items-center justify-between h-16 sm:h-20">
           {/* Logo */}
           <div className="flex-shrink-0">
             <Link href="/">
@@ -85,31 +99,19 @@ export default function Navbar() {
                 key={link.name}
                 onClick={() => handleNavClick(link.href)}
                 className={`relative px-4 py-2 rounded-lg font-medium transition-all duration-300 group ${
-                  activeSection === link.name.toLowerCase() && !is99Page
+                  activeSection === link.name.toLowerCase() && isMainPage
                     ? 'text-[#009bd7] bg-[#009bd7]/10 dark:bg-[#009bd7]/20'
                     : isScrolled 
-                      ? 'text-gray-700 dark:text-gray-300 hover:text-[#009bd7] hover:bg-[#009bd7]/5 dark:hover:bg-[#009bd7]/10'
+                      ? 'text-gray-800 dark:text-gray-200 hover:text-[#009bd7] hover:bg-[#009bd7]/5 dark:hover:bg-[#009bd7]/10'
                       : 'text-gray-800 dark:text-gray-200 hover:text-[#009bd7] hover:bg-white/20 dark:hover:bg-gray-800/20'
                 }`}
               >
                 {link.name}
-                <span className={`absolute bottom-0 left-1/2 w-0 h-0.5 bg-gradient-to-r from-[#009bd7] to-[#00E1FF] transition-all duration-300 group-hover:w-full group-hover:left-0 ${
-                  activeSection === link.name.toLowerCase() && !is99Page ? 'w-full left-0' : ''
+                <span className={`absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-[#009bd7] to-[#00E1FF] transition-all duration-300 group-hover:w-full ${
+                  activeSection === link.name.toLowerCase() && isMainPage ? 'w-full' : ''
                 }`}></span>
               </button>
             ))}
-            
-            <Link href="/99" className="relative px-4 py-2 rounded-lg font-medium transition-all duration-300 group bg-red-500/10 dark:bg-amber-500/20 text-red-600 dark:text-amber-400 hover:bg-red-500/20 dark:hover:bg-amber-500/30">
-              <span className="relative flex items-center">
-                $99 MVP
-                <span className="absolute -top-1 -right-1 flex h-2 w-2">
-                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 dark:bg-amber-400 opacity-75"></span>
-                  <span className="relative inline-flex rounded-full h-2 w-2 bg-red-500 dark:bg-amber-500"></span>
-                </span>
-              </span>
-              <span className="absolute bottom-0 left-1/2 w-0 h-0.5 bg-gradient-to-r from-red-500 to-amber-500 transition-all duration-300 group-hover:w-full group-hover:left-0"></span>
-            </Link>
-
           </div>
 
           {/* Desktop Right Side - CTA */}
@@ -131,11 +133,11 @@ export default function Navbar() {
             onClick={() => setIsOpen(!isOpen)}
             className={`lg:hidden relative p-2 rounded-lg transition-all duration-300 ${
               isScrolled 
-                ? 'text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800' 
+                ? 'text-gray-800 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-800' 
                 : 'text-gray-800 dark:text-gray-200 hover:bg-white/20 dark:hover:bg-gray-800/20'
             }`}
+            aria-label="Toggle mobile menu"
           >
-            <span className="sr-only">Open menu</span>
             <div className="relative w-6 h-6">
               <span className={`absolute inset-0 transition-all duration-300 ${
                 isOpen ? 'rotate-45 translate-y-0' : '-translate-y-1'
@@ -161,7 +163,7 @@ export default function Navbar() {
             isOpen 
               ? 'max-h-96 opacity-100 translate-y-0' 
               : 'max-h-0 opacity-0 -translate-y-4'
-          } overflow-hidden`}
+          } overflow-hidden bg-white/98 dark:bg-gray-900/98 backdrop-blur-2xl rounded-b-2xl shadow-2xl border border-gray-200/50 dark:border-gray-700/50`}
         >
           <div className="py-4 space-y-2">
             {navLinks.map((link, index) => (
@@ -169,9 +171,9 @@ export default function Navbar() {
                 key={link.name}
                 onClick={() => handleNavClick(link.href)}
                 className={`block w-full text-left px-4 py-3 rounded-lg font-medium transition-all duration-300 transform ${
-                  activeSection === link.name.toLowerCase() && !is99Page
+                  activeSection === link.name.toLowerCase() && isMainPage
                     ? 'text-[#009bd7] bg-[#009bd7]/10 dark:bg-[#009bd7]/20 border-l-4 border-[#009bd7]'
-                    : 'text-gray-700 dark:text-gray-300 hover:text-[#009bd7] hover:bg-[#009bd7]/5 dark:hover:bg-[#009bd7]/10'
+                    : 'text-gray-800 dark:text-gray-200 hover:text-[#009bd7] hover:bg-[#009bd7]/5 dark:hover:bg-[#009bd7]/10'
                 } ${
                   isOpen ? 'translate-x-0' : 'translate-x-4'
                 }`}
@@ -180,24 +182,6 @@ export default function Navbar() {
                 {link.name}
               </button>
             ))}
-            
-            <Link 
-              href="/99"
-              className={`block w-full text-left px-4 py-3 rounded-lg font-medium transition-all duration-300 transform bg-red-500/10 dark:bg-amber-500/20 text-red-600 dark:text-amber-400 hover:bg-red-500/20 dark:hover:bg-amber-500/30 ${
-                isOpen ? 'translate-x-0' : 'translate-x-4'
-              }`}
-              style={{ transitionDelay: `${navLinks.length * 100}ms` }}
-              onClick={() => setIsOpen(false)}
-            >
-              <div className="flex items-center">
-                $99 MVP
-                <span className="relative ml-2">
-                  <span className="animate-ping absolute inline-flex h-2 w-2 rounded-full bg-red-400 dark:bg-amber-400 opacity-75"></span>
-                  <span className="relative inline-flex rounded-full h-2 w-2 bg-red-500 dark:bg-amber-500"></span>
-                </span>
-              </div>
-            </Link>
-            
             
             <div className="pt-2">
               <button
@@ -214,7 +198,7 @@ export default function Navbar() {
       {/* Backdrop for mobile menu */}
       {isOpen && (
         <div 
-          className="lg:hidden fixed inset-0 bg-black/20 backdrop-blur-sm z-40"
+          className="lg:hidden fixed inset-0 bg-black/30 backdrop-blur-sm z-40"
           onClick={() => setIsOpen(false)}
         />
       )}
