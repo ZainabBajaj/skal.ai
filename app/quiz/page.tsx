@@ -2,6 +2,7 @@
 
 
 import React, { useState } from 'react';
+import Link from 'next/link';
 import { ChevronRight, Clock, TrendingUp, Settings, Zap, CheckCircle, Target, Sparkles, Rocket, Crown, AlertCircle, Mail } from 'lucide-react';
 
 interface QuizAnswers {
@@ -342,50 +343,73 @@ const QuizPage = () => {
     const animations: Record<'newbie' | 'ready' | 'pro', JSX.Element> = {
       newbie: (
         <div className="fixed inset-0 z-50 pointer-events-none overflow-hidden">
-          {/* Floating particles with staggered animation */}
-          {[...Array(50)].map((_, i) => (
+          {/* Sophisticated background with subtle gradient */}
+          <div className="absolute inset-0 bg-gradient-to-br from-slate-900 via-green-900/20 to-blue-900/20"></div>
+          
+          {/* Elegant particle system */}
+          {[...Array(40)].map((_, i) => (
             <div
               key={i}
-              className="absolute animate-bounce opacity-80"
-              style={{
-                left: `${Math.random() * 100}%`,
-                top: `-10px`,
-                animationDelay: `${Math.random() * 2}s`,
-                animationDuration: `${2 + Math.random() * 2}s`,
-                animationTimingFunction: 'ease-in-out'
-              }}
-            >
-              <div className="w-3 h-3 bg-green-400 rounded-full transform rotate-45 shadow-lg"></div>
-            </div>
-          ))}
-          
-          {/* Main celebration message with smooth entrance */}
-          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
-            <div 
-              className="bg-gradient-to-r from-green-400 to-blue-500 text-white px-8 py-4 rounded-full text-2xl font-bold shadow-2xl border-4 border-white animate-pulse"
-              style={{
-                animationDuration: '2s',
-                animationTimingFunction: 'ease-in-out'
-              }}
-            >
-              🌱 Welcome to AI! 🌱
-            </div>
-          </div>
-          
-          {/* Sparkles with smooth movement */}
-          {[...Array(20)].map((_, i) => (
-            <div
-              key={`float-${i}`}
-              className="absolute animate-ping"
+              className="absolute opacity-40"
               style={{
                 left: `${Math.random() * 100}%`,
                 top: `${Math.random() * 100}%`,
-                animationDelay: `${Math.random() * 3}s`,
-                animationDuration: '2s',
-                animationTimingFunction: 'ease-out'
+                animationDelay: `${Math.random() * 2}s`,
+                animationDuration: `${4 + Math.random() * 3}s`,
+                animation: 'float 6s ease-in-out infinite'
               }}
             >
-              <Sparkles className="w-6 h-6 text-green-400 drop-shadow-lg" />
+              <div className={`w-1 h-1 rounded-full ${
+                i % 3 === 0 ? 'bg-green-400' : i % 3 === 1 ? 'bg-emerald-300' : 'bg-blue-400'
+              }`}></div>
+            </div>
+          ))}
+          
+          {/* Modern geometric patterns */}
+          {[...Array(8)].map((_, i) => (
+            <div
+              key={`pattern-${i}`}
+              className="absolute opacity-20"
+              style={{
+                left: `${10 + i * 10}%`,
+                top: `${20 + i * 8}%`,
+                animationDelay: `${i * 0.3}s`,
+                animationDuration: '8s',
+                animation: 'rotate 8s linear infinite'
+              }}
+            >
+              <div className="w-8 h-8 border border-green-400/30 rounded-lg transform rotate-45"></div>
+            </div>
+          ))}
+          
+          {/* Main result display with modern design */}
+          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+            <div 
+              className="bg-gradient-to-r from-green-600/90 to-emerald-600/90 backdrop-blur-xl text-white px-12 py-8 rounded-2xl shadow-2xl border border-green-400/30"
+              style={{
+                animation: 'slideIn 1s ease-out'
+              }}
+            >
+              <div className="text-center">
+                <div className="text-4xl font-bold mb-2">Automation Newbie</div>
+                <div className="text-lg opacity-90">Ready to begin your AI journey</div>
+              </div>
+            </div>
+          </div>
+          
+          {/* Subtle progress indicators */}
+          {[...Array(6)].map((_, i) => (
+            <div
+              key={`progress-${i}`}
+              className="absolute bottom-20 opacity-60"
+              style={{
+                left: `${15 + i * 12}%`,
+                animationDelay: `${i * 0.2}s`,
+                animationDuration: '2s',
+                animation: 'fadeInUp 2s ease-out'
+              }}
+            >
+              <div className="w-2 h-8 bg-gradient-to-t from-green-400 to-transparent rounded-full"></div>
             </div>
           ))}
         </div>
@@ -393,64 +417,73 @@ const QuizPage = () => {
       
       ready: (
         <div className="fixed inset-0 z-50 pointer-events-none overflow-hidden">
-          {/* Rocket with smooth launch animation */}
-          <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2">
-            <div 
-              className="animate-bounce" 
-              style={{ 
-                animationDuration: '0.8s', 
-                animationIterationCount: '6',
-                animationTimingFunction: 'ease-in-out'
-              }}
-            >
-              <Rocket className="w-16 h-16 text-purple-500 transform rotate-45 drop-shadow-lg" />
-            </div>
-          </div>
+          {/* Sophisticated background with subtle gradient */}
+          <div className="absolute inset-0 bg-gradient-to-br from-slate-900 via-purple-900/20 to-indigo-900/20"></div>
           
-          {/* Rocket trail with staggered animation */}
+          {/* Elegant data flow visualization */}
           {[...Array(30)].map((_, i) => (
             <div
               key={i}
-              className="absolute animate-pulse"
-              style={{
-                left: `${45 + Math.random() * 10}%`,
-                bottom: `${i * 20}px`,
-                animationDelay: `${i * 0.1}s`,
-                animationDuration: '1.5s',
-                animationTimingFunction: 'ease-out'
-              }}
-            >
-              <div className="w-2 h-8 bg-gradient-to-t from-purple-500 to-transparent rounded-full shadow-lg"></div>
-            </div>
-          ))}
-          
-          {/* Main message with smooth entrance */}
-          <div className="absolute top-1/3 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
-            <div 
-              className="bg-gradient-to-r from-purple-500 to-pink-500 text-white px-8 py-4 rounded-full text-2xl font-bold shadow-2xl border-4 border-white animate-bounce"
-              style={{
-                animationDuration: '1.5s',
-                animationTimingFunction: 'ease-in-out'
-              }}
-            >
-              🚀 Ready for Takeoff! 🚀
-            </div>
-          </div>
-          
-          {/* Floating stars with smooth rotation */}
-          {[...Array(15)].map((_, i) => (
-            <div
-              key={`star-${i}`}
-              className="absolute animate-spin"
+              className="absolute opacity-50"
               style={{
                 left: `${Math.random() * 100}%`,
                 top: `${Math.random() * 100}%`,
                 animationDelay: `${Math.random() * 2}s`,
-                animationDuration: '3s',
-                animationTimingFunction: 'ease-in-out'
+                animationDuration: `${3 + Math.random() * 2}s`,
+                animation: 'dataFlow 5s ease-in-out infinite'
               }}
             >
-              <div className="w-4 h-4 bg-purple-400 transform rotate-45 shadow-lg"></div>
+              <div className={`w-1 h-1 rounded-full ${
+                i % 3 === 0 ? 'bg-purple-400' : i % 3 === 1 ? 'bg-pink-400' : 'bg-indigo-400'
+              }`}></div>
+            </div>
+          ))}
+          
+          {/* Modern network connections */}
+          {[...Array(12)].map((_, i) => (
+            <div
+              key={`connection-${i}`}
+              className="absolute opacity-30"
+              style={{
+                left: `${20 + i * 6}%`,
+                top: `${30 + i * 5}%`,
+                animationDelay: `${i * 0.2}s`,
+                animationDuration: '6s',
+                animation: 'pulse 6s ease-in-out infinite'
+              }}
+            >
+              <div className="w-6 h-6 border border-purple-400/40 rounded-full"></div>
+            </div>
+          ))}
+          
+          {/* Main result display with modern design */}
+          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+            <div 
+              className="bg-gradient-to-r from-purple-600/90 to-indigo-600/90 backdrop-blur-xl text-white px-12 py-8 rounded-2xl shadow-2xl border border-purple-400/30"
+              style={{
+                animation: 'slideIn 1s ease-out'
+              }}
+            >
+              <div className="text-center">
+                <div className="text-4xl font-bold mb-2">AI Ready</div>
+                <div className="text-lg opacity-90">Time to scale your automation</div>
+              </div>
+            </div>
+          </div>
+          
+          {/* Progress bars showing scaling */}
+          {[...Array(8)].map((_, i) => (
+            <div
+              key={`progress-${i}`}
+              className="absolute bottom-16 opacity-60"
+              style={{
+                left: `${10 + i * 10}%`,
+                animationDelay: `${i * 0.15}s`,
+                animationDuration: '2.5s',
+                animation: 'scaleUp 2.5s ease-out'
+              }}
+            >
+              <div className="w-3 h-12 bg-gradient-to-t from-purple-400 to-transparent rounded-full"></div>
             </div>
           ))}
         </div>
@@ -458,77 +491,75 @@ const QuizPage = () => {
       
       pro: (
         <div className="fixed inset-0 z-50 pointer-events-none overflow-hidden">
-          {/* Crown with smooth bounce */}
-          <div className="absolute top-1/4 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
-            <div 
-              className="animate-bounce" 
-              style={{ 
-                animationDuration: '1.2s', 
-                animationIterationCount: '3',
-                animationTimingFunction: 'ease-in-out'
-              }}
-            >
-              <Crown className="w-20 h-20 text-yellow-500 drop-shadow-lg" />
-            </div>
-          </div>
+          {/* Sophisticated background with subtle gradient */}
+          <div className="absolute inset-0 bg-gradient-to-br from-slate-900 via-orange-900/20 to-yellow-900/20"></div>
           
-          {/* Sparkling particles with smooth ping */}
-          {[...Array(100)].map((_, i) => (
+          {/* Elegant neural network visualization */}
+          {[...Array(50)].map((_, i) => (
             <div
               key={i}
-              className="absolute animate-ping"
+              className="absolute opacity-40"
               style={{
                 left: `${Math.random() * 100}%`,
                 top: `${Math.random() * 100}%`,
                 animationDelay: `${Math.random() * 3}s`,
-                animationDuration: '1.2s',
-                animationTimingFunction: 'ease-out'
+                animationDuration: `${4 + Math.random() * 3}s`,
+                animation: 'neuralFlow 7s ease-in-out infinite'
               }}
             >
-              <div className="w-1 h-1 bg-yellow-400 rounded-full shadow-lg"></div>
+              <div className={`w-1 h-1 rounded-full ${
+                i % 4 === 0 ? 'bg-yellow-400' : i % 4 === 1 ? 'bg-orange-400' : i % 4 === 2 ? 'bg-red-400' : 'bg-amber-300'
+              }`}></div>
             </div>
           ))}
           
-          {/* Lightning bolts with staggered animation */}
-          {[...Array(8)].map((_, i) => (
+          {/* Advanced geometric patterns */}
+          {[...Array(15)].map((_, i) => (
             <div
-              key={`lightning-${i}`}
-              className="absolute animate-pulse"
+              key={`pattern-${i}`}
+              className="absolute opacity-25"
               style={{
-                left: `${10 + i * 10}%`,
-                top: `${Math.random() * 100}%`,
+                left: `${5 + i * 6}%`,
+                top: `${15 + i * 5}%`,
                 animationDelay: `${i * 0.2}s`,
-                animationDuration: '1.5s',
-                animationTimingFunction: 'ease-in-out'
+                animationDuration: '10s',
+                animation: 'complexRotate 10s linear infinite'
               }}
             >
-              <Zap className="w-8 h-8 text-orange-400 drop-shadow-lg" />
+              <div className="w-10 h-10 border border-yellow-400/40 rounded-lg transform rotate-45"></div>
             </div>
           ))}
           
-          {/* Main message with smooth pulse */}
+          {/* Main result display with modern design */}
           <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
             <div 
-              className="bg-gradient-to-r from-orange-400 to-red-500 text-white px-8 py-4 rounded-full text-2xl font-bold shadow-2xl border-4 border-yellow-300 animate-pulse"
+              className="bg-gradient-to-r from-orange-600/90 to-yellow-600/90 backdrop-blur-xl text-white px-12 py-8 rounded-2xl shadow-2xl border border-yellow-400/30"
               style={{
-                animationDuration: '2s',
-                animationTimingFunction: 'ease-in-out'
+                animation: 'slideIn 1s ease-out'
               }}
             >
-              ⚡ AI Master! ⚡
+              <div className="text-center">
+                <div className="text-4xl font-bold mb-2">AI Master</div>
+                <div className="text-lg opacity-90">Ready for advanced optimization</div>
+              </div>
             </div>
           </div>
           
-          {/* Rotating ring with smooth spin */}
-          <div 
-            className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 animate-spin" 
-            style={{ 
-              animationDuration: '4s',
-              animationTimingFunction: 'ease-in-out'
-            }}
-          >
-            <div className="w-40 h-40 border-4 border-yellow-400 rounded-full opacity-30 shadow-lg"></div>
-          </div>
+          {/* Performance metrics visualization */}
+          {[...Array(10)].map((_, i) => (
+            <div
+              key={`metric-${i}`}
+              className="absolute bottom-12 opacity-70"
+              style={{
+                left: `${8 + i * 8}%`,
+                animationDelay: `${i * 0.1}s`,
+                animationDuration: '3s',
+                animation: 'optimizeUp 3s ease-out'
+              }}
+            >
+              <div className="w-4 h-16 bg-gradient-to-t from-yellow-400 to-transparent rounded-full"></div>
+            </div>
+          ))}
         </div>
       )
     };
@@ -580,52 +611,6 @@ const QuizPage = () => {
             to { opacity: 1; transform: scale(1); }
           }
         `}</style>
-        <div className="absolute inset-0 overflow-hidden pointer-events-none">
-          {result === 'newbie' && [...Array(20)].map((_, i) => (
-            <div
-              key={i}
-              className="absolute animate-pulse"
-              style={{
-                left: `${Math.random() * 100}%`,
-                top: `${Math.random() * 100}%`,
-                animationDelay: `${Math.random() * 3}s`,
-                animationDuration: '3s'
-              }}
-            >
-              <div className="w-2 h-2 bg-green-400 rounded-full opacity-20"></div>
-            </div>
-          ))}
-          
-          {result === 'ready' && [...Array(15)].map((_, i) => (
-            <div
-              key={i}
-              className="absolute animate-bounce"
-              style={{
-                left: `${Math.random() * 100}%`,
-                top: `${Math.random() * 100}%`,
-                animationDelay: `${Math.random() * 2}s`,
-                animationDuration: '4s'
-              }}
-            >
-              <div className="w-3 h-3 bg-purple-400 rounded-full opacity-20"></div>
-            </div>
-          ))}
-          
-          {result === 'pro' && [...Array(25)].map((_, i) => (
-            <div
-              key={i}
-              className="absolute animate-ping"
-              style={{
-                left: `${Math.random() * 100}%`,
-                top: `${Math.random() * 100}%`,
-                animationDelay: `${Math.random() * 4}s`,
-                animationDuration: '2s'
-              }}
-            >
-              <div className="w-1 h-1 bg-orange-400 rounded-full opacity-30"></div>
-            </div>
-          ))}
-        </div>
 
         <div className="max-w-4xl w-full relative z-10">
           <div 
@@ -761,10 +746,13 @@ const QuizPage = () => {
                 </button>
                 
                 <div className="flex items-center justify-center space-x-4 text-sm text-gray-500">
-                  <span>Want a free audit?</span>
-                  <button className="text-blue-600 hover:text-blue-800 font-medium flex items-center">
-                    🎯 Book here <ChevronRight className="w-4 h-4 ml-1" />
-                  </button>
+                  <Link 
+                    href="/" 
+                    className="text-blue-600 hover:text-blue-800 font-medium flex items-center transition-all duration-300 ease-in-out hover:scale-105 hover:translate-x-1 group"
+                  >
+                    🏠 Click here to go back to homepage 
+                    <ChevronRight className="w-4 h-4 ml-1 transition-transform duration-300 ease-in-out group-hover:translate-x-1" />
+                  </Link>
                 </div>
                 
                 <button 
