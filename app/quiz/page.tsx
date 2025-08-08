@@ -1,793 +1,708 @@
 "use client";
 
-
-import React, { useState } from 'react';
-import Link from 'next/link';
-import { ChevronRight, Clock, TrendingUp, Settings, Zap, CheckCircle, Target, Sparkles, Rocket, Crown, AlertCircle, Mail } from 'lucide-react';
+import { useState, useEffect } from 'react';
+import { ChevronRight, AlertCircle } from 'lucide-react';
+import FloatingThemeToggle from '../components/FloatingThemeToggle';
 
 interface QuizAnswers {
-  businessSize?: string;
-  timeSpent?: string;
-  currentTools?: string;
-  mainGoal?: string;
-  industry?: string;
-  aiExperience?: string;
-  email?: string;
+  businessType: string;
+  teamSize: string;
+  automationGoals: string;
+  currentTools: string;
+  budget: string;
+  email: string;
 }
 
 const QuizPage = () => {
   const [currentStep, setCurrentStep] = useState(0);
-  const [answers, setAnswers] = useState<QuizAnswers>({});
-  const [showResult, setShowResult] = useState(false);
-  const [result, setResult] = useState<'newbie' | 'ready' | 'pro' | null>(null);
-  const [showAnimation, setShowAnimation] = useState(false);
-  const [animationComplete, setAnimationComplete] = useState(false);
-  const [emailStored, setEmailStored] = useState(false);
-  const [emailError, setEmailError] = useState('');
+  const [answers, setAnswers] = useState<QuizAnswers>({
+    businessType: '',
+    teamSize: '',
+    automationGoals: '',
+    currentTools: '',
+    budget: '',
+    email: ''
+  });
+  const [showResults, setShowResults] = useState(false);
   const [emailInput, setEmailInput] = useState('');
-  const [downloadSuccess, setDownloadSuccess] = useState(false);
-  const [isAlreadyRegistered, setIsAlreadyRegistered] = useState(false);
+  const [emailValidationError, setEmailValidationError] = useState('');
+  const [isValidatingEmail, setIsValidatingEmail] = useState(false);
+  const [emailStored, setEmailStored] = useState(false);
+  const [particles, setParticles] = useState<Array<{id: number, left: string, top: string, delay: string, duration: string}>>([]);
+  const [showLoading, setShowLoading] = useState(false);
+  const [loadingMessage, setLoadingMessage] = useState('');
+  const [userLevel, setUserLevel] = useState('');
+
+  // Generate particles on client-side only
+  useEffect(() => {
+    const generateParticles = () => {
+      const particleData = Array.from({ length: 20 }, (_, i) => ({
+        id: i,
+        left: `${Math.random() * 100}%`,
+        top: `${Math.random() * 100}%`,
+        delay: `${Math.random() * 3}s`,
+        duration: `${3 + Math.random() * 2}s`
+      }));
+      setParticles(particleData);
+    };
+
+    generateParticles();
+  }, []);
 
   const questions = [
     {
-      id: 'businessSize',
-      question: "What is your business size?",
-      icon: <TrendingUp className="w-6 h-6" />,
+      id: 'businessType',
+      question: 'What type of business do you run?',
+      icon: '🏢',
       options: [
-        { value: 'solo', label: 'Solo entrepreneur (just me!)', emoji: '🚀' },
-        { value: 'small', label: 'Small team (2-10 people)', emoji: '👥' },
-        { value: 'medium', label: 'Growing business (11-50 people)', emoji: '🏢' },
-        { value: 'large', label: 'Established company (50+ people)', emoji: '🏬' }
+        { value: 'startup', label: 'Startup (0-10 employees)', emoji: '🚀' },
+        { value: 'small', label: 'Small Business (11-50 employees)', emoji: '💼' },
+        { value: 'medium', label: 'Medium Business (51-200 employees)', emoji: '🏢' },
+        { value: 'enterprise', label: 'Enterprise (200+ employees)', emoji: '🏭' }
       ]
     },
     {
-      id: 'timeSpent',
-      question: "How much time does your team spend on repetitive tasks daily?",
-      icon: <Clock className="w-6 h-6" />,
+      id: 'teamSize',
+      question: 'How many people are on your team?',
+      icon: '👥',
       options: [
-        { value: 'minimal', label: 'Less than 1 hour (lucky you!)', emoji: '⚡' },
-        { value: 'moderate', label: '1-3 hours (getting annoying)', emoji: '⏰' },
-        { value: 'significant', label: '3-5 hours (major pain point)', emoji: '😤' },
-        { value: 'excessive', label: '5+ hours (help me please!)', emoji: '😱' }
+        { value: '1-5', label: '1-5 people', emoji: '👤' },
+        { value: '6-10', label: '6-10 people', emoji: '👥' },
+        { value: '11-25', label: '11-25 people', emoji: '👨‍👩‍👧‍👦' },
+        { value: '25+', label: '25+ people', emoji: '🏢' }
+      ]
+    },
+    {
+      id: 'automationGoals',
+      question: 'What are your main automation goals?',
+      icon: '🎯',
+      options: [
+        { value: 'time', label: 'Save time on repetitive tasks', emoji: '⏰' },
+        { value: 'cost', label: 'Reduce operational costs', emoji: '💰' },
+        { value: 'accuracy', label: 'Improve accuracy & quality', emoji: '🎯' },
+        { value: 'scaling', label: 'Scale operations efficiently', emoji: '📈' }
       ]
     },
     {
       id: 'currentTools',
-      question: "What tools do you currently use?",
-      icon: <Settings className="w-6 h-6" />,
+      question: 'What tools do you currently use?',
+      icon: '🛠️',
       options: [
-        { value: 'basic', label: 'Email & Google Docs (keeping it simple)', emoji: '📧' },
-        { value: 'productivity', label: 'Notion, Slack, Trello (organized)', emoji: '📊' },
-        { value: 'business', label: 'CRM, HubSpot, Salesforce (professional)', emoji: '💼' },
-        { value: 'advanced', label: 'Custom integrations & APIs (tech-savvy)', emoji: '🔧' }
+        { value: 'basic', label: 'Basic tools (Excel, Google Sheets)', emoji: '📊' },
+        { value: 'crm', label: 'CRM & project management tools', emoji: '📋' },
+        { value: 'automation', label: 'Some automation tools', emoji: '⚙️' },
+        { value: 'advanced', label: 'Advanced AI/ML tools', emoji: '🤖' }
       ]
     },
     {
-      id: 'mainGoal',
-      question: "What is your #1 goal right now?",
-      icon: <Target className="w-6 h-6" />,
+      id: 'budget',
+      question: 'What&apos;s your monthly automation budget?',
+      icon: '💰',
       options: [
-        { value: 'time', label: 'Save time (give me my life back!)', emoji: '⏱️' },
-        { value: 'sales', label: 'Increase sales (show me the money)', emoji: '💰' },
-        { value: 'operations', label: 'Improve operations (run like clockwork)', emoji: '⚙️' },
-        { value: 'growth', label: 'Scale the business (to the moon!)', emoji: '🚀' }
-      ]
-    },
-    {
-      id: 'industry',
-      question: "What industry are you in?",
-      icon: <Zap className="w-6 h-6" />,
-      options: [
-        { value: 'tech', label: 'Tech/SaaS (living in the future)', emoji: '💻' },
-        { value: 'ecommerce', label: 'E-commerce (selling the dream)', emoji: '🛒' },
-        { value: 'consulting', label: 'Consulting/Services (expertise for hire)', emoji: '🎯' },
-        { value: 'other', label: 'Other industry (unique snowflake)', emoji: '✨' }
-      ]
-    },
-    {
-      id: 'aiExperience',
-      question: "Do you have someone managing AI/automation yet?",
-      icon: <CheckCircle className="w-6 h-6" />,
-      options: [
-        { value: 'none', label: 'Nope, total beginner (AI what?)', emoji: '🤔' },
-        { value: 'dabbling', label: 'Experimenting on my own (DIY mode)', emoji: '🧪' },
-        { value: 'some', label: 'Have some basic automations (getting there)', emoji: '🛠️' },
-        { value: 'advanced', label: 'Yes, dedicated AI person/team (pros)', emoji: '🎓' }
+        { value: '0-500', label: '$0 - $500', emoji: '💵' },
+        { value: '500-2000', label: '$500 - $2,000', emoji: '💸' },
+        { value: '2000-5000', label: '$2,000 - $5,000', emoji: '🏦' },
+        { value: '5000+', label: '$5,000+', emoji: '💰' }
       ]
     },
     {
       id: 'email',
-      question: "What is your email to get your Quick Wins report?",
-      icon: <CheckCircle className="w-6 h-6" />,
+      question: 'Where should we send your personalized AI report?',
+      icon: '📧',
       type: 'email',
-      placeholder: 'your@email.com'
+      placeholder: 'Enter your email address'
     }
   ];
 
-  const calculateResult = (answers: QuizAnswers) => {
-    const scores = {
-      newbie: 0,
-      ready: 0,
-      pro: 0
-    };
+  const handleAnswer = async (questionId: keyof QuizAnswers, value: string) => {
+    if (questionId === 'email') {
+      setIsValidatingEmail(true);
+      setEmailValidationError('');
 
-    if (answers.businessSize === 'solo') scores.newbie += 2;
-    else if (answers.businessSize === 'small') scores.ready += 2;
-    else scores.pro += 2;
-
-    if (answers.timeSpent === 'minimal') scores.newbie += 1;
-    else if (answers.timeSpent === 'moderate') scores.ready += 2;
-    else scores.pro += 2;
-
-    if (answers.currentTools === 'basic') scores.newbie += 2;
-    else if (answers.currentTools === 'productivity') scores.ready += 2;
-    else scores.pro += 2;
-
-    if (answers.aiExperience === 'none') scores.newbie += 3;
-    else if (answers.aiExperience === 'dabbling') scores.ready += 2;
-    else scores.pro += 2;
-
-    const maxScore = Math.max(scores.newbie, scores.ready, scores.pro);
-    
-    if (scores.newbie === maxScore) return 'newbie';
-    else if (scores.ready === maxScore) return 'ready';
-    else return 'pro';
-  };
-
-  const resultContent = {
-    newbie: {
-      title: "You're an Automation Newbie! 🌱",
-      subtitle: "Perfect! Everyone starts somewhere, and you're about to discover some game-changing shortcuts.",
-      description: "You're sitting on a goldmine of easy automation opportunities. Let's start with simple wins that'll save you hours every week!",
-      recommendations: [
-        "Set up email templates and signatures",
-        "Automate your social media posting",
-        "Create simple chatbots for FAQs",
-        "Use AI for content writing assistance"
-      ],
-      color: "from-green-400 to-blue-500"
-    },
-    ready: {
-      title: "You're Ready to Scale AI! 🚀",
-      subtitle: "You've got the basics down. Time to level up with some serious automation workflows!",
-      description: "You're in the sweet spot to implement medium-complexity automations that'll transform how your team works.",
-      recommendations: [
-        "Build advanced CRM automations",
-        "Set up cross-platform integrations",
-        "Implement AI-powered lead scoring",
-        "Create automated reporting dashboards"
-      ],
-      color: "from-purple-400 to-pink-500"
-    },
-    pro: {
-      title: "You're a Pro, Let's Optimize! ⚡",
-      subtitle: "Impressive! You're already ahead of the game. Let's find those hidden optimization opportunities.",
-      description: "Time to fine-tune your existing systems and explore cutting-edge AI implementations for maximum efficiency.",
-      recommendations: [
-        "Optimize existing automation workflows",
-        "Implement predictive AI analytics",
-        "Build custom AI integrations",
-        "Create enterprise-level automation systems"
-      ],
-      color: "from-orange-400 to-red-500"
-    }
-  };
-
-  const handleAnswer = (questionId: keyof QuizAnswers, value: string) => {
-    const newAnswers = { ...answers, [questionId]: value };
-    setAnswers(newAnswers);
-
-    if (currentStep < questions.length - 1) {
-      // Smooth transition to next question
-      setTimeout(() => setCurrentStep(currentStep + 1), 200);
-    } else {
-      // Store email in Brevo list 2 when quiz is completed
-      if (newAnswers.email) {
-        storeEmailInBrevo(newAnswers.email, newAnswers);
-      }
-      
-      const resultType = calculateResult(newAnswers);
-      setResult(resultType);
-      
-      // Smoother animation sequence
-      setTimeout(() => {
-        setShowAnimation(true);
-      }, 300);
-      
-      setTimeout(() => {
-        setAnimationComplete(true);
-        setShowResult(true);
-        setShowAnimation(false);
-      }, 4000); // Extended animation time
-    }
-  };
-
-  const storeEmailInBrevo = async (email: string, quizAnswers: QuizAnswers) => {
-    try {
-      setEmailError('');
-      
-      // Validate email
-      if (!email || !email.includes('@')) {
-        setEmailError('Please enter a valid email address.');
+      // Email format validation
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!emailRegex.test(value)) {
+        setEmailValidationError('Please enter a valid email address');
+        setIsValidatingEmail(false);
         return;
       }
 
-      const requestBody = {
-        email: email.toLowerCase().trim(),
-        listIds: [parseInt('2')], // Ensure list ID is a number
-        attributes: {
-          SUBSCRIPTION_DATE: new Date().toISOString(),
-          SOURCE: 'Quiz Completion',
-          QUIZ_RESULT: calculateResult(quizAnswers),
-          BUSINESS_SIZE: quizAnswers.businessSize || '',
-          TIME_SPENT: quizAnswers.timeSpent || '',
-          CURRENT_TOOLS: quizAnswers.currentTools || '',
-          MAIN_GOAL: quizAnswers.mainGoal || '',
-          INDUSTRY: quizAnswers.industry || '',
-          AI_EXPERIENCE: quizAnswers.aiExperience || ''
-        }
-      };
+      try {
+        // Debug: Check environment variables
+        console.log('API Key exists:', !!process.env.NEXT_PUBLIC_BREVO_API_KEY);
+        console.log('Email being submitted:', value);
 
-      console.log('Sending to Brevo:', requestBody); // Debug log
+        const requestBody = {
+          email: value.toLowerCase().trim(),
+          listIds: [2], // Using list ID 2 for quiz
+          attributes: {
+            SUBSCRIPTION_DATE: new Date().toISOString(),
+            SOURCE: 'Quiz Registration'
+          }
+        };
 
-      const response = await fetch('https://api.brevo.com/v3/contacts', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'api-key': process.env.NEXT_PUBLIC_BREVO_API_KEY || '',
-        },
-        body: JSON.stringify(requestBody),
-      });
+        console.log('Request body:', requestBody);
 
-      if (response.ok) {
-        // Add a small delay for smooth transition
-        setTimeout(() => {
+        const response = await fetch('https://api.brevo.com/v3/contacts', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'api-key': process.env.NEXT_PUBLIC_BREVO_API_KEY || '',
+          },
+          body: JSON.stringify(requestBody),
+        });
+
+        console.log('Response status:', response.status);
+
+        if (response.ok) {
+          const responseData = await response.json();
+          console.log('Success response:', responseData);
           setEmailStored(true);
-          setIsAlreadyRegistered(false);
-        }, 500);
-      } else {
-        const errorData = await response.json().catch(() => ({}));
-        console.error('Failed to store email in Brevo:', response.status, errorData);
-        
-        if (response.status === 400 && errorData.code === 'duplicate_parameter') {
-          setIsAlreadyRegistered(true);
-        } else if (response.status === 401) {
-          setEmailError('API configuration error. Please contact support.');
+          
+          // Show loading animation with personalized message
+          const level = getUserLevel();
+          setUserLevel(level);
+          
+          let message = '';
+          switch (level) {
+            case 'newbie':
+              message = "You're an Automation Newbie";
+              break;
+            case 'medium':
+              message = "You're Ready to Scale AI";
+              break;
+            case 'advanced':
+              message = "You're a Pro, Let's Optimize";
+              break;
+            default:
+              message = "Analyzing your results...";
+          }
+          
+          setLoadingMessage(message);
+          setShowLoading(true);
+          
+          // Simulate processing time and then show results
+          setTimeout(() => {
+            setShowLoading(false);
+            proceedToResults();
+          }, 3000);
         } else {
-          setEmailError(`Failed to save email (${response.status}). Please try again.`);
+          const errorData = await response.json();
+          console.log('Error response:', errorData);
+          
+          if (response.status === 400) {
+            if (errorData.code === 'duplicate_parameter') {
+              setEmailValidationError('This email is already registered. Please use a different email or contact support.');
+            } else {
+              setEmailValidationError(`Invalid request: ${errorData.message || 'Please check your email and try again.'}`);
+            }
+          } else if (response.status === 401) {
+            setEmailValidationError('API key is invalid. Please check your Brevo configuration.');
+          } else if (response.status === 404) {
+            setEmailValidationError('List ID not found. Please check your Brevo list configuration.');
+          } else {
+            setEmailValidationError(`Server error (${response.status}): ${errorData.message || 'Please try again later.'}`);
+          }
         }
+      } catch (error) {
+        console.error('Quiz email registration error:', error);
+        setEmailValidationError('Network error. Please check your connection and try again.');
+      } finally {
+        setIsValidatingEmail(false);
       }
-    } catch (error) {
-      console.error('Error storing email in Brevo:', error);
-      setEmailError('Network error. Please check your connection.');
+      return;
     }
+
+    setAnswers(prev => ({ ...prev, [questionId]: value }));
+    
+    if (currentStep < questions.length - 1) {
+      setCurrentStep(prev => prev + 1);
+    } else {
+      proceedToResults();
+    }
+  };
+
+  const proceedToResults = () => {
+    setShowResults(true);
   };
 
   const resetQuiz = () => {
     setCurrentStep(0);
-    setAnswers({});
-    setShowResult(false);
-    setResult(null);
-    setShowAnimation(false);
-    setAnimationComplete(false);
-    setEmailStored(false);
-    setEmailError('');
+    setAnswers({
+      businessType: '',
+      teamSize: '',
+      automationGoals: '',
+      currentTools: '',
+      budget: '',
+      email: ''
+    });
+    setShowResults(false);
     setEmailInput('');
-    setDownloadSuccess(false);
-    setIsAlreadyRegistered(false);
-  };
-
-  const validateEmail = (email: string): boolean => {
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    return emailRegex.test(email);
-  };
-
-  const canDownloadReport = (): boolean => {
-    return !!(answers.email && validateEmail(answers.email) && !isAlreadyRegistered);
+    setEmailValidationError('');
+    setIsValidatingEmail(false);
+    setEmailStored(false);
+    setShowLoading(false);
+    setLoadingMessage('');
+    setUserLevel('');
   };
 
   const downloadPDF = () => {
-    // Check if user has entered a valid email
-    const userEmail = answers.email;
+    // Determine which PDF to download based on answers
+    let pdfName = 'easy.pdf'; // default
     
-    if (!userEmail || !validateEmail(userEmail)) {
-      setEmailError('Please enter a valid email address to download your report.');
-      return;
+    if (answers.businessType === 'enterprise' || answers.budget === '5000+') {
+      pdfName = 'advanced.pdf';
+    } else if (answers.businessType === 'medium' || answers.budget === '2000-5000') {
+      pdfName = 'medium.pdf';
     }
+    
+    const link = document.createElement('a');
+    link.href = `/pdf/${pdfName}`;
+    link.download = pdfName;
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
 
-    // Check if user is already registered
-    if (isAlreadyRegistered) {
-      return;
-    }
+  // Function to determine user level and get personalized results
+  const getUserLevel = () => {
+    // Determine user level based on answers
+    let score = 0;
     
-    const pdfType = result === 'newbie' ? 'easy' : result === 'ready' ? 'medium' : 'advanced';
-    const pdfUrl = `/pdf/${pdfType}.pdf`;
-    const filename = `AI-Automation-Report-${result === 'newbie' ? 'Easy' : result === 'ready' ? 'Medium' : 'Advanced'}.pdf`;
+    // Business type scoring
+    if (answers.businessType === 'startup') score += 1;
+    else if (answers.businessType === 'small') score += 2;
+    else if (answers.businessType === 'medium') score += 3;
+    else if (answers.businessType === 'enterprise') score += 4;
     
-    console.log('Downloading PDF:', pdfUrl);
-    console.log('User email:', userEmail);
+    // Team size scoring
+    if (answers.teamSize === '1-5') score += 1;
+    else if (answers.teamSize === '6-10') score += 2;
+    else if (answers.teamSize === '11-25') score += 3;
+    else if (answers.teamSize === '25+') score += 4;
     
-    try {
-      // Create a temporary link element
-      const link = document.createElement('a');
-      link.href = pdfUrl;
-      link.download = filename;
-      link.target = '_blank';
-      link.rel = 'noopener noreferrer';
-      
-      // Append to body, click, and remove
-      document.body.appendChild(link);
-      link.click();
-      document.body.removeChild(link);
-      
-      // Show success message
-      console.log('PDF download initiated successfully');
-      setEmailError(''); // Clear any previous errors
-      setDownloadSuccess(true);
-      
-      // Hide success message after 3 seconds
-      setTimeout(() => {
-        setDownloadSuccess(false);
-      }, 3000);
-    } catch (error) {
-      console.error('Error downloading PDF:', error);
-      setEmailError('Download failed. Please try again.');
-      // Fallback: open in new tab
-      window.open(pdfUrl, '_blank');
+    // Current tools scoring
+    if (answers.currentTools === 'basic') score += 1;
+    else if (answers.currentTools === 'crm') score += 2;
+    else if (answers.currentTools === 'automation') score += 3;
+    else if (answers.currentTools === 'advanced') score += 4;
+    
+    // Budget scoring
+    if (answers.budget === '0-500') score += 1;
+    else if (answers.budget === '500-2000') score += 2;
+    else if (answers.budget === '2000-5000') score += 3;
+    else if (answers.budget === '5000+') score += 4;
+    
+    // Determine level based on total score
+    if (score <= 8) return 'newbie';
+    else if (score <= 12) return 'medium';
+    else return 'advanced';
+  };
+
+  const getPersonalizedResults = () => {
+    const userLevel = getUserLevel();
+    
+    switch (userLevel) {
+      case 'newbie':
+        return {
+          timeSavings: {
+            icon: '⚡',
+            title: 'Time Savings',
+            description: 'Save 5-8 hours per week with basic automation',
+            gradient: 'from-blue-50 to-purple-50 dark:from-blue-900/20 dark:to-purple-900/20',
+            border: 'border-blue-200/50 dark:border-blue-700/50'
+          },
+          costReduction: {
+            icon: '💰',
+            title: 'Cost Reduction',
+            description: 'Reduce costs by 20-30% with simple tools',
+            gradient: 'from-green-50 to-blue-50 dark:from-green-900/20 dark:to-blue-900/20',
+            border: 'border-green-200/50 dark:border-green-700/50'
+          },
+          efficiencyBoost: {
+            icon: '📈',
+            title: 'Efficiency Boost',
+            description: '2x faster task completion with AI assistance',
+            gradient: 'from-purple-50 to-pink-50 dark:from-purple-900/20 dark:to-pink-900/20',
+            border: 'border-purple-200/50 dark:border-purple-700/50'
+          }
+        };
+      case 'medium':
+        return {
+          timeSavings: {
+            icon: '⚡',
+            title: 'Time Savings',
+            description: 'Save 10-15 hours per week with advanced automation',
+            gradient: 'from-blue-50 to-purple-50 dark:from-blue-900/20 dark:to-purple-900/20',
+            border: 'border-blue-200/50 dark:border-blue-700/50'
+          },
+          costReduction: {
+            icon: '💰',
+            title: 'Cost Reduction',
+            description: 'Reduce costs by 30-40% with integrated solutions',
+            gradient: 'from-green-50 to-blue-50 dark:from-green-900/20 dark:to-blue-900/20',
+            border: 'border-green-200/50 dark:border-green-700/50'
+          },
+          efficiencyBoost: {
+            icon: '📈',
+            title: 'Efficiency Boost',
+            description: '3x faster task completion with AI workflows',
+            gradient: 'from-purple-50 to-pink-50 dark:from-purple-900/20 dark:to-pink-900/20',
+            border: 'border-purple-200/50 dark:border-purple-700/50'
+          }
+        };
+      case 'advanced':
+        return {
+          timeSavings: {
+            icon: '⚡',
+            title: 'Time Savings',
+            description: 'Save 20+ hours per week with enterprise AI',
+            gradient: 'from-blue-50 to-purple-50 dark:from-blue-900/20 dark:to-purple-900/20',
+            border: 'border-blue-200/50 dark:border-blue-700/50'
+          },
+          costReduction: {
+            icon: '💰',
+            title: 'Cost Reduction',
+            description: 'Reduce costs by 40-60% with AI transformation',
+            gradient: 'from-green-50 to-blue-50 dark:from-green-900/20 dark:to-blue-900/20',
+            border: 'border-green-200/50 dark:border-green-700/50'
+          },
+          efficiencyBoost: {
+            icon: '📈',
+            title: 'Efficiency Boost',
+            description: '5x faster task completion with AI automation',
+            gradient: 'from-purple-50 to-pink-50 dark:from-purple-900/20 dark:to-pink-900/20',
+            border: 'border-purple-200/50 dark:border-purple-700/50'
+          }
+        };
+      default:
+        return {
+          timeSavings: {
+            icon: '⚡',
+            title: 'Time Savings',
+            description: 'Save 5-8 hours per week with basic automation',
+            gradient: 'from-blue-50 to-purple-50 dark:from-blue-900/20 dark:to-purple-900/20',
+            border: 'border-blue-200/50 dark:border-blue-700/50'
+          },
+          costReduction: {
+            icon: '💰',
+            title: 'Cost Reduction',
+            description: 'Reduce costs by 20-30% with simple tools',
+            gradient: 'from-green-50 to-blue-50 dark:from-green-900/20 dark:to-blue-900/20',
+            border: 'border-green-200/50 dark:border-green-700/50'
+          },
+          efficiencyBoost: {
+            icon: '📈',
+            title: 'Efficiency Boost',
+            description: '2x faster task completion with AI assistance',
+            gradient: 'from-purple-50 to-pink-50 dark:from-purple-900/20 dark:to-pink-900/20',
+            border: 'border-purple-200/50 dark:border-purple-700/50'
+          }
+        };
     }
   };
 
-  const ResultAnimation = ({ type }: { type: 'newbie' | 'ready' | 'pro' }) => {
-    if (!showAnimation) return null;
-
-    const animations: Record<'newbie' | 'ready' | 'pro', JSX.Element> = {
-      newbie: (
-        <div className="fixed inset-0 z-50 pointer-events-none overflow-hidden">
-          {/* Sophisticated background with subtle gradient */}
-          <div className="absolute inset-0 bg-gradient-to-br from-slate-900 via-green-900/20 to-blue-900/20"></div>
-          
-          {/* Elegant particle system */}
-          {[...Array(40)].map((_, i) => (
-            <div
-              key={i}
-              className="absolute opacity-40"
-              style={{
-                left: `${Math.random() * 100}%`,
-                top: `${Math.random() * 100}%`,
-                animationDelay: `${Math.random() * 2}s`,
-                animationDuration: `${4 + Math.random() * 3}s`,
-                animation: 'float 6s ease-in-out infinite'
-              }}
-            >
-              <div className={`w-1 h-1 rounded-full ${
-                i % 3 === 0 ? 'bg-green-400' : i % 3 === 1 ? 'bg-emerald-300' : 'bg-blue-400'
-              }`}></div>
-            </div>
-          ))}
-          
-          {/* Modern geometric patterns */}
-          {[...Array(8)].map((_, i) => (
-            <div
-              key={`pattern-${i}`}
-              className="absolute opacity-20"
-              style={{
-                left: `${10 + i * 10}%`,
-                top: `${20 + i * 8}%`,
-                animationDelay: `${i * 0.3}s`,
-                animationDuration: '8s',
-                animation: 'rotate 8s linear infinite'
-              }}
-            >
-              <div className="w-8 h-8 border border-green-400/30 rounded-lg transform rotate-45"></div>
-            </div>
-          ))}
-          
-          {/* Main result display with modern design */}
-          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
-            <div 
-              className="bg-gradient-to-r from-green-600/90 to-emerald-600/90 backdrop-blur-xl text-white px-12 py-8 rounded-2xl shadow-2xl border border-green-400/30"
-              style={{
-                animation: 'slideIn 1s ease-out'
-              }}
-            >
-              <div className="text-center">
-                <div className="text-4xl font-bold mb-2">Automation Newbie</div>
-                <div className="text-lg opacity-90">Ready to begin your AI journey</div>
-              </div>
-            </div>
-          </div>
-          
-          {/* Subtle progress indicators */}
-          {[...Array(6)].map((_, i) => (
-            <div
-              key={`progress-${i}`}
-              className="absolute bottom-20 opacity-60"
-              style={{
-                left: `${15 + i * 12}%`,
-                animationDelay: `${i * 0.2}s`,
-                animationDuration: '2s',
-                animation: 'fadeInUp 2s ease-out'
-              }}
-            >
-              <div className="w-2 h-8 bg-gradient-to-t from-green-400 to-transparent rounded-full"></div>
-            </div>
-          ))}
-        </div>
-      ),
-      
-      ready: (
-        <div className="fixed inset-0 z-50 pointer-events-none overflow-hidden">
-          {/* Sophisticated background with subtle gradient */}
-          <div className="absolute inset-0 bg-gradient-to-br from-slate-900 via-purple-900/20 to-indigo-900/20"></div>
-          
-          {/* Elegant data flow visualization */}
-          {[...Array(30)].map((_, i) => (
-            <div
-              key={i}
-              className="absolute opacity-50"
-              style={{
-                left: `${Math.random() * 100}%`,
-                top: `${Math.random() * 100}%`,
-                animationDelay: `${Math.random() * 2}s`,
-                animationDuration: `${3 + Math.random() * 2}s`,
-                animation: 'dataFlow 5s ease-in-out infinite'
-              }}
-            >
-              <div className={`w-1 h-1 rounded-full ${
-                i % 3 === 0 ? 'bg-purple-400' : i % 3 === 1 ? 'bg-pink-400' : 'bg-indigo-400'
-              }`}></div>
-            </div>
-          ))}
-          
-          {/* Modern network connections */}
-          {[...Array(12)].map((_, i) => (
-            <div
-              key={`connection-${i}`}
-              className="absolute opacity-30"
-              style={{
-                left: `${20 + i * 6}%`,
-                top: `${30 + i * 5}%`,
-                animationDelay: `${i * 0.2}s`,
-                animationDuration: '6s',
-                animation: 'pulse 6s ease-in-out infinite'
-              }}
-            >
-              <div className="w-6 h-6 border border-purple-400/40 rounded-full"></div>
-            </div>
-          ))}
-          
-          {/* Main result display with modern design */}
-          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
-            <div 
-              className="bg-gradient-to-r from-purple-600/90 to-indigo-600/90 backdrop-blur-xl text-white px-12 py-8 rounded-2xl shadow-2xl border border-purple-400/30"
-              style={{
-                animation: 'slideIn 1s ease-out'
-              }}
-            >
-              <div className="text-center">
-                <div className="text-4xl font-bold mb-2">AI Ready</div>
-                <div className="text-lg opacity-90">Time to scale your automation</div>
-              </div>
-            </div>
-          </div>
-          
-          {/* Progress bars showing scaling */}
-          {[...Array(8)].map((_, i) => (
-            <div
-              key={`progress-${i}`}
-              className="absolute bottom-16 opacity-60"
-              style={{
-                left: `${10 + i * 10}%`,
-                animationDelay: `${i * 0.15}s`,
-                animationDuration: '2.5s',
-                animation: 'scaleUp 2.5s ease-out'
-              }}
-            >
-              <div className="w-3 h-12 bg-gradient-to-t from-purple-400 to-transparent rounded-full"></div>
-            </div>
-          ))}
-        </div>
-      ),
-      
-      pro: (
-        <div className="fixed inset-0 z-50 pointer-events-none overflow-hidden">
-          {/* Sophisticated background with subtle gradient */}
-          <div className="absolute inset-0 bg-gradient-to-br from-slate-900 via-orange-900/20 to-yellow-900/20"></div>
-          
-          {/* Elegant neural network visualization */}
-          {[...Array(50)].map((_, i) => (
-            <div
-              key={i}
-              className="absolute opacity-40"
-              style={{
-                left: `${Math.random() * 100}%`,
-                top: `${Math.random() * 100}%`,
-                animationDelay: `${Math.random() * 3}s`,
-                animationDuration: `${4 + Math.random() * 3}s`,
-                animation: 'neuralFlow 7s ease-in-out infinite'
-              }}
-            >
-              <div className={`w-1 h-1 rounded-full ${
-                i % 4 === 0 ? 'bg-yellow-400' : i % 4 === 1 ? 'bg-orange-400' : i % 4 === 2 ? 'bg-red-400' : 'bg-amber-300'
-              }`}></div>
-            </div>
-          ))}
-          
-          {/* Advanced geometric patterns */}
-          {[...Array(15)].map((_, i) => (
-            <div
-              key={`pattern-${i}`}
-              className="absolute opacity-25"
-              style={{
-                left: `${5 + i * 6}%`,
-                top: `${15 + i * 5}%`,
-                animationDelay: `${i * 0.2}s`,
-                animationDuration: '10s',
-                animation: 'complexRotate 10s linear infinite'
-              }}
-            >
-              <div className="w-10 h-10 border border-yellow-400/40 rounded-lg transform rotate-45"></div>
-            </div>
-          ))}
-          
-          {/* Main result display with modern design */}
-          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
-            <div 
-              className="bg-gradient-to-r from-orange-600/90 to-yellow-600/90 backdrop-blur-xl text-white px-12 py-8 rounded-2xl shadow-2xl border border-yellow-400/30"
-              style={{
-                animation: 'slideIn 1s ease-out'
-              }}
-            >
-              <div className="text-center">
-                <div className="text-4xl font-bold mb-2">AI Master</div>
-                <div className="text-lg opacity-90">Ready for advanced optimization</div>
-              </div>
-            </div>
-          </div>
-          
-          {/* Performance metrics visualization */}
-          {[...Array(10)].map((_, i) => (
-            <div
-              key={`metric-${i}`}
-              className="absolute bottom-12 opacity-70"
-              style={{
-                left: `${8 + i * 8}%`,
-                animationDelay: `${i * 0.1}s`,
-                animationDuration: '3s',
-                animation: 'optimizeUp 3s ease-out'
-              }}
-            >
-              <div className="w-4 h-16 bg-gradient-to-t from-yellow-400 to-transparent rounded-full"></div>
-            </div>
-          ))}
-        </div>
-      )
-    };
-
-    return animations[type];
-  };
-
-  if (showAnimation && result) {
+  if (showResults) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 flex items-center justify-center p-4 relative">
+      <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-blue-50 dark:from-gray-900 dark:via-gray-800 dark:to-blue-900 flex items-center justify-center p-4 relative overflow-hidden">
+        {/* Animated Background Elements */}
+        
+        {/* Floating Particles */}
+        <div className="absolute inset-0 pointer-events-none">
+          {particles.map((particle) => (
+            <div
+              key={particle.id}
+              className="absolute w-2 h-2 bg-gradient-to-r from-blue-400 to-purple-400 rounded-full opacity-20 animate-pulse"
+              style={{
+                left: particle.left,
+                top: particle.top,
+                animationDelay: particle.delay,
+                animationDuration: particle.duration
+              }}
+            />
+          ))}
+        </div>
+
+        {/* Animated Gradient Orbs */}
+        <div className="absolute top-20 left-20 w-32 h-32 bg-gradient-to-r from-blue-400/20 to-purple-400/20 rounded-full blur-xl animate-pulse" style={{ animationDelay: '1s' }} />
+        <div className="absolute bottom-20 right-20 w-24 h-24 bg-gradient-to-r from-purple-400/20 to-pink-400/20 rounded-full blur-xl animate-pulse" style={{ animationDelay: '2s' }} />
+        <div className="absolute top-1/2 left-1/3 w-20 h-20 bg-gradient-to-r from-blue-400/20 to-cyan-400/20 rounded-full blur-xl animate-pulse" style={{ animationDelay: '3s' }} />
+
+        {/* Floating Geometric Shapes */}
+        <div className="absolute top-1/4 right-1/4 w-8 h-8 border border-blue-400/30 rounded-lg transform rotate-45 animate-spin" style={{ animationDuration: '20s' }} />
+        <div className="absolute bottom-1/3 left-1/4 w-6 h-6 border border-purple-400/30 rounded-full animate-bounce" style={{ animationDelay: '1s' }} />
+        <div className="absolute top-1/3 right-1/3 w-4 h-4 bg-gradient-to-r from-blue-400/40 to-purple-400/40 rounded-full animate-ping" style={{ animationDelay: '2s' }} />
+
+        {/* Animated Wave Pattern */}
+        <div className="absolute inset-0 opacity-5 dark:opacity-10">
+          <div className="absolute inset-0 quiz-wave" style={{
+            backgroundImage: `url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 50 Q25 25 50 50 T100 50' stroke='%23009bd7' stroke-width='1' fill='none'/%3E%3C/svg%3E")`,
+            backgroundSize: '100px 100px',
+            animation: 'wave 10s linear infinite'
+          }}></div>
+        </div>
+
+        {/* Glowing Dots */}
+        <div className="absolute top-1/4 left-1/6 w-3 h-3 bg-blue-400/30 rounded-full blur-sm animate-ping" style={{ animationDelay: '0s' }} />
+        <div className="absolute bottom-1/4 right-1/6 w-2 h-2 bg-purple-400/40 rounded-full blur-sm animate-ping" style={{ animationDelay: '3s' }} />
+        <div className="absolute top-1/2 left-1/3 w-2.5 h-2.5 bg-cyan-400/35 rounded-full blur-sm animate-ping" style={{ animationDelay: '6s' }} />
+
+        {/* Main Content */}
+        <div className="max-w-4xl w-full relative z-10">
+          <div className="bg-white/80 dark:bg-gray-800/80 backdrop-blur-xl rounded-3xl shadow-2xl overflow-hidden border border-white/20 dark:border-gray-700/20 animate-fade-in">
+            <div className="p-8 text-center">
+              <div className="mb-8">
+                <div className="w-20 h-20 bg-gradient-to-r from-green-500 to-blue-500 rounded-full flex items-center justify-center mx-auto mb-6 animate-pulse">
+                  <span className="text-3xl">🎉</span>
+                </div>
+                <h1 className="text-4xl font-bold text-gray-900 dark:text-white mb-4">
+                  Your AI Quick Wins Report is Ready!
+                </h1>
+                <p className="text-xl text-gray-600 dark:text-gray-300">
+                  Based on your answers, we&apos;ve prepared a personalized report with your top 3 automation opportunities.
+                </p>
+              </div>
+
+              <div className="grid md:grid-cols-3 gap-6 mb-8">
+                {(() => {
+                  const results = getPersonalizedResults();
+                  return (
+                    <>
+                      <div className={`bg-gradient-to-br ${results.timeSavings.gradient} p-6 rounded-2xl border ${results.timeSavings.border}`}>
+                        <div className="text-3xl mb-3">{results.timeSavings.icon}</div>
+                        <h3 className="font-semibold text-gray-900 dark:text-white mb-2">{results.timeSavings.title}</h3>
+                        <p className="text-gray-600 dark:text-gray-300 text-sm">{results.timeSavings.description}</p>
+                      </div>
+                      <div className={`bg-gradient-to-br ${results.costReduction.gradient} p-6 rounded-2xl border ${results.costReduction.border}`}>
+                        <div className="text-3xl mb-3">{results.costReduction.icon}</div>
+                        <h3 className="font-semibold text-gray-900 dark:text-white mb-2">{results.costReduction.title}</h3>
+                        <p className="text-gray-600 dark:text-gray-300 text-sm">{results.costReduction.description}</p>
+                      </div>
+                      <div className={`bg-gradient-to-br ${results.efficiencyBoost.gradient} p-6 rounded-2xl border ${results.efficiencyBoost.border}`}>
+                        <div className="text-3xl mb-3">{results.efficiencyBoost.icon}</div>
+                        <h3 className="font-semibold text-gray-900 dark:text-white mb-2">{results.efficiencyBoost.title}</h3>
+                        <p className="text-gray-600 dark:text-gray-300 text-sm">{results.efficiencyBoost.description}</p>
+                      </div>
+                    </>
+                  );
+                })()}
+              </div>
+
+              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                <button
+                  onClick={downloadPDF}
+                  disabled={!emailStored}
+                  className="px-8 py-4 bg-gradient-to-r from-blue-500 to-purple-600 text-white rounded-2xl font-semibold hover:shadow-lg transition-all disabled:opacity-50 disabled:cursor-not-allowed hover:scale-105 active:scale-95 flex items-center justify-center gap-2"
+                >
+                  <span>📄</span>
+                  Download Your Report
+                </button>
+                <button
+                  onClick={resetQuiz}
+                  className="px-8 py-4 border-2 border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 rounded-2xl font-semibold hover:bg-gray-50 dark:hover:bg-gray-700 transition-all hover:scale-105 active:scale-95"
+                >
+                  Take Quiz Again
+                </button>
+                <button
+                  onClick={() => window.location.href = '/'}
+                  className="px-8 py-4 bg-gradient-to-r from-gray-600 to-gray-700 text-white rounded-2xl font-semibold hover:shadow-lg transition-all hover:scale-105 active:scale-95 flex items-center justify-center gap-2"
+                >
+                  <span>🏠</span>
+                  Back to Home
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        {/* Theme Toggle Button */}
+        <FloatingThemeToggle />
+
+        {/* Custom CSS for animations */}
         <style jsx>{`
           @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
+            from { opacity: 0; transform: translateY(20px); }
             to { opacity: 1; transform: translateY(0); }
           }
           
-          @keyframes slideIn {
-            from { opacity: 0; transform: translateX(-20px); }
-            to { opacity: 1; transform: translateX(0); }
+          @keyframes wave {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(100px); }
           }
           
-          @keyframes scaleIn {
-            from { opacity: 0; transform: scale(0.9); }
-            to { opacity: 1; transform: scale(1); }
+          .animate-fade-in {
+            animation: fadeIn 0.8s ease-out forwards;
           }
         `}</style>
-        <ResultAnimation type={result} />
       </div>
     );
   }
 
-  if (showResult && result && animationComplete) {
-    const resultData = resultContent[result as keyof typeof resultContent];
+  // Loading Screen
+  if (showLoading) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 flex items-center justify-center p-4 relative">
-        <style jsx>{`
-          @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
-          }
-          
-          @keyframes slideIn {
-            from { opacity: 0; transform: translateX(-20px); }
-            to { opacity: 1; transform: translateX(0); }
-          }
-          
-          @keyframes scaleIn {
-            from { opacity: 0; transform: scale(0.9); }
-            to { opacity: 1; transform: scale(1); }
-          }
-        `}</style>
+      <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-blue-50 dark:from-gray-900 dark:via-gray-800 dark:to-blue-900 flex items-center justify-center p-4 relative overflow-hidden">
+        {/* Animated Background Elements */}
+        
+        {/* Floating Particles */}
+        <div className="absolute inset-0 pointer-events-none">
+          {particles.map((particle) => (
+            <div
+              key={particle.id}
+              className="absolute w-2 h-2 bg-gradient-to-r from-blue-400 to-purple-400 rounded-full opacity-20 animate-pulse"
+              style={{
+                left: particle.left,
+                top: particle.top,
+                animationDelay: particle.delay,
+                animationDuration: particle.duration
+              }}
+            />
+          ))}
+        </div>
 
-        <div className="max-w-4xl w-full relative z-10">
-          <div 
-            className="bg-white rounded-3xl shadow-2xl overflow-hidden transform animate-pulse" 
-            style={{ 
-              animationDuration: '2s', 
-              animationIterationCount: '1',
-              animationTimingFunction: 'ease-in-out'
-            }}
-          >
-            <div className={`bg-gradient-to-r ${resultData.color} p-8 text-white text-center relative overflow-hidden`}>
-              <div className="absolute top-4 right-4">
-                {result === 'newbie' && <Sparkles className="w-8 h-8 animate-spin" />}
-                {result === 'ready' && <Rocket className="w-8 h-8 animate-bounce" />}
-                {result === 'pro' && <Crown className="w-8 h-8 animate-pulse" />}
-              </div>
-              
-              <h1 className="text-4xl font-bold mb-4 animate-bounce" style={{ animationDuration: '1s', animationIterationCount: '2' }}>
-                {resultData.title}
-              </h1>
-              <p className="text-xl opacity-90">{resultData.subtitle}</p>
-            </div>
-            
-            <div className="p-8">
-              <p className="text-lg mb-8 text-center font-medium" style={{ color: '#000000' }}>{resultData.description}</p>
-              
-              <div className="grid md:grid-cols-2 gap-6 mb-8">
-                <div className="bg-gray-50 rounded-xl p-6">
-                  <h3 className="font-bold text-lg mb-4 flex items-center" style={{ color: '#000000' }}>
-                    <CheckCircle className="w-5 h-5 text-green-500 mr-2" />
-                    Your Top AI Opportunities:
-                  </h3>
-                  <ul className="space-y-2">
-                    {resultData.recommendations.map((rec, index) => (
-                      <li key={index} className="flex items-start">
-                        <span className="text-green-500 mr-2">•</span>
-                        <span className="font-semibold text-base" style={{ color: '#000000' }}>{rec}</span>
-                      </li>
-                    ))}
-                  </ul>
+        {/* Animated Gradient Orbs */}
+        <div className="absolute top-20 left-20 w-32 h-32 bg-gradient-to-r from-blue-400/20 to-purple-400/20 rounded-full blur-xl animate-pulse" style={{ animationDelay: '1s' }} />
+        <div className="absolute bottom-20 right-20 w-24 h-24 bg-gradient-to-r from-purple-400/20 to-pink-400/20 rounded-full blur-xl animate-pulse" style={{ animationDelay: '2s' }} />
+        <div className="absolute top-1/2 left-1/3 w-20 h-20 bg-gradient-to-r from-blue-400/20 to-cyan-400/20 rounded-full blur-xl animate-pulse" style={{ animationDelay: '3s' }} />
+
+        {/* Floating Geometric Shapes */}
+        <div className="absolute top-1/4 right-1/4 w-8 h-8 border border-blue-400/30 rounded-lg transform rotate-45 animate-spin" style={{ animationDuration: '20s' }} />
+        <div className="absolute bottom-1/3 left-1/4 w-6 h-6 border border-purple-400/30 rounded-full animate-bounce" style={{ animationDelay: '1s' }} />
+        <div className="absolute top-1/3 right-1/3 w-4 h-4 bg-gradient-to-r from-blue-400/40 to-purple-400/40 rounded-full animate-ping" style={{ animationDelay: '2s' }} />
+
+        {/* Animated Wave Pattern */}
+        <div className="absolute inset-0 opacity-5 dark:opacity-10">
+          <div className="absolute inset-0 quiz-wave" style={{
+            backgroundImage: `url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 50 Q25 25 50 50 T100 50' stroke='%23009bd7' stroke-width='1' fill='none'/%3E%3C/svg%3E")`,
+            backgroundSize: '100px 100px',
+            animation: 'wave 10s linear infinite'
+          }}></div>
+        </div>
+
+        {/* Glowing Dots */}
+        <div className="absolute top-1/4 left-1/6 w-3 h-3 bg-blue-400/30 rounded-full blur-sm animate-ping" style={{ animationDelay: '0s' }} />
+        <div className="absolute bottom-1/4 right-1/6 w-2 h-2 bg-purple-400/40 rounded-full blur-sm animate-ping" style={{ animationDelay: '3s' }} />
+        <div className="absolute top-1/2 left-1/3 w-2.5 h-2.5 bg-cyan-400/35 rounded-full blur-sm animate-ping" style={{ animationDelay: '6s' }} />
+
+        {/* Main Content */}
+        <div className="max-w-2xl w-full relative z-10">
+          <div className="bg-white/80 dark:bg-gray-800/80 backdrop-blur-xl rounded-3xl shadow-2xl overflow-hidden border border-white/20 dark:border-gray-700/20 animate-fade-in">
+            <div className="p-12 text-center">
+              {/* Loading Animation */}
+              <div className="mb-8">
+                <div className="w-24 h-24 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full flex items-center justify-center mx-auto mb-8 animate-pulse">
+                  <div className="w-12 h-12 border-4 border-white border-t-transparent rounded-full animate-spin"></div>
                 </div>
                 
-                <div className="bg-blue-50 rounded-xl p-6">
-                  <h3 className="font-bold text-lg mb-4 flex items-center" style={{ color: '#000000' }}>
-                    <Zap className="w-5 h-5 text-blue-500 mr-2" />
-                    What&apos;s Next?
-                  </h3>
-                  <div className="space-y-4">
-                    <div className="flex items-center p-3 bg-white rounded-lg border border-green-200">
-                      <CheckCircle className="w-5 h-5 text-green-500 mr-3" />
-                      <span className="font-semibold" style={{ color: '#000000' }}>Get your Free &quot;10-Minute AI Planner&quot;</span>
-                    </div>
-                    <div className="flex items-center p-3 bg-white rounded-lg border border-green-200">
-                      <CheckCircle className="w-5 h-5 text-green-500 mr-3" />
-                      <span className="font-semibold" style={{ color: '#000000' }}>Bonus: AI Prompt Pack included!</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              
-              <div className="text-center space-y-4">
-                {emailStored && (
-                  <div 
-                    className="bg-green-50 border border-green-200 rounded-xl p-4 mb-4 animate-fade-in"
-                    style={{
-                      animation: 'fadeIn 0.6s ease-in-out'
-                    }}
-                  >
-                    <div className="flex items-center justify-center text-green-700">
-                      <CheckCircle className="w-5 h-5 mr-2 animate-bounce" style={{ animationDuration: '1s' }} />
-                      <span className="font-medium">Your email has been saved! We&apos;ll send your AI Quick Wins report shortly.</span>
-                    </div>
-                  </div>
-                )}
+                {/* Personalized Message */}
+                <h1 className="text-3xl font-bold text-gray-900 dark:text-white mb-4 animate-fade-in">
+                  {loadingMessage}
+                </h1>
                 
-                {emailError && (
-                  <div 
-                    className="bg-red-50 border border-red-200 rounded-xl p-4 mb-4 animate-fade-in"
-                    style={{
-                      animation: 'fadeIn 0.6s ease-in-out'
-                    }}
-                  >
-                    <div className="flex items-center justify-center text-red-700">
-                      <AlertCircle className="w-5 h-5 mr-2 animate-pulse" style={{ animationDuration: '1s' }} />
-                      <span className="font-medium">{emailError}</span>
-                    </div>
-                  </div>
-                )}
-
-                {!answers.email && (
-                  <div className="bg-blue-50 border border-blue-200 rounded-xl p-4 mb-4">
-                    <div className="flex items-center justify-center text-blue-700">
-                      <Mail className="w-5 h-5 mr-2" />
-                      <span className="font-medium">Please enter your email above to download your personalized report</span>
-                    </div>
-                  </div>
-                )}
-
-                {downloadSuccess && (
-                  <div className="bg-green-50 border border-green-200 rounded-xl p-4 mb-4 animate-fade-in">
-                    <div className="flex items-center justify-center text-green-700">
-                      <CheckCircle className="w-5 h-5 mr-2 animate-bounce" style={{ animationDuration: '1s' }} />
-                      <span className="font-medium">Report download started! Check your downloads folder.</span>
-                    </div>
-                  </div>
-                )}
-
-                {isAlreadyRegistered && (
-                  <div className="bg-orange-50 border border-orange-200 rounded-xl p-4 mb-4 animate-fade-in">
-                    <div className="flex items-center justify-center text-orange-700">
-                      <AlertCircle className="w-5 h-5 mr-2 animate-pulse" style={{ animationDuration: '1s' }} />
-                      <span className="font-medium">This email is already registered. Please use a different email address to download your report.</span>
-                    </div>
-                  </div>
-                )}
+                {/* Subtitle based on user level */}
+                <p className="text-lg text-gray-600 dark:text-gray-300 mb-6 animate-fade-in" style={{ animationDelay: '0.5s' }}>
+                  {userLevel === 'newbie' && "Let's find you some easy wins to get started!"}
+                  {userLevel === 'medium' && "Ready to scale your operations with AI workflows!"}
+                  {userLevel === 'advanced' && "Time to optimize and maximize your AI potential!"}
+                </p>
                 
-                <button
-                  onClick={downloadPDF}
-                  disabled={!canDownloadReport()}
-                  className={`inline-flex items-center justify-center px-8 py-4 rounded-full text-lg font-semibold transition-all duration-200 cursor-pointer ${
-                    !canDownloadReport()
-                      ? 'bg-gray-400 text-gray-600 cursor-not-allowed opacity-50'
-                      : 'bg-gradient-to-r from-green-500 to-blue-600 text-white hover:shadow-lg transform hover:scale-105 animate-pulse'
-                  }`}
-                  style={{ animationDuration: '2s' }}
-                >
-                  {!answers.email || !validateEmail(answers.email)
-                    ? '⚠️ Enter Email to Download Report'
-                    : isAlreadyRegistered
-                    ? '❌ Email Already Registered'
-                    : '📄 Download Your Report'
-                  }
-                </button>
-                
-                <div className="flex items-center justify-center space-x-4 text-sm text-gray-500">
-                  <Link 
-                    href="/" 
-                    className="text-blue-600 hover:text-blue-800 font-medium flex items-center transition-all duration-300 ease-in-out hover:scale-105 hover:translate-x-1 group"
-                  >
-                    🏠 Click here to go back to homepage 
-                    <ChevronRight className="w-4 h-4 ml-1 transition-transform duration-300 ease-in-out group-hover:translate-x-1" />
-                  </Link>
+                {/* Progress Bar */}
+                <div className="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2 mb-6">
+                  <div className="bg-gradient-to-r from-blue-500 to-purple-600 h-2 rounded-full animate-pulse" style={{ width: '60%' }}></div>
                 </div>
                 
-                <button 
-                  onClick={resetQuiz}
-                  className="text-gray-500 hover:text-gray-700 underline text-sm"
-                >
-                  Take quiz again
-                </button>
+                {/* Status Text */}
+                <p className="text-sm text-gray-500 dark:text-gray-400 animate-pulse">
+                  Analyzing your responses and generating personalized recommendations...
+                </p>
               </div>
             </div>
           </div>
         </div>
+        
+        {/* Theme Toggle Button */}
+        <FloatingThemeToggle />
+
+        {/* Custom CSS for animations */}
+        <style jsx>{`
+          @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+          }
+          
+          @keyframes wave {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(100px); }
+          }
+          
+          .animate-fade-in {
+            animation: fadeIn 0.8s ease-out forwards;
+          }
+        `}</style>
       </div>
     );
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 flex items-center justify-center p-4">
-      <div className="max-w-4xl w-full">
+    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-blue-50 dark:from-gray-900 dark:via-gray-800 dark:to-blue-900 flex items-center justify-center p-4 relative overflow-hidden">
+      {/* Animated Background Elements */}
+      
+      {/* Floating Particles */}
+      <div className="absolute inset-0 pointer-events-none">
+        {particles.map((particle) => (
+          <div
+            key={particle.id}
+            className="absolute w-2 h-2 bg-gradient-to-r from-blue-400 to-purple-400 rounded-full opacity-20 animate-pulse"
+            style={{
+              left: particle.left,
+              top: particle.top,
+              animationDelay: particle.delay,
+              animationDuration: particle.duration
+            }}
+          />
+        ))}
+      </div>
+
+      {/* Animated Gradient Orbs */}
+      <div className="absolute top-20 left-20 w-32 h-32 bg-gradient-to-r from-blue-400/20 to-purple-400/20 rounded-full blur-xl animate-pulse" style={{ animationDelay: '1s' }} />
+      <div className="absolute bottom-20 right-20 w-24 h-24 bg-gradient-to-r from-purple-400/20 to-pink-400/20 rounded-full blur-xl animate-pulse" style={{ animationDelay: '2s' }} />
+      <div className="absolute top-1/2 left-1/3 w-20 h-20 bg-gradient-to-r from-blue-400/20 to-cyan-400/20 rounded-full blur-xl animate-pulse" style={{ animationDelay: '3s' }} />
+
+      {/* Floating Geometric Shapes */}
+      <div className="absolute top-1/4 right-1/4 w-8 h-8 border border-blue-400/30 rounded-lg transform rotate-45 animate-spin" style={{ animationDuration: '20s' }} />
+      <div className="absolute bottom-1/3 left-1/4 w-6 h-6 border border-purple-400/30 rounded-full animate-bounce" style={{ animationDelay: '1s' }} />
+      <div className="absolute top-1/3 right-1/3 w-4 h-4 bg-gradient-to-r from-blue-400/40 to-purple-400/40 rounded-full animate-ping" style={{ animationDelay: '2s' }} />
+
+      {/* Animated Wave Pattern */}
+      <div className="absolute inset-0 opacity-5 dark:opacity-10">
+        <div className="absolute inset-0 quiz-wave" style={{
+          backgroundImage: `url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 50 Q25 25 50 50 T100 50' stroke='%23009bd7' stroke-width='1' fill='none'/%3E%3C/svg%3E")`,
+          backgroundSize: '100px 100px',
+          animation: 'wave 10s linear infinite'
+        }}></div>
+      </div>
+
+      {/* Glowing Dots */}
+      <div className="absolute top-1/4 left-1/6 w-3 h-3 bg-blue-400/30 rounded-full blur-sm animate-ping" style={{ animationDelay: '0s' }} />
+      <div className="absolute bottom-1/4 right-1/6 w-2 h-2 bg-purple-400/40 rounded-full blur-sm animate-ping" style={{ animationDelay: '3s' }} />
+      <div className="absolute top-1/2 left-1/3 w-2.5 h-2.5 bg-cyan-400/35 rounded-full blur-sm animate-ping" style={{ animationDelay: '6s' }} />
+
+      {/* Main Content */}
+      <div className="max-w-4xl w-full relative z-10">
         {currentStep === 0 && (
           <div className="text-center mb-8">
-            <h1 className="text-5xl font-bold text-white mb-4">
+            <h1 className="text-5xl font-bold text-gray-900 dark:text-white mb-4 animate-fade-in">
               What&apos;s Your AI Quick Wins Score? 🤖
             </h1>
-            <p className="text-xl text-gray-300 mb-2">
-              Discover how AI can save you time & money in 5 minutes
-            </p>
-            <p className="text-lg text-gray-400">
+            <p className="text-xl text-gray-600 dark:text-gray-300 mb-2 animate-fade-in" style={{ animationDelay: '0.2s' }}>
               Take this free quiz and instantly get your top 3 automation opportunities
             </p>
           </div>
         )}
 
-        <div className="bg-white rounded-3xl shadow-2xl overflow-hidden">
-          <div className="bg-gray-200 h-2">
+        <div className="bg-white/80 dark:bg-gray-800/80 backdrop-blur-xl rounded-3xl shadow-2xl overflow-hidden border border-white/20 dark:border-gray-700/20 animate-fade-in" style={{ animationDelay: '0.6s' }}>
+          {/* Progress bar */}
+          <div className="relative h-2 bg-gray-200 dark:bg-gray-700">
             <div 
               className="bg-gradient-to-r from-blue-500 to-purple-600 h-full transition-all duration-700 ease-in-out"
               style={{ width: `${((currentStep + 1) / questions.length) * 100}%` }}
@@ -796,21 +711,21 @@ const QuizPage = () => {
 
           <div className="p-8">
             <div className="flex justify-between items-center mb-6">
-              <span className="text-sm text-gray-500">
+              <span className="text-sm text-gray-500 dark:text-gray-400">
                 Question {currentStep + 1} of {questions.length}
               </span>
-              <span className="text-sm text-gray-500">
+              <span className="text-sm text-gray-500 dark:text-gray-400">
                 {Math.round(((currentStep + 1) / questions.length) * 100)}% Complete
               </span>
             </div>
 
             <div className="mb-8">
               <div className="flex items-center mb-4">
-                <div className="bg-gradient-to-r from-blue-500 to-purple-600 p-3 rounded-full text-white mr-4">
+                <div className="bg-gradient-to-r from-blue-500 to-purple-600 p-3 rounded-full text-white mr-4 animate-pulse">
                   {questions[currentStep]?.icon}
                 </div>
-                <h2 className="text-2xl font-bold text-gray-800">
-                                      {questions[currentStep]?.question}
+                <h2 className="text-2xl font-bold text-gray-800 dark:text-white">
+                  {questions[currentStep]?.question}
                 </h2>
               </div>
 
@@ -821,33 +736,54 @@ const QuizPage = () => {
                       type="email"
                       value={emailInput}
                       placeholder={questions[currentStep].placeholder}
-                      className="flex-1 p-4 border-2 border-gray-300 rounded-xl text-lg text-gray-900 placeholder-gray-500 focus:border-blue-500 focus:outline-none transition-colors bg-white"
+                      className={`flex-1 p-4 border-2 rounded-xl text-lg text-gray-900 placeholder-gray-500 focus:outline-none transition-colors bg-white dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 ${
+                        emailValidationError 
+                          ? 'border-red-500 focus:border-red-500' 
+                          : 'border-gray-300 focus:border-blue-500 dark:border-gray-600'
+                      }`}
                       onKeyPress={(e) => {
-                        if (e.key === 'Enter' && emailInput) {
+                        if (e.key === 'Enter' && emailInput && !isValidatingEmail) {
                           handleAnswer(questions[currentStep].id as keyof QuizAnswers, emailInput);
                         }
                       }}
                       onChange={(e) => {
                         setEmailInput(e.target.value);
-                        // Clear already registered state when user changes email
-                        if (isAlreadyRegistered) {
-                          setIsAlreadyRegistered(false);
-                          setEmailError('');
+                        // Clear validation error when user types
+                        if (emailValidationError) {
+                          setEmailValidationError('');
                         }
                       }}
+                      disabled={isValidatingEmail}
                     />
                     <button
                       onClick={() => {
-                        if (emailInput) {
+                        if (emailInput && !isValidatingEmail) {
                           handleAnswer(questions[currentStep].id as keyof QuizAnswers, emailInput);
                         }
                       }}
-                      disabled={!emailInput}
-                      className="px-6 py-4 bg-gradient-to-r from-blue-500 to-purple-600 text-white rounded-xl font-semibold hover:shadow-lg transition-all disabled:opacity-50 disabled:cursor-not-allowed"
+                      disabled={!emailInput || isValidatingEmail}
+                      className="px-6 py-4 bg-gradient-to-r from-blue-500 to-purple-600 text-white rounded-xl font-semibold hover:shadow-lg transition-all disabled:opacity-50 disabled:cursor-not-allowed hover:scale-105 active:scale-95"
                     >
-                      Send
+                      {isValidatingEmail ? (
+                        <div className="flex items-center">
+                          <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin mr-2"></div>
+                          Validating...
+                        </div>
+                      ) : (
+                        'Send'
+                      )}
                     </button>
                   </div>
+                  
+                  {/* Inline error message */}
+                  {emailValidationError && (
+                    <div className="mt-3 p-3 bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 rounded-lg animate-fade-in">
+                      <div className="flex items-center text-red-700 dark:text-red-400">
+                        <AlertCircle className="w-4 h-4 mr-2 flex-shrink-0" />
+                        <span className="text-sm font-medium">{emailValidationError}</span>
+                      </div>
+                    </div>
+                  )}
                 </div>
               ) : (
                 <div className="grid gap-4">
@@ -855,7 +791,7 @@ const QuizPage = () => {
                     <button
                       key={option.value}
                       onClick={() => handleAnswer(questions[currentStep].id as keyof QuizAnswers, option.value)}
-                      className="text-left p-4 border-2 border-gray-200 rounded-xl hover:border-blue-500 hover:bg-blue-50 transition-all duration-300 group transform hover:scale-[1.02] animate-fade-in"
+                      className="text-left p-4 border-2 border-gray-200 dark:border-gray-600 rounded-xl hover:border-blue-500 hover:bg-blue-50 dark:hover:bg-blue-900/20 transition-all duration-300 group transform hover:scale-[1.02] animate-fade-in hover:shadow-lg"
                       style={{ 
                         animationDelay: `${index * 150}ms`,
                         animation: 'fadeIn 0.6s ease-in-out',
@@ -863,11 +799,11 @@ const QuizPage = () => {
                       }}
                     >
                       <div className="flex items-center">
-                        <span className="text-2xl mr-4">{option.emoji}</span>
-                        <span className="text-lg font-medium text-gray-700 group-hover:text-blue-600">
+                        <span className="text-2xl mr-4 group-hover:scale-110 transition-transform duration-300">{option.emoji}</span>
+                        <span className="text-lg font-medium text-gray-700 dark:text-gray-300 group-hover:text-blue-600 dark:group-hover:text-blue-400">
                           {option.label}
                         </span>
-                        <ChevronRight className="w-5 h-5 text-gray-400 ml-auto group-hover:text-blue-500 transition-colors" />
+                        <ChevronRight className="w-5 h-5 text-gray-400 dark:text-gray-500 ml-auto group-hover:text-blue-500 transition-colors group-hover:translate-x-1" />
                       </div>
                     </button>
                   ))}
@@ -877,12 +813,30 @@ const QuizPage = () => {
           </div>
         </div>
 
-        <div className="text-center mt-6 text-gray-400">
+        <div className="text-center mt-6 text-gray-400 dark:text-gray-500 animate-fade-in" style={{ animationDelay: '0.8s' }}>
           <p>✨ This will only take 2 minutes - your future self will thank you!</p>
         </div>
       </div>
       
+      {/* Theme Toggle Button */}
+      <FloatingThemeToggle />
 
+      {/* Custom CSS for animations */}
+      <style jsx>{`
+        @keyframes fadeIn {
+          from { opacity: 0; transform: translateY(20px); }
+          to { opacity: 1; transform: translateY(0); }
+        }
+        
+        @keyframes wave {
+          0% { transform: translateX(0); }
+          100% { transform: translateX(100px); }
+        }
+        
+        .animate-fade-in {
+          animation: fadeIn 0.8s ease-out forwards;
+        }
+      `}</style>
     </div>
   );
 };

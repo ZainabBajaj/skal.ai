@@ -39,7 +39,7 @@ const Services = () => {
               </p>
             </div>
             
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 lg:gap-12 px-4 sm:px-0">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 lg:gap-12 px-4 sm:px-0">
               {/* Enhanced Startup Card */}
               <div className="group relative bg-gradient-to-br from-blue-50 via-cyan-50 to-indigo-50 dark:from-blue-900/30 dark:via-cyan-900/20 dark:to-indigo-900/30 backdrop-blur-xl rounded-2xl sm:rounded-3xl shadow-2xl p-6 sm:p-8 lg:p-10 xl:p-12 border border-blue-200/50 dark:border-blue-700/50 hover:shadow-3xl hover:shadow-blue-500/20 transition-all duration-500 hover:-translate-y-2 cursor-pointer overflow-hidden min-h-[400px] sm:min-h-[500px]">
                 {/* Animated background elements */}
@@ -215,67 +215,6 @@ const Services = () => {
                       <span className="relative z-10">Need a Fix</span>
                       <ArrowRight className="w-5 h-5 relative z-10 group-hover/btn:translate-x-1 transition-transform duration-300" />
                       <div className="absolute inset-0 bg-gradient-to-r from-red-600 to-orange-600 opacity-0 group-hover/btn:opacity-100 transition-opacity duration-300"></div>
-                    </button>
-                  </div>
-                </div>
-                
-                {/* Shine effect */}
-                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -skew-x-12 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000 ease-out"></div>
-              </div>
-
-              {/* Enhanced Quiz Card */}
-              <div className="group relative bg-gradient-to-br from-purple-50 via-pink-50 to-indigo-50 dark:from-purple-900/30 dark:via-pink-900/20 dark:to-indigo-900/30 backdrop-blur-xl rounded-3xl shadow-2xl p-10 sm:p-12 border border-purple-200/50 dark:border-purple-700/50 hover:shadow-3xl hover:shadow-purple-500/20 transition-all duration-500 hover:-translate-y-2 cursor-pointer overflow-hidden min-h-[500px]">
-                {/* Animated background elements */}
-                <div className="absolute inset-0 bg-gradient-to-br from-purple-500/5 via-pink-500/5 to-indigo-500/5 pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-purple-400/20 to-pink-400/20 rounded-full blur-3xl group-hover:scale-150 transition-transform duration-700"></div>
-                <div className="absolute bottom-0 left-0 w-24 h-24 bg-gradient-to-tr from-indigo-400/20 to-purple-400/20 rounded-full blur-2xl group-hover:scale-125 transition-transform duration-700"></div>
-                
-                {/* Floating particles */}
-                <div className="absolute top-4 right-4 w-2 h-2 bg-purple-400 rounded-full opacity-0 group-hover:opacity-100 group-hover:animate-ping transition-opacity duration-300"></div>
-                <div className="absolute bottom-6 left-6 w-1 h-1 bg-pink-400 rounded-full opacity-0 group-hover:opacity-100 group-hover:animate-pulse transition-opacity duration-300" style={{animationDelay: '200ms'}}></div>
-                
-                <div className="relative z-10">
-                  {/* Icon */}
-                  <div className="flex justify-center mb-6">
-                    <div className="w-16 h-16 bg-gradient-to-br from-purple-500 to-pink-500 rounded-2xl flex items-center justify-center group-hover:scale-110 group-hover:rotate-3 transition-all duration-500 shadow-lg">
-                      <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
-                      </svg>
-                    </div>
-                  </div>
-                  
-                  <h3 className="text-2xl font-bold text-purple-600 dark:text-purple-400 mb-4 text-center">
-                    Take Our <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-700 to-pink-600 dark:from-purple-300 dark:to-pink-400">AI Quiz!</span>
-                  </h3>
-                  
-                  <p className="text-gray-700 dark:text-gray-300 text-center mb-8 leading-relaxed">
-                    Discover your AI automation score and get personalized recommendations
-                  </p>
-                  
-                  {/* Additional features */}
-                  <div className="space-y-3 mb-8">
-                    <div className="flex items-center gap-3 text-sm text-gray-600 dark:text-gray-400">
-                      <div className="w-2 h-2 bg-purple-500 rounded-full"></div>
-                      <span>2-Minute Assessment</span>
-                    </div>
-                    <div className="flex items-center gap-3 text-sm text-gray-600 dark:text-gray-400">
-                      <div className="w-2 h-2 bg-pink-500 rounded-full"></div>
-                      <span>Personalized Report</span>
-                    </div>
-                    <div className="flex items-center gap-3 text-sm text-gray-600 dark:text-gray-400">
-                      <div className="w-2 h-2 bg-indigo-500 rounded-full"></div>
-                      <span>Free AI Quick Wins</span>
-                    </div>
-                  </div>
-                  
-                  <div className="flex items-center justify-center">
-                    <button 
-                      onClick={() => window.location.href = '/quiz'}
-                      className="group/btn relative inline-flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-purple-500 to-pink-500 text-white rounded-2xl font-semibold hover:shadow-2xl hover:shadow-purple-500/30 transition-all duration-300 hover:scale-105 active:scale-95 overflow-hidden"
-                    >
-                      <span className="relative z-10">Start Quiz</span>
-                      <ArrowRight className="w-5 h-5 relative z-10 group-hover/btn:translate-x-1 transition-transform duration-300" />
-                      <div className="absolute inset-0 bg-gradient-to-r from-purple-600 to-pink-600 opacity-0 group-hover/btn:opacity-100 transition-opacity duration-300"></div>
                     </button>
                   </div>
                 </div>

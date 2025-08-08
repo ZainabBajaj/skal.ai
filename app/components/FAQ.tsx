@@ -215,7 +215,7 @@ export default function FAQ() {
                   Get Free Consultation
                 </a>
                 <a
-                  href="mailto:hello@skal.ai"
+                  href="mailto:contact@skal.ai"
                   className="inline-flex items-center justify-center px-8 py-3 border-2 border-[#009bd7] text-[#009bd7] font-semibold rounded-xl hover:bg-[#009bd7] hover:text-white transition-all duration-300"
                 >
                   Email Us
