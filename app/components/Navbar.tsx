@@ -13,7 +13,7 @@ export default function Navbar() {
   const pathname = usePathname();
   const router = useRouter();
   const is99Page = pathname === '/99';
-  const isNewPage = pathname === '/startup' || pathname === '/enterprise' || pathname === '/rescue';
+  const isNewPage = pathname === '/startup' || pathname === '/enterprise' || pathname === '/rescue' || pathname === '/quiz';
   const isMainPage = pathname === '/';
 
   useEffect(() => {

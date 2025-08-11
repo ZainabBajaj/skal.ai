@@ -30,7 +30,7 @@ export default function RescueOffer() {
     website: '',
     problem: '',
     outcome: '',
-    budget: 'Rescue Package'
+    budget: '$2,000-$5,000'
   });
 
   const [status, setStatus] = useState<FormStatus>({ type: 'idle' });
@@ -53,31 +53,27 @@ export default function RescueOffer() {
       setStatus({ type: 'sending' });
       
       if (!process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID || 
-          !process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID || 
+          !process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID_STARTUP || 
           !process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY) {
         throw new Error('EmailJS environment variables are not set');
       }
       
       await emailjs.send(
         process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID,
-        process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID,
+        process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID_STARTUP,
         {
           from_name: formData.name,
           reply_to: formData.email,
-          subject: "New Rescue Package Request",
-          message: `
-Website: ${formData.website}
-Problem: ${formData.problem}
-Outcome: ${formData.outcome}
-Budget: ${formData.budget}
-Package: Rescue
-          `
+          website: formData.website,
+          idea: formData.problem,
+          outcome: formData.outcome,
+          budget: formData.budget
         },
         process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY
       );
       
       setStatus({ type: 'success', message: 'Request submitted successfully! We\'ll contact you within 1-2 hours.' });
-      setFormData({ name: '', email: '', website: '', problem: '', outcome: '', budget: 'Rescue Package' });
+      setFormData({ name: '', email: '', website: '', problem: '', outcome: '', budget: '$2,000-$5,000' });
     } catch (error) {
       setStatus({ 
         type: 'error',

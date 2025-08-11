@@ -54,24 +54,21 @@ export default function MVPOffer() {
       
       // Make sure environment variables exist
       if (!process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID || 
-          !process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID || 
+          !process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID_STARTUP || 
           !process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY) {
         throw new Error('EmailJS environment variables are not set');
       }
       
       await emailjs.send(
         process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID,
-        process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID,
+        process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID_STARTUP,
         {
           from_name: formData.name,
           reply_to: formData.email,
-          subject: "New $99 MVP Request",
-          message: `
-Website: ${formData.website}
-Idea: ${formData.idea}
-Outcome: ${formData.outcome}
-Budget: ${formData.budget}
-          `
+          website: formData.website,
+          idea: formData.idea,
+          outcome: formData.outcome,
+          budget: formData.budget
         },
         process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY
       );

@@ -1,6 +1,7 @@
 "use client";
 
 import Logo from './Logo';
+import NewsletterSection from './Newsletter';
 
 export default function Footer() {
   const socialLinks = [
@@ -161,6 +162,12 @@ export default function Footer() {
                 </a>
               </li>
             </ul>
+            
+            {/* Newsletter Form */}
+            <div className="mt-6">
+              <h4 className="text-[#1a1a1a] dark:text-white font-semibold mb-2">Subscribe to our newsletter</h4>
+              <NewsletterSection />
+            </div>
           </div>
         </div>
 

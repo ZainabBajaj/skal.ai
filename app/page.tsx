@@ -8,8 +8,8 @@ import ContactForm from './components/ContactForm';
 import Footer from './components/Footer';
 import Navbar from './components/Navbar';
 import GlobalSquidBackground from './components/GlobalSquidBackground';
-import Newsletter from './components/Newsletter';
 import FloatingThemeToggle from './components/FloatingThemeToggle';
+import QuizPopup from './components/QuizPopup';
 
 export default function Home() {
   return (
@@ -23,8 +23,8 @@ export default function Home() {
       <Clients />
       <ContactForm />
       <Footer />
-      <Newsletter />
       <FloatingThemeToggle />
+      <QuizPopup />
     </main>
   );
 }

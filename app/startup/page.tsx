@@ -30,7 +30,7 @@ export default function StartupOffer() {
     website: '',
     idea: '',
     outcome: '',
-    budget: 'Startup Package'
+    budget: 'Under $1,000'
   });
 
   const [status, setStatus] = useState<FormStatus>({ type: 'idle' });
@@ -53,31 +53,27 @@ export default function StartupOffer() {
       setStatus({ type: 'sending' });
       
       if (!process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID || 
-          !process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID || 
+          !process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID_STARTUP || 
           !process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY) {
         throw new Error('EmailJS environment variables are not set');
       }
       
       await emailjs.send(
         process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID,
-        process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID,
+        process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID_STARTUP,
         {
           from_name: formData.name,
           reply_to: formData.email,
-          subject: "New Startup Package Request",
-          message: `
-Website: ${formData.website}
-Idea: ${formData.idea}
-Outcome: ${formData.outcome}
-Budget: ${formData.budget}
-Package: Startup
-          `
+          website: formData.website,
+          idea: formData.idea,
+          outcome: formData.outcome,
+          budget: formData.budget
         },
         process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY
       );
       
       setStatus({ type: 'success', message: 'Request submitted successfully! We\'ll contact you within 1-2 hours.' });
-      setFormData({ name: '', email: '', website: '', idea: '', outcome: '', budget: 'Startup Package' });
+      setFormData({ name: '', email: '', website: '', idea: '', outcome: '', budget: 'Under $1,000' });
     } catch (error) {
       setStatus({ 
         type: 'error',

@@ -5,10 +5,10 @@ import Stack from './Stack';
 
 const Services = () => {
   return (
-    <section 
-      id="services" 
-      className="relative py-24 bg-gradient-to-br from-slate-50 via-white to-blue-50 dark:from-gray-900 dark:via-gray-800 dark:to-blue-900 overflow-hidden"
-    >
+          <section 
+        id="services" 
+        className="relative py-24 bg-gradient-to-br from-slate-50 via-white to-blue-50 dark:from-gray-900 dark:via-gray-800 dark:to-blue-900 overflow-hidden"
+      >
       {/* Simplified Background Elements */}
       <div className="absolute inset-0 pointer-events-none z-5">
         {/* Static background gradients for depth */}
@@ -21,8 +21,8 @@ const Services = () => {
         {/* Stack Component */}
         <Stack />
 
-        {/* Enhanced Service Category Cards */}
-        <div className="mt-16 sm:mt-20 lg:mt-24">
+          {/* Enhanced Service Category Cards */}
+          <div className="mt-16 sm:mt-20 lg:mt-24">
             <div className="text-center mb-12 sm:mb-16">
               <div className="inline-flex items-center gap-2 px-3 sm:px-4 py-2 bg-gradient-to-r from-[#009bd7]/10 to-[#00E1FF]/10 rounded-full border border-[#009bd7]/20 mb-4">
                 <div className="w-2 h-2 bg-gradient-to-r from-[#009bd7] to-[#00E1FF] rounded-full animate-pulse"></div>
@@ -39,7 +39,7 @@ const Services = () => {
               </p>
             </div>
             
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8 lg:gap-12 px-4 sm:px-0">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 lg:gap-12 px-4 sm:px-0">
               {/* Enhanced Startup Card */}
               <div className="group relative bg-gradient-to-br from-blue-50 via-cyan-50 to-indigo-50 dark:from-blue-900/30 dark:via-cyan-900/20 dark:to-indigo-900/30 backdrop-blur-xl rounded-2xl sm:rounded-3xl shadow-2xl p-6 sm:p-8 lg:p-10 xl:p-12 border border-blue-200/50 dark:border-blue-700/50 hover:shadow-3xl hover:shadow-blue-500/20 transition-all duration-500 hover:-translate-y-2 cursor-pointer overflow-hidden min-h-[400px] sm:min-h-[500px]">
                 {/* Animated background elements */}
