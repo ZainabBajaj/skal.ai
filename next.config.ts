@@ -96,6 +96,7 @@ const nextConfig: NextConfig = {
 
   /* Experimental Features for Performance */
   experimental: {
+    optimizeCss: true,
     optimizePackageImports: ['lucide-react'],
   },
 
