@@ -77,42 +77,126 @@ export default function SystemsPage() {
               </div>
             </div>
 
-            {/* Right: Abstract Visual — Architecture / Building blocks */}
+            {/* Right: Abstract Visual — Architecture stack with flowing data */}
             <div className="flex-1 w-full max-w-lg lg:max-w-none">
-              <svg viewBox="0 0 500 500" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-auto">
-                {/* Grid background */}
-                {[100, 150, 200, 250, 300, 350, 400].map((y) => (
-                  <line key={`h-${y}`} x1="80" y1={y} x2="420" y2={y} stroke="#009bd7" strokeWidth="0.5" opacity="0.08" />
-                ))}
-                {[100, 150, 200, 250, 300, 350, 400].map((x) => (
-                  <line key={`v-${x}`} x1={x} y1="80" x2={x} y2="420" stroke="#009bd7" strokeWidth="0.5" opacity="0.08" />
-                ))}
+              <svg viewBox="0 0 500 500" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" className="w-full h-auto">
+                <defs>
+                  <linearGradient id="sy-infra" x1="0%" y1="0%" x2="100%" y2="0%">
+                    <stop offset="0%" stopColor="#1DB5C5" stopOpacity="0.2" />
+                    <stop offset="50%" stopColor="#1DB5C5" stopOpacity="0.55" />
+                    <stop offset="100%" stopColor="#1DB5C5" stopOpacity="0.2" />
+                  </linearGradient>
+                  <linearGradient id="sy-integ" x1="0%" y1="0%" x2="100%" y2="0%">
+                    <stop offset="0%" stopColor="#009bd7" stopOpacity="0.25" />
+                    <stop offset="50%" stopColor="#009bd7" stopOpacity="0.65" />
+                    <stop offset="100%" stopColor="#009bd7" stopOpacity="0.25" />
+                  </linearGradient>
+                  <linearGradient id="sy-ai" x1="0%" y1="0%" x2="100%" y2="0%">
+                    <stop offset="0%" stopColor="#00E1FF" stopOpacity="0.3" />
+                    <stop offset="50%" stopColor="#00E1FF" stopOpacity="0.8" />
+                    <stop offset="100%" stopColor="#00E1FF" stopOpacity="0.3" />
+                  </linearGradient>
+                  <radialGradient id="sy-ambient" cx="50%" cy="50%" r="60%">
+                    <stop offset="0%" stopColor="#009bd7" stopOpacity="0.08" />
+                    <stop offset="100%" stopColor="#009bd7" stopOpacity="0" />
+                  </radialGradient>
+                  <filter id="sy-glow" x="-50%" y="-50%" width="200%" height="200%">
+                    <feGaussianBlur stdDeviation="3" result="blur" />
+                    <feMerge>
+                      <feMergeNode in="blur" />
+                      <feMergeNode in="SourceGraphic" />
+                    </feMerge>
+                  </filter>
+                </defs>
 
-                {/* Architecture blocks */}
-                <rect x="150" y="320" width="200" height="50" rx="8" fill="#009bd7" fillOpacity="0.12" stroke="#009bd7" strokeWidth="1" strokeOpacity="0.3" />
-                <text x="250" y="350" textAnchor="middle" fill="#009bd7" fontSize="12" fontWeight="600" opacity="0.5">INFRASTRUCTURE</text>
+                {/* Ambient backdrop */}
+                <rect x="0" y="0" width="500" height="500" fill="url(#sy-ambient)" />
 
-                <rect x="130" y="240" width="100" height="60" rx="8" fill="#00E1FF" fillOpacity="0.1" stroke="#00E1FF" strokeWidth="1" strokeOpacity="0.25" />
-                <rect x="270" y="240" width="100" height="60" rx="8" fill="#00E1FF" fillOpacity="0.1" stroke="#00E1FF" strokeWidth="1" strokeOpacity="0.25" />
+                {/* Faded grid (only thin accent lines) */}
+                <g stroke="#009bd7" strokeWidth="0.5" opacity="0.1">
+                  <line x1="60" y1="100" x2="440" y2="100" />
+                  <line x1="60" y1="190" x2="440" y2="190" />
+                  <line x1="60" y1="280" x2="440" y2="280" />
+                  <line x1="60" y1="370" x2="440" y2="370" />
+                  <line x1="60" y1="450" x2="440" y2="450" />
+                  <line x1="100" y1="60" x2="100" y2="440" />
+                  <line x1="200" y1="60" x2="200" y2="440" />
+                  <line x1="300" y1="60" x2="300" y2="440" />
+                  <line x1="400" y1="60" x2="400" y2="440" />
+                </g>
 
-                <rect x="170" y="160" width="160" height="55" rx="8" fill="#1DB5C5" fillOpacity="0.1" stroke="#1DB5C5" strokeWidth="1" strokeOpacity="0.25" />
+                {/* AI Layer (top) */}
+                <g>
+                  <rect x="120" y="110" width="260" height="72" rx="12" fill="url(#sy-ai)" stroke="#00E1FF" strokeWidth="1.5" strokeOpacity="0.7" />
+                  <text x="250" y="155" textAnchor="middle" fill="#0f172a" fontSize="17" fontWeight="800" fontFamily="system-ui, sans-serif" letterSpacing="2">AI LAYER</text>
+                  <circle cx="120" cy="146" r="4" fill="#00E1FF" filter="url(#sy-glow)" />
+                  <circle cx="380" cy="146" r="4" fill="#00E1FF" filter="url(#sy-glow)" />
+                  {/* Inner pulse dots */}
+                  <circle cx="175" cy="168" r="2" fill="#FFFFFF" opacity="0.8">
+                    <animate attributeName="opacity" values="0.3;1;0.3" dur="2.5s" repeatCount="indefinite" />
+                  </circle>
+                  <circle cx="325" cy="168" r="2" fill="#FFFFFF" opacity="0.8">
+                    <animate attributeName="opacity" values="0.3;1;0.3" dur="2.5s" begin="1.2s" repeatCount="indefinite" />
+                  </circle>
+                </g>
 
-                <rect x="200" y="100" width="100" height="40" rx="8" fill="#009bd7" fillOpacity="0.15" stroke="#009bd7" strokeWidth="1" strokeOpacity="0.35" />
-                <text x="250" y="124" textAnchor="middle" fill="#009bd7" fontSize="11" fontWeight="600" opacity="0.6">AI LAYER</text>
+                {/* Integrations (middle) */}
+                <g>
+                  <rect x="100" y="220" width="300" height="62" rx="10" fill="url(#sy-integ)" stroke="#009bd7" strokeWidth="1.5" strokeOpacity="0.65" />
+                  <text x="250" y="258" textAnchor="middle" fill="#0f172a" fontSize="14" fontWeight="700" fontFamily="system-ui, sans-serif" letterSpacing="2">INTEGRATIONS</text>
+                  <circle cx="100" cy="251" r="4" fill="#009bd7" filter="url(#sy-glow)" />
+                  <circle cx="400" cy="251" r="4" fill="#009bd7" filter="url(#sy-glow)" />
+                  {/* Partition markers */}
+                  <rect x="170" y="268" width="6" height="6" rx="1" fill="#FFFFFF" opacity="0.55" />
+                  <rect x="247" y="268" width="6" height="6" rx="1" fill="#FFFFFF" opacity="0.55" />
+                  <rect x="324" y="268" width="6" height="6" rx="1" fill="#FFFFFF" opacity="0.55" />
+                </g>
 
-                {/* Connection lines between blocks */}
-                <line x1="180" y1="240" x2="220" y2="215" stroke="#009bd7" strokeWidth="1" opacity="0.2" />
-                <line x1="320" y1="240" x2="280" y2="215" stroke="#009bd7" strokeWidth="1" opacity="0.2" />
-                <line x1="250" y1="160" x2="250" y2="140" stroke="#00E1FF" strokeWidth="1" opacity="0.2" />
-                <line x1="180" y1="320" x2="180" y2="300" stroke="#1DB5C5" strokeWidth="1" opacity="0.2" />
-                <line x1="320" y1="320" x2="320" y2="300" stroke="#1DB5C5" strokeWidth="1" opacity="0.2" />
+                {/* Infrastructure (bottom) */}
+                <g>
+                  <rect x="80" y="320" width="340" height="68" rx="10" fill="url(#sy-infra)" stroke="#1DB5C5" strokeWidth="1.5" strokeOpacity="0.65" />
+                  <text x="250" y="361" textAnchor="middle" fill="#0f172a" fontSize="14" fontWeight="700" fontFamily="system-ui, sans-serif" letterSpacing="2">INFRASTRUCTURE</text>
+                  <circle cx="80" cy="354" r="4" fill="#1DB5C5" filter="url(#sy-glow)" />
+                  <circle cx="420" cy="354" r="4" fill="#1DB5C5" filter="url(#sy-glow)" />
+                </g>
 
-                {/* Data flow dots */}
-                <circle cx="180" cy="270" r="3" fill="#009bd7" opacity="0.5" />
-                <circle cx="320" cy="270" r="3" fill="#00E1FF" opacity="0.5" />
-                <circle cx="250" cy="188" r="3" fill="#1DB5C5" opacity="0.5" />
-                <circle cx="250" cy="120" r="3" fill="#009bd7" opacity="0.6" />
-                <circle cx="250" cy="345" r="3" fill="#00E1FF" opacity="0.4" />
+                {/* Inter-layer connectors (dashed, flowing) */}
+                <g stroke="#00E1FF" strokeWidth="1" opacity="0.45" strokeDasharray="3 4">
+                  <line x1="160" y1="220" x2="160" y2="182">
+                    <animate attributeName="stroke-dashoffset" from="0" to="-14" dur="1.8s" repeatCount="indefinite" />
+                  </line>
+                  <line x1="250" y1="220" x2="250" y2="182">
+                    <animate attributeName="stroke-dashoffset" from="0" to="-14" dur="2s" begin="0.5s" repeatCount="indefinite" />
+                  </line>
+                  <line x1="340" y1="220" x2="340" y2="182">
+                    <animate attributeName="stroke-dashoffset" from="0" to="-14" dur="1.9s" begin="1s" repeatCount="indefinite" />
+                  </line>
+                </g>
+                <g stroke="#1DB5C5" strokeWidth="1" opacity="0.45" strokeDasharray="3 4">
+                  <line x1="160" y1="320" x2="160" y2="282">
+                    <animate attributeName="stroke-dashoffset" from="0" to="-14" dur="2s" repeatCount="indefinite" />
+                  </line>
+                  <line x1="250" y1="320" x2="250" y2="282">
+                    <animate attributeName="stroke-dashoffset" from="0" to="-14" dur="1.7s" begin="0.7s" repeatCount="indefinite" />
+                  </line>
+                  <line x1="340" y1="320" x2="340" y2="282">
+                    <animate attributeName="stroke-dashoffset" from="0" to="-14" dur="2.1s" begin="1.3s" repeatCount="indefinite" />
+                  </line>
+                </g>
+
+                {/* Data-flow dots rising bottom → top */}
+                <circle r="4" fill="#FFFFFF" opacity="0">
+                  <animateMotion dur="3.5s" repeatCount="indefinite" path="M 160 390 L 160 108" />
+                  <animate attributeName="opacity" values="0;1;1;0" keyTimes="0;0.12;0.88;1" dur="3.5s" repeatCount="indefinite" />
+                </circle>
+                <circle r="4" fill="#FFFFFF" opacity="0">
+                  <animateMotion dur="4s" begin="1.1s" repeatCount="indefinite" path="M 250 390 L 250 108" />
+                  <animate attributeName="opacity" values="0;1;1;0" keyTimes="0;0.12;0.88;1" dur="4s" begin="1.1s" repeatCount="indefinite" />
+                </circle>
+                <circle r="4" fill="#FFFFFF" opacity="0">
+                  <animateMotion dur="3.8s" begin="2.2s" repeatCount="indefinite" path="M 340 390 L 340 108" />
+                  <animate attributeName="opacity" values="0;1;1;0" keyTimes="0;0.12;0.88;1" dur="3.8s" begin="2.2s" repeatCount="indefinite" />
+                </circle>
               </svg>
             </div>
           </div>

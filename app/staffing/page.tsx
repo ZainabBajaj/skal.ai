@@ -71,44 +71,135 @@ export default function StaffingPage() {
               </div>
             </div>
 
-            {/* Right: Abstract Visual */}
+            {/* Right: Abstract Visual — vetted talent hub-and-spoke network */}
             <div className="flex-1 w-full max-w-lg lg:max-w-none">
-              <svg viewBox="0 0 500 500" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-auto">
-                {/* Central team hub */}
-                <circle cx="250" cy="250" r="50" fill="#1DB5C5" fillOpacity="0.08" stroke="#1DB5C5" strokeWidth="1" strokeOpacity="0.2" />
-                <circle cx="250" cy="250" r="30" fill="#009bd7" fillOpacity="0.1" />
-                <text x="250" y="254" textAnchor="middle" fill="#1DB5C5" fontSize="10" fontWeight="700" opacity="0.5">YOUR TEAM</text>
+              <svg viewBox="0 0 500 500" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" className="w-full h-auto text-[#0f172a] dark:text-white">
+                <defs>
+                  <radialGradient id="st-hub" cx="50%" cy="50%" r="50%">
+                    <stop offset="0%" stopColor="#FFFFFF" stopOpacity="1" />
+                    <stop offset="45%" stopColor="#1DB5C5" stopOpacity="0.75" />
+                    <stop offset="100%" stopColor="#1DB5C5" stopOpacity="0" />
+                  </radialGradient>
+                  <radialGradient id="st-node" cx="50%" cy="50%" r="50%">
+                    <stop offset="0%" stopColor="#00E1FF" stopOpacity="0.95" />
+                    <stop offset="100%" stopColor="#009bd7" stopOpacity="0.45" />
+                  </radialGradient>
+                  <linearGradient id="st-spoke" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stopColor="#1DB5C5" stopOpacity="0.6" />
+                    <stop offset="100%" stopColor="#00E1FF" stopOpacity="0.4" />
+                  </linearGradient>
+                  <filter id="st-glow" x="-50%" y="-50%" width="200%" height="200%">
+                    <feGaussianBlur stdDeviation="4" result="blur" />
+                    <feMerge>
+                      <feMergeNode in="blur" />
+                      <feMergeNode in="SourceGraphic" />
+                    </feMerge>
+                  </filter>
+                </defs>
 
-                {/* Talent nodes */}
-                <circle cx="250" cy="120" r="25" fill="#009bd7" fillOpacity="0.08" stroke="#009bd7" strokeWidth="1" strokeOpacity="0.25" />
-                <text x="250" y="124" textAnchor="middle" fill="#009bd7" fontSize="8" fontWeight="600" opacity="0.5">AI/ML</text>
+                {/* Outer orbit rings */}
+                <circle cx="250" cy="260" r="155" fill="none" stroke="#1DB5C5" strokeWidth="0.6" opacity="0.2" strokeDasharray="2 6" />
+                <circle cx="250" cy="260" r="115" fill="none" stroke="#1DB5C5" strokeWidth="0.6" opacity="0.25" strokeDasharray="2 4" />
 
-                <circle cx="380" cy="200" r="25" fill="#00E1FF" fillOpacity="0.08" stroke="#00E1FF" strokeWidth="1" strokeOpacity="0.25" />
-                <text x="380" y="204" textAnchor="middle" fill="#00E1FF" fontSize="8" fontWeight="600" opacity="0.5">FULL-STACK</text>
+                {/* Six connection spokes */}
+                <g stroke="url(#st-spoke)" strokeWidth="1.3" opacity="0.7">
+                  <line x1="250" y1="260" x2="250" y2="130" />
+                  <line x1="250" y1="260" x2="370" y2="195" />
+                  <line x1="250" y1="260" x2="370" y2="325" />
+                  <line x1="250" y1="260" x2="250" y2="390" />
+                  <line x1="250" y1="260" x2="130" y2="325" />
+                  <line x1="250" y1="260" x2="130" y2="195" />
+                </g>
 
-                <circle cx="380" cy="320" r="25" fill="#1DB5C5" fillOpacity="0.08" stroke="#1DB5C5" strokeWidth="1" strokeOpacity="0.25" />
-                <text x="380" y="324" textAnchor="middle" fill="#1DB5C5" fontSize="8" fontWeight="600" opacity="0.5">DEVOPS</text>
+                {/* Flow pulses travelling along each spoke */}
+                <g fill="#00E1FF">
+                  <circle r="3.5">
+                    <animateMotion dur="2.5s" repeatCount="indefinite" path="M 250 260 L 250 130" />
+                    <animate attributeName="opacity" values="0;1;0" dur="2.5s" repeatCount="indefinite" />
+                  </circle>
+                  <circle r="3.5">
+                    <animateMotion dur="2.8s" begin="0.4s" repeatCount="indefinite" path="M 250 260 L 370 195" />
+                    <animate attributeName="opacity" values="0;1;0" dur="2.8s" begin="0.4s" repeatCount="indefinite" />
+                  </circle>
+                  <circle r="3.5">
+                    <animateMotion dur="2.6s" begin="0.8s" repeatCount="indefinite" path="M 250 260 L 370 325" />
+                    <animate attributeName="opacity" values="0;1;0" dur="2.6s" begin="0.8s" repeatCount="indefinite" />
+                  </circle>
+                  <circle r="3.5">
+                    <animateMotion dur="2.4s" begin="1.2s" repeatCount="indefinite" path="M 250 260 L 250 390" />
+                    <animate attributeName="opacity" values="0;1;0" dur="2.4s" begin="1.2s" repeatCount="indefinite" />
+                  </circle>
+                  <circle r="3.5">
+                    <animateMotion dur="2.7s" begin="1.6s" repeatCount="indefinite" path="M 250 260 L 130 325" />
+                    <animate attributeName="opacity" values="0;1;0" dur="2.7s" begin="1.6s" repeatCount="indefinite" />
+                  </circle>
+                  <circle r="3.5">
+                    <animateMotion dur="2.9s" begin="2s" repeatCount="indefinite" path="M 250 260 L 130 195" />
+                    <animate attributeName="opacity" values="0;1;0" dur="2.9s" begin="2s" repeatCount="indefinite" />
+                  </circle>
+                </g>
 
-                <circle cx="250" cy="390" r="25" fill="#009bd7" fillOpacity="0.08" stroke="#009bd7" strokeWidth="1" strokeOpacity="0.25" />
-                <text x="250" y="394" textAnchor="middle" fill="#009bd7" fontSize="8" fontWeight="600" opacity="0.5">DATA</text>
+                {/* Six talent satellite nodes */}
+                <g filter="url(#st-glow)">
+                  <circle cx="250" cy="130" r="16" fill="url(#st-node)" />
+                  <circle cx="370" cy="195" r="16" fill="url(#st-node)" />
+                  <circle cx="370" cy="325" r="16" fill="url(#st-node)" />
+                  <circle cx="250" cy="390" r="16" fill="url(#st-node)" />
+                  <circle cx="130" cy="325" r="16" fill="url(#st-node)" />
+                  <circle cx="130" cy="195" r="16" fill="url(#st-node)" />
+                </g>
 
-                <circle cx="120" cy="320" r="25" fill="#00E1FF" fillOpacity="0.08" stroke="#00E1FF" strokeWidth="1" strokeOpacity="0.25" />
-                <text x="120" y="324" textAnchor="middle" fill="#00E1FF" fontSize="8" fontWeight="600" opacity="0.5">MOBILE</text>
+                {/* Satellite inner pulse dots */}
+                <g fill="#FFFFFF">
+                  <circle cx="250" cy="130" r="4">
+                    <animate attributeName="opacity" values="0.6;1;0.6" dur="3s" repeatCount="indefinite" />
+                  </circle>
+                  <circle cx="370" cy="195" r="4">
+                    <animate attributeName="opacity" values="0.6;1;0.6" dur="3s" begin="0.5s" repeatCount="indefinite" />
+                  </circle>
+                  <circle cx="370" cy="325" r="4">
+                    <animate attributeName="opacity" values="0.6;1;0.6" dur="3s" begin="1s" repeatCount="indefinite" />
+                  </circle>
+                  <circle cx="250" cy="390" r="4">
+                    <animate attributeName="opacity" values="0.6;1;0.6" dur="3s" begin="1.5s" repeatCount="indefinite" />
+                  </circle>
+                  <circle cx="130" cy="325" r="4">
+                    <animate attributeName="opacity" values="0.6;1;0.6" dur="3s" begin="2s" repeatCount="indefinite" />
+                  </circle>
+                  <circle cx="130" cy="195" r="4">
+                    <animate attributeName="opacity" values="0.6;1;0.6" dur="3s" begin="2.5s" repeatCount="indefinite" />
+                  </circle>
+                </g>
 
-                <circle cx="120" cy="200" r="25" fill="#1DB5C5" fillOpacity="0.08" stroke="#1DB5C5" strokeWidth="1" strokeOpacity="0.25" />
-                <text x="120" y="204" textAnchor="middle" fill="#1DB5C5" fontSize="8" fontWeight="600" opacity="0.5">QA</text>
+                {/* Satellite role labels (positioned outside each node) */}
+                <g fill="currentColor" fontFamily="system-ui, sans-serif" fontWeight="700" letterSpacing="1">
+                  <text x="250" y="105" fontSize="12" textAnchor="middle">AI/ML</text>
+                  <text x="395" y="199" fontSize="11" textAnchor="start">FULL-STACK</text>
+                  <text x="395" y="329" fontSize="11" textAnchor="start">DEVOPS</text>
+                  <text x="250" y="425" fontSize="12" textAnchor="middle">DATA</text>
+                  <text x="105" y="329" fontSize="11" textAnchor="end">MOBILE</text>
+                  <text x="105" y="199" fontSize="11" textAnchor="end">QA</text>
+                </g>
 
-                {/* Connection lines */}
-                <line x1="250" y1="200" x2="250" y2="145" stroke="#009bd7" strokeWidth="1" opacity="0.2" strokeDasharray="4 4" />
-                <line x1="280" y1="225" x2="355" y2="200" stroke="#00E1FF" strokeWidth="1" opacity="0.2" strokeDasharray="4 4" />
-                <line x1="280" y1="275" x2="355" y2="320" stroke="#1DB5C5" strokeWidth="1" opacity="0.2" strokeDasharray="4 4" />
-                <line x1="250" y1="300" x2="250" y2="365" stroke="#009bd7" strokeWidth="1" opacity="0.2" strokeDasharray="4 4" />
-                <line x1="220" y1="275" x2="145" y2="320" stroke="#00E1FF" strokeWidth="1" opacity="0.2" strokeDasharray="4 4" />
-                <line x1="220" y1="225" x2="145" y2="200" stroke="#1DB5C5" strokeWidth="1" opacity="0.2" strokeDasharray="4 4" />
+                {/* Central hub */}
+                <circle cx="250" cy="260" r="65" fill="url(#st-hub)" opacity="0.7" />
+                <circle cx="250" cy="260" r="40" fill="#1DB5C5" opacity="0.3" />
+                <circle cx="250" cy="260" r="20" fill="#0f172a" />
+                <text x="250" y="264" textAnchor="middle" fill="#FFFFFF" fontSize="11" fontWeight="800" fontFamily="system-ui, sans-serif" letterSpacing="1.5">YOUR TEAM</text>
 
-                {/* "Top 5%" badge */}
-                <rect x="195" y="55" width="110" height="30" rx="15" fill="#1DB5C5" fillOpacity="0.1" stroke="#1DB5C5" strokeWidth="1" strokeOpacity="0.3" />
-                <text x="250" y="74" textAnchor="middle" fill="#1DB5C5" fontSize="11" fontWeight="700" opacity="0.5">TOP 5% VETTED</text>
+                {/* Outward pulse from hub */}
+                <circle cx="250" cy="260" r="40" fill="none" stroke="#1DB5C5" strokeWidth="1.5">
+                  <animate attributeName="r" values="30;95;30" dur="4s" repeatCount="indefinite" />
+                  <animate attributeName="opacity" values="0.75;0;0.75" dur="4s" repeatCount="indefinite" />
+                </circle>
+
+                {/* TOP 5% VETTED chip */}
+                <g transform="translate(250, 60)">
+                  <rect x="-82" y="-20" width="164" height="40" rx="20" fill="#0f172a" />
+                  <circle cx="-58" cy="0" r="6" fill="#1DB5C5" />
+                  <circle cx="-58" cy="0" r="2.5" fill="#FFFFFF" />
+                  <text x="12" y="6" textAnchor="middle" fill="#FFFFFF" fontSize="13" fontWeight="700" fontFamily="system-ui, sans-serif" letterSpacing="1">TOP 5% VETTED</text>
+                </g>
               </svg>
             </div>
           </div>

@@ -108,50 +108,114 @@ export default function ScalePage() {
 
             {/* Right: Abstract Visual — Growth / Pipeline funnel */}
             <div className="flex-1 w-full max-w-lg lg:max-w-none">
-              <svg viewBox="0 0 500 500" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-auto">
-                {/* Funnel shape */}
-                <path d="M 120 120 L 380 120 L 320 260 L 180 260 Z" fill="#009bd7" fillOpacity="0.06" stroke="#009bd7" strokeWidth="1" strokeOpacity="0.2" />
-                <path d="M 180 260 L 320 260 L 300 350 L 200 350 Z" fill="#00E1FF" fillOpacity="0.08" stroke="#00E1FF" strokeWidth="1" strokeOpacity="0.2" />
-                <path d="M 200 350 L 300 350 L 280 420 L 220 420 Z" fill="#1DB5C5" fillOpacity="0.1" stroke="#1DB5C5" strokeWidth="1" strokeOpacity="0.25" />
+              <svg viewBox="0 0 500 500" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" className="w-full h-auto">
+                <defs>
+                  <linearGradient id="sc-funnel" x1="50%" y1="0%" x2="50%" y2="100%">
+                    <stop offset="0%" stopColor="#009bd7" stopOpacity="0.35" />
+                    <stop offset="55%" stopColor="#00E1FF" stopOpacity="0.55" />
+                    <stop offset="100%" stopColor="#1DB5C5" stopOpacity="0.85" />
+                  </linearGradient>
+                  <linearGradient id="sc-edge" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stopColor="#009bd7" stopOpacity="0.9" />
+                    <stop offset="100%" stopColor="#00E1FF" stopOpacity="0.7" />
+                  </linearGradient>
+                  <radialGradient id="sc-deal" cx="50%" cy="50%" r="50%">
+                    <stop offset="0%" stopColor="#FFFFFF" stopOpacity="1" />
+                    <stop offset="40%" stopColor="#1DB5C5" stopOpacity="0.9" />
+                    <stop offset="100%" stopColor="#1DB5C5" stopOpacity="0" />
+                  </radialGradient>
+                  <filter id="sc-soft" x="-50%" y="-50%" width="200%" height="200%">
+                    <feGaussianBlur stdDeviation="8" />
+                  </filter>
+                  <filter id="sc-glow" x="-50%" y="-50%" width="200%" height="200%">
+                    <feGaussianBlur stdDeviation="3" result="blur" />
+                    <feMerge>
+                      <feMergeNode in="blur" />
+                      <feMergeNode in="SourceGraphic" />
+                    </feMerge>
+                  </filter>
+                </defs>
 
-                {/* Funnel labels */}
-                <text x="250" y="195" textAnchor="middle" fill="#009bd7" fontSize="11" fontWeight="600" opacity="0.45">PROSPECTS</text>
-                <text x="250" y="312" textAnchor="middle" fill="#00E1FF" fontSize="11" fontWeight="600" opacity="0.5">QUALIFIED</text>
-                <text x="250" y="395" textAnchor="middle" fill="#1DB5C5" fontSize="11" fontWeight="600" opacity="0.55">DEALS</text>
+                {/* Ambient backlight */}
+                <ellipse cx="250" cy="250" rx="180" ry="170" fill="#00E1FF" opacity="0.07" filter="url(#sc-soft)" />
 
-                {/* Incoming lead dots - top */}
-                <circle cx="140" cy="90" r="3" fill="#009bd7" opacity="0.4" />
-                <circle cx="200" cy="80" r="3" fill="#00E1FF" opacity="0.35" />
-                <circle cx="260" cy="85" r="3" fill="#009bd7" opacity="0.4" />
-                <circle cx="320" cy="82" r="3" fill="#1DB5C5" opacity="0.35" />
-                <circle cx="370" cy="90" r="3" fill="#00E1FF" opacity="0.4" />
+                {/* Inbound prospect dots (pulsing) */}
+                <g fill="#009bd7">
+                  <circle cx="130" cy="80" r="3.5">
+                    <animate attributeName="opacity" values="0.4;0.9;0.4" dur="2s" repeatCount="indefinite" />
+                  </circle>
+                  <circle cx="180" cy="62" r="3">
+                    <animate attributeName="opacity" values="0.9;0.3;0.9" dur="2.2s" begin="0.3s" repeatCount="indefinite" />
+                  </circle>
+                  <circle cx="250" cy="72" r="4">
+                    <animate attributeName="opacity" values="0.5;1;0.5" dur="2.5s" begin="0.6s" repeatCount="indefinite" />
+                  </circle>
+                  <circle cx="320" cy="62" r="3">
+                    <animate attributeName="opacity" values="0.9;0.3;0.9" dur="2.1s" begin="0.9s" repeatCount="indefinite" />
+                  </circle>
+                  <circle cx="370" cy="82" r="3.5">
+                    <animate attributeName="opacity" values="0.4;0.9;0.4" dur="2.3s" begin="1.2s" repeatCount="indefinite" />
+                  </circle>
+                  <circle cx="100" cy="105" r="2.5">
+                    <animate attributeName="opacity" values="0.3;0.7;0.3" dur="2.6s" begin="0.4s" repeatCount="indefinite" />
+                  </circle>
+                  <circle cx="400" cy="105" r="2.5">
+                    <animate attributeName="opacity" values="0.7;0.3;0.7" dur="2.4s" begin="1.5s" repeatCount="indefinite" />
+                  </circle>
+                  <circle cx="210" cy="102" r="2.8" opacity="0.6" />
+                  <circle cx="290" cy="102" r="2.8" opacity="0.6" />
+                </g>
 
-                {/* Flow lines into funnel */}
-                <line x1="140" y1="93" x2="170" y2="120" stroke="#009bd7" strokeWidth="0.8" opacity="0.2" strokeDasharray="3 3" />
-                <line x1="200" y1="83" x2="210" y2="120" stroke="#00E1FF" strokeWidth="0.8" opacity="0.2" strokeDasharray="3 3" />
-                <line x1="260" y1="88" x2="255" y2="120" stroke="#009bd7" strokeWidth="0.8" opacity="0.2" strokeDasharray="3 3" />
-                <line x1="320" y1="85" x2="300" y2="120" stroke="#1DB5C5" strokeWidth="0.8" opacity="0.2" strokeDasharray="3 3" />
-                <line x1="370" y1="93" x2="340" y2="120" stroke="#00E1FF" strokeWidth="0.8" opacity="0.2" strokeDasharray="3 3" />
+                {/* Funnel body */}
+                <path d="M 110 140 L 390 140 L 290 380 L 210 380 Z" fill="url(#sc-funnel)" opacity="0.95" stroke="url(#sc-edge)" strokeWidth="1.5" />
 
-                {/* Growth arrow coming out */}
-                <path d="M 250 420 L 250 460" stroke="#1DB5C5" strokeWidth="2" opacity="0.4" />
-                <path d="M 242 452 L 250 465 L 258 452" fill="#1DB5C5" opacity="0.4" />
+                {/* Interior stage dividers */}
+                <line x1="140" y1="220" x2="360" y2="220" stroke="#FFFFFF" strokeWidth="1" opacity="0.45" />
+                <line x1="170" y1="300" x2="330" y2="300" stroke="#FFFFFF" strokeWidth="1" opacity="0.4" />
 
-                {/* Revenue indicator */}
-                <text x="250" y="485" textAnchor="middle" fill="#1DB5C5" fontSize="13" fontWeight="700" opacity="0.5">10X REVENUE</text>
+                {/* Stage labels */}
+                <text x="250" y="190" textAnchor="middle" fill="#FFFFFF" fontSize="13" fontWeight="700" fontFamily="system-ui, sans-serif" letterSpacing="2" opacity="0.95">PROSPECTS</text>
+                <text x="250" y="267" textAnchor="middle" fill="#FFFFFF" fontSize="12" fontWeight="700" fontFamily="system-ui, sans-serif" letterSpacing="2" opacity="0.95">QUALIFIED</text>
+                <text x="250" y="347" textAnchor="middle" fill="#FFFFFF" fontSize="12" fontWeight="700" fontFamily="system-ui, sans-serif" letterSpacing="2" opacity="0.95">DEALS</text>
 
-                {/* Side metrics */}
-                <rect x="60" y="170" width="40" height="6" rx="3" fill="#009bd7" opacity="0.15" />
-                <rect x="60" y="185" width="30" height="6" rx="3" fill="#009bd7" opacity="0.1" />
-                <rect x="60" y="200" width="35" height="6" rx="3" fill="#009bd7" opacity="0.12" />
+                {/* Flowing white dots descending through funnel */}
+                <circle r="4" fill="#FFFFFF" opacity="0">
+                  <animateMotion dur="3s" repeatCount="indefinite" path="M 250 140 L 250 380" />
+                  <animate attributeName="opacity" values="0;0.95;0.95;0" keyTimes="0;0.1;0.85;1" dur="3s" repeatCount="indefinite" />
+                </circle>
+                <circle r="3.5" fill="#FFFFFF" opacity="0">
+                  <animateMotion dur="3.5s" begin="0.8s" repeatCount="indefinite" path="M 232 140 L 235 380" />
+                  <animate attributeName="opacity" values="0;0.85;0.85;0" keyTimes="0;0.1;0.85;1" dur="3.5s" begin="0.8s" repeatCount="indefinite" />
+                </circle>
+                <circle r="3.5" fill="#FFFFFF" opacity="0">
+                  <animateMotion dur="3.2s" begin="1.4s" repeatCount="indefinite" path="M 268 140 L 265 380" />
+                  <animate attributeName="opacity" values="0;0.85;0.85;0" keyTimes="0;0.1;0.85;1" dur="3.2s" begin="1.4s" repeatCount="indefinite" />
+                </circle>
+                <circle r="3" fill="#FFFFFF" opacity="0">
+                  <animateMotion dur="2.8s" begin="0.4s" repeatCount="indefinite" path="M 200 140 L 215 380" />
+                  <animate attributeName="opacity" values="0;0.75;0.75;0" keyTimes="0;0.1;0.85;1" dur="2.8s" begin="0.4s" repeatCount="indefinite" />
+                </circle>
+                <circle r="3" fill="#FFFFFF" opacity="0">
+                  <animateMotion dur="3.1s" begin="1.8s" repeatCount="indefinite" path="M 300 140 L 285 380" />
+                  <animate attributeName="opacity" values="0;0.75;0.75;0" keyTimes="0;0.1;0.85;1" dur="3.1s" begin="1.8s" repeatCount="indefinite" />
+                </circle>
 
-                <rect x="400" y="170" width="40" height="6" rx="3" fill="#00E1FF" opacity="0.15" />
-                <rect x="400" y="185" width="30" height="6" rx="3" fill="#00E1FF" opacity="0.1" />
-                <rect x="400" y="200" width="35" height="6" rx="3" fill="#00E1FF" opacity="0.12" />
+                {/* Deal output — glowing cluster */}
+                <circle cx="250" cy="420" r="30" fill="url(#sc-deal)" />
+                <circle cx="250" cy="420" r="10" fill="#1DB5C5" filter="url(#sc-glow)" />
+                <circle cx="250" cy="420" r="20" fill="none" stroke="#1DB5C5" strokeWidth="1.5">
+                  <animate attributeName="r" values="15;45;15" dur="3s" repeatCount="indefinite" />
+                  <animate attributeName="opacity" values="0.85;0;0.85" dur="3s" repeatCount="indefinite" />
+                </circle>
 
-                {/* Connecting lines to side metrics */}
-                <line x1="100" y1="180" x2="140" y2="180" stroke="#009bd7" strokeWidth="0.5" opacity="0.15" strokeDasharray="2 2" />
-                <line x1="400" y1="180" x2="360" y2="180" stroke="#00E1FF" strokeWidth="0.5" opacity="0.15" strokeDasharray="2 2" />
+                {/* 10X REVENUE callout chip */}
+                <g transform="translate(400, 425)">
+                  <rect x="-72" y="-18" width="144" height="36" rx="18" fill="#0f172a" />
+                  <text x="0" y="6" textAnchor="middle" fill="#00E1FF" fontSize="14" fontWeight="800" fontFamily="system-ui, sans-serif" letterSpacing="1.5">10X REVENUE</text>
+                </g>
+                <path d="M 285 420 L 325 424" stroke="#1DB5C5" strokeWidth="1.5" opacity="0.55" strokeDasharray="3 3">
+                  <animate attributeName="stroke-dashoffset" from="0" to="-12" dur="2s" repeatCount="indefinite" />
+                </path>
               </svg>
             </div>
           </div>
