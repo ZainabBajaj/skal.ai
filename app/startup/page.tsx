@@ -1,30 +1,14 @@
 'use client';
 
-import { useState, useRef } from 'react';
-import emailjs from '@emailjs/browser';
 import { Rocket, User, Mail, Globe, Brain, Target, CreditCard, Send, ArrowRight, Code, MessageSquare, Clock } from 'lucide-react';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import FloatingThemeToggle from '../components/FloatingThemeToggle';
-import GlobalSquidBackground from '../components/GlobalSquidBackground';
 
-type FormStatus = {
-  type: 'idle' | 'sending' | 'success' | 'error';
-  message?: string;
-};
-
-type FormData = {
-  name: string;
-  email: string;
-  website: string;
-  idea: string;
-  outcome: string;
-  budget: string;
-};
+import { useEmailForm } from '../hooks/useEmailForm';
 
 export default function StartupOffer() {
-  const formRef = useRef<HTMLDivElement>(null);
-  const [formData, setFormData] = useState<FormData>({
+  const { formRef, formData, status, handleChange, scrollToForm, handleSubmit } = useEmailForm({
     name: '',
     email: '',
     website: '',
@@ -33,59 +17,8 @@ export default function StartupOffer() {
     budget: 'Under $1,000'
   });
 
-  const [status, setStatus] = useState<FormStatus>({ type: 'idle' });
-
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value
-    });
-  };
-
-  const scrollToForm = () => {
-    formRef.current?.scrollIntoView({ behavior: 'smooth' });
-  };
-
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    
-    try {
-      setStatus({ type: 'sending' });
-      
-      if (!process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID || 
-          !process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID_STARTUP || 
-          !process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY) {
-        throw new Error('EmailJS environment variables are not set');
-      }
-      
-      await emailjs.send(
-        process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID,
-        process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID_STARTUP,
-        {
-          from_name: formData.name,
-          reply_to: formData.email,
-          website: formData.website,
-          idea: formData.idea,
-          outcome: formData.outcome,
-          budget: formData.budget
-        },
-        process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY
-      );
-      
-      setStatus({ type: 'success', message: 'Request submitted successfully! We\'ll contact you within 1-2 hours.' });
-      setFormData({ name: '', email: '', website: '', idea: '', outcome: '', budget: 'Under $1,000' });
-    } catch (error) {
-      setStatus({ 
-        type: 'error',
-        message: 'Failed to submit request. Please try again or contact us directly.'
-      });
-      console.error('Error sending email:', error);
-    }
-  };
-
   return (
     <main className="relative min-h-screen">
-      <GlobalSquidBackground />
       <Navbar />
       
       <section className="pt-32 pb-16 sm:pt-36 sm:pb-20 lg:pt-40 lg:pb-24 relative overflow-hidden bg-white dark:bg-gray-800">
@@ -160,7 +93,7 @@ export default function StartupOffer() {
               <Rocket className="w-4 h-4 sm:w-5 sm:h-5 text-blue-500 dark:text-cyan-400" />
             </div>
             
-            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#1a1a1a] via-blue-600 to-cyan-500 dark:from-white dark:via-blue-400 dark:to-cyan-400 mb-4 sm:mb-6 leading-tight">
+            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#0f172a] via-blue-600 to-cyan-500 dark:from-white dark:via-blue-400 dark:to-cyan-400 mb-4 sm:mb-6 leading-snug pb-1">
               I&apos;m A <span className="text-blue-600 dark:text-blue-400">Startup.</span>
             </h1>
             
@@ -195,7 +128,7 @@ export default function StartupOffer() {
                 Fill out this form and we&apos;ll contact you within 1-2 hours to discuss your startup needs
               </p>
 
-              <form onSubmit={handleSubmit} className="relative z-10 space-y-6 sm:space-y-8">
+              <form onSubmit={(e) => handleSubmit(e, { from_name: formData.name, reply_to: formData.email, website: formData.website, idea: formData.idea, outcome: formData.outcome, budget: formData.budget })} className="relative z-10 space-y-6 sm:space-y-8">
                 {/* Name Field */}
                 <div className="group">
                   <label htmlFor="name" className="flex items-center gap-2 text-sm font-bold text-gray-700 dark:text-gray-200 mb-2 sm:mb-3">
@@ -342,7 +275,7 @@ export default function StartupOffer() {
 
           {/* Package Details Section */}
           <div className="mt-20 sm:mt-24">
-            <h2 className="text-3xl sm:text-4xl font-bold text-center text-transparent bg-clip-text bg-gradient-to-r from-[#1a1a1a] via-blue-600 to-cyan-500 dark:from-white dark:via-blue-400 dark:to-cyan-400 mb-12">
+            <h2 className="text-3xl sm:text-4xl font-bold text-center text-transparent bg-clip-text bg-gradient-to-r from-[#0f172a] via-blue-600 to-cyan-500 dark:from-white dark:via-blue-400 dark:to-cyan-400 mb-12 leading-snug pb-1">
               Startup Package Includes
             </h2>
 

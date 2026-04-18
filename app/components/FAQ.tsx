@@ -92,33 +92,11 @@ export default function FAQ() {
             opacity: 0.9;
           }
         }
-        .animate-float {
-          animation: float 8s ease-in-out infinite;
-        }
       `}</style>
       {/* Background Elements */}
       <div className="absolute inset-0 pointer-events-none">
-        {/* Floating animated objects */}
-        <div className="absolute top-10 left-10 w-8 h-8 bg-gradient-to-r from-[#009bd7]/30 to-[#00E1FF]/30 dark:from-[#009bd7]/60 dark:to-[#00E1FF]/60 rounded-full animate-float shadow-lg dark:shadow-[#009bd7]/20" style={{animationDelay: '0s', animationDuration: '6s'}}></div>
-        <div className="absolute top-20 right-20 w-6 h-6 bg-gradient-to-r from-purple-400/30 to-pink-400/30 dark:from-purple-400/60 dark:to-pink-400/60 rounded-full animate-float shadow-lg dark:shadow-purple-400/20" style={{animationDelay: '2s', animationDuration: '8s'}}></div>
-        <div className="absolute bottom-20 left-20 w-10 h-10 bg-gradient-to-r from-cyan-400/30 to-blue-400/30 dark:from-cyan-400/60 dark:to-blue-400/60 rounded-full animate-float shadow-lg dark:shadow-cyan-400/20" style={{animationDelay: '4s', animationDuration: '7s'}}></div>
-        <div className="absolute bottom-10 right-10 w-4 h-4 bg-gradient-to-r from-indigo-400/30 to-purple-400/30 dark:from-indigo-400/60 dark:to-purple-400/60 rounded-full animate-float shadow-lg dark:shadow-indigo-400/20" style={{animationDelay: '1s', animationDuration: '9s'}}></div>
-        
-        {/* Floating geometric shapes */}
-        <div className="absolute top-32 left-32 w-12 h-12 bg-gradient-to-r from-[#009bd7]/20 to-[#00E1FF]/20 dark:from-[#009bd7]/50 dark:to-[#00E1FF]/50 rounded-lg rotate-45 animate-float shadow-lg dark:shadow-[#009bd7]/15" style={{animationDelay: '3s', animationDuration: '10s'}}></div>
-        <div className="absolute top-40 right-40 w-8 h-8 bg-gradient-to-r from-purple-400/20 to-pink-400/20 dark:from-purple-400/50 dark:to-pink-400/50 rounded-lg rotate-12 animate-float shadow-lg dark:shadow-purple-400/15" style={{animationDelay: '5s', animationDuration: '11s'}}></div>
-        <div className="absolute bottom-32 left-32 w-14 h-14 bg-gradient-to-r from-cyan-400/20 to-blue-400/20 dark:from-cyan-400/50 dark:to-blue-400/50 rounded-lg -rotate-12 animate-float shadow-lg dark:shadow-cyan-400/15" style={{animationDelay: '1.5s', animationDuration: '8.5s'}}></div>
-        <div className="absolute bottom-40 right-40 w-6 h-6 bg-gradient-to-r from-indigo-400/20 to-purple-400/20 dark:from-indigo-400/50 dark:to-purple-400/50 rounded-lg rotate-45 animate-float shadow-lg dark:shadow-indigo-400/15" style={{animationDelay: '2.5s', animationDuration: '12s'}}></div>
-        
-        {/* Floating dots with different patterns */}
-        <div className="absolute top-16 left-1/2 w-3 h-3 bg-[#009bd7]/40 dark:bg-[#009bd7]/70 rounded-full animate-float shadow-sm dark:shadow-[#009bd7]/30" style={{animationDelay: '0.5s', animationDuration: '7.5s'}}></div>
-        <div className="absolute top-24 right-1/3 w-2 h-2 bg-purple-400/40 dark:bg-purple-400/70 rounded-full animate-float shadow-sm dark:shadow-purple-400/30" style={{animationDelay: '3.5s', animationDuration: '9.5s'}}></div>
-        <div className="absolute bottom-16 left-1/3 w-4 h-4 bg-cyan-400/40 dark:bg-cyan-400/70 rounded-full animate-float shadow-sm dark:shadow-cyan-400/30" style={{animationDelay: '1.5s', animationDuration: '6.5s'}}></div>
-        <div className="absolute bottom-24 right-1/2 w-3 h-3 bg-indigo-400/40 dark:bg-indigo-400/70 rounded-full animate-float shadow-sm dark:shadow-indigo-400/30" style={{animationDelay: '4.5s', animationDuration: '10.5s'}}></div>
-        
-        {/* Original gradient elements */}
-        <div className="absolute top-20 left-10 w-48 h-48 sm:w-72 sm:h-72 bg-gradient-to-r from-[#009bd7]/8 to-[#00E1FF]/6 rounded-full blur-3xl animate-pulse"></div>
-        <div className="absolute bottom-20 right-10 w-64 h-64 sm:w-96 sm:h-96 bg-gradient-to-r from-[#00E1FF]/6 to-purple-300/4 rounded-full blur-3xl animate-pulse" style={{animationDelay: '2s'}}></div>
+        <div className="absolute top-20 left-10 w-48 h-48 sm:w-72 sm:h-72 bg-gradient-to-r from-[#009bd7]/8 to-[#00E1FF]/6 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-20 right-10 w-64 h-64 sm:w-96 sm:h-96 bg-gradient-to-r from-[#00E1FF]/6 to-[#009bd7]/4 rounded-full blur-3xl"></div>
       </div>
 
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -130,7 +108,7 @@ export default function FAQ() {
               <span className="text-[#009bd7] text-xs sm:text-sm font-bold tracking-wider">FREQUENTLY ASKED QUESTIONS</span>
             </div>
             
-            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#1a1a1a] via-[#009bd7] to-[#00E1FF] dark:from-white dark:via-[#009bd7] dark:to-[#00E1FF] mb-4 sm:mb-6 leading-tight">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#0f172a] via-[#009bd7] to-[#00E1FF] dark:from-white dark:via-[#009bd7] dark:to-[#00E1FF] mb-4 sm:mb-6 leading-snug pb-1">
               Everything You Need to Know
             </h2>
             
@@ -165,6 +143,8 @@ export default function FAQ() {
               >
                 <button
                   onClick={() => toggleItem(index)}
+                  aria-expanded={openItems.includes(index)}
+                  aria-controls={`faq-answer-${index}`}
                   className="w-full px-6 sm:px-8 py-4 sm:py-6 text-left flex items-center justify-between hover:bg-gray-50/50 dark:hover:bg-gray-700/50 transition-colors duration-300"
                 >
                   <h3 className="text-lg sm:text-xl font-semibold text-gray-800 dark:text-white pr-4">
@@ -180,6 +160,8 @@ export default function FAQ() {
                 </button>
                 
                 <div
+                  id={`faq-answer-${index}`}
+                  role="region"
                   className={`transition-all duration-300 ease-in-out ${
                     openItems.includes(index)
                       ? 'max-h-96 opacity-100'
@@ -215,7 +197,7 @@ export default function FAQ() {
                   Get Free Consultation
                 </a>
                 <a
-                  href="mailto:contact@skal.ai"
+                  href="mailto:hi@skal.ai"
                   className="inline-flex items-center justify-center px-8 py-3 border-2 border-[#009bd7] text-[#009bd7] font-semibold rounded-xl hover:bg-[#009bd7] hover:text-white transition-all duration-300"
                 >
                   Email Us

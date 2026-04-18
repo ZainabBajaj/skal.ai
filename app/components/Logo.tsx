@@ -31,13 +31,15 @@ const Logo = ({ isScrolled = false }: LogoProps) => {
       onKeyDown={(e) => {
         if (e.key === 'Enter' || e.key === ' ') {
           e.preventDefault();
-          handleLogoClick(e as unknown as React.MouseEvent);
+          if (pathname === '/') {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+          }
         }
       }}
       aria-label="Go to homepage"
     >
       <Image 
-        src="/skal-logo.png" 
+        src="/skal-logo.svg"
         alt="SKAL Logo" 
         width={40} 
         height={40} 

@@ -88,7 +88,7 @@ const Stack = () => {
     }
     
     return (
-      <div className="w-12 h-12 relative mb-4 group-hover:scale-110 transition-all duration-500 transform group-hover:rotate-6">
+      <div className="w-12 h-12 relative mb-4 group-hover:scale-105 transition-all duration-300">
         <Image
           src={`/svgs/${svgPath}`}
           alt={tech.name}
@@ -108,19 +108,19 @@ const Stack = () => {
       {/* Simplified Background Elements */}
       <div className="absolute inset-0 pointer-events-none z-5">
         {/* Static background gradients for depth */}
-        <div className="absolute top-20 left-10 w-72 h-72 bg-gradient-to-r from-[#009bd7]/8 to-[#00E1FF]/6 rounded-full blur-3xl animate-pulse"></div>
-        <div className="absolute bottom-20 right-10 w-96 h-96 bg-gradient-to-r from-[#00E1FF]/6 to-purple-300/4 rounded-full blur-3xl animate-pulse" style={{animationDelay: '2s'}}></div>
-        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-gradient-to-r from-purple-300/4 to-pink-300/3 rounded-full blur-3xl animate-pulse" style={{animationDelay: '4s'}}></div>
+        <div className="absolute top-20 left-10 w-72 h-72 bg-gradient-to-r from-[#009bd7]/8 to-[#00E1FF]/6 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-20 right-10 w-96 h-96 bg-gradient-to-r from-[#00E1FF]/6 to-[#009bd7]/4 rounded-full blur-3xl"></div>
+        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-gradient-to-r from-[#1DB5C5]/4 to-[#009bd7]/3 rounded-full blur-3xl"></div>
       </div>
 
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-20">
         <div className="text-center mb-20">
           <div className="inline-flex items-center space-x-2 bg-gradient-to-r from-[#009bd7]/10 to-[#00E1FF]/10 dark:from-[#009bd7]/20 dark:to-[#00E1FF]/20 rounded-full px-6 py-2 mb-6 backdrop-blur-sm border border-[#009bd7]/20 dark:border-[#00E1FF]/30">
-            <div className="w-2 h-2 bg-gradient-to-r from-[#009bd7] to-[#00E1FF] rounded-full animate-ping"></div>
+            <div className="w-2 h-2 bg-gradient-to-r from-[#009bd7] to-[#00E1FF] rounded-full"></div>
             <span className="text-[#009bd7] dark:text-[#00E1FF] text-sm font-bold tracking-wider">OUR TECH STACK</span>
           </div>
         
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#1a1a1a] via-[#009bd7] to-[#00E1FF] dark:from-white dark:via-[#009bd7] dark:to-[#00E1FF] mb-6 leading-tight">
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#0f172a] via-[#009bd7] to-[#00E1FF] dark:from-white dark:via-[#009bd7] dark:to-[#00E1FF] mb-6 leading-snug pb-1">
             Technologies We Master
           </h2>
           
@@ -160,7 +160,7 @@ const Stack = () => {
               {Object.values(getDisplayedTechnologies()).flat().map((tech: Technology, index: number) => (
                 <div
                   key={`${tech.name}-${index}`}
-                  className={`group relative bg-gradient-to-br ${tech.bgGradient} dark:from-gray-800/80 dark:to-gray-700/80 rounded-3xl p-8 hover:shadow-2xl transition-all duration-500 border border-white/50 dark:border-gray-600/50 hover:border-[#009bd7]/30 hover:scale-110 cursor-pointer backdrop-blur-sm overflow-hidden`}
+                  className={`group relative bg-gradient-to-br ${tech.bgGradient} dark:from-gray-800/80 dark:to-gray-700/80 rounded-3xl p-8 hover:shadow-2xl transition-all duration-500 border border-white/50 dark:border-gray-600/50 hover:border-[#009bd7]/30 hover:scale-105 cursor-pointer backdrop-blur-sm overflow-hidden`}
                   style={{
                     animationDelay: `${index * 100}ms`,
                   }}
@@ -178,16 +178,12 @@ const Stack = () => {
                       {tech.name}
                     </h3>
                     
-                    {/* Animated particles */}
-                    <div className="absolute top-2 right-2 w-2 h-2 bg-[#00E1FF] rounded-full opacity-0 group-hover:opacity-100 group-hover:animate-ping transition-opacity duration-300"></div>
-                    <div className="absolute bottom-2 left-2 w-1 h-1 bg-[#009bd7] rounded-full opacity-0 group-hover:opacity-100 group-hover:animate-pulse transition-opacity duration-300" style={{animationDelay: '200ms'}}></div>
                   </div>
                   
                   {/* Enhanced hover effect bar */}
                   <div className="absolute bottom-0 left-0 right-0 h-2 bg-gradient-to-r from-[#009bd7] via-[#00E1FF] to-[#009bd7] rounded-b-3xl transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-center"></div>
                   
                   {/* Shine effect */}
-                  <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -skew-x-12 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000 ease-out"></div>
                 </div>
               ))}
             </div>
@@ -198,7 +194,7 @@ const Stack = () => {
                   {techs.map((tech: Technology, index: number) => (
                     <div
                       key={`${tech.name}-${index}`}
-                      className={`group relative bg-gradient-to-br ${tech.bgGradient} dark:from-gray-800/80 dark:to-gray-700/80 rounded-3xl p-8 hover:shadow-2xl transition-all duration-500 border border-white/50 dark:border-gray-600/50 hover:border-[#009bd7]/30 hover:scale-110 cursor-pointer backdrop-blur-sm overflow-hidden`}
+                      className={`group relative bg-gradient-to-br ${tech.bgGradient} dark:from-gray-800/80 dark:to-gray-700/80 rounded-3xl p-8 hover:shadow-2xl transition-all duration-500 border border-white/50 dark:border-gray-600/50 hover:border-[#009bd7]/30 hover:scale-105 cursor-pointer backdrop-blur-sm overflow-hidden`}
                       style={{
                         animationDelay: `${index * 100}ms`,
                       }}
@@ -225,8 +221,7 @@ const Stack = () => {
                       <div className="absolute bottom-0 left-0 right-0 h-2 bg-gradient-to-r from-[#009bd7] via-[#00E1FF] to-[#009bd7] rounded-b-3xl transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-center"></div>
                       
                       {/* Shine effect */}
-                      <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -skew-x-12 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000 ease-out"></div>
-                    </div>
+                        </div>
                   ))}
                 </div>
               </div>

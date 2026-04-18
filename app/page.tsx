@@ -1,30 +1,24 @@
 'use client';
-import Hero from './components/Hero';
-import About from './components/About';
-import Services from './components/Services';
-import FAQ from './components/FAQ';
-import Clients from './components/Clients';
-import ContactForm from './components/ContactForm';
-import Footer from './components/Footer';
+import dynamic from 'next/dynamic';
+import BrandHero from './components/BrandHero';
+import ProductSplit from './components/ProductSplit';
 import Navbar from './components/Navbar';
-import GlobalSquidBackground from './components/GlobalSquidBackground';
+import TrustedBy from './components/TrustedBy';
 import FloatingThemeToggle from './components/FloatingThemeToggle';
-import QuizPopup from './components/QuizPopup';
+
+const ContactForm = dynamic(() => import('./components/ContactForm'));
+const Footer = dynamic(() => import('./components/Footer'));
 
 export default function Home() {
   return (
     <main className="relative">
-      <GlobalSquidBackground />
       <Navbar />
-      <Hero />
-      <About />
-      <Services />
-      <FAQ />
-      <Clients />
+      <BrandHero />
+      <ProductSplit />
+      <TrustedBy />
       <ContactForm />
       <Footer />
       <FloatingThemeToggle />
-      <QuizPopup />
     </main>
   );
 }

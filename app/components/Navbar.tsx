@@ -12,8 +12,6 @@ export default function Navbar() {
   const [activeSection, setActiveSection] = useState('');
   const pathname = usePathname();
   const router = useRouter();
-  const is99Page = pathname === '/99';
-  const isNewPage = pathname === '/startup' || pathname === '/enterprise' || pathname === '/rescue' || pathname === '/quiz';
   const isMainPage = pathname === '/';
 
   useEffect(() => {
@@ -23,7 +21,7 @@ export default function Navbar() {
       // Only track sections on main page
       if (isMainPage) {
         // Update active section based on scroll position
-        const sections = ['about', 'services', 'faq', 'contact'];
+        const sections = ['faq', 'contact'];
         const scrollPosition = window.scrollY + 120; // Offset for navbar height
         
         let current = '';
@@ -54,26 +52,29 @@ export default function Navbar() {
 
   const handleNavClick = (href: string) => {
     setIsOpen(false);
-    
-    if (is99Page || isNewPage) {
-      // On any sub-page, navigate to main page with section hash
-      router.push(`/${href}`);
-    } else {
-      // On main page, scroll to section
+
+    // Route links (e.g. /systems, /scale)
+    if (href.startsWith('/')) {
+      router.push(href);
+      return;
+    }
+
+    // Hash links (e.g. #faq, #contact)
+    if (isMainPage) {
       const element = document.querySelector(href);
       if (element) {
-        element.scrollIntoView({ 
-          behavior: 'smooth',
-          block: 'start'
-        });
+        element.scrollIntoView({ behavior: 'smooth', block: 'start' });
       }
+    } else {
+      // On sub-pages, navigate to homepage with hash
+      router.push(`/${href}`);
     }
   };
 
   const navLinks = [
-    { name: 'About', href: '#about' },
-    { name: 'Services', href: '#services' },
-    { name: 'FAQ', href: '#faq' },
+    { name: 'Systems', href: '/systems' },
+    { name: 'Scale', href: '/scale' },
+    { name: 'Staffing', href: '/staffing' },
     { name: 'Contact', href: '#contact' }
   ];
 
@@ -99,16 +100,16 @@ export default function Navbar() {
                 key={link.name}
                 onClick={() => handleNavClick(link.href)}
                 className={`relative px-4 py-2 rounded-lg font-medium transition-all duration-300 group ${
-                  activeSection === link.name.toLowerCase() && isMainPage
+                  (link.href.startsWith('/') && pathname === link.href) || (activeSection === link.name.toLowerCase() && isMainPage)
                     ? 'text-[#009bd7] bg-[#009bd7]/10 dark:bg-[#009bd7]/20'
-                    : isScrolled 
+                    : isScrolled
                       ? 'text-gray-800 dark:text-gray-200 hover:text-[#009bd7] hover:bg-[#009bd7]/5 dark:hover:bg-[#009bd7]/10'
                       : 'text-gray-800 dark:text-gray-200 hover:text-[#009bd7] hover:bg-white/20 dark:hover:bg-gray-800/20'
                 }`}
               >
                 {link.name}
                 <span className={`absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-[#009bd7] to-[#00E1FF] transition-all duration-300 group-hover:w-full ${
-                  activeSection === link.name.toLowerCase() && isMainPage ? 'w-full' : ''
+                  (link.href.startsWith('/') && pathname === link.href) || (activeSection === link.name.toLowerCase() && isMainPage) ? 'w-full' : ''
                 }`}></span>
               </button>
             ))}
@@ -171,7 +172,7 @@ export default function Navbar() {
                 key={link.name}
                 onClick={() => handleNavClick(link.href)}
                 className={`block w-full text-left px-4 py-3 rounded-lg font-medium transition-all duration-300 transform ${
-                  activeSection === link.name.toLowerCase() && isMainPage
+                  (link.href.startsWith('/') && pathname === link.href) || (activeSection === link.name.toLowerCase() && isMainPage)
                     ? 'text-[#009bd7] bg-[#009bd7]/10 dark:bg-[#009bd7]/20 border-l-4 border-[#009bd7]'
                     : 'text-gray-800 dark:text-gray-200 hover:text-[#009bd7] hover:bg-[#009bd7]/5 dark:hover:bg-[#009bd7]/10'
                 } ${
@@ -198,7 +199,7 @@ export default function Navbar() {
       {/* Backdrop for mobile menu */}
       {isOpen && (
         <div 
-          className="lg:hidden fixed inset-0 bg-black/30 backdrop-blur-sm z-40"
+          className="lg:hidden fixed inset-0 bg-[#0f172a]/30 backdrop-blur-sm z-40"
           onClick={() => setIsOpen(false)}
         />
       )}

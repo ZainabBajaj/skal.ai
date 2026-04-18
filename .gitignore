@@ -42,3 +42,6 @@ package-lock.json
 config.bat
 temp_auto_push.bat
 temp_interactive_push.bat
+
+# claude code
+.claude/settings.local.json

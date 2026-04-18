@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import emailjs from '@emailjs/browser';
-import { Send, Mail, User, MessageCircle, Sparkles } from 'lucide-react';
+import { Send, Mail, User, MessageCircle, Sparkles, CreditCard } from 'lucide-react';
 
 type FormStatus = {
   type: 'idle' | 'sending' | 'success' | 'error';
@@ -13,6 +13,7 @@ type FormData = {
   name: string;
   email: string;
   subject: string;
+  budget: string;
   message: string;
 };
 
@@ -26,6 +27,7 @@ export default function ContactForm({ initialSubject = '', initialMessage = '' }
     name: '',
     email: '',
     subject: initialSubject,
+    budget: '',
     message: initialMessage
   });
 
@@ -52,46 +54,47 @@ export default function ContactForm({ initialSubject = '', initialMessage = '' }
     }
   }, [initialSubject, initialMessage]);
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     setFormData({
       ...formData,
       [e.target.name]: e.target.value
     });
   };
 
+  const sanitize = (str: string) => str.replace(/[<>]/g, '').trim();
+
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    
+
     try {
       setStatus({ type: 'sending' });
-      
-      // Make sure environment variables exist
-      if (!process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID || 
-          !process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID || 
+
+      if (!process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID ||
+          !process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID ||
           !process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY) {
         throw new Error('EmailJS environment variables are not set');
       }
-      
+
       await emailjs.send(
         process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID,
         process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID,
         {
-          from_name: formData.name,
-          reply_to: formData.email,
-          subject: formData.subject,
-          message: formData.message
+          from_name: sanitize(formData.name),
+          reply_to: sanitize(formData.email),
+          subject: sanitize(formData.subject),
+          budget: sanitize(formData.budget),
+          message: sanitize(formData.message)
         },
         process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY
       );
-      
+
       setStatus({ type: 'success', message: 'Message sent successfully!' });
-      setFormData({ name: '', email: '', subject: '', message: '' });
-    } catch (error) {
-      setStatus({ 
+      setFormData({ name: '', email: '', subject: '', budget: '', message: '' });
+    } catch {
+      setStatus({
         type: 'error',
         message: 'Failed to send message. Please try again.'
       });
-      console.error('Error sending email:', error);
     }
   };
 
@@ -100,9 +103,9 @@ export default function ContactForm({ initialSubject = '', initialMessage = '' }
       {/* Background Elements */}
       <div className="absolute inset-0 pointer-events-none">
         {/* Animated background gradients */}
-        <div className="absolute top-20 left-10 w-48 h-48 sm:w-72 sm:h-72 bg-gradient-to-r from-[#009bd7]/8 to-[#00E1FF]/6 rounded-full blur-3xl animate-pulse"></div>
-        <div className="absolute bottom-20 right-10 w-64 h-64 sm:w-96 sm:h-96 bg-gradient-to-r from-[#00E1FF]/6 to-purple-300/4 rounded-full blur-3xl animate-pulse" style={{animationDelay: '2s'}}></div>
-        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-48 h-48 sm:w-64 sm:h-64 bg-gradient-to-r from-purple-300/4 to-pink-300/3 rounded-full blur-3xl animate-pulse" style={{animationDelay: '4s'}}></div>
+        <div className="absolute top-20 left-10 w-48 h-48 sm:w-72 sm:h-72 bg-gradient-to-r from-[#009bd7]/8 to-[#00E1FF]/6 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-20 right-10 w-64 h-64 sm:w-96 sm:h-96 bg-gradient-to-r from-[#00E1FF]/6 to-[#009bd7]/4 rounded-full blur-3xl"></div>
+        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-48 h-48 sm:w-64 sm:h-64 bg-gradient-to-r from-[#1DB5C5]/4 to-[#009bd7]/3 rounded-full blur-3xl"></div>
       </div>
 
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -110,11 +113,11 @@ export default function ContactForm({ initialSubject = '', initialMessage = '' }
           {/* Header Section */}
           <div className="text-center mb-12 sm:mb-16">
             <div className="inline-flex items-center space-x-2 bg-gradient-to-r from-[#009bd7]/10 to-[#00E1FF]/10 dark:from-[#009bd7]/20 dark:to-[#00E1FF]/20 rounded-full px-4 sm:px-6 py-2 mb-4 sm:mb-6 backdrop-blur-sm border border-[#009bd7]/20 dark:border-[#00E1FF]/30">
-              <Sparkles className="w-3 h-3 sm:w-4 sm:h-4 text-[#009bd7] dark:text-[#00E1FF] animate-pulse" />
+              <Sparkles className="w-3 h-3 sm:w-4 sm:h-4 text-[#009bd7] dark:text-[#00E1FF]" />
               <span className="text-[#009bd7] dark:text-[#00E1FF] text-xs sm:text-sm font-bold tracking-wider">LET&apos;S CONNECT</span>
             </div>
             
-            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#1a1a1a] via-[#009bd7] to-[#00E1FF] dark:from-white dark:via-[#009bd7] dark:to-[#00E1FF] mb-4 sm:mb-6 leading-tight">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#0f172a] via-[#009bd7] to-[#00E1FF] dark:from-white dark:via-[#009bd7] dark:to-[#00E1FF] mb-4 sm:mb-6 leading-snug pb-1">
               Start Your AI Journey
             </h2>
             
@@ -199,6 +202,34 @@ export default function ContactForm({ initialSubject = '', initialMessage = '' }
                 </div>
               </div>
 
+              {/* Budget Field */}
+              <div className="group">
+                <label htmlFor="budget" className="flex items-center gap-2 text-sm font-bold text-gray-700 dark:text-gray-200 mb-2 sm:mb-3">
+                  <CreditCard className="w-4 h-4 text-[#009bd7]" />
+                  Budget Range
+                </label>
+                <div className="relative">
+                  <select
+                    id="budget"
+                    name="budget"
+                    value={formData.budget}
+                    onChange={handleChange}
+                    required
+                    className="w-full px-4 sm:px-6 py-3 sm:py-4 border border-gray-200 dark:border-gray-600 rounded-xl sm:rounded-2xl focus:ring-2 focus:ring-[#009bd7]/20 focus:border-[#009bd7] dark:focus:border-[#00E1FF] bg-white/90 dark:bg-gray-700/90 text-gray-800 dark:text-white transition-all duration-300 group-hover:shadow-lg backdrop-blur-sm text-sm sm:text-base appearance-none"
+                  >
+                    <option value="">Select your budget range</option>
+                    <option value="Under $2,000">Under $2,000</option>
+                    <option value="$2,000 - $5,000">$2,000 - $5,000</option>
+                    <option value="$5,000 - $15,000">$5,000 - $15,000</option>
+                    <option value="$15,000 - $50,000">$15,000 - $50,000</option>
+                    <option value="$50,000 - $100,000">$50,000 - $100,000</option>
+                    <option value="$100,000+">$100,000+</option>
+                    <option value="Not sure yet">Not sure yet</option>
+                  </select>
+                  <div className="absolute inset-0 rounded-xl sm:rounded-2xl bg-gradient-to-r from-[#009bd7]/0 to-[#00E1FF]/0 group-focus-within:from-[#009bd7]/5 group-focus-within:to-[#00E1FF]/5 transition-all duration-300 pointer-events-none"></div>
+                </div>
+              </div>
+
               {/* Message Field */}
               <div className="group">
                 <label htmlFor="message" className="flex items-center gap-2 text-sm font-bold text-gray-700 dark:text-gray-200 mb-2 sm:mb-3">
@@ -260,9 +291,9 @@ export default function ContactForm({ initialSubject = '', initialMessage = '' }
               Prefer to reach out directly? We&apos;d love to hear from you!
             </p>
             <div className="flex flex-col sm:flex-row flex-wrap justify-center gap-4 sm:gap-6 text-sm">
-              <a href="mailto:contact@skal.ai" className="flex items-center justify-center gap-2 text-[#009bd7] dark:text-[#00E1FF] hover:text-[#00E1FF] dark:hover:text-[#009bd7] transition-colors font-medium">
+              <a href="mailto:hi@skal.ai" className="flex items-center justify-center gap-2 text-[#009bd7] dark:text-[#00E1FF] hover:text-[#00E1FF] dark:hover:text-[#009bd7] transition-colors font-medium">
                 <Mail className="w-4 h-4" />
-                contact@skal.ai
+                hi@skal.ai
               </a>
               <span className="hidden sm:inline text-gray-300 dark:text-gray-500">|</span>
               <span className="text-gray-600 dark:text-gray-300">
