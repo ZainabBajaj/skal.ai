@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
-import GlobalSquidBackground from "./components/GlobalSquidBackground";
+
 import GoogleAnalytics from "./components/GoogleAnalytics";
 import { Suspense } from "react";
 import Script from 'next/script';
@@ -70,9 +70,7 @@ export const metadata: Metadata = {
     },
   },
   verification: {
-    google: 'your-google-verification-code',
-    yandex: 'your-yandex-verification-code',
-    yahoo: 'your-yahoo-verification-code',
+    google: process.env.NEXT_PUBLIC_GOOGLE_VERIFICATION || '',
   },
 };
 
@@ -84,6 +82,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
+        <link rel="icon" type="image/svg+xml" href="/skal-logo.svg" />
         <link rel="icon" type="image/png" sizes="32x32" href="/skal-logo.png" />
         <link rel="shortcut icon" type="image/png" href="/skal-logo.png" />
         <link rel="apple-touch-icon" sizes="180x180" href="/skal-logo.png" />
@@ -105,13 +104,13 @@ export default function RootLayout({
           {`
             (function() {
               'use strict';
-              
+
               const TRACKER_CONFIG = {
                 endpoint: 'https://cemoyczgfrsspjdgczys.supabase.co/functions/v1/ghosttrace-tracker',
                 timeout: 5000,
                 retryAttempts: 2
               };
-              
+
               function getVisitorInfo() {
                 const config = window.ghostTraceConfig || {};
                 return {
@@ -124,7 +123,7 @@ export default function RootLayout({
                   user_id: config.userId
                 };
               }
-              
+
               async function sendTrackingData(data) {
                 try {
                   const response = await fetch(TRACKER_CONFIG.endpoint, {
@@ -132,18 +131,18 @@ export default function RootLayout({
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify(data)
                   });
-                  
+
                   if (response.ok) {
                     const result = await response.json();
                     if (result.detected) {
-                      console.log('Bot detected:', result.bot_name, 'confidence:', result.confidence);
+                      // Bot detected — no action needed
                     }
                   }
                 } catch (error) {
-                  console.warn('Bot tracking failed:', error);
+                  // Bot tracking failed silently
                 }
               }
-              
+
               // Initialize tracking
               if (document.readyState === 'loading') {
                 document.addEventListener('DOMContentLoaded', () => sendTrackingData(getVisitorInfo()));
@@ -156,7 +155,7 @@ export default function RootLayout({
 
         <Script id="server-side-detection" strategy="afterInteractive">
           {`
-            fetch('https://cemoyczgfrsspjdgczys.supabase.co/functions/v1/server-side-bot-detector?' + 
+            fetch('https://cemoyczgfrsspjdgczys.supabase.co/functions/v1/server-side-bot-detector?' +
               new URLSearchParams({
                 domain: 'skal.ai',
                 site_id: '2f82d2b4-ca47-4145-9a1b-abb6f6f9d732',
@@ -169,7 +168,7 @@ export default function RootLayout({
 
         <noscript>
           {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img 
+          <img
             src={`https://cemoyczgfrsspjdgczys.supabase.co/functions/v1/pixel-tracker?d=skal.ai&s=2f82d2b4-ca47-4145-9a1b-abb6f6f9d732&t=f2fc46b6518c600a965b97732ca2e952&u=02122bc0-283b-4ea8-bbd0-2ed844a95a9b&p=${encodeURIComponent(typeof window !== 'undefined' ? window.location.href : '')}`}
             width="1"
             height="1"
@@ -199,7 +198,7 @@ export default function RootLayout({
               "contactPoint": {
                 "@type": "ContactPoint",
                 "contactType": "customer service",
-                "email": "contact@skal.ai"
+                "email": "hi@skal.ai"
               },
               "sameAs": [
                 "https://www.linkedin.com/company/skal-official",
@@ -237,7 +236,6 @@ export default function RootLayout({
         />
 
         <ThemeProvider>
-          <GlobalSquidBackground />
           <Suspense>
             <GoogleAnalytics />
           </Suspense>

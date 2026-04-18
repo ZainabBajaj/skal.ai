@@ -91,7 +91,7 @@ const Hero = () => {
               </div>
 
               {/* Static Main Heading */}
-              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-[#1a1a1a] dark:text-white mb-4 sm:mb-6 leading-tight mt-8 sm:mt-12 lg:mt-0">
+              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-[#0f172a] dark:text-white mb-4 sm:mb-6 leading-snug pb-1 mt-8 sm:mt-12 lg:mt-0">
                 Transform Your Organization
                 <span className="block text-transparent bg-clip-text bg-gradient-to-r from-[#009bd7] via-[#00E1FF] to-[#1DB5C5] mt-1 sm:mt-2">
                   with AI
@@ -111,7 +111,7 @@ const Hero = () => {
               {/* CTA Button */}
               <div className="flex justify-center mb-16">
                 <a 
-                  href="https://calendly.com/skal-ai/discovery-call?month=2025-07"
+                  href="https://calendly.com/skal-ai/discovery-call"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="group relative px-8 py-4 bg-gradient-to-r from-[#009bd7] to-[#00E1FF] text-white rounded-2xl font-bold overflow-hidden transition-all hover:shadow-2xl hover:shadow-[#009bd7]/30 hover:scale-105 active:scale-95 inline-flex items-center justify-center"
@@ -128,21 +128,21 @@ const Hero = () => {
               <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
                 {[
                   { 
-                    number: "250+", 
-                    label: "AI Systems Integrated", 
-                    icon: Target, 
+                    number: "1000+",
+                    label: "AI Systems Integrated",
+                    icon: Target,
                     description: "Successful implementations",
                     color: "from-blue-500 to-cyan-500"
                   },
-                  { 
-                    number: "10+", 
-                    label: "Tech Experts", 
-                    icon: Users, 
+                  {
+                    number: "50+",
+                    label: "Tech Experts",
+                    icon: Users,
                     description: "Skilled professionals",
-                    color: "from-purple-500 to-pink-500"
+                    color: "from-[#009bd7] to-[#1DB5C5]"
                   },
-                  { 
-                    number: "5X", 
+                  {
+                    number: "10X",
                     label: "Average ROI per Project", 
                     icon: TrendingUp, 
                     description: "Return on investment",
@@ -163,7 +163,7 @@ const Hero = () => {
                       <div className="text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#009bd7] to-[#00E1FF] mb-2">
                         {stat.number}
                       </div>
-                      <div className="text-[#1a1a1a] dark:text-white font-bold mb-2 text-lg">{stat.label}</div>
+                      <div className="text-[#0f172a] dark:text-white font-bold mb-2 text-lg">{stat.label}</div>
                       <div className="text-sm text-gray-600 dark:text-gray-300 font-medium">{stat.description}</div>
                       <div className="mt-4 h-1 bg-gradient-to-r from-[#009bd7] to-[#00E1FF] rounded-full transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left"></div>
                     </div>
@@ -212,7 +212,7 @@ const Hero = () => {
             </div>
 
             {/* Dynamic Main Heading */}
-            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-[#1a1a1a] dark:text-white mb-6 leading-tight mt-24 lg:mt-0">
+            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-[#0f172a] dark:text-white mb-6 leading-snug pb-1 mt-24 lg:mt-0">
               Transform Your Organization
               <span className="block text-transparent bg-clip-text bg-gradient-to-r from-[#009bd7] via-[#00E1FF] to-[#1DB5C5] mt-2 relative text-center w-full">
                 with AI
@@ -245,7 +245,7 @@ const Hero = () => {
             {/* Enhanced CTA Buttons */}
             <div className="flex justify-center mb-16">
               <a 
-                href="https://calendly.com/skal-ai/discovery-call?month=2025-07"
+                href="https://calendly.com/skal-ai/discovery-call"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="group relative px-8 py-4 bg-gradient-to-r from-[#009bd7] to-[#00E1FF] text-white rounded-2xl font-bold overflow-hidden transition-all hover:shadow-2xl hover:shadow-[#009bd7]/30 hover:scale-105 active:scale-95 inline-flex items-center justify-center"
@@ -263,21 +263,21 @@ const Hero = () => {
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
               {[
                 { 
-                  number: "250+", 
-                  label: "AI Systems Integrated", 
-                  icon: Target, 
+                  number: "1000+",
+                  label: "AI Systems Integrated",
+                  icon: Target,
                   description: "Successful implementations",
                   color: "from-blue-500 to-cyan-500"
                 },
-                { 
-                  number: "10+", 
-                  label: "Tech Experts", 
-                  icon: Users, 
+                {
+                  number: "50+",
+                  label: "Tech Experts",
+                  icon: Users,
                   description: "Skilled professionals",
-                  color: "from-purple-500 to-pink-500"
+                  color: "from-[#009bd7] to-[#1DB5C5]"
                 },
-                { 
-                  number: "5X", 
+                {
+                  number: "10X",
                   label: "Average ROI per Project", 
                   icon: TrendingUp, 
                   description: "Return on investment",
@@ -301,7 +301,7 @@ const Hero = () => {
                     <div className="text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#009bd7] to-[#00E1FF] mb-2 group-hover:scale-110 transition-transform">
                       {stat.number}
                     </div>
-                    <div className="text-[#1a1a1a] dark:text-white font-bold mb-2 text-lg">{stat.label}</div>
+                    <div className="text-[#0f172a] dark:text-white font-bold mb-2 text-lg">{stat.label}</div>
                     <div className="text-sm text-gray-600 dark:text-gray-300 font-medium">{stat.description}</div>
                     <div className="mt-4 h-1 bg-gradient-to-r from-[#009bd7] to-[#00E1FF] rounded-full transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left"></div>
                   </div>

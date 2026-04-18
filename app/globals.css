@@ -22,21 +22,6 @@
   animation: float 15s ease-in-out infinite;
 }
 
-@keyframes blob {
-  0% {
-    transform: translate(0px, 0px) scale(1);
-  }
-  33% {
-    transform: translate(30px, -50px) scale(1.1);
-  }
-  66% {
-    transform: translate(-20px, 20px) scale(0.9);
-  }
-  100% {
-    transform: translate(0px, 0px) scale(1);
-  }
-}
-
 @keyframes float {
   0% {
     transform: translateY(0px);
@@ -47,18 +32,6 @@
   100% {
     transform: translateY(0px);
   }
-}
-
-.animate-blob {
-  animation: blob 7s infinite;
-}
-
-.animation-delay-2000 {
-  animation-delay: 2s;
-}
-
-.animation-delay-4000 {
-  animation-delay: 4s;
 }
 
 .animate-float {
@@ -80,7 +53,7 @@ html {
 }
 
 .dark ::-webkit-scrollbar-track {
-  background: #1f2937;
+  background: #223044;
 }
 
 ::-webkit-scrollbar-thumb {
@@ -108,16 +81,16 @@ html {
 
 .dark ::selection {
   background: #00E1FF;
-  color: #0a0a0a;
+  color: #0f172a;
 }
 
 :root {
   --background: #ffffff;
-  --foreground: #171717;
+  --foreground: #0f172a;
 }
 
 .dark {
-  --background: #0a0a0a;
+  --background: #0f172a;
   --foreground: #ededed;
 }
 
