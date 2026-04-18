@@ -75,6 +75,8 @@ export default function Navbar() {
     { name: 'Systems', href: '/systems' },
     { name: 'Scale', href: '/scale' },
     { name: 'Staffing', href: '/staffing' },
+    { name: 'Stories', href: '/stories' },
+    { name: 'About', href: '/about' },
     { name: 'Contact', href: '#contact' }
   ];
 

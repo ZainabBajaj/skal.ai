@@ -66,72 +66,89 @@ const BrandHero = () => {
             </div>
           </div>
 
-          {/* Right: Abstract Visual */}
+          {/* Right: Abstract Visual — infinity loop (two products, one system) */}
           <div className="flex-1 w-full max-w-lg lg:max-w-none">
-            <svg viewBox="0 0 500 500" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-auto">
-              {/* Central node cluster */}
-              <circle cx="250" cy="250" r="60" fill="url(#hero-grad1)" opacity="0.15" />
-              <circle cx="250" cy="250" r="40" fill="url(#hero-grad1)" opacity="0.25" />
-              <circle cx="250" cy="250" r="8" fill="#009bd7" />
-
-              {/* Orbiting nodes */}
-              <circle cx="250" cy="130" r="6" fill="#00E1FF" />
-              <circle cx="355" cy="195" r="5" fill="#009bd7" />
-              <circle cx="355" cy="305" r="6" fill="#1DB5C5" />
-              <circle cx="250" cy="370" r="5" fill="#00E1FF" />
-              <circle cx="145" cy="305" r="6" fill="#009bd7" />
-              <circle cx="145" cy="195" r="5" fill="#1DB5C5" />
-
-              {/* Connection lines */}
-              <line x1="250" y1="250" x2="250" y2="130" stroke="#009bd7" strokeWidth="1" opacity="0.3" />
-              <line x1="250" y1="250" x2="355" y2="195" stroke="#00E1FF" strokeWidth="1" opacity="0.3" />
-              <line x1="250" y1="250" x2="355" y2="305" stroke="#1DB5C5" strokeWidth="1" opacity="0.3" />
-              <line x1="250" y1="250" x2="250" y2="370" stroke="#00E1FF" strokeWidth="1" opacity="0.3" />
-              <line x1="250" y1="250" x2="145" y2="305" stroke="#009bd7" strokeWidth="1" opacity="0.3" />
-              <line x1="250" y1="250" x2="145" y2="195" stroke="#1DB5C5" strokeWidth="1" opacity="0.3" />
-
-              {/* Outer ring connections */}
-              <line x1="250" y1="130" x2="355" y2="195" stroke="#009bd7" strokeWidth="0.8" opacity="0.15" />
-              <line x1="355" y1="195" x2="355" y2="305" stroke="#00E1FF" strokeWidth="0.8" opacity="0.15" />
-              <line x1="355" y1="305" x2="250" y2="370" stroke="#1DB5C5" strokeWidth="0.8" opacity="0.15" />
-              <line x1="250" y1="370" x2="145" y2="305" stroke="#00E1FF" strokeWidth="0.8" opacity="0.15" />
-              <line x1="145" y1="305" x2="145" y2="195" stroke="#009bd7" strokeWidth="0.8" opacity="0.15" />
-              <line x1="145" y1="195" x2="250" y2="130" stroke="#1DB5C5" strokeWidth="0.8" opacity="0.15" />
-
-              {/* Floating satellite nodes */}
-              <circle cx="120" cy="120" r="3" fill="#009bd7" opacity="0.5" />
-              <circle cx="400" cy="140" r="4" fill="#00E1FF" opacity="0.4" />
-              <circle cx="410" cy="380" r="3" fill="#1DB5C5" opacity="0.5" />
-              <circle cx="90" cy="370" r="4" fill="#009bd7" opacity="0.4" />
-              <circle cx="320" cy="80" r="3" fill="#00E1FF" opacity="0.3" />
-              <circle cx="180" cy="420" r="3" fill="#1DB5C5" opacity="0.3" />
-
-              {/* Faint connection to satellites */}
-              <line x1="250" y1="130" x2="120" y2="120" stroke="#009bd7" strokeWidth="0.5" opacity="0.15" strokeDasharray="4 4" />
-              <line x1="355" y1="195" x2="400" y2="140" stroke="#00E1FF" strokeWidth="0.5" opacity="0.15" strokeDasharray="4 4" />
-              <line x1="355" y1="305" x2="410" y2="380" stroke="#1DB5C5" strokeWidth="0.5" opacity="0.15" strokeDasharray="4 4" />
-              <line x1="145" y1="305" x2="90" y2="370" stroke="#009bd7" strokeWidth="0.5" opacity="0.15" strokeDasharray="4 4" />
-
-              {/* Data flow arcs */}
-              <path d="M 180 160 Q 215 100 280 130" stroke="#009bd7" strokeWidth="1.5" fill="none" opacity="0.2" />
-              <path d="M 320 160 Q 380 220 355 290" stroke="#00E1FF" strokeWidth="1.5" fill="none" opacity="0.2" />
-              <path d="M 180 340 Q 120 280 145 210" stroke="#1DB5C5" strokeWidth="1.5" fill="none" opacity="0.2" />
-
-              {/* Abstract circuit lines */}
-              <path d="M 250 250 L 250 210 L 290 210" stroke="#009bd7" strokeWidth="1.2" opacity="0.25" />
-              <path d="M 250 250 L 210 250 L 210 290" stroke="#00E1FF" strokeWidth="1.2" opacity="0.25" />
-              <path d="M 250 250 L 290 250 L 290 220" stroke="#1DB5C5" strokeWidth="1.2" opacity="0.25" />
-              <rect x="286" y="206" width="8" height="8" rx="2" fill="#009bd7" opacity="0.3" />
-              <rect x="206" y="286" width="8" height="8" rx="2" fill="#00E1FF" opacity="0.3" />
-              <rect x="286" y="216" width="8" height="8" rx="2" fill="#1DB5C5" opacity="0.3" />
-
-              {/* Gradients */}
+            <svg viewBox="0 0 500 500" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" className="w-full h-auto text-[#0f172a] dark:text-white">
               <defs>
-                <radialGradient id="hero-grad1" cx="50%" cy="50%" r="50%">
-                  <stop offset="0%" stopColor="#009bd7" />
-                  <stop offset="100%" stopColor="#00E1FF" />
+                <linearGradient id="bh-path" x1="0%" y1="50%" x2="100%" y2="50%">
+                  <stop offset="0%" stopColor="#009bd7" stopOpacity="0.95" />
+                  <stop offset="50%" stopColor="#00E1FF" stopOpacity="1" />
+                  <stop offset="100%" stopColor="#1DB5C5" stopOpacity="0.95" />
+                </linearGradient>
+                <radialGradient id="bh-left-lobe" cx="50%" cy="50%" r="50%">
+                  <stop offset="0%" stopColor="#009bd7" stopOpacity="0.35" />
+                  <stop offset="100%" stopColor="#009bd7" stopOpacity="0" />
                 </radialGradient>
+                <radialGradient id="bh-right-lobe" cx="50%" cy="50%" r="50%">
+                  <stop offset="0%" stopColor="#00E1FF" stopOpacity="0.35" />
+                  <stop offset="100%" stopColor="#00E1FF" stopOpacity="0" />
+                </radialGradient>
+                <radialGradient id="bh-nexus" cx="50%" cy="50%" r="50%">
+                  <stop offset="0%" stopColor="#FFFFFF" stopOpacity="1" />
+                  <stop offset="45%" stopColor="#00E1FF" stopOpacity="0.8" />
+                  <stop offset="100%" stopColor="#00E1FF" stopOpacity="0" />
+                </radialGradient>
+                <filter id="bh-glow" x="-50%" y="-50%" width="200%" height="200%">
+                  <feGaussianBlur stdDeviation="4" result="blur" />
+                  <feMerge>
+                    <feMergeNode in="blur" />
+                    <feMergeNode in="SourceGraphic" />
+                  </feMerge>
+                </filter>
+                <path id="bh-infinity" d="M 250 250 C 250 150, 120 150, 120 250 C 120 350, 250 350, 250 250 C 250 150, 380 150, 380 250 C 380 350, 250 350, 250 250" />
               </defs>
+
+              {/* Lobe auras */}
+              <circle cx="120" cy="250" r="118" fill="url(#bh-left-lobe)" />
+              <circle cx="380" cy="250" r="118" fill="url(#bh-right-lobe)" />
+
+              {/* Sparse ambient particles */}
+              <g fill="currentColor" opacity="0.22">
+                <circle cx="60" cy="110" r="2" />
+                <circle cx="440" cy="115" r="2" />
+                <circle cx="85" cy="415" r="2" />
+                <circle cx="420" cy="405" r="2" />
+                <circle cx="250" cy="75" r="1.7" />
+                <circle cx="250" cy="430" r="1.7" />
+                <circle cx="40" cy="265" r="1.5" />
+                <circle cx="460" cy="240" r="1.5" />
+              </g>
+
+              {/* Infinity path: glowing outer stroke */}
+              <use href="#bh-infinity" stroke="url(#bh-path)" strokeWidth="3" strokeLinecap="round" opacity="0.95" filter="url(#bh-glow)" />
+              {/* Infinity path: crisp inner highlight */}
+              <use href="#bh-infinity" stroke="#FFFFFF" strokeWidth="0.8" strokeLinecap="round" opacity="0.4" />
+
+              {/* Left focus (Builds) */}
+              <circle cx="120" cy="250" r="16" fill="#009bd7" opacity="0.22" />
+              <circle cx="120" cy="250" r="9" fill="#009bd7" filter="url(#bh-glow)" />
+              <circle cx="120" cy="250" r="4" fill="#FFFFFF">
+                <animate attributeName="opacity" values="0.7;1;0.7" dur="2.6s" repeatCount="indefinite" />
+              </circle>
+
+              {/* Right focus (Sells) */}
+              <circle cx="380" cy="250" r="16" fill="#00E1FF" opacity="0.22" />
+              <circle cx="380" cy="250" r="9" fill="#00E1FF" filter="url(#bh-glow)" />
+              <circle cx="380" cy="250" r="4" fill="#FFFFFF">
+                <animate attributeName="opacity" values="1;0.7;1" dur="2.6s" repeatCount="indefinite" />
+              </circle>
+
+              {/* Central nexus (crossover) */}
+              <circle cx="250" cy="250" r="26" fill="url(#bh-nexus)" opacity="0.85" />
+              <circle cx="250" cy="250" r="7" fill="#FFFFFF" filter="url(#bh-glow)" />
+
+              {/* Pulse ring emanating from nexus */}
+              <circle cx="250" cy="250" r="15" fill="none" stroke="#00E1FF" strokeWidth="1.5">
+                <animate attributeName="r" values="10;60;10" dur="3.6s" repeatCount="indefinite" />
+                <animate attributeName="opacity" values="0.85;0;0.85" dur="3.6s" repeatCount="indefinite" />
+              </circle>
+
+              {/* Luminance dot traveling the infinity loop */}
+              <circle r="5.5" fill="#FFFFFF" filter="url(#bh-glow)">
+                <animateMotion dur="6s" repeatCount="indefinite">
+                  <mpath href="#bh-infinity" />
+                </animateMotion>
+              </circle>
             </svg>
           </div>
         </div>
