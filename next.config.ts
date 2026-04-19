@@ -5,6 +5,9 @@ const nextConfig: NextConfig = {
   compress: true,
   poweredByHeader: false,
   generateEtags: true,
+
+  /* Static Export Configuration */
+  output: 'export',
   
   /* Image Optimization */
   images: {
