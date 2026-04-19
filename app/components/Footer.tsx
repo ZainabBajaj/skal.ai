@@ -33,20 +33,16 @@ export default function Footer() {
     }
   ];
 
-  const services = [
-    'Full Stack Development',
-    'AI Development',
-    'Data Science',
-    'DevOps & Cloud',
-    'Machine Learning',
-    'Quality Assurance'
-  ];
-
-  const companyLinks = [
+  const productLinks = [
     { name: 'Systems', href: '/systems' },
     { name: 'Scale', href: '/scale' },
     { name: 'Staffing', href: '/staffing' },
-    { name: 'Contact', href: '#contact' }
+  ];
+
+  const companyLinks = [
+    { name: 'About', href: '/about' },
+    { name: 'Stories', href: '/stories' },
+    { name: 'Contact', href: '#contact' },
   ];
 
   return (
@@ -106,14 +102,14 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* Services */}
+          {/* Products */}
           <div>
-            <h3 className="text-[#0f172a] dark:text-white font-semibold mb-4">Services</h3>
+            <h3 className="text-[#0f172a] dark:text-white font-semibold mb-4">Products</h3>
             <ul className="space-y-2">
-              {services.map((service) => (
-                <li key={service}>
-                  <a href="#services" className="text-gray-600 dark:text-gray-300 hover:text-[#009bd7] dark:hover:text-[#00E1FF] transition-colors">
-                    {service}
+              {productLinks.map((link) => (
+                <li key={link.name}>
+                  <a href={link.href} className="text-gray-600 dark:text-gray-300 hover:text-[#009bd7] dark:hover:text-[#00E1FF] transition-colors">
+                    {link.name}
                   </a>
                 </li>
               ))}
