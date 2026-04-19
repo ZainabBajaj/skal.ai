@@ -4,8 +4,8 @@ import Image from 'next/image';
 
 const clients = [
   { name: 'National University of Singapore', logo: '/logos/nus.jpg' },
-  // Add more clients here as you get logos:
-  // { name: 'Company Name', logo: '/logos/company.png' },
+  { name: 'Educative', logo: '/logos/educative.png' },
+  { name: 'Outranker', logo: '/logos/outranker.png' },
 ];
 
 const TrustedBy = () => {

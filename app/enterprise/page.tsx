@@ -1,14 +1,14 @@
 'use client';
 
 import { User, Mail, Brain, Target, CreditCard, Send, ArrowRight, Clock, Building2 } from 'lucide-react';
-import { useEmailForm } from '../hooks/useEmailForm';
+import { useLeadForm } from '../hooks/useLeadForm';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import FloatingThemeToggle from '../components/FloatingThemeToggle';
 
 
 export default function EnterpriseOffer() {
-  const { formRef, formData, status, handleChange, scrollToForm, handleSubmit } = useEmailForm({
+  const { formRef, formData, status, handleChange, scrollToForm, handleSubmit } = useLeadForm({
     name: '',
     email: '',
     company: '',
@@ -128,7 +128,7 @@ export default function EnterpriseOffer() {
                 Fill out this form and we&apos;ll contact you within 1-2 hours to discuss your enterprise needs
               </p>
 
-              <form onSubmit={(e) => handleSubmit(e, { from_name: formData.name, reply_to: formData.email, website: formData.company, idea: formData.project, outcome: formData.outcome, budget: formData.budget })} className="relative z-10 space-y-6 sm:space-y-8">
+              <form onSubmit={(e) => handleSubmit(e, { source: 'waitlist_enterprise', from_name: formData.name, reply_to: formData.email, website: formData.company, idea: formData.project, outcome: formData.outcome, budget: formData.budget })} className="relative z-10 space-y-6 sm:space-y-8">
                 {/* Name Field */}
                 <div className="group">
                   <label htmlFor="name" className="flex items-center gap-2 text-sm font-bold text-gray-700 dark:text-gray-200 mb-2 sm:mb-3">
