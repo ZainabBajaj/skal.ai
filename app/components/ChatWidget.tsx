@@ -12,7 +12,7 @@ type Option = { label: string; value: string; next?: Step };
 const CALENDLY = 'https://calendly.com/skal-ai/discovery-call';
 
 const introMessage =
-  "Hey — I'm Scout, SKAL's assistant. I can point you to the right team in about 30 seconds. What brings you here?";
+  "Hey, I'm Scout, SKAL's assistant. I can point you to the right team in about 30 seconds. What brings you here?";
 
 const categoryOptions: Option[] = [
   { label: 'Build AI systems', value: 'systems' },
@@ -23,7 +23,7 @@ const categoryOptions: Option[] = [
 
 const detailByCategory: Record<string, { prompt: string; options: Option[]; freeText?: boolean }> = {
   systems: {
-    prompt: "Nice — where are you in the build?",
+    prompt: "Nice. Where are you in the build?",
     options: [
       { label: 'Just exploring', value: 'explore' },
       { label: 'Have a clear spec', value: 'spec' },
@@ -31,7 +31,7 @@ const detailByCategory: Record<string, { prompt: string; options: Option[]; free
     ],
   },
   scale: {
-    prompt: "Got it — what's the biggest bottleneck?",
+    prompt: "Got it. What's the biggest bottleneck?",
     options: [
       { label: 'Finding prospects', value: 'prospects' },
       { label: 'Outreach / engagement', value: 'outreach' },
@@ -40,15 +40,15 @@ const detailByCategory: Record<string, { prompt: string; options: Option[]; free
     ],
   },
   staffing: {
-    prompt: 'Cool — what are you staffing?',
+    prompt: 'Cool. What are you staffing?',
     options: [
-      { label: '1–2 specific roles', value: 'roles' },
+      { label: '1 to 2 specific roles', value: 'roles' },
       { label: 'A full squad', value: 'squad' },
       { label: 'Not sure yet', value: 'unsure' },
     ],
   },
   other: {
-    prompt: "Tell me a bit more — what's on your mind?",
+    prompt: "Tell me a bit more. What's on your mind?",
     options: [],
     freeText: true,
   },
@@ -56,7 +56,7 @@ const detailByCategory: Record<string, { prompt: string; options: Option[]; free
 
 const timingOptions: Option[] = [
   { label: 'This week', value: 'urgent' },
-  { label: 'Next 1–2 months', value: 'soon' },
+  { label: 'Next 1 to 2 months', value: 'soon' },
   { label: 'Just researching', value: 'research' },
 ];
 
@@ -93,7 +93,7 @@ export default function ChatWidget() {
     addUser(opt.label);
     setDetail(opt.value);
     setStep('timing');
-    setTimeout(() => addBot('Last one — what is the timing?'), 250);
+    setTimeout(() => addBot('Last one. What is the timing?'), 250);
   };
 
   const handleFreeDetail = () => {
@@ -111,7 +111,7 @@ export default function ChatWidget() {
     setTiming(opt.value);
     setStep('contact');
     setTimeout(() => {
-      addBot("Great — drop your name and email so the right person can follow up. Phone is optional if you prefer a call.");
+      addBot("Great. Drop your name and email so the right person can follow up. Phone is optional if you prefer a call.");
     }, 250);
   };
 
@@ -137,10 +137,10 @@ export default function ChatWidget() {
     setTimeout(() => {
       addBot(
         timing === 'urgent'
-          ? "Thanks — we'll be in touch shortly. To move faster, grab a 20-minute discovery slot below."
+          ? "Thanks! We'll be in touch shortly. To move faster, grab a 20 minute discovery slot below."
           : timing === 'soon'
-          ? "Thanks — we'll reach out soon. You can also book a 20-minute discovery call below."
-          : "Thanks — we've got your details and will follow up. Feel free to book a call whenever you're ready."
+          ? "Thanks! We'll reach out soon. You can also book a 20 minute discovery call below."
+          : "Thanks! We've got your details and will follow up. Feel free to book a call whenever you're ready."
       );
     }, 250);
   };
@@ -364,7 +364,7 @@ export default function ChatWidget() {
               </div>
             )}
             <div className="mt-3 text-[10px] text-center text-gray-400 dark:text-gray-500">
-              Not a real-time chat — this is a guided qualifier.
+              Not a live chat. This is a guided qualifier.
             </div>
           </div>
         </div>
