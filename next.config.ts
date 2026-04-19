@@ -6,9 +6,6 @@ const nextConfig: NextConfig = {
   poweredByHeader: false,
   generateEtags: true,
 
-  /* Static Export Configuration */
-  output: 'export',
-  
   /* Image Optimization */
   images: {
     formats: ['image/webp', 'image/avif'],
