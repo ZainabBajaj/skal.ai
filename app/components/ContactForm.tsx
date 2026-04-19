@@ -1,8 +1,7 @@
 "use client";
 
 import { useState, useEffect } from 'react';
-import emailjs from '@emailjs/browser';
-import { Send, Mail, User, MessageCircle, Sparkles, CreditCard } from 'lucide-react';
+import { Send, Mail, User, MessageCircle, Sparkles, CreditCard, Globe } from 'lucide-react';
 
 type FormStatus = {
   type: 'idle' | 'sending' | 'success' | 'error';
@@ -12,47 +11,31 @@ type FormStatus = {
 type FormData = {
   name: string;
   email: string;
-  subject: string;
+  website: string;
   budget: string;
   message: string;
 };
 
 type ContactFormProps = {
-  initialSubject?: string;
   initialMessage?: string;
 };
 
-export default function ContactForm({ initialSubject = '', initialMessage = '' }: ContactFormProps) {
+export default function ContactForm({ initialMessage = '' }: ContactFormProps) {
   const [formData, setFormData] = useState<FormData>({
     name: '',
     email: '',
-    subject: initialSubject,
+    website: '',
     budget: '',
     message: initialMessage
   });
 
   const [status, setStatus] = useState<FormStatus>({ type: 'idle' });
 
-  // Update form data when initialSubject or initialMessage changes
   useEffect(() => {
-    // Only update if initialSubject or initialMessage is not empty
-    const updates: Partial<FormData> = {};
-    
-    if (initialSubject) {
-      updates.subject = initialSubject;
-    }
-    
     if (initialMessage) {
-      updates.message = initialMessage;
+      setFormData(prev => ({ ...prev, message: initialMessage }));
     }
-    
-    if (Object.keys(updates).length > 0) {
-      setFormData(prev => ({
-        ...prev,
-        ...updates
-      }));
-    }
-  }, [initialSubject, initialMessage]);
+  }, [initialMessage]);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     setFormData({
@@ -61,39 +44,33 @@ export default function ContactForm({ initialSubject = '', initialMessage = '' }
     });
   };
 
-  const sanitize = (str: string) => str.replace(/[<>]/g, '').trim();
-
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
     try {
       setStatus({ type: 'sending' });
 
-      if (!process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID ||
-          !process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID ||
-          !process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY) {
-        throw new Error('EmailJS environment variables are not set');
-      }
+      const res = await fetch('/api/leads', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          source: 'contact_form',
+          name: formData.name,
+          email: formData.email,
+          website: formData.website,
+          budget: formData.budget,
+          message: formData.message,
+        }),
+      });
 
-      await emailjs.send(
-        process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID,
-        process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID,
-        {
-          from_name: sanitize(formData.name),
-          reply_to: sanitize(formData.email),
-          subject: sanitize(formData.subject),
-          budget: sanitize(formData.budget),
-          message: sanitize(formData.message)
-        },
-        process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY
-      );
+      if (!res.ok) throw new Error('Submission failed');
 
-      setStatus({ type: 'success', message: 'Message sent successfully!' });
-      setFormData({ name: '', email: '', subject: '', budget: '', message: '' });
+      setStatus({ type: 'success', message: "Thanks for reaching out. Your message is on its way to our team, and we'll be in touch shortly." });
+      setFormData({ name: '', email: '', website: '', budget: '', message: '' });
     } catch {
       setStatus({
         type: 'error',
-        message: 'Failed to send message. Please try again.'
+        message: 'Failed to send message. Please try again.',
       });
     }
   };
@@ -181,22 +158,22 @@ export default function ContactForm({ initialSubject = '', initialMessage = '' }
                 </div>
               </div>
 
-              {/* Subject Field */}
+              {/* Website Field */}
               <div className="group">
-                <label htmlFor="subject" className="flex items-center gap-2 text-sm font-bold text-gray-700 dark:text-gray-200 mb-2 sm:mb-3">
-                  <MessageCircle className="w-4 h-4 text-[#009bd7]" />
-                  Project Subject
+                <label htmlFor="website" className="flex items-center gap-2 text-sm font-bold text-gray-700 dark:text-gray-200 mb-2 sm:mb-3">
+                  <Globe className="w-4 h-4 text-[#009bd7]" />
+                  Business Website
                 </label>
                 <div className="relative">
                   <input
-                    type="text"
-                    id="subject"
-                    name="subject"
-                    value={formData.subject}
+                    type="url"
+                    id="website"
+                    name="website"
+                    value={formData.website}
                     onChange={handleChange}
                     required
                     className="w-full px-4 sm:px-6 py-3 sm:py-4 border border-gray-200 dark:border-gray-600 rounded-xl sm:rounded-2xl focus:ring-2 focus:ring-[#009bd7]/20 focus:border-[#009bd7] dark:focus:border-[#00E1FF] bg-white/90 dark:bg-gray-700/90 text-gray-800 dark:text-white placeholder-gray-400 dark:placeholder-gray-400 transition-all duration-300 group-hover:shadow-lg backdrop-blur-sm text-sm sm:text-base"
-                    placeholder="AI Implementation, Web Development, Mobile App..."
+                    placeholder="https://yourcompany.com"
                   />
                   <div className="absolute inset-0 rounded-xl sm:rounded-2xl bg-gradient-to-r from-[#009bd7]/0 to-[#00E1FF]/0 group-focus-within:from-[#009bd7]/5 group-focus-within:to-[#00E1FF]/5 transition-all duration-300 pointer-events-none"></div>
                 </div>

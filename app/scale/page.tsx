@@ -5,10 +5,10 @@ import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 
 import FloatingThemeToggle from '../components/FloatingThemeToggle';
-import { useEmailForm } from '../hooks/useEmailForm';
+import { useLeadForm } from '../hooks/useLeadForm';
 
 export default function ScalePage() {
-  const { formRef, formData, status, handleChange, handleSubmit } = useEmailForm({
+  const { formRef, formData, status, handleChange, handleSubmit } = useLeadForm({
     name: '',
     email: '',
     company: '',
@@ -348,7 +348,7 @@ export default function ScalePage() {
             <div ref={formRef} className="bg-white/80 dark:bg-gray-800/80 backdrop-blur-xl rounded-3xl shadow-2xl p-8 sm:p-10 border border-white/50 dark:border-gray-700/50 relative overflow-hidden">
               <div className="absolute inset-0 bg-gradient-to-br from-[#009bd7]/5 via-transparent to-[#00E1FF]/5 pointer-events-none"></div>
 
-              <form onSubmit={(e) => handleSubmit(e, { from_name: formData.name, reply_to: formData.email, website: formData.company, idea: 'SKAL Scale Early Access Waitlist', outcome: 'Early access to SKAL Scale platform', budget: 'N/A' })} className="relative z-10 space-y-5">
+              <form onSubmit={(e) => handleSubmit(e, { source: 'waitlist_scale', from_name: formData.name, reply_to: formData.email, website: formData.company, idea: 'SKAL Scale Early Access Waitlist', outcome: 'Early access to SKAL Scale platform', budget: 'N/A' })} className="relative z-10 space-y-5">
                 <div>
                   <input
                     type="text"
