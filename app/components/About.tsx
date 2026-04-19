@@ -1,8 +1,5 @@
 "use client";
 import { useState, useEffect, useRef } from 'react';
-import Image from 'next/image';
-import Link from 'next/link';
-import { ArrowRight } from 'lucide-react';
 
 export default function About() {
   const [projectsCount, setProjectsCount] = useState(0);
@@ -176,63 +173,6 @@ export default function About() {
             </div>
             {/* Hover effect bar */}
             <div className="absolute bottom-0 left-0 right-0 h-1.5 bg-gradient-to-r from-[#1DB5C5] via-[#009bd7] to-[#1DB5C5] rounded-b-3xl transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-center"></div>
-          </div>
-        </div>
-
-        {/* Meet the Founder */}
-        <div className="mt-20 lg:mt-24 max-w-6xl mx-auto">
-          <div className="relative bg-white/80 dark:bg-gray-800/80 backdrop-blur-xl rounded-3xl shadow-2xl border border-white/50 dark:border-gray-700/50 overflow-hidden">
-            <div className="absolute inset-0 bg-gradient-to-br from-[#009bd7]/5 via-transparent to-[#00E1FF]/5 pointer-events-none"></div>
-            <div className="relative z-10 grid grid-cols-1 md:grid-cols-5 gap-8 md:gap-12 p-8 sm:p-10 lg:p-12 items-center">
-              {/* Portrait */}
-              <div className="md:col-span-2 flex justify-center md:justify-start">
-                <div className="relative group w-full max-w-xs">
-                  <div className="absolute -inset-2 bg-gradient-to-r from-[#009bd7] via-[#00E1FF] to-[#1DB5C5] rounded-3xl blur-xl opacity-25 group-hover:opacity-40 transition-opacity duration-500"></div>
-                  <div className="relative overflow-hidden rounded-3xl border border-white/60 dark:border-gray-700/60 shadow-xl">
-                    <Image
-                      src="/founder.jpg"
-                      alt="Portrait of the SKAL founder"
-                      width={800}
-                      height={1067}
-                      className="w-full h-auto object-cover"
-                    />
-                  </div>
-                </div>
-              </div>
-
-              {/* Story excerpt */}
-              <div className="md:col-span-3">
-                <div className="inline-flex items-center space-x-2 bg-gradient-to-r from-[#009bd7]/10 to-[#00E1FF]/10 dark:from-[#009bd7]/20 dark:to-[#00E1FF]/20 rounded-full px-5 py-1.5 mb-5 border border-[#009bd7]/20 dark:border-[#00E1FF]/30">
-                  <span className="text-[#009bd7] dark:text-[#00E1FF] text-xs font-bold tracking-wider">MEET THE FOUNDER</span>
-                </div>
-
-                <p className="text-xl sm:text-2xl font-semibold text-[#0f172a] dark:text-white mb-4 leading-snug">
-                  My first business was a pop-up fry stall. I was ten.
-                </p>
-
-                <p className="text-gray-600 dark:text-gray-300 leading-relaxed mb-6">
-                  I grew up in a family that ran businesses across spinning mills, FMCG, and banquet
-                  halls. Reading a balance sheet came before most other things. When AI agents arrived,
-                  it felt like the logical end of a thread I had been pulling since I was ten — a system
-                  that creates leverage, that works while you sleep, that lets you operate at the top of
-                  the value chain instead of being consumed by it.
-                </p>
-
-                <p className="text-gray-600 dark:text-gray-300 leading-relaxed mb-8">
-                  We are not generalists who discovered AI last year. We are{' '}
-                  <span className="font-semibold text-[#0f172a] dark:text-white">practitioners</span>{' '}
-                  who have been building toward this for a long time.
-                </p>
-
-                <Link
-                  href="/about"
-                  className="group inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-[#009bd7] to-[#00E1FF] text-white font-bold rounded-2xl transition-all duration-300 hover:shadow-xl hover:shadow-[#009bd7]/25 hover:scale-105"
-                >
-                  Read the full story
-                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                </Link>
-              </div>
-            </div>
           </div>
         </div>
 

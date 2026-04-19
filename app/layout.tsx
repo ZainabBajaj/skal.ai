@@ -6,6 +6,7 @@ import GoogleAnalytics from "./components/GoogleAnalytics";
 import { Suspense } from "react";
 import Script from 'next/script';
 import { ThemeProvider } from './context/ThemeContext';
+import ChatWidget from './components/ChatWidget';
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -240,6 +241,7 @@ export default function RootLayout({
             <GoogleAnalytics />
           </Suspense>
           {children}
+          <ChatWidget />
         </ThemeProvider>
       </body>
     </html>
