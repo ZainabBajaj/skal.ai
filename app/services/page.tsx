@@ -4,7 +4,6 @@ import { Code, ArrowRight } from 'lucide-react';
 import Navbar from '../components/Navbar';
 import About from '../components/About';
 import Services from '../components/Services';
-import FAQ from '../components/FAQ';
 import ContactForm from '../components/ContactForm';
 import Footer from '../components/Footer';
 import FloatingThemeToggle from '../components/FloatingThemeToggle';
@@ -39,11 +38,11 @@ export default function ServicesPage() {
               </h1>
 
               <p className="text-lg text-[#009bd7] dark:text-[#00E1FF] font-semibold max-w-xl mx-auto lg:mx-0 mb-4 animate-fade-in-up" style={{ animationDelay: '160ms' }}>
-                For businesses that need something built from scratch.
+                No templates. No constraints. Just solutions.
               </p>
 
               <p className="text-lg sm:text-xl text-gray-600 dark:text-gray-300 max-w-xl mx-auto lg:mx-0 leading-relaxed mb-8 animate-fade-in-up" style={{ animationDelay: '220ms' }}>
-                When off the shelf is not enough, we build from the ground up. SKAL Services covers fully custom AI agents, agentic workflows, and software development scoped entirely around your business requirements. If you can describe the problem, we can build the solution. No templates, no shortcuts, no compromises.
+                Off the shelf does not fit your business. SKAL Services builds custom AI agents, agentic workflows, and software scoped entirely to your requirements. If it does not exist, we build it.
               </p>
 
               <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start animate-fade-in-up" style={{ animationDelay: '300ms' }}>
@@ -190,7 +189,6 @@ export default function ServicesPage() {
       <Reveal>
         <About />
       </Reveal>
-      <FAQ />
       <ContactForm />
       <Footer />
       <FloatingThemeToggle />

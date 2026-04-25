@@ -12,24 +12,17 @@ type Option = { label: string; value: string; next?: Step };
 const CALENDLY = 'https://calendly.com/skal-ai/discovery-call';
 
 const introMessage =
-  "Hey, I'm Scout, SKAL's assistant. I can point you to the right team in about 30 seconds. What brings you here?";
+  "Hey, I'm Scout. SKAL plugs into your business four ways. Tell me where you're stuck and I'll point you to the right one in about 30 seconds.";
 
 const categoryOptions: Option[] = [
-  { label: 'Build AI systems', value: 'systems' },
-  { label: 'Scale outbound sales', value: 'scale' },
-  { label: 'Hire engineers', value: 'staffing' },
+  { label: 'Need leads', value: 'scale' },
+  { label: 'Need automation', value: 'systems' },
+  { label: 'Need something custom', value: 'services' },
+  { label: 'Need execution', value: 'staffing' },
   { label: 'Something else', value: 'other' },
 ];
 
 const detailByCategory: Record<string, { prompt: string; options: Option[]; freeText?: boolean }> = {
-  systems: {
-    prompt: "Nice. Where are you in the build?",
-    options: [
-      { label: 'Just exploring', value: 'explore' },
-      { label: 'Have a clear spec', value: 'spec' },
-      { label: 'Mid-build and stuck', value: 'stuck' },
-    ],
-  },
   scale: {
     prompt: "Got it. What's the biggest bottleneck?",
     options: [
@@ -37,6 +30,24 @@ const detailByCategory: Record<string, { prompt: string; options: Option[]; free
       { label: 'Outreach / engagement', value: 'outreach' },
       { label: 'Pipeline management', value: 'pipeline' },
       { label: 'All of it', value: 'everything' },
+    ],
+  },
+  systems: {
+    prompt: "Nice. What do you need an agent to handle?",
+    options: [
+      { label: 'Customer support', value: 'support' },
+      { label: 'Sales / lead qualification', value: 'sales' },
+      { label: 'Internal workflows', value: 'workflow' },
+      { label: 'Not sure yet', value: 'unsure' },
+    ],
+  },
+  services: {
+    prompt: "Got it. What needs building?",
+    options: [
+      { label: 'Custom AI agent', value: 'agent' },
+      { label: 'Agentic workflow', value: 'workflow' },
+      { label: 'Software from scratch', value: 'software' },
+      { label: 'Not sure yet', value: 'unsure' },
     ],
   },
   staffing: {
@@ -219,7 +230,7 @@ export default function ChatWidget() {
                 <div className="font-bold text-sm tracking-wide">Scout</div>
                 <div className="text-[11px] opacity-90 flex items-center gap-1.5">
                   <span className="w-1.5 h-1.5 rounded-full bg-green-300"></span>
-                  Usually replies instantly
+                  30 second qualifier
                 </div>
               </div>
             </div>

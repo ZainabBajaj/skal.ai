@@ -54,7 +54,7 @@ export default function StaffingPage() {
               </p>
 
               <p className="text-lg sm:text-xl text-gray-600 dark:text-gray-300 max-w-xl mx-auto lg:mx-0 leading-relaxed mb-8">
-                You do not need to know exactly who to hire or what tools they should use. You just need someone capable who will take your direction and get things done. SKAL Staffing places pre-vetted, AI-native talent directly into your workflow. No recruiting, no technical interviews, no ramp-up confusion. Tell them what you need. They deliver it. Billed by the hour, with no long-term commitment required.
+                No hiring loops. No onboarding drag. SKAL Staffing places pre-vetted, AI-native talent straight into your workflow. Tell them what you need; they ship it. Billed by the hour, no long-term commitment.
               </p>
 
               <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">

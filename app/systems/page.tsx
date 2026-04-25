@@ -2,7 +2,6 @@
 
 import { Bot, ArrowRight, MessageSquare, Phone, Settings, Headset, BriefcaseBusiness, ConciergeBell, Check } from 'lucide-react';
 import Navbar from '../components/Navbar';
-import FAQ from '../components/FAQ';
 import ContactForm from '../components/ContactForm';
 import Footer from '../components/Footer';
 import FloatingThemeToggle from '../components/FloatingThemeToggle';
@@ -77,12 +76,12 @@ export default function SystemsPage() {
                 </span>
               </h1>
 
-              <p className="text-lg text-[#009bd7] dark:text-[#00E1FF] font-semibold max-w-xl mx-auto lg:mx-0 mb-4 animate-fade-in-up" style={{ animationDelay: '160ms' }}>
-                Pre-built Sagents, ready to go live in a week.
+              <p className="text-2xl sm:text-3xl text-[#009bd7] dark:text-[#00E1FF] font-bold max-w-xl mx-auto lg:mx-0 mb-6 animate-fade-in-up" style={{ animationDelay: '160ms' }}>
+                Live in one week.
               </p>
 
               <p className="text-lg sm:text-xl text-gray-600 dark:text-gray-300 max-w-xl mx-auto lg:mx-0 leading-relaxed mb-8 animate-fade-in-up" style={{ animationDelay: '220ms' }}>
-                Our flagship Sagent is a voice and chat customer support agent built on ElevenLabs and GPT, trained on your business and live on your site in as little as one week. It handles enquiries, qualifies leads, and talks to your customers the way you would. Beyond that, we have a growing library of pre-built Sagents and automated workflows built on tools like n8n, Make, and more, covering everything from internal operations to lead qualification. Tell us what you need and we deploy the right agent for the job.
+                Voice and chat agents trained on your business, powered by ElevenLabs and GPT. Plus pre-built workflows on n8n and Make. Tell us what you need; we deploy the right agent.
               </p>
 
               <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start animate-fade-in-up" style={{ animationDelay: '300ms' }}>
@@ -409,7 +408,6 @@ export default function SystemsPage() {
         </div>
       </section>
 
-      <FAQ />
       <ContactForm />
       <Footer />
       <FloatingThemeToggle />
