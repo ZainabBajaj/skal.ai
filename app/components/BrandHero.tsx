@@ -1,7 +1,21 @@
 "use client";
 
-import { ArrowRight } from 'lucide-react';
+import { ArrowRight, TrendingUp, Bot, Wrench, Users, type LucideIcon } from 'lucide-react';
 import Link from 'next/link';
+import { motion } from 'framer-motion';
+
+const inputNodes: {
+  label: string;
+  subtext: string;
+  icon: LucideIcon;
+  topPct: number;
+  labelClass: string;
+}[] = [
+  { label: 'SCALE',    subtext: 'sells',    icon: TrendingUp, topPct: 26, labelClass: 'text-[#009bd7] dark:text-[#009bd7]' },
+  { label: 'SYSTEMS',  subtext: 'deploys',  icon: Bot,        topPct: 40, labelClass: 'text-[#0098bd] dark:text-[#00E1FF]' },
+  { label: 'SERVICES', subtext: 'fits',     icon: Wrench,     topPct: 54, labelClass: 'text-[#1DB5C5] dark:text-[#1DB5C5]' },
+  { label: 'STAFFING', subtext: 'executes', icon: Users,      topPct: 68, labelClass: 'text-[#3da9c9] dark:text-[#3da9c9]' },
+];
 
 const BrandHero = () => {
   return (
@@ -16,19 +30,31 @@ const BrandHero = () => {
         <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-16 max-w-7xl mx-auto">
           {/* Left: Text */}
           <div className="flex-1 text-center lg:text-left">
-            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-6xl xl:text-7xl font-bold text-[#0f172a] dark:text-white mb-6 leading-snug pb-1 animate-fade-in-up" style={{ animationDelay: '80ms' }}>
-              AI that does the{' '}
+            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-6xl xl:text-7xl font-bold text-[#0f172a] dark:text-white mb-6 leading-tight pb-1 animate-fade-in-up" style={{ animationDelay: '80ms' }}>
+              One AI{' '}
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#009bd7] via-[#00E1FF] to-[#1DB5C5]">
-                work.
+                partner.
               </span>
             </h1>
 
-            <p className="text-xl sm:text-2xl text-[#0f172a] dark:text-white max-w-xl mx-auto lg:mx-0 leading-relaxed mb-4 font-semibold animate-fade-in-up" style={{ animationDelay: '160ms' }}>
-              The All-in-One AI Workforce for Growing Businesses.
-            </p>
+            <ul className="space-y-2 text-base sm:text-lg text-gray-700 dark:text-gray-200 max-w-xl mx-auto lg:mx-0 leading-relaxed mb-8 animate-fade-in-up" style={{ animationDelay: '160ms' }}>
+              {[
+                { icon: TrendingUp, keyword: 'pipeline', after: ' runs itself.', color: 'text-[#009bd7]' },
+                { icon: Bot,        keyword: 'support',  after: ' handles itself.', color: 'text-[#0098bd] dark:text-[#00E1FF]' },
+                { icon: Wrench,     keyword: 'systems',  after: ' built for you.', color: 'text-[#1DB5C5]' },
+                { icon: Users,      keyword: 'talent',   after: ' ships from day one.', color: 'text-[#3da9c9]' },
+              ].map(({ icon: Icon, keyword, after, color }) => (
+                <li key={keyword} className="flex items-center gap-2.5 justify-center lg:justify-start">
+                  <Icon className={`w-4 h-4 shrink-0 ${color}`} strokeWidth={2.2} />
+                  <span>
+                    Your <span className={`font-semibold ${color}`}>{keyword}</span>{after}
+                  </span>
+                </li>
+              ))}
+            </ul>
 
-            <p className="text-base sm:text-lg text-gray-600 dark:text-gray-300 max-w-xl mx-auto lg:mx-0 leading-relaxed mb-10 animate-fade-in-up" style={{ animationDelay: '220ms' }}>
-              Pick the line that fits and we handle the rest.
+            <p className="text-base sm:text-lg text-gray-600 dark:text-gray-300 max-w-xl mx-auto lg:mx-0 leading-relaxed mb-10 font-semibold animate-fade-in-up" style={{ animationDelay: '220ms' }}>
+              Start anywhere. We take it from there.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start animate-fade-in-up" style={{ animationDelay: '300ms' }}>
@@ -52,7 +78,7 @@ const BrandHero = () => {
           </div>
 
           {/* Right: convergence flow — work in, growth out */}
-          <div className="flex-1 w-full max-w-lg lg:max-w-none animate-fade-in-up" style={{ animationDelay: '380ms' }}>
+          <div className="flex-1 w-full max-w-lg lg:max-w-none animate-fade-in-up relative" style={{ animationDelay: '380ms' }}>
             <svg viewBox="0 0 500 500" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" className="w-full h-auto">
               <defs>
                 <radialGradient id="bh-ambient" cx="50%" cy="50%" r="50%">
@@ -137,88 +163,91 @@ const BrandHero = () => {
                 <circle cx="415" cy="120" r="2" />
               </g>
 
-              {/* Input source dots — four product lines (with labels) */}
-              <g>
-                <circle cx="90" cy="130" r="11" fill="#009bd7" opacity="0.18" />
-                <circle cx="90" cy="130" r="6" fill="#009bd7" filter="url(#bh-glow)" />
-                <circle cx="90" cy="130" r="2.5" fill="#FFFFFF">
-                  <animate attributeName="opacity" values="0.5;1;0.5" dur="2.4s" repeatCount="indefinite" />
-                </circle>
-                <text x="76" y="128" textAnchor="end" fill="#009bd7" fontSize="9" fontWeight="700" fontFamily="system-ui, sans-serif" letterSpacing="1.5" opacity="0.95">SCALE</text>
-                <text x="76" y="142" textAnchor="end" fill="currentColor" className="text-[#0f172a] dark:text-white" fontSize="8" fontWeight="500" fontFamily="system-ui, sans-serif" fontStyle="italic" opacity="0.5">sells</text>
 
-                <circle cx="90" cy="200" r="11" fill="#00E1FF" opacity="0.18" />
-                <circle cx="90" cy="200" r="6" fill="#00E1FF" filter="url(#bh-glow)" />
-                <circle cx="90" cy="200" r="2.5" fill="#FFFFFF">
-                  <animate attributeName="opacity" values="0.5;1;0.5" dur="2.4s" begin="0.6s" repeatCount="indefinite" />
-                </circle>
-                <text x="76" y="198" textAnchor="end" className="fill-[#0098bd] dark:fill-[#00E1FF]" fontSize="9" fontWeight="700" fontFamily="system-ui, sans-serif" letterSpacing="1.5" opacity="0.95">SYSTEMS</text>
-                <text x="76" y="212" textAnchor="end" fill="currentColor" className="text-[#0f172a] dark:text-white" fontSize="8" fontWeight="500" fontFamily="system-ui, sans-serif" fontStyle="italic" opacity="0.5">deploys</text>
-
-                <circle cx="90" cy="270" r="11" fill="#1DB5C5" opacity="0.18" />
-                <circle cx="90" cy="270" r="6" fill="#1DB5C5" filter="url(#bh-glow)" />
-                <circle cx="90" cy="270" r="2.5" fill="#FFFFFF">
-                  <animate attributeName="opacity" values="0.5;1;0.5" dur="2.4s" begin="1.2s" repeatCount="indefinite" />
-                </circle>
-                <text x="76" y="268" textAnchor="end" fill="#1DB5C5" fontSize="9" fontWeight="700" fontFamily="system-ui, sans-serif" letterSpacing="1.5" opacity="0.95">SERVICES</text>
-                <text x="76" y="282" textAnchor="end" fill="currentColor" className="text-[#0f172a] dark:text-white" fontSize="8" fontWeight="500" fontFamily="system-ui, sans-serif" fontStyle="italic" opacity="0.5">fits</text>
-
-                <circle cx="90" cy="340" r="11" fill="#3da9c9" opacity="0.18" />
-                <circle cx="90" cy="340" r="6" fill="#3da9c9" filter="url(#bh-glow)" />
-                <circle cx="90" cy="340" r="2.5" fill="#FFFFFF">
-                  <animate attributeName="opacity" values="0.5;1;0.5" dur="2.4s" begin="1.8s" repeatCount="indefinite" />
-                </circle>
-                <text x="76" y="338" textAnchor="end" fill="#3da9c9" fontSize="9" fontWeight="700" fontFamily="system-ui, sans-serif" letterSpacing="1.5" opacity="0.95">STAFFING</text>
-                <text x="76" y="352" textAnchor="end" fill="currentColor" className="text-[#0f172a] dark:text-white" fontSize="8" fontWeight="500" fontFamily="system-ui, sans-serif" fontStyle="italic" opacity="0.5">executes</text>
-              </g>
-
-              {/* Animated luminance dots flowing each input → core */}
+              {/* Animated luminance dots flowing each input → core (denser traffic for momentum) */}
               <g fill="#FFFFFF" filter="url(#bh-glow)">
+                {/* Curve 1 — primary + trail */}
                 <circle r="3.5">
                   <animateMotion dur="3s" repeatCount="indefinite">
                     <mpath href="#bh-in-1" />
                   </animateMotion>
                   <animate attributeName="opacity" values="0;1;1;0" keyTimes="0;0.15;0.85;1" dur="3s" repeatCount="indefinite" />
                 </circle>
+                <circle r="2.5">
+                  <animateMotion dur="3s" begin="-1.5s" repeatCount="indefinite">
+                    <mpath href="#bh-in-1" />
+                  </animateMotion>
+                  <animate attributeName="opacity" values="0;0.7;0.7;0" keyTimes="0;0.15;0.85;1" dur="3s" begin="-1.5s" repeatCount="indefinite" />
+                </circle>
+
+                {/* Curve 2 */}
                 <circle r="3.5">
-                  <animateMotion dur="3.2s" begin="0.7s" repeatCount="indefinite">
+                  <animateMotion dur="3.2s" begin="-2.5s" repeatCount="indefinite">
                     <mpath href="#bh-in-2" />
                   </animateMotion>
-                  <animate attributeName="opacity" values="0;1;1;0" keyTimes="0;0.15;0.85;1" dur="3.2s" begin="0.7s" repeatCount="indefinite" />
+                  <animate attributeName="opacity" values="0;1;1;0" keyTimes="0;0.15;0.85;1" dur="3.2s" begin="-2.5s" repeatCount="indefinite" />
                 </circle>
+                <circle r="2.5">
+                  <animateMotion dur="3.2s" begin="-0.9s" repeatCount="indefinite">
+                    <mpath href="#bh-in-2" />
+                  </animateMotion>
+                  <animate attributeName="opacity" values="0;0.7;0.7;0" keyTimes="0;0.15;0.85;1" dur="3.2s" begin="-0.9s" repeatCount="indefinite" />
+                </circle>
+
+                {/* Curve 3 */}
                 <circle r="3.5">
-                  <animateMotion dur="3.1s" begin="1.4s" repeatCount="indefinite">
+                  <animateMotion dur="3.1s" begin="-1.7s" repeatCount="indefinite">
                     <mpath href="#bh-in-3" />
                   </animateMotion>
-                  <animate attributeName="opacity" values="0;1;1;0" keyTimes="0;0.15;0.85;1" dur="3.1s" begin="1.4s" repeatCount="indefinite" />
+                  <animate attributeName="opacity" values="0;1;1;0" keyTimes="0;0.15;0.85;1" dur="3.1s" begin="-1.7s" repeatCount="indefinite" />
                 </circle>
+                <circle r="2.5">
+                  <animateMotion dur="3.1s" begin="-0.2s" repeatCount="indefinite">
+                    <mpath href="#bh-in-3" />
+                  </animateMotion>
+                  <animate attributeName="opacity" values="0;0.7;0.7;0" keyTimes="0;0.15;0.85;1" dur="3.1s" begin="-0.2s" repeatCount="indefinite" />
+                </circle>
+
+                {/* Curve 4 */}
                 <circle r="3.5">
-                  <animateMotion dur="3.3s" begin="2.1s" repeatCount="indefinite">
+                  <animateMotion dur="3.3s" begin="-1.0s" repeatCount="indefinite">
                     <mpath href="#bh-in-4" />
                   </animateMotion>
-                  <animate attributeName="opacity" values="0;1;1;0" keyTimes="0;0.15;0.85;1" dur="3.3s" begin="2.1s" repeatCount="indefinite" />
+                  <animate attributeName="opacity" values="0;1;1;0" keyTimes="0;0.15;0.85;1" dur="3.3s" begin="-1.0s" repeatCount="indefinite" />
+                </circle>
+                <circle r="2.5">
+                  <animateMotion dur="3.3s" begin="-2.6s" repeatCount="indefinite">
+                    <mpath href="#bh-in-4" />
+                  </animateMotion>
+                  <animate attributeName="opacity" values="0;0.7;0.7;0" keyTimes="0;0.15;0.85;1" dur="3.3s" begin="-2.6s" repeatCount="indefinite" />
                 </circle>
               </g>
 
-              {/* Animated luminance dots flowing core → growth (heavier traffic on output) */}
+              {/* Animated luminance dots flowing core → growth (heavier, accelerating traffic) */}
               <g fill="#00E1FF" filter="url(#bh-glow)">
-                <circle r="4.5">
-                  <animateMotion dur="2.4s" repeatCount="indefinite">
+                <circle r="5">
+                  <animateMotion dur="1.8s" repeatCount="indefinite">
                     <mpath href="#bh-out-path" />
                   </animateMotion>
-                  <animate attributeName="opacity" values="0;1;1;0" keyTimes="0;0.12;0.88;1" dur="2.4s" repeatCount="indefinite" />
+                  <animate attributeName="opacity" values="0;1;1;0" keyTimes="0;0.12;0.92;1" dur="1.8s" repeatCount="indefinite" />
                 </circle>
-                <circle r="4.5">
-                  <animateMotion dur="2.4s" begin="0.8s" repeatCount="indefinite">
+                <circle r="5">
+                  <animateMotion dur="1.8s" begin="-0.45s" repeatCount="indefinite">
                     <mpath href="#bh-out-path" />
                   </animateMotion>
-                  <animate attributeName="opacity" values="0;1;1;0" keyTimes="0;0.12;0.88;1" dur="2.4s" begin="0.8s" repeatCount="indefinite" />
+                  <animate attributeName="opacity" values="0;1;1;0" keyTimes="0;0.12;0.92;1" dur="1.8s" begin="-0.45s" repeatCount="indefinite" />
                 </circle>
-                <circle r="4.5">
-                  <animateMotion dur="2.4s" begin="1.6s" repeatCount="indefinite">
+                <circle r="5">
+                  <animateMotion dur="1.8s" begin="-0.9s" repeatCount="indefinite">
                     <mpath href="#bh-out-path" />
                   </animateMotion>
-                  <animate attributeName="opacity" values="0;1;1;0" keyTimes="0;0.12;0.88;1" dur="2.4s" begin="1.6s" repeatCount="indefinite" />
+                  <animate attributeName="opacity" values="0;1;1;0" keyTimes="0;0.12;0.92;1" dur="1.8s" begin="-0.9s" repeatCount="indefinite" />
+                </circle>
+                <circle r="5">
+                  <animateMotion dur="1.8s" begin="-1.35s" repeatCount="indefinite">
+                    <mpath href="#bh-out-path" />
+                  </animateMotion>
+                  <animate attributeName="opacity" values="0;1;1;0" keyTimes="0;0.12;0.92;1" dur="1.8s" begin="-1.35s" repeatCount="indefinite" />
                 </circle>
               </g>
 
@@ -244,32 +273,67 @@ const BrandHero = () => {
                 <animate attributeName="opacity" values="0.5;0;0.5" dur="3.6s" repeatCount="indefinite" />
               </circle>
 
-              {/* Done target (top right outcome) */}
+              {/* Speed callout — momentum lives along the trend */}
               <g>
-                <circle cx="430" cy="90" r="20" fill="url(#bh-target)" opacity="0.6" />
-                <circle cx="430" cy="90" r="13" fill="#00E1FF" opacity="0.85" filter="url(#bh-glow)" />
-                <path d="M 423 90 L 428 95 L 437 84" stroke="#FFFFFF" strokeWidth="2.2" fill="none" strokeLinecap="round" strokeLinejoin="round">
-                  <animate attributeName="opacity" values="0.8;1;0.8" dur="2s" repeatCount="indefinite" />
-                </path>
-                {/* Completion bursts: a ring expands outward each time a dot arrives at DONE */}
-                <circle cx="430" cy="90" r="13" fill="none" stroke="#22c55e" strokeWidth="1.6">
-                  <animate attributeName="r" values="13;32" keyTimes="0;0.5" dur="2.4s" repeatCount="indefinite" />
-                  <animate attributeName="opacity" values="0.9;0;0;0" keyTimes="0;0.5;0.51;1" dur="2.4s" repeatCount="indefinite" />
+                <rect x="290" y="237" width="115" height="20" rx="10" fill="#FFFFFF" stroke="#00E1FF" strokeWidth="0.8" opacity="0.95" />
+                <circle cx="302" cy="247" r="2.5" fill="#22c55e">
+                  <animate attributeName="opacity" values="0.5;1;0.5" dur="1.6s" repeatCount="indefinite" />
                 </circle>
-                <circle cx="430" cy="90" r="13" fill="none" stroke="#22c55e" strokeWidth="1.6">
-                  <animate attributeName="r" values="13;32" keyTimes="0;0.5" dur="2.4s" begin="0.8s" repeatCount="indefinite" />
-                  <animate attributeName="opacity" values="0.9;0;0;0" keyTimes="0;0.5;0.51;1" dur="2.4s" begin="0.8s" repeatCount="indefinite" />
-                </circle>
-                <circle cx="430" cy="90" r="13" fill="none" stroke="#22c55e" strokeWidth="1.6">
-                  <animate attributeName="r" values="13;32" keyTimes="0;0.5" dur="2.4s" begin="1.6s" repeatCount="indefinite" />
-                  <animate attributeName="opacity" values="0.9;0;0;0" keyTimes="0;0.5;0.51;1" dur="2.4s" begin="1.6s" repeatCount="indefinite" />
-                </circle>
-                <text x="430" y="55" textAnchor="middle" fill="currentColor" className="text-[#0f172a] dark:text-white" fontSize="10" fontWeight="700" fontFamily="system-ui, sans-serif" letterSpacing="2" opacity="0.75">DONE</text>
+                <text x="312" y="251" textAnchor="start" fill="#009bd7" fontSize="9" fontWeight="800" fontFamily="system-ui, sans-serif" letterSpacing="1.5">LIVE IN DAYS</text>
               </g>
 
-              {/* "THIS WEEK" annotation along the trend */}
-              <text x="320" y="245" textAnchor="start" fill="currentColor" className="text-[#0f172a] dark:text-white" fontSize="8" fontWeight="700" fontFamily="system-ui, sans-serif" letterSpacing="2" opacity="0.45">THIS WEEK</text>
+              {/* Growth target (top right) — your business growing with us, dialed up for momentum */}
+              <g>
+                <circle cx="430" cy="90" r="28" fill="url(#bh-target)" opacity="0.7" />
+                <circle cx="430" cy="90" r="16" fill="#00E1FF" opacity="0.95" filter="url(#bh-glow)" />
+                <circle cx="430" cy="90" r="16" fill="none" stroke="#FFFFFF" strokeWidth="1.5" opacity="0.6" />
+                {/* Upward arrow inside the target — the growth signal */}
+                <path d="M 423 96 L 430 84 L 437 96 M 430 84 L 430 99" stroke="#FFFFFF" strokeWidth="2.6" fill="none" strokeLinecap="round" strokeLinejoin="round">
+                  <animate attributeName="opacity" values="0.85;1;0.85" dur="2.4s" repeatCount="indefinite" />
+                </path>
+                {/* Layered outward pulses — sustained, multi-ring momentum */}
+                <circle cx="430" cy="90" r="16" fill="none" stroke="#00E1FF" strokeWidth="1.6">
+                  <animate attributeName="r" values="16;42;16" dur="3.6s" repeatCount="indefinite" />
+                  <animate attributeName="opacity" values="0.85;0;0.85" dur="3.6s" repeatCount="indefinite" />
+                </circle>
+                <circle cx="430" cy="90" r="16" fill="none" stroke="#00E1FF" strokeWidth="1.4">
+                  <animate attributeName="r" values="16;42;16" dur="3.6s" begin="-1.8s" repeatCount="indefinite" />
+                  <animate attributeName="opacity" values="0.7;0;0.7" dur="3.6s" begin="-1.8s" repeatCount="indefinite" />
+                </circle>
+                <text x="430" y="48" textAnchor="middle" fill="currentColor" className="text-[#0f172a] dark:text-white" fontSize="11" fontWeight="800" fontFamily="system-ui, sans-serif" letterSpacing="2" opacity="0.85">YOUR GROWTH</text>
+              </g>
+
             </svg>
+
+            {/* HTML icon node overlay — Lucide icons + labels */}
+            {inputNodes.map((n, i) => {
+              const Icon = n.icon;
+              return (
+                <motion.div
+                  key={n.label}
+                  className="absolute flex items-center gap-2 -translate-y-1/2 pointer-events-none"
+                  style={{ right: '82%', top: `${n.topPct}%` }}
+                  animate={{ y: [-3, 3, -3] }}
+                  transition={{
+                    duration: 5 + i * 0.4,
+                    repeat: Infinity,
+                    ease: 'easeInOut',
+                    delay: i * 0.5,
+                  }}
+                >
+                  <div className="text-right whitespace-nowrap leading-tight">
+                    <div className={`text-[10px] font-bold tracking-[0.18em] ${n.labelClass}`}>{n.label}</div>
+                    <div className="text-[9px] text-gray-500 dark:text-gray-400 italic mt-0.5">{n.subtext}</div>
+                  </div>
+                  <div
+                    className="w-9 h-9 rounded-xl bg-white dark:bg-gray-900 border border-cyan-100 dark:border-[#00E1FF]/25 flex items-center justify-center shrink-0"
+                    style={{ boxShadow: '0 4px 16px rgba(0, 229, 255, 0.25), inset 0 1px 0 rgba(255,255,255,0.85)' }}
+                  >
+                    <Icon className="w-4 h-4 text-[#0f172a] dark:text-[#00E1FF]" strokeWidth={2.2} />
+                  </div>
+                </motion.div>
+              );
+            })}
           </div>
         </div>
       </div>
