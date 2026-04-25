@@ -173,7 +173,7 @@ export default function ServicesPage() {
                   <circle cx="-60" cy="0" r="3" fill="#22c55e">
                     <animate attributeName="opacity" values="0.4;1;0.4" dur="1.6s" repeatCount="indefinite" />
                   </circle>
-                  <text x="-50" y="3" fill="#FFFFFF" fontSize="9" fontWeight="700" fontFamily="system-ui, sans-serif" letterSpacing="1.5">SCOPED TO YOU</text>
+                  <text x="-50" y="3" fill="#FFFFFF" fontSize="9" fontWeight="700" fontFamily="system-ui, sans-serif" letterSpacing="1.5">BUILT FOR YOU</text>
                 </g>
               </svg>
             </div>

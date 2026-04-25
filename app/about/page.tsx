@@ -53,8 +53,8 @@ export default function AboutPage() {
               </h1>
 
               <p className="text-lg sm:text-xl text-gray-600 dark:text-gray-300 leading-relaxed">
-                SKAL exists because most businesses that want AI systems don&apos;t know how to build them,
-                and most technical teams that can build them don&apos;t understand business well enough to build them right.
+                SKAL exists because businesses that want AI systems don&apos;t know how to build them,
+                and teams that can build them don&apos;t understand business well enough to build them right.
                 We sit at that intersection.
               </p>
             </div>
@@ -72,52 +72,54 @@ export default function AboutPage() {
               </p>
 
               <p>
-                What I remember most is not the fries. It is that while other kids were eating them, I
-                was thinking about the ingredients, the margins, the foot traffic. I realised later that
-                not everyone thought that way. I grew up in a family that ran businesses across spinning
-                mills, FMCG, and banquet halls. Reading a balance sheet came before most other things.
-                Business was not something I studied. It was the water I grew up in.
+                While other kids were eating, I was thinking about ingredients, margins, and foot traffic.
               </p>
 
               <p>
-                In O levels, I made a list of things I thought about the most and tracked my thought
-                patterns. Business was at the top. But so was something else: a fascination with
-                technology. Not technology for its own sake, but what it could do inside a business.
-                The idea that you could build systems sophisticated enough to eventually replace
-                yourself in the value chain felt like the most interesting problem in the world.
+                I come from one of the oldest business communities in South Asia, generations of merchants
+                and traders woven into the fabric of society for as long as anyone can remember. By the
+                time it reached me, it looked like spinning mills, FMCG, and banquet halls. Reading a
+                balance sheet came early. Business was not something I studied. It was the water I grew
+                up in.
               </p>
 
               <p>
-                I went after it seriously. I graduated with one of the highest marks in the world in{' '}
+                In O levels, I wanted to know where my brain naturally went, so I started tracking my
+                thoughts. Business was at the top. But right next to it was something else: technology.
+                Not for its own sake, but for what it could do inside a business. The idea that you could
+                build systems that take over repetitive work, so you can focus on the parts that actually
+                matter, felt like the closest thing to magic.
+              </p>
+
+              <p>
+                I went after it seriously. I graduated with top global marks in{' '}
                 <span className="font-semibold text-[#0f172a] dark:text-white">Data Science and Business Analytics</span>,
                 earning a{' '}
                 <span className="font-semibold text-[#009bd7] dark:text-[#00E1FF]">London School of Economics Letter of Commendation</span>.
-                I built a course called{' '}
-                <em className="text-[#0f172a] dark:text-white">Transforming Organisations with Data Storytelling</em>{' '}
-                and delivered it at the National University of Singapore, because I believe that how you
-                present data matters as much as what the data says. I have always had an instinct with
-                data. I can look at a dataset and tell you what it means before I have run a single
-                calculation.
+                I designed a course,{' '}
+                <em className="text-[#0f172a] dark:text-white">Transforming Organisations with Data Storytelling</em>,
+                which is delivered at the National University of Singapore. Data has always felt
+                intuitive to me. I usually see the story before I run the numbers.
               </p>
 
               <p>
-                When AI agents arrived, it felt like the logical end of a thread I had been pulling
-                since I was ten. An agent is the most complete expression of the idea I fell in love
-                with at seventeen: a system that creates leverage, that works while you sleep, that
-                lets you operate at the top of the value chain instead of being consumed by it.
+                When AI agents arrived, it felt like the natural end of a thread I had been pulling since
+                I was ten. For the first time, systems could actually operate inside real businesses. Not
+                just tools, but infrastructure that does work in the background. Work that continues
+                without friction. Operations that stay consistent as you scale. Processes that support
+                teams instead of slowing them down.
               </p>
 
               <div className="my-12 p-8 sm:p-10 rounded-3xl bg-gradient-to-br from-[#009bd7]/5 via-[#00E1FF]/5 to-[#1DB5C5]/5 dark:from-[#009bd7]/10 dark:via-[#00E1FF]/10 dark:to-[#1DB5C5]/10 border border-[#009bd7]/20 dark:border-[#00E1FF]/20">
                 <p className="text-xl sm:text-2xl font-semibold text-[#0f172a] dark:text-white leading-snug">
-                  SKAL exists because most businesses that want this don&apos;t know how to build it, and
-                  most technical teams that can build it don&apos;t understand the business well enough to
-                  build it right. <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#009bd7] to-[#00E1FF]">We sit at that intersection.</span>
+                  That is what we build at SKAL. Not experiments. Not demos.{' '}
+                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#009bd7] to-[#00E1FF]">Systems that run inside real businesses.</span>
                 </p>
               </div>
 
               <p>
-                We are registered in Dubai with an office in Lahore, and a growing team of engineers and
-                AI specialists who share the same obsession.
+                We have offices in Dubai and Lahore, and a growing team of engineers and AI specialists
+                who think the same way.
               </p>
 
               <p className="text-xl sm:text-2xl font-semibold text-[#0f172a] dark:text-white leading-snug pt-4">
