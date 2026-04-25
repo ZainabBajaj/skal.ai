@@ -42,6 +42,7 @@ export default function Footer() {
   const companyLinks = [
     { name: 'About', href: '/about' },
     { name: 'Stories', href: '/stories' },
+    { name: 'FAQ', href: '/faq' },
     { name: 'Contact', href: '#contact' },
   ];
 
@@ -82,11 +83,7 @@ export default function Footer() {
           {/* Logo and Description */}
           <div className="space-y-4">
             <Logo />
-            <p className="text-gray-600 dark:text-gray-300 mt-4">
-              Transform Your Organization with AI
-
-            </p>
-            <div className="flex space-x-4">
+            <div className="flex space-x-4 pt-2">
               {socialLinks.map((social) => (
                 <a
                   key={social.name}

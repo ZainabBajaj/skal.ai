@@ -8,7 +8,7 @@ interface ProductCard {
   eyebrow: string;
   verb: string;
   audience: string;
-  body: string;
+  body: string[];
   cta: string;
   icon: LucideIcon;
   badge?: string;
@@ -17,38 +17,54 @@ interface ProductCard {
 const cards: ProductCard[] = [
   {
     href: '/scale',
-    eyebrow: 'SKAL SCALE',
+    eyebrow: 'NEED LEADS?',
     verb: 'Sells',
-    audience: 'For B2B founders who are done doing outbound manually.',
-    body: 'Your pipeline should not depend on how hard you hustle. SKAL Scale runs your entire B2B outbound operation. Prospecting powered by AI, personalised sequences at scale, and a proprietary contact database built in-house. Priced per qualified meeting, so you only pay for results.',
+    audience: 'For B2B founders done doing outbound manually.',
+    body: [
+      'Your pipeline should not depend on hustle.',
+      'SKAL Scale runs your entire outbound. AI prospecting, personalised sequences, and a proprietary contact database.',
+      'You only pay per qualified meeting.',
+    ],
     cta: 'Join the waitlist',
     icon: TrendingUp,
     badge: 'NEW',
   },
   {
     href: '/systems',
-    eyebrow: 'SKAL SYSTEMS',
+    eyebrow: 'NEED AUTOMATION?',
     verb: 'Deploys',
-    audience: 'Pre-built Sagents, ready to go live in a week.',
-    body: 'A voice and chat customer support agent on ElevenLabs and GPT, trained on your business and live in as little as one week. Plus a growing library of pre-built Sagents and automated workflows on n8n, Make, and more. Tell us what you need; we deploy the right agent for the job.',
+    audience: 'Live in one week.',
+    body: [
+      'Customer support should not scale with headcount.',
+      'Voice and chat agents trained on your business, powered by ElevenLabs and Claude. Plus pre-built workflows on n8n, Make, and Zapier.',
+      'No development cycles. No technical lift.',
+    ],
     cta: 'Deploy your first Sagent',
     icon: Bot,
   },
   {
     href: '/services',
-    eyebrow: 'SKAL SERVICES',
+    eyebrow: 'NEED SOMETHING CUSTOM?',
     verb: 'Fits',
-    audience: 'For businesses that need something built from scratch.',
-    body: 'When off the shelf is not enough, we build from the ground up. Fully custom AI agents, agentic workflows, and software development scoped entirely around your business requirements. If you can describe the problem, we can build the solution.',
+    audience: 'No templates. No constraints. Just solutions.',
+    body: [
+      'Off the shelf does not fit your business.',
+      'Custom AI agents, agentic workflows, and software scoped to your exact requirements.',
+      'If it does not exist, we build it.',
+    ],
     cta: 'Tell us what you need',
     icon: Wrench,
   },
   {
     href: '/staffing',
-    eyebrow: 'SKAL STAFFING',
+    eyebrow: 'NEED EXECUTION?',
     verb: 'Executes',
     audience: 'Your direction, our talent, zero friction.',
-    body: 'You do not need to know exactly who to hire or what tools they should use. SKAL Staffing places pre-vetted, AI-native talent directly into your workflow. Tell them what you need; they deliver it. Billed by the hour, no long-term commitment.',
+    body: [
+      'No hiring loops. No onboarding drag.',
+      'Pre-vetted, AI-native talent placed straight into your workflow.',
+      'Tell them what you need. They ship it. Billed by the hour.',
+    ],
     cta: 'Find your person',
     icon: Users,
   },
@@ -56,14 +72,14 @@ const cards: ProductCard[] = [
 
 const ProductSplit = () => {
   return (
-    <section className="py-20 lg:py-28 relative bg-white dark:bg-gray-800 overflow-hidden">
+    <section id="products" className="py-20 lg:py-28 relative bg-white dark:bg-gray-800 overflow-hidden">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16 max-w-3xl mx-auto">
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-[#0f172a] dark:text-white mb-4 leading-snug pb-1">
             Four ways SKAL builds with you
           </h2>
           <p className="text-lg text-gray-600 dark:text-gray-300">
-            Scale sells. Systems deploys. Services fits. Staffing executes.
+            Choose what you need. We handle the rest.
           </p>
         </div>
 
@@ -94,7 +110,11 @@ const ProductSplit = () => {
               </h3>
 
               <p className="text-[#009bd7] dark:text-[#00E1FF] font-semibold mb-4">{audience}</p>
-              <p className="text-gray-600 dark:text-gray-300 leading-relaxed mb-8 flex-1">{body}</p>
+              <div className="text-gray-600 dark:text-gray-300 leading-relaxed mb-8 flex-1 space-y-3">
+                {body.map((line, i) => (
+                  <p key={i}>{line}</p>
+                ))}
+              </div>
 
               <div className="inline-flex items-center gap-2 text-[#009bd7] dark:text-[#00E1FF] font-semibold group-hover:gap-3 transition-all duration-300">
                 <span>{cta}</span>
@@ -103,6 +123,11 @@ const ProductSplit = () => {
             </Link>
           ))}
         </div>
+
+        <p className="mt-12 text-center text-base sm:text-lg text-gray-700 dark:text-gray-300 max-w-2xl mx-auto">
+          This is not four tools. It is one system. Most companies need all four;
+          <span className="font-semibold text-[#0f172a] dark:text-white"> we plug in wherever you are stuck.</span>
+        </p>
       </div>
     </section>
   );
