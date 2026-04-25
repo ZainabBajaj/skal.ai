@@ -81,7 +81,7 @@ export default function SystemsPage() {
               </p>
 
               <p className="text-lg sm:text-xl text-gray-600 dark:text-gray-300 max-w-xl mx-auto lg:mx-0 leading-relaxed mb-8 animate-fade-in-up" style={{ animationDelay: '220ms' }}>
-                Voice and chat agents trained on your business, powered by ElevenLabs and GPT. Plus pre-built workflows on n8n and Make. Tell us what you need; we deploy the right agent.
+                Voice and chat agents trained on your business, powered by ElevenLabs and Claude. Plus pre-built workflows on n8n, Make, and Zapier. Tell us what you need; we deploy the right agent.
               </p>
 
               <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start animate-fade-in-up" style={{ animationDelay: '300ms' }}>

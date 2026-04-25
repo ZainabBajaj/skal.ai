@@ -36,7 +36,7 @@ const cards: ProductCard[] = [
     audience: 'Live in one week.',
     body: [
       'Customer support should not scale with headcount.',
-      'Voice and chat agents trained on your business, powered by ElevenLabs and GPT. Plus pre-built workflows on n8n and Make.',
+      'Voice and chat agents trained on your business, powered by ElevenLabs and Claude. Plus pre-built workflows on n8n, Make, and Zapier.',
       'No development cycles. No technical lift.',
     ],
     cta: 'Deploy your first Sagent',
