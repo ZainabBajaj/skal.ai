@@ -79,7 +79,7 @@ const ProductSplit = () => {
             Four ways SKAL builds with you
           </h2>
           <p className="text-lg text-gray-600 dark:text-gray-300">
-            Choose what you need. We handle the rest.
+            Most companies need all four. We plug in wherever you are.
           </p>
         </div>
 
