@@ -95,12 +95,6 @@ export default function SystemsPage() {
                   Deploy your first Sagent
                   <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
                 </a>
-                <a
-                  href="#demo"
-                  className="inline-flex items-center gap-2 px-8 py-4 border-2 border-[#009bd7] text-[#009bd7] dark:text-[#00E1FF] dark:border-[#00E1FF] font-bold rounded-2xl transition-all duration-300 hover:bg-[#009bd7]/5 dark:hover:bg-[#00E1FF]/5"
-                >
-                  See it in action
-                </a>
               </div>
             </div>
 
@@ -340,33 +334,6 @@ export default function SystemsPage() {
         </div>
       </section>
 
-      {/* Demo placeholder */}
-      <section id="demo" className="py-20 sm:py-24 bg-gradient-to-br from-slate-50 via-white to-blue-50 dark:from-gray-900 dark:via-gray-800 dark:to-blue-900">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <Reveal>
-            <div className="text-center mb-10">
-              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[#0f172a] dark:text-white mb-4 leading-snug pb-1">
-                See a system in action
-              </h2>
-              <p className="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
-                A live demo of one of our systems handling a real conversation.
-              </p>
-            </div>
-          </Reveal>
-
-          <Reveal delay={120}>
-            {/* TODO: Replace this block with the live demo embed (video, iframe, or interactive widget). */}
-            <div className="max-w-5xl mx-auto aspect-video rounded-3xl border border-dashed border-[#009bd7]/40 dark:border-[#00E1FF]/40 bg-gradient-to-br from-[#009bd7]/5 to-[#00E1FF]/5 dark:from-[#009bd7]/10 dark:to-[#00E1FF]/10 flex items-center justify-center">
-              <div className="text-center px-6">
-                <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-gradient-to-br from-[#009bd7] to-[#00E1FF] mb-4 shadow-lg">
-                  <MessageSquare className="w-8 h-8 text-white" />
-                </div>
-                <p className="text-gray-500 dark:text-gray-400 text-sm font-medium">Demo coming soon</p>
-              </div>
-            </div>
-          </Reveal>
-        </div>
-      </section>
 
       {/* Customisation + cost split */}
       <section className="py-20 sm:py-24 bg-white dark:bg-gray-900">
