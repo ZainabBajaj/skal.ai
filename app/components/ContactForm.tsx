@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect } from 'react';
-import { Send, Mail, User, MessageCircle, Sparkles, CreditCard, Globe } from 'lucide-react';
+import { Send, Mail, User, MessageCircle, Sparkles, Globe, ArrowRight } from 'lucide-react';
 
 type FormStatus = {
   type: 'idle' | 'sending' | 'success' | 'error';
@@ -12,7 +12,6 @@ type FormData = {
   name: string;
   email: string;
   website: string;
-  budget: string;
   message: string;
 };
 
@@ -25,7 +24,6 @@ export default function ContactForm({ initialMessage = '' }: ContactFormProps) {
     name: '',
     email: '',
     website: '',
-    budget: '',
     message: initialMessage
   });
 
@@ -58,7 +56,6 @@ export default function ContactForm({ initialMessage = '' }: ContactFormProps) {
           name: formData.name,
           email: formData.email,
           website: formData.website,
-          budget: formData.budget,
           message: formData.message,
         }),
       });
@@ -66,7 +63,7 @@ export default function ContactForm({ initialMessage = '' }: ContactFormProps) {
       if (!res.ok) throw new Error('Submission failed');
 
       setStatus({ type: 'success', message: "Thanks for reaching out. Your message is on its way to our team, and we'll be in touch shortly." });
-      setFormData({ name: '', email: '', website: '', budget: '', message: '' });
+      setFormData({ name: '', email: '', website: '', message: '' });
     } catch {
       setStatus({
         type: 'error',
@@ -95,14 +92,25 @@ export default function ContactForm({ initialMessage = '' }: ContactFormProps) {
             </div>
             
             <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-[#0f172a] dark:text-white mb-4 sm:mb-6 leading-snug pb-1">
-              Start Your AI Journey
+              Talk to us
             </h2>
-            
-            <p className="text-lg sm:text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto leading-relaxed font-medium px-4">
-              Ready to transform your business with cutting-edge AI solutions? Let&apos;s discuss your project and{' '}
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#009bd7] to-[#00E1FF] font-bold">
-                bring your vision to life
-              </span>
+
+            <p className="text-lg sm:text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto leading-relaxed font-medium px-4 mb-6">
+              Most conversations start with a 20-minute discovery call. Fastest way to find your fit.
+            </p>
+
+            <a
+              href="https://calendly.com/skal-ai/discovery-call"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group inline-flex items-center justify-center gap-3 px-8 py-4 bg-gradient-to-r from-[#009bd7] to-[#00E1FF] text-white font-bold rounded-2xl transition-all duration-300 hover:shadow-xl hover:shadow-[#009bd7]/25 hover:scale-105"
+            >
+              Schedule a discovery call
+              <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+            </a>
+
+            <p className="text-sm text-gray-500 dark:text-gray-400 mt-6">
+              Prefer to write? Send us a note below.
             </p>
           </div>
 
@@ -129,7 +137,7 @@ export default function ContactForm({ initialMessage = '' }: ContactFormProps) {
                     value={formData.name}
                     onChange={handleChange}
                     required
-                    className="w-full px-4 sm:px-6 py-3 sm:py-4 border border-gray-200 dark:border-gray-600 rounded-xl sm:rounded-2xl focus:ring-2 focus:ring-[#009bd7]/20 focus:border-[#009bd7] dark:focus:border-[#00E1FF] bg-white/90 dark:bg-gray-700/90 text-gray-800 dark:text-white placeholder-gray-400 dark:placeholder-gray-400 transition-all duration-300 group-hover:shadow-lg backdrop-blur-sm text-sm sm:text-base"
+                    className="w-full px-4 sm:px-6 py-3 sm:py-4 border border-gray-200 dark:border-gray-600 rounded-xl sm:rounded-2xl focus:outline-none focus:ring-2 focus:ring-[#009bd7]/30 focus:border-[#009bd7] dark:focus:border-[#00E1FF] bg-white/90 dark:bg-gray-700/90 text-gray-800 dark:text-white placeholder-gray-400 dark:placeholder-gray-400 transition-all duration-300 group-hover:shadow-lg backdrop-blur-sm text-sm sm:text-base"
                     placeholder="Enter your full name"
                   />
                     <div className="absolute inset-0 rounded-xl sm:rounded-2xl bg-gradient-to-r from-[#009bd7]/0 to-[#00E1FF]/0 group-focus-within:from-[#009bd7]/5 group-focus-within:to-[#00E1FF]/5 transition-all duration-300 pointer-events-none"></div>
@@ -150,7 +158,7 @@ export default function ContactForm({ initialMessage = '' }: ContactFormProps) {
                     value={formData.email}
                     onChange={handleChange}
                     required
-                    className="w-full px-4 sm:px-6 py-3 sm:py-4 border border-gray-200 dark:border-gray-600 rounded-xl sm:rounded-2xl focus:ring-2 focus:ring-[#009bd7]/20 focus:border-[#009bd7] dark:focus:border-[#00E1FF] bg-white/90 dark:bg-gray-700/90 text-gray-800 dark:text-white placeholder-gray-400 dark:placeholder-gray-400 transition-all duration-300 group-hover:shadow-lg backdrop-blur-sm text-sm sm:text-base"
+                    className="w-full px-4 sm:px-6 py-3 sm:py-4 border border-gray-200 dark:border-gray-600 rounded-xl sm:rounded-2xl focus:outline-none focus:ring-2 focus:ring-[#009bd7]/30 focus:border-[#009bd7] dark:focus:border-[#00E1FF] bg-white/90 dark:bg-gray-700/90 text-gray-800 dark:text-white placeholder-gray-400 dark:placeholder-gray-400 transition-all duration-300 group-hover:shadow-lg backdrop-blur-sm text-sm sm:text-base"
                     placeholder="your.email@company.com"
                   />
                     <div className="absolute inset-0 rounded-xl sm:rounded-2xl bg-gradient-to-r from-[#009bd7]/0 to-[#00E1FF]/0 group-focus-within:from-[#009bd7]/5 group-focus-within:to-[#00E1FF]/5 transition-all duration-300 pointer-events-none"></div>
@@ -172,37 +180,9 @@ export default function ContactForm({ initialMessage = '' }: ContactFormProps) {
                     value={formData.website}
                     onChange={handleChange}
                     required
-                    className="w-full px-4 sm:px-6 py-3 sm:py-4 border border-gray-200 dark:border-gray-600 rounded-xl sm:rounded-2xl focus:ring-2 focus:ring-[#009bd7]/20 focus:border-[#009bd7] dark:focus:border-[#00E1FF] bg-white/90 dark:bg-gray-700/90 text-gray-800 dark:text-white placeholder-gray-400 dark:placeholder-gray-400 transition-all duration-300 group-hover:shadow-lg backdrop-blur-sm text-sm sm:text-base"
+                    className="w-full px-4 sm:px-6 py-3 sm:py-4 border border-gray-200 dark:border-gray-600 rounded-xl sm:rounded-2xl focus:outline-none focus:ring-2 focus:ring-[#009bd7]/30 focus:border-[#009bd7] dark:focus:border-[#00E1FF] bg-white/90 dark:bg-gray-700/90 text-gray-800 dark:text-white placeholder-gray-400 dark:placeholder-gray-400 transition-all duration-300 group-hover:shadow-lg backdrop-blur-sm text-sm sm:text-base"
                     placeholder="https://yourcompany.com"
                   />
-                  <div className="absolute inset-0 rounded-xl sm:rounded-2xl bg-gradient-to-r from-[#009bd7]/0 to-[#00E1FF]/0 group-focus-within:from-[#009bd7]/5 group-focus-within:to-[#00E1FF]/5 transition-all duration-300 pointer-events-none"></div>
-                </div>
-              </div>
-
-              {/* Budget Field */}
-              <div className="group">
-                <label htmlFor="budget" className="flex items-center gap-2 text-sm font-bold text-gray-700 dark:text-gray-200 mb-2 sm:mb-3">
-                  <CreditCard className="w-4 h-4 text-[#009bd7]" />
-                  Budget Range
-                </label>
-                <div className="relative">
-                  <select
-                    id="budget"
-                    name="budget"
-                    value={formData.budget}
-                    onChange={handleChange}
-                    required
-                    className="w-full px-4 sm:px-6 py-3 sm:py-4 border border-gray-200 dark:border-gray-600 rounded-xl sm:rounded-2xl focus:ring-2 focus:ring-[#009bd7]/20 focus:border-[#009bd7] dark:focus:border-[#00E1FF] bg-white/90 dark:bg-gray-700/90 text-gray-800 dark:text-white transition-all duration-300 group-hover:shadow-lg backdrop-blur-sm text-sm sm:text-base appearance-none"
-                  >
-                    <option value="">Select your budget range</option>
-                    <option value="Under $2,000">Under $2,000</option>
-                    <option value="$2,000 - $5,000">$2,000 - $5,000</option>
-                    <option value="$5,000 - $15,000">$5,000 - $15,000</option>
-                    <option value="$15,000 - $50,000">$15,000 - $50,000</option>
-                    <option value="$50,000 - $100,000">$50,000 - $100,000</option>
-                    <option value="$100,000+">$100,000+</option>
-                    <option value="Not sure yet">Not sure yet</option>
-                  </select>
                   <div className="absolute inset-0 rounded-xl sm:rounded-2xl bg-gradient-to-r from-[#009bd7]/0 to-[#00E1FF]/0 group-focus-within:from-[#009bd7]/5 group-focus-within:to-[#00E1FF]/5 transition-all duration-300 pointer-events-none"></div>
                 </div>
               </div>
@@ -221,7 +201,7 @@ export default function ContactForm({ initialMessage = '' }: ContactFormProps) {
                     onChange={handleChange}
                     required
                     rows={4}
-                    className="w-full px-4 sm:px-6 py-3 sm:py-4 border border-gray-200 dark:border-gray-600 rounded-xl sm:rounded-2xl focus:ring-2 focus:ring-[#009bd7]/20 focus:border-[#009bd7] dark:focus:border-[#00E1FF] bg-white/90 dark:bg-gray-700/90 text-gray-800 dark:text-white placeholder-gray-400 dark:placeholder-gray-400 transition-all duration-300 group-hover:shadow-lg backdrop-blur-sm resize-none text-sm sm:text-base"
+                    className="w-full px-4 sm:px-6 py-3 sm:py-4 border border-gray-200 dark:border-gray-600 rounded-xl sm:rounded-2xl focus:outline-none focus:ring-2 focus:ring-[#009bd7]/30 focus:border-[#009bd7] dark:focus:border-[#00E1FF] bg-white/90 dark:bg-gray-700/90 text-gray-800 dark:text-white placeholder-gray-400 dark:placeholder-gray-400 transition-all duration-300 group-hover:shadow-lg backdrop-blur-sm resize-none text-sm sm:text-base"
                     placeholder="Tell us about your project goals, timeline, and any specific requirements..."
                   />
                   <div className="absolute inset-0 rounded-xl sm:rounded-2xl bg-gradient-to-r from-[#009bd7]/0 to-[#00E1FF]/0 group-focus-within:from-[#009bd7]/5 group-focus-within:to-[#00E1FF]/5 transition-all duration-300 pointer-events-none"></div>

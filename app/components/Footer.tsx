@@ -34,8 +34,9 @@ export default function Footer() {
   ];
 
   const productLinks = [
-    { name: 'Systems', href: '/systems' },
     { name: 'Scale', href: '/scale' },
+    { name: 'Systems', href: '/systems' },
+    { name: 'Services', href: '/services' },
     { name: 'Staffing', href: '/staffing' },
   ];
 

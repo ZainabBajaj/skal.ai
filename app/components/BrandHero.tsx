@@ -79,10 +79,17 @@ const BrandHero = () => {
                 <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
               </Link>
             </div>
+
+            <p className="mt-6 text-sm text-gray-500 dark:text-gray-400 animate-fade-in-up" style={{ animationDelay: '380ms' }}>
+              Built by an AI team based in Dubai and Lahore.{' '}
+              <Link href="/about" className="font-semibold text-[#009bd7] dark:text-[#00E1FF] hover:underline">
+                Meet the team →
+              </Link>
+            </p>
           </div>
 
           {/* Right: convergence flow — work in, growth out */}
-          <div className="flex-1 w-full max-w-lg lg:max-w-none animate-fade-in-up relative" style={{ animationDelay: '380ms' }}>
+          <div className="flex-1 w-full max-w-lg lg:max-w-xl animate-fade-in-up relative" style={{ animationDelay: '380ms' }}>
             <svg viewBox="0 0 500 500" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" className="w-full h-auto">
               <defs>
                 <radialGradient id="bh-ambient" cx="50%" cy="50%" r="50%">
@@ -326,8 +333,8 @@ const BrandHero = () => {
                   }}
                 >
                   <div className="text-right whitespace-nowrap leading-tight">
-                    <div className={`text-[10px] font-bold tracking-[0.18em] ${n.labelClass}`}>{n.label}</div>
-                    <div className="text-[9px] text-gray-500 dark:text-gray-400 italic mt-0.5">{n.subtext}</div>
+                    <div className={`text-[11px] font-bold tracking-[0.18em] ${n.labelClass}`}>{n.label}</div>
+                    <div className="text-[10px] text-gray-500 dark:text-gray-400 italic mt-0.5">{n.subtext}</div>
                   </div>
                   <div
                     className="w-9 h-9 rounded-xl bg-white dark:bg-gray-900 border border-cyan-100 dark:border-[#00E1FF]/25 flex items-center justify-center shrink-0"
