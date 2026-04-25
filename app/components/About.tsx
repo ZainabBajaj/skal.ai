@@ -1,8 +1,5 @@
 "use client";
 import { useState, useEffect, useRef } from 'react';
-import Image from 'next/image';
-import Link from 'next/link';
-import { ArrowRight } from 'lucide-react';
 
 export default function About() {
   const [projectsCount, setProjectsCount] = useState(0);
@@ -90,12 +87,12 @@ export default function About() {
 
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-20">
         {/* Header Section */}
-        <div className="text-center mb-16 transform hover:scale-105 transition-transform duration-300">
+        <div className="text-center mb-16">
                       <div className="inline-flex items-center space-x-2 bg-gradient-to-r from-[#009bd7]/10 to-[#00E1FF]/10 dark:from-[#009bd7]/20 dark:to-[#00E1FF]/20 rounded-full px-6 py-2 mb-6 backdrop-blur-sm border border-[#009bd7]/20 dark:border-[#00E1FF]/30">
               <div className="w-2 h-2 bg-gradient-to-r from-[#009bd7] to-[#00E1FF] rounded-full"></div>
               <span className="text-[#009bd7] dark:text-[#00E1FF] text-sm font-bold tracking-wider">ABOUT US</span>
             </div>
-                      <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#0f172a] via-[#009bd7] to-[#00E1FF] dark:from-white dark:via-[#009bd7] dark:to-[#00E1FF] mb-6 leading-snug pb-1">
+                      <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-[#0f172a] dark:text-white mb-6 leading-snug pb-1">
               Pioneering Digital Excellence
             </h2>
             <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto leading-relaxed font-medium">
@@ -104,136 +101,6 @@ export default function About() {
               innovative solutions
             </span>
           </p>
-        </div>
-
-        {/* Enhanced Cards Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-10">
-          {/* Our Story */}
-          <div className="group relative bg-white/80 dark:bg-gray-800/80 backdrop-blur-xl p-8 pb-10 rounded-3xl shadow-2xl hover:shadow-3xl transition-all duration-500 hover:-translate-y-3 border border-white/50 dark:border-gray-700/50 overflow-hidden">
-            <div className="absolute inset-0 bg-gradient-to-br from-[#009bd7]/5 to-transparent rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-            {/* Glow effect */}
-            <div className="absolute inset-0 bg-gradient-to-r from-[#009bd7]/0 to-[#00E1FF]/0 group-hover:from-[#009bd7]/10 group-hover:to-[#00E1FF]/10 rounded-3xl transition-all duration-500"></div>
-            
-            <div className="relative z-10">
-              <div className="w-16 h-16 bg-gradient-to-br from-[#009bd7] to-[#00E1FF] rounded-2xl flex items-center justify-center mb-6 group-hover:scale-105 transition-all duration-300">
-                <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.746 0 3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
-                </svg>
-              </div>
-              <h3 className="text-xl font-bold text-[#0f172a] dark:text-white mb-4 group-hover:text-[#009bd7] transition-colors duration-300">
-                OUR STORY
-              </h3>
-              <p className="text-gray-600 dark:text-gray-300 leading-relaxed">
-                Founded with a vision to revolutionize digital transformation, we&apos;ve grown into a trusted partner for businesses seeking innovative solutions that drive real results.
-              </p>
-            </div>
-            {/* Hover effect bar */}
-            <div className="absolute bottom-0 left-0 right-0 h-1.5 bg-gradient-to-r from-[#009bd7] via-[#00E1FF] to-[#009bd7] rounded-b-3xl transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-center"></div>
-          </div>
-
-          {/* Our Mission */}
-          <div className="group relative bg-white/80 dark:bg-gray-800/80 backdrop-blur-xl p-8 pb-10 rounded-3xl shadow-2xl hover:shadow-3xl transition-all duration-500 hover:-translate-y-3 border border-white/50 dark:border-gray-700/50 overflow-hidden">
-            <div className="absolute inset-0 bg-gradient-to-br from-[#009bd7]/5 to-transparent rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-            {/* Glow effect */}
-            <div className="absolute inset-0 bg-gradient-to-r from-[#009bd7]/0 to-[#00E1FF]/0 group-hover:from-[#009bd7]/10 group-hover:to-[#00E1FF]/10 rounded-3xl transition-all duration-500"></div>
-
-            <div className="relative z-10">
-              <div className="w-16 h-16 bg-gradient-to-br from-[#009bd7] to-[#00E1FF] rounded-2xl flex items-center justify-center mb-6 group-hover:scale-105 transition-all duration-300">
-                <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
-                </svg>
-              </div>
-              <h3 className="text-xl font-bold text-[#0f172a] dark:text-white mb-4 group-hover:text-[#009bd7] transition-colors duration-300">
-                OUR MISSION
-              </h3>
-              <p className="text-gray-600 dark:text-gray-300 leading-relaxed">
-                To empower organizations with cutting-edge AI and development solutions that drive sustainable growth, innovation, and competitive advantage in the digital age.
-              </p>
-            </div>
-            {/* Hover effect bar */}
-            <div className="absolute bottom-0 left-0 right-0 h-1.5 bg-gradient-to-r from-[#009bd7] via-[#00E1FF] to-[#009bd7] rounded-b-3xl transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-center"></div>
-          </div>
-
-          {/* Our Vision */}
-          <div className="group relative bg-white/80 dark:bg-gray-800/80 backdrop-blur-xl p-8 pb-10 rounded-3xl shadow-2xl hover:shadow-3xl transition-all duration-500 hover:-translate-y-3 border border-white/50 dark:border-gray-700/50 overflow-hidden">
-            <div className="absolute inset-0 bg-gradient-to-br from-[#1DB5C5]/5 to-transparent rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-            {/* Glow effect */}
-            <div className="absolute inset-0 bg-gradient-to-r from-[#1DB5C5]/0 to-[#009bd7]/0 group-hover:from-[#1DB5C5]/10 group-hover:to-[#009bd7]/10 rounded-3xl transition-all duration-500"></div>
-
-            <div className="relative z-10">
-              <div className="w-16 h-16 bg-gradient-to-br from-[#1DB5C5] to-[#009bd7] rounded-2xl flex items-center justify-center mb-6 group-hover:scale-105 transition-all duration-300">
-                <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
-                </svg>
-              </div>
-              <h3 className="text-xl font-bold text-[#0f172a] dark:text-white mb-4 group-hover:text-[#1DB5C5] transition-colors duration-300">
-                OUR VISION
-              </h3>
-              <p className="text-gray-600 dark:text-gray-300 leading-relaxed">
-                To be the leading force in digital transformation, setting new standards in AI and software development excellence while shaping the future of technology.
-              </p>
-            </div>
-            {/* Hover effect bar */}
-            <div className="absolute bottom-0 left-0 right-0 h-1.5 bg-gradient-to-r from-[#1DB5C5] via-[#009bd7] to-[#1DB5C5] rounded-b-3xl transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-center"></div>
-          </div>
-        </div>
-
-        {/* Meet the Founder */}
-        <div className="mt-20 lg:mt-24 max-w-6xl mx-auto">
-          <div className="relative bg-white/80 dark:bg-gray-800/80 backdrop-blur-xl rounded-3xl shadow-2xl border border-white/50 dark:border-gray-700/50 overflow-hidden">
-            <div className="absolute inset-0 bg-gradient-to-br from-[#009bd7]/5 via-transparent to-[#00E1FF]/5 pointer-events-none"></div>
-            <div className="relative z-10 grid grid-cols-1 md:grid-cols-5 gap-8 md:gap-12 p-8 sm:p-10 lg:p-12 items-center">
-              {/* Portrait */}
-              <div className="md:col-span-2 flex justify-center md:justify-start">
-                <div className="relative group w-full max-w-xs">
-                  <div className="absolute -inset-2 bg-gradient-to-r from-[#009bd7] via-[#00E1FF] to-[#1DB5C5] rounded-3xl blur-xl opacity-25 group-hover:opacity-40 transition-opacity duration-500"></div>
-                  <div className="relative overflow-hidden rounded-3xl border border-white/60 dark:border-gray-700/60 shadow-xl">
-                    <Image
-                      src="/founder.jpg"
-                      alt="Portrait of the SKAL founder"
-                      width={800}
-                      height={1067}
-                      className="w-full h-auto object-cover"
-                    />
-                  </div>
-                </div>
-              </div>
-
-              {/* Story excerpt */}
-              <div className="md:col-span-3">
-                <div className="inline-flex items-center space-x-2 bg-gradient-to-r from-[#009bd7]/10 to-[#00E1FF]/10 dark:from-[#009bd7]/20 dark:to-[#00E1FF]/20 rounded-full px-5 py-1.5 mb-5 border border-[#009bd7]/20 dark:border-[#00E1FF]/30">
-                  <span className="text-[#009bd7] dark:text-[#00E1FF] text-xs font-bold tracking-wider">MEET THE FOUNDER</span>
-                </div>
-
-                <p className="text-xl sm:text-2xl font-semibold text-[#0f172a] dark:text-white mb-4 leading-snug">
-                  My first business was a pop-up fry stall. I was ten.
-                </p>
-
-                <p className="text-gray-600 dark:text-gray-300 leading-relaxed mb-6">
-                  I grew up in a family that ran businesses across spinning mills, FMCG, and banquet
-                  halls. Reading a balance sheet came before most other things. When AI agents arrived,
-                  it felt like the logical end of a thread I had been pulling since I was ten — a system
-                  that creates leverage, that works while you sleep, that lets you operate at the top of
-                  the value chain instead of being consumed by it.
-                </p>
-
-                <p className="text-gray-600 dark:text-gray-300 leading-relaxed mb-8">
-                  We are not generalists who discovered AI last year. We are{' '}
-                  <span className="font-semibold text-[#0f172a] dark:text-white">practitioners</span>{' '}
-                  who have been building toward this for a long time.
-                </p>
-
-                <Link
-                  href="/about"
-                  className="group inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-[#009bd7] to-[#00E1FF] text-white font-bold rounded-2xl transition-all duration-300 hover:shadow-xl hover:shadow-[#009bd7]/25 hover:scale-105"
-                >
-                  Read the full story
-                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                </Link>
-              </div>
-            </div>
-          </div>
         </div>
 
         {/* Enhanced Stats Section */}

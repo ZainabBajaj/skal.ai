@@ -1,6 +1,6 @@
 'use client';
 
-import { PartyPopper, Sparkles, User, Mail, Globe, Brain, Target, CreditCard, Send, ArrowRight, Clock, Code, MessageSquare } from 'lucide-react';
+import { PartyPopper, Sparkles, User, Mail, Globe, Brain, Target, CreditCard, Send, ArrowRight, Clock, Code, MessageSquare, ChevronDown } from 'lucide-react';
 import { useLeadForm } from '../hooks/useLeadForm';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
@@ -25,8 +25,8 @@ export default function MVPOffer() {
         {/* Animated Background Elements */}
         <div className="absolute inset-0 pointer-events-none">
           {/* Animated background gradients */}
-          <div className="absolute top-20 left-10 w-48 h-48 sm:w-72 sm:h-72 bg-gradient-to-r from-[#009bd7]/8 to-[#00E1FF]/6 rounded-full blur-3xl animate-pulse"></div>
-          <div className="absolute bottom-20 right-10 w-64 h-64 sm:w-96 sm:h-96 bg-gradient-to-r from-[#00E1FF]/6 to-purple-300/4 rounded-full blur-3xl animate-pulse" style={{animationDelay: '2s'}}></div>
+          <div className="absolute top-20 left-10 w-48 h-48 sm:w-72 sm:h-72 bg-gradient-to-r from-[#009bd7]/8 to-[#00E1FF]/6 rounded-full blur-3xl"></div>
+          <div className="absolute bottom-20 right-10 w-64 h-64 sm:w-96 sm:h-96 bg-gradient-to-r from-[#00E1FF]/6 to-purple-300/4 rounded-full blur-3xl"></div>
           <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-48 h-48 sm:w-64 sm:h-64 bg-gradient-to-r from-purple-300/4 to-pink-300/3 rounded-full blur-3xl animate-pulse" style={{animationDelay: '4s'}}></div>
         </div>
 
@@ -328,20 +328,3 @@ export default function MVPOffer() {
   );
 }
 
-// Helper component for dropdown icon
-function ChevronDown(props: React.SVGProps<SVGSVGElement>) {
-  return (
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="2"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      {...props}
-    >
-      <polyline points="6 9 12 15 18 9"></polyline>
-    </svg>
-  );
-} 

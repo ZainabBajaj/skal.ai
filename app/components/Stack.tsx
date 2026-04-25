@@ -88,7 +88,7 @@ const Stack = () => {
     }
     
     return (
-      <div className="w-12 h-12 relative mb-4 group-hover:scale-105 transition-all duration-300">
+      <div className="w-12 h-12 relative mb-4">
         <Image
           src={`/svgs/${svgPath}`}
           alt={tech.name}
@@ -139,9 +139,9 @@ const Stack = () => {
             <button
               key={tab}
               onClick={() => setActiveTab(tab)}
-              className={`relative px-6 py-4 rounded-2xl font-bold transition-all duration-500 m-1 transform hover:scale-105 ${
+              className={`relative px-6 py-4 rounded-2xl font-bold transition-all duration-300 m-1 ${
                 activeTab === tab
-                  ? 'bg-gradient-to-r from-[#009bd7] to-[#00E1FF] text-white shadow-xl scale-105 shadow-[#009bd7]/30'
+                  ? 'bg-gradient-to-r from-[#009bd7] to-[#00E1FF] text-white shadow-xl shadow-[#009bd7]/30'
                   : 'text-gray-600 dark:text-gray-300 hover:text-[#009bd7] hover:bg-white/80 dark:hover:bg-gray-700/80 hover:shadow-lg'
               }`}
             >
@@ -160,7 +160,7 @@ const Stack = () => {
               {Object.values(getDisplayedTechnologies()).flat().map((tech: Technology, index: number) => (
                 <div
                   key={`${tech.name}-${index}`}
-                  className={`group relative bg-gradient-to-br ${tech.bgGradient} dark:from-gray-800/80 dark:to-gray-700/80 rounded-3xl p-8 hover:shadow-2xl transition-all duration-500 border border-white/50 dark:border-gray-600/50 hover:border-[#009bd7]/30 hover:scale-105 cursor-pointer backdrop-blur-sm overflow-hidden`}
+                  className={`group relative bg-gradient-to-br ${tech.bgGradient} dark:from-gray-800/80 dark:to-gray-700/80 rounded-3xl p-8 hover:shadow-2xl transition-all duration-500 border border-white/50 dark:border-gray-600/50 hover:border-[#009bd7]/30 backdrop-blur-sm overflow-hidden`}
                   style={{
                     animationDelay: `${index * 100}ms`,
                   }}
@@ -194,7 +194,7 @@ const Stack = () => {
                   {techs.map((tech: Technology, index: number) => (
                     <div
                       key={`${tech.name}-${index}`}
-                      className={`group relative bg-gradient-to-br ${tech.bgGradient} dark:from-gray-800/80 dark:to-gray-700/80 rounded-3xl p-8 hover:shadow-2xl transition-all duration-500 border border-white/50 dark:border-gray-600/50 hover:border-[#009bd7]/30 hover:scale-105 cursor-pointer backdrop-blur-sm overflow-hidden`}
+                      className={`group relative bg-gradient-to-br ${tech.bgGradient} dark:from-gray-800/80 dark:to-gray-700/80 rounded-3xl p-8 hover:shadow-2xl transition-all duration-500 border border-white/50 dark:border-gray-600/50 hover:border-[#009bd7]/30 backdrop-blur-sm overflow-hidden`}
                       style={{
                         animationDelay: `${index * 100}ms`,
                       }}
@@ -212,9 +212,6 @@ const Stack = () => {
                           {tech.name}
                         </h3>
                         
-                        {/* Animated particles */}
-                        <div className="absolute top-2 right-2 w-2 h-2 bg-[#00E1FF] rounded-full opacity-0 group-hover:opacity-100 group-hover:animate-ping transition-opacity duration-300"></div>
-                        <div className="absolute bottom-2 left-2 w-1 h-1 bg-[#009bd7] rounded-full opacity-0 group-hover:opacity-100 group-hover:animate-pulse transition-opacity duration-300" style={{animationDelay: '200ms'}}></div>
                       </div>
                       
                       {/* Enhanced hover effect bar */}

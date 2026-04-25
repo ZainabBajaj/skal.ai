@@ -1,6 +1,6 @@
 'use client';
 
-import { User, Mail, Brain, Target, CreditCard, Send, ArrowRight, Clock, Building2 } from 'lucide-react';
+import { User, Mail, Brain, Target, CreditCard, Send, ArrowRight, Clock, Building2, ChevronDown } from 'lucide-react';
 import { useLeadForm } from '../hooks/useLeadForm';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
@@ -22,72 +22,12 @@ export default function EnterpriseOffer() {
       <Navbar />
       
       <section className="pt-32 pb-16 sm:pt-36 sm:pb-20 lg:pt-40 lg:pb-24 relative overflow-hidden bg-white dark:bg-gray-800">
-        {/* Footer-style Background Elements - Both Light and Dark Mode */}
-        <div className="absolute inset-0 pointer-events-none">
-          {/* Subtle wavy lines pattern like footer */}
-          <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-gray-400/30 to-transparent animate-pulse"></div>
-          <div className="absolute top-1/4 left-0 w-full h-1 bg-gradient-to-r from-transparent via-gray-400/20 to-transparent animate-pulse" style={{animationDelay: '1s'}}></div>
-          <div className="absolute top-1/2 left-0 w-full h-1 bg-gradient-to-r from-transparent via-gray-400/25 to-transparent animate-pulse" style={{animationDelay: '2s'}}></div>
-          <div className="absolute top-3/4 left-0 w-full h-1 bg-gradient-to-r from-transparent via-gray-400/15 to-transparent animate-pulse" style={{animationDelay: '3s'}}></div>
-          <div className="absolute bottom-0 right-0 w-full h-1 bg-gradient-to-r from-transparent via-gray-400/20 to-transparent animate-pulse" style={{animationDelay: '4s'}}></div>
-          
-          {/* Subtle background pattern overlay */}
-          <div className="absolute inset-0 bg-gradient-to-br from-gray-700/10 via-transparent to-gray-600/10 pointer-events-none"></div>
-          
-          {/* Enterprise-specific animated objects */}
-          {/* Buildings */}
-          <div className="absolute top-20 left-20 w-10 h-10 text-purple-400/30 animate-float">
-            <svg fill="currentColor" viewBox="0 0 24 24">
-              <path d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/>
-            </svg>
-          </div>
-          <div className="absolute top-40 right-32 w-8 h-8 text-blue-400/25 animate-float" style={{animationDelay: '2s'}}>
-            <svg fill="currentColor" viewBox="0 0 24 24">
-              <path d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/>
-            </svg>
-          </div>
-          
-          {/* Gears */}
-          <div className="absolute top-60 left-1/4 w-12 h-12 text-purple-500/20 animate-spin-slow">
-            <svg fill="currentColor" viewBox="0 0 24 24">
-              <path d="M12 2C13.1 2 14 2.9 14 4C14 5.1 13.1 6 12 6C10.9 6 10 5.1 10 4C10 2.9 10.9 2 12 2ZM21 9V7L19 6.5C18.8 6.2 18.6 5.9 18.4 5.7L19 4L17 2L15.3 2.6C15.1 2.4 14.8 2.2 14.5 2.1L14 0H10L9.5 2.1C9.2 2.2 8.9 2.4 8.7 2.6L7 2L5 4L5.6 5.7C5.4 5.9 5.2 6.2 5 6.5L3 7V9L5 9.5C5.2 9.8 5.4 10.1 5.6 10.3L5 12L7 14L8.7 13.4C8.9 13.6 9.2 13.8 9.5 13.9L10 16H14L14.5 13.9C14.8 13.8 15.1 13.6 15.3 13.4L17 14L19 12L18.4 10.3C18.6 10.1 18.8 9.8 19 9.5L21 9Z"/>
-            </svg>
-          </div>
-          <div className="absolute top-80 right-1/3 w-10 h-10 text-blue-500/15 animate-spin-slow" style={{animationDelay: '1.5s'}}>
-            <svg fill="currentColor" viewBox="0 0 24 24">
-              <path d="M12 2C13.1 2 14 2.9 14 4C14 5.1 13.1 6 12 6C10.9 6 10 5.1 10 4C10 2.9 10.9 2 12 2ZM21 9V7L19 6.5C18.8 6.2 18.6 5.9 18.4 5.7L19 4L17 2L15.3 2.6C15.1 2.4 14.8 2.2 14.5 2.1L14 0H10L9.5 2.1C9.2 2.2 8.9 2.4 8.7 2.6L7 2L5 4L5.6 5.7C5.4 5.9 5.2 6.2 5 6.5L3 7V9L5 9.5C5.2 9.8 5.4 10.1 5.6 10.3L5 12L7 14L8.7 13.4C8.9 13.6 9.2 13.8 9.5 13.9L10 16H14L14.5 13.9C14.8 13.8 15.1 13.6 15.3 13.4L17 14L19 12L18.4 10.3C18.6 10.1 18.8 9.8 19 9.5L21 9Z"/>
-            </svg>
-          </div>
-          
-          {/* Network nodes */}
-          <div className="absolute bottom-40 left-1/3 w-8 h-8 text-purple-400/20 animate-pulse">
-            <svg fill="currentColor" viewBox="0 0 24 24">
-              <path d="M12 2C13.1 2 14 2.9 14 4C14 5.1 13.1 6 12 6C10.9 6 10 5.1 10 4C10 2.9 10.9 2 12 2ZM21 9V7L19 6.5C18.8 6.2 18.6 5.9 18.4 5.7L19 4L17 2L15.3 2.6C15.1 2.4 14.8 2.2 14.5 2.1L14 0H10L9.5 2.1C9.2 2.2 8.9 2.4 8.7 2.6L7 2L5 4L5.6 5.7C5.4 5.9 5.2 6.2 5 6.5L3 7V9L5 9.5C5.2 9.8 5.4 10.1 5.6 10.3L5 12L7 14L8.7 13.4C8.9 13.6 9.2 13.8 9.5 13.9L10 16H14L14.5 13.9C14.8 13.8 15.1 13.6 15.3 13.4L17 14L19 12L18.4 10.3C18.6 10.1 18.8 9.8 19 9.5L21 9Z"/>
-            </svg>
-          </div>
-          <div className="absolute bottom-60 right-1/4 w-6 h-6 text-blue-400/15 animate-pulse" style={{animationDelay: '0.5s'}}>
-            <svg fill="currentColor" viewBox="0 0 24 24">
-              <path d="M12 2C13.1 2 14 2.9 14 4C14 5.1 13.1 6 12 6C10.9 6 10 5.1 10 4C10 2.9 10.9 2 12 2ZM21 9V7L19 6.5C18.8 6.2 18.6 5.9 18.4 5.7L19 4L17 2L15.3 2.6C15.1 2.4 14.8 2.2 14.5 2.1L14 0H10L9.5 2.1C9.2 2.2 8.9 2.4 8.7 2.6L7 2L5 4L5.6 5.7C5.4 5.9 5.2 6.2 5 6.5L3 7V9L5 9.5C5.2 9.8 5.4 10.1 5.6 10.3L5 12L7 14L8.7 13.4C8.9 13.6 9.2 13.8 9.5 13.9L10 16H14L14.5 13.9C14.8 13.8 15.1 13.6 15.3 13.4L17 14L19 12L18.4 10.3C18.6 10.1 18.8 9.8 19 9.5L21 9Z"/>
-            </svg>
-          </div>
-          
-          {/* Corporate charts */}
-          <div className="absolute top-1/3 left-1/6 w-8 h-8 text-purple-300/40 animate-bounce">
-            <svg fill="currentColor" viewBox="0 0 24 24">
-              <path d="M3 3V21H21M7 17L11 13L15 15L21 9"/>
-            </svg>
-          </div>
-          <div className="absolute top-2/3 right-1/6 w-6 h-6 text-blue-300/35 animate-bounce" style={{animationDelay: '1s'}}>
-            <svg fill="currentColor" viewBox="0 0 24 24">
-              <path d="M3 3V21H21M7 17L11 13L15 15L21 9"/>
-            </svg>
-          </div>
-        </div>
+        <div className="absolute inset-0 pointer-events-none bg-gradient-to-br from-gray-700/5 via-transparent to-gray-600/5"></div>
 
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           {/* Header */}
           <div className="text-center mb-10 sm:mb-16">
-            <div className="inline-flex items-center space-x-2 bg-gradient-to-r from-gray-800/20 to-blue-800/20 dark:from-gray-700/30 dark:to-blue-700/30 rounded-full px-4 sm:px-6 py-2 mb-4 sm:mb-6 backdrop-blur-sm border border-gray-700/20 dark:border-blue-700/30 animate-pulse">
+            <div className="inline-flex items-center space-x-2 bg-gradient-to-r from-gray-800/20 to-blue-800/20 dark:from-gray-700/30 dark:to-blue-700/30 rounded-full px-4 sm:px-6 py-2 mb-4 sm:mb-6 backdrop-blur-sm border border-gray-700/20 dark:border-blue-700/30">
               <Building2 className="w-4 h-4 sm:w-5 sm:h-5 text-gray-600 dark:text-blue-400" />
               <span className="text-gray-700 dark:text-blue-400 text-xs sm:text-sm font-bold tracking-wider">ENTERPRISE PACKAGE</span>
               <Building2 className="w-4 h-4 sm:w-5 sm:h-5 text-gray-600 dark:text-blue-400" />
@@ -377,19 +317,3 @@ export default function EnterpriseOffer() {
 }
 
 // Helper component for dropdown icon
-function ChevronDown(props: React.SVGProps<SVGSVGElement>) {
-  return (
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="2"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      {...props}
-    >
-      <polyline points="6 9 12 15 18 9"></polyline>
-    </svg>
-  );
-} 

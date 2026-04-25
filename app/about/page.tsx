@@ -141,7 +141,7 @@ export default function AboutPage() {
                 Want to see what practitioners build?
               </h2>
               <p className="text-gray-300 text-lg mb-10 max-w-2xl mx-auto">
-                Start a conversation. No pitch decks, no fluff — just a discovery call to understand the
+                Start a conversation. No pitch decks, no fluff. Just a discovery call to understand the
                 shape of your problem.
               </p>
 

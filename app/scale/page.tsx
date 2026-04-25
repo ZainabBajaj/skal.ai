@@ -3,6 +3,7 @@
 import { TrendingUp, Zap, Target, BarChart3, Send, ArrowRight, Sparkles, Mail, Clock, CheckCircle } from 'lucide-react';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
+import HowItWorks from '../components/HowItWorks';
 
 import FloatingThemeToggle from '../components/FloatingThemeToggle';
 import { useLeadForm } from '../hooks/useLeadForm';
@@ -51,7 +52,7 @@ export default function ScalePage() {
     {
       step: '03',
       title: 'Engage',
-      description: 'Automated personalized outreach across email, LinkedIn, and more — at scale.',
+      description: 'Automated personalized outreach across email, LinkedIn, and more, at scale.',
     },
     {
       step: '04',
@@ -88,13 +89,12 @@ export default function ScalePage() {
                 </span>
               </h1>
 
-              <p className="text-lg sm:text-xl text-gray-600 dark:text-gray-300 max-w-xl mx-auto lg:mx-0 leading-relaxed mb-4">
-                The outbound lead generation platform that 10X&apos;s your revenue.
-                AI-powered prospecting, automated outreach, and intelligent pipeline management — all in one place.
+              <p className="text-lg text-[#009bd7] dark:text-[#00E1FF] font-semibold max-w-xl mx-auto lg:mx-0 mb-4">
+                For B2B founders who are done doing outbound manually.
               </p>
 
-              <p className="text-base text-[#009bd7] dark:text-[#00E1FF] font-semibold mb-8">
-                Be the first to access SKAL Scale. Join the waitlist.
+              <p className="text-lg sm:text-xl text-gray-600 dark:text-gray-300 max-w-xl mx-auto lg:mx-0 leading-relaxed mb-8">
+                Your pipeline should not depend on how hard you hustle. SKAL Scale runs your entire B2B outbound operation. Prospecting powered by AI, personalised sequences at scale, and a proprietary contact database built in-house that you cannot access anywhere else. We handle the entire stack. You show up to the meetings. Priced per qualified meeting, so you only pay for results.
               </p>
 
               <a
@@ -106,7 +106,7 @@ export default function ScalePage() {
               </a>
             </div>
 
-            {/* Right: Abstract Visual — Growth / Pipeline funnel */}
+            {/* Right: Abstract Visual: Growth / Pipeline funnel */}
             <div className="flex-1 w-full max-w-lg lg:max-w-none">
               <svg viewBox="0 0 500 500" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" className="w-full h-auto">
                 <defs>
@@ -200,7 +200,7 @@ export default function ScalePage() {
                   <animate attributeName="opacity" values="0;0.75;0.75;0" keyTimes="0;0.1;0.85;1" dur="3.1s" begin="1.8s" repeatCount="indefinite" />
                 </circle>
 
-                {/* Deal output — glowing cluster */}
+                {/* Deal output: glowing cluster */}
                 <circle cx="250" cy="420" r="30" fill="url(#sc-deal)" />
                 <circle cx="250" cy="420" r="10" fill="#1DB5C5" filter="url(#sc-glow)" />
                 <circle cx="250" cy="420" r="20" fill="none" stroke="#1DB5C5" strokeWidth="1.5">
@@ -234,7 +234,7 @@ export default function ScalePage() {
               Everything You Need to Scale
             </h2>
             <p className="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
-              One platform to find, engage, and convert your ideal customers — powered by AI.
+              One platform to find, engage, and convert your ideal customers, powered by AI.
             </p>
           </div>
 
@@ -249,7 +249,7 @@ export default function ScalePage() {
                   <div className="absolute inset-0 bg-gradient-to-br from-[#009bd7]/5 to-transparent rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
 
                   <div className="relative z-10">
-                    <div className="w-14 h-14 bg-gradient-to-br from-[#009bd7] to-[#00E1FF] rounded-2xl flex items-center justify-center mb-6 group-hover:scale-105 transition-all duration-300">
+                    <div className="w-14 h-14 bg-gradient-to-br from-[#009bd7] to-[#00E1FF] rounded-2xl flex items-center justify-center mb-6">
                       <Icon className="w-7 h-7 text-white" />
                     </div>
                     <h3 className="text-xl font-bold text-[#0f172a] dark:text-white mb-3 group-hover:text-[#009bd7] transition-colors">
@@ -268,35 +268,12 @@ export default function ScalePage() {
         </div>
       </section>
 
-      {/* How It Works */}
-      <section className="py-20 lg:py-28 relative bg-gradient-to-br from-slate-50 via-white to-blue-50 dark:from-gray-900 dark:via-gray-800 dark:to-blue-900">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <div className="inline-flex items-center space-x-2 bg-gradient-to-r from-[#009bd7]/10 to-[#00E1FF]/10 dark:from-[#009bd7]/20 dark:to-[#00E1FF]/20 rounded-full px-6 py-2 mb-6 border border-[#009bd7]/20 dark:border-[#00E1FF]/30">
-              <Clock className="w-4 h-4 text-[#009bd7] dark:text-[#00E1FF]" />
-              <span className="text-[#009bd7] dark:text-[#00E1FF] text-sm font-bold tracking-wider">HOW IT WORKS</span>
-            </div>
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#0f172a] via-[#009bd7] to-[#00E1FF] dark:from-white dark:via-[#009bd7] dark:to-[#00E1FF] mb-6 leading-snug pb-1">
-              From Zero to Pipeline in Days
-            </h2>
-          </div>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl mx-auto">
-            {steps.map((item, index) => (
-              <div key={item.step} className="relative text-center group">
-                {index < steps.length - 1 && (
-                  <div className="hidden lg:block absolute top-10 left-[60%] w-[80%] h-0.5 bg-gradient-to-r from-[#009bd7]/30 to-[#00E1FF]/30"></div>
-                )}
-                <div className="w-20 h-20 mx-auto mb-6 bg-gradient-to-br from-[#009bd7] to-[#00E1FF] rounded-2xl flex items-center justify-center shadow-lg group-hover:scale-105 transition-all duration-300">
-                  <span className="text-2xl font-bold text-white">{item.step}</span>
-                </div>
-                <h3 className="text-xl font-bold text-[#0f172a] dark:text-white mb-3">{item.title}</h3>
-                <p className="text-gray-600 dark:text-gray-300 leading-relaxed text-sm">{item.description}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+      <HowItWorks
+        title="From Zero to Pipeline in Days"
+        steps={steps}
+        tone="cyan"
+        badge={{ icon: Clock, label: 'HOW IT WORKS' }}
+      />
 
       {/* Value Props */}
       <section className="py-20 lg:py-28 relative bg-white dark:bg-gray-800">

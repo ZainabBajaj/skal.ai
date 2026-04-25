@@ -136,7 +136,7 @@ export default function RootLayout({
                   if (response.ok) {
                     const result = await response.json();
                     if (result.detected) {
-                      // Bot detected — no action needed
+                      // Bot detected, no action needed
                     }
                   }
                 } catch (error) {
