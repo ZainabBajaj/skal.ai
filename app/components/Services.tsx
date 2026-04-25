@@ -7,7 +7,7 @@ const Services = () => {
   return (
           <section 
         id="services" 
-        className="relative py-24 bg-gradient-to-br from-slate-50 via-white to-blue-50 dark:from-gray-900 dark:via-gray-800 dark:to-blue-900 overflow-hidden"
+        className="relative py-24 bg-white dark:bg-gray-900 overflow-hidden"
       >
       {/* Background */}
       <div className="absolute inset-0 pointer-events-none z-5">
@@ -42,14 +42,14 @@ const Services = () => {
               <div className="group relative bg-gradient-to-br from-blue-50 via-cyan-50 to-sky-50 dark:from-blue-900/30 dark:via-cyan-900/20 dark:to-sky-900/30 backdrop-blur-xl rounded-2xl sm:rounded-3xl shadow-2xl p-6 sm:p-8 lg:p-10 xl:p-12 border border-blue-200/50 dark:border-blue-700/50 hover:shadow-3xl hover:shadow-[#009bd7]/20 transition-all duration-500 hover:-translate-y-2 cursor-pointer overflow-hidden min-h-[400px] sm:min-h-[500px]">
                 {/* Animated background elements */}
                 <div className="absolute inset-0 bg-gradient-to-br from-[#009bd7]/5 via-cyan-500/5 to-[#00E1FF]/5 pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-[#009bd7]/20 to-cyan-400/20 rounded-full blur-3xl group-hover:scale-150 transition-transform duration-700"></div>
-                <div className="absolute bottom-0 left-0 w-24 h-24 bg-gradient-to-tr from-[#00E1FF]/20 to-[#009bd7]/20 rounded-full blur-2xl group-hover:scale-125 transition-transform duration-700"></div>
+                <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-[#009bd7]/20 to-cyan-400/20 rounded-full blur-3xl transition-opacity duration-700"></div>
+                <div className="absolute bottom-0 left-0 w-24 h-24 bg-gradient-to-tr from-[#00E1FF]/20 to-[#009bd7]/20 rounded-full blur-2xl transition-opacity duration-700"></div>
                 
                 
                 <div className="relative z-10">
                   {/* Icon */}
                   <div className="flex justify-center mb-6">
-                    <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-cyan-500 rounded-2xl flex items-center justify-center group-hover:scale-105 transition-all duration-500 shadow-lg">
+                    <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-cyan-500 rounded-2xl flex items-center justify-center shadow-lg">
                       <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
                       </svg>
@@ -99,14 +99,14 @@ const Services = () => {
               <div className="group relative bg-gradient-to-br from-gray-900 via-[#0f172a] to-[#0c2d4a] backdrop-blur-xl rounded-3xl shadow-2xl p-10 sm:p-12 border border-gray-700/50 hover:shadow-3xl hover:shadow-[#009bd7]/20 transition-all duration-500 hover:-translate-y-2 cursor-pointer overflow-hidden min-h-[500px]">
                 {/* Animated background elements */}
                 <div className="absolute inset-0 bg-gradient-to-br from-[#009bd7]/10 via-[#00E1FF]/10 to-[#1DB5C5]/10 pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-[#009bd7]/20 to-[#00E1FF]/20 rounded-full blur-3xl group-hover:scale-150 transition-transform duration-700"></div>
-                <div className="absolute bottom-0 left-0 w-24 h-24 bg-gradient-to-tr from-[#00E1FF]/20 to-[#1DB5C5]/20 rounded-full blur-2xl group-hover:scale-125 transition-transform duration-700"></div>
+                <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-[#009bd7]/20 to-[#00E1FF]/20 rounded-full blur-3xl transition-opacity duration-700"></div>
+                <div className="absolute bottom-0 left-0 w-24 h-24 bg-gradient-to-tr from-[#00E1FF]/20 to-[#1DB5C5]/20 rounded-full blur-2xl transition-opacity duration-700"></div>
 
 
                 <div className="relative z-10">
                   {/* Icon */}
                   <div className="flex justify-center mb-6">
-                    <div className="w-16 h-16 bg-gradient-to-br from-[#009bd7] to-[#00E1FF] rounded-2xl flex items-center justify-center group-hover:scale-105 transition-all duration-500 shadow-lg">
+                    <div className="w-16 h-16 bg-gradient-to-br from-[#009bd7] to-[#00E1FF] rounded-2xl flex items-center justify-center shadow-lg">
                       <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
                       </svg>
@@ -156,14 +156,14 @@ const Services = () => {
               <div className="group relative bg-gradient-to-br from-red-50 via-orange-50 to-amber-50 dark:from-red-900/30 dark:via-orange-900/20 dark:to-amber-900/30 backdrop-blur-xl rounded-3xl shadow-2xl p-10 sm:p-12 border border-red-200/50 dark:border-red-700/50 hover:shadow-3xl hover:shadow-red-500/20 transition-all duration-500 hover:-translate-y-2 cursor-pointer overflow-hidden min-h-[500px]">
                 {/* Animated background elements */}
                 <div className="absolute inset-0 bg-gradient-to-br from-red-500/5 via-orange-500/5 to-amber-500/5 pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-red-400/20 to-orange-400/20 rounded-full blur-3xl group-hover:scale-150 transition-transform duration-700"></div>
-                <div className="absolute bottom-0 left-0 w-24 h-24 bg-gradient-to-tr from-orange-400/20 to-amber-400/20 rounded-full blur-2xl group-hover:scale-125 transition-transform duration-700"></div>
+                <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-red-400/20 to-orange-400/20 rounded-full blur-3xl transition-opacity duration-700"></div>
+                <div className="absolute bottom-0 left-0 w-24 h-24 bg-gradient-to-tr from-orange-400/20 to-amber-400/20 rounded-full blur-2xl transition-opacity duration-700"></div>
                 
                 
                 <div className="relative z-10">
                   {/* Icon */}
                   <div className="flex justify-center mb-6">
-                    <div className="w-16 h-16 bg-gradient-to-br from-red-500 to-orange-500 rounded-2xl flex items-center justify-center group-hover:scale-105 transition-all duration-500 shadow-lg">
+                    <div className="w-16 h-16 bg-gradient-to-br from-red-500 to-orange-500 rounded-2xl flex items-center justify-center shadow-lg">
                       <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.964-.833-2.732 0L3.732 16.5c-.77.833.192 2.5 1.732 2.5z" />
                       </svg>
@@ -217,13 +217,13 @@ const Services = () => {
               >
                 {/* Background effects */}
                 <div className="absolute inset-0 bg-gradient-to-br from-[#009bd7]/10 via-transparent to-[#1DB5C5]/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-bl from-[#1DB5C5]/20 to-transparent rounded-full blur-3xl group-hover:scale-150 transition-transform duration-700"></div>
-                <div className="absolute bottom-0 left-0 w-24 h-24 bg-gradient-to-tr from-[#009bd7]/20 to-transparent rounded-full blur-2xl group-hover:scale-125 transition-transform duration-700"></div>
+                <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-bl from-[#1DB5C5]/20 to-transparent rounded-full blur-3xl transition-opacity duration-700"></div>
+                <div className="absolute bottom-0 left-0 w-24 h-24 bg-gradient-to-tr from-[#009bd7]/20 to-transparent rounded-full blur-2xl transition-opacity duration-700"></div>
 
                 <div className="relative z-10">
                   {/* Icon */}
                   <div className="flex justify-center mb-6">
-                    <div className="w-16 h-16 bg-gradient-to-br from-[#1DB5C5] to-[#009bd7] rounded-2xl flex items-center justify-center group-hover:scale-105 transition-all duration-500 shadow-lg">
+                    <div className="w-16 h-16 bg-gradient-to-br from-[#1DB5C5] to-[#009bd7] rounded-2xl flex items-center justify-center shadow-lg">
                       <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
                       </svg>
@@ -235,7 +235,7 @@ const Services = () => {
                   </h3>
 
                   <p className="text-gray-300 text-center mb-8 leading-relaxed">
-                    Embed pre-vetted engineers from the top 5% directly into your team — no recruiting, no ramp-up
+                    Embed pre-vetted engineers from the top 5% directly into your team. No recruiting, no ramp-up
                   </p>
 
                   {/* Features */}

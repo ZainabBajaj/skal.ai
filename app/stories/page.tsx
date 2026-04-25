@@ -18,7 +18,7 @@ const stories: Story[] = [
   {
     title: 'Why most AI pilots fail before they ship',
     excerpt:
-      'Every company wants AI. Most pilots die in the gap between "interesting demo" and "production system." Here is what we see on the ground — and the three decisions that separate the ones that make it.',
+      'Every company wants AI. Most pilots die in the gap between "interesting demo" and "production system." Here is what we see on the ground, and the three decisions that separate the ones that make it.',
     tag: 'Field Notes',
     readTime: '6 min',
     date: 'Coming soon',
@@ -99,7 +99,7 @@ export default function StoriesPage() {
           </h1>
 
           <p className="text-lg sm:text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto leading-relaxed">
-            Essays, playbooks, and case studies on building AI systems that actually ship — and the
+            Essays, playbooks, and case studies on building AI systems that actually ship, and the
             decisions that separate the ones that make it from the ones that don&apos;t.
           </p>
         </div>
@@ -200,7 +200,7 @@ export default function StoriesPage() {
               First to read, first to build.
             </h2>
             <p className="text-lg text-gray-600 dark:text-gray-300 mb-10">
-              New stories land roughly every two weeks. No marketing fluff, no filler — just what we&apos;re
+              New stories land roughly every two weeks. No marketing fluff, no filler. Just what we&apos;re
               learning on the build floor.
             </p>
             <a

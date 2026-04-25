@@ -32,8 +32,8 @@ export default function FloatingThemeToggle() {
       <button
         onClick={handleClick}
         className={`
-          group relative w-14 h-14 rounded-full shadow-lg transition-all duration-150 
-          ${isPressed ? 'scale-95' : 'scale-100 hover:scale-110'}
+          group relative w-14 h-14 rounded-full shadow-lg transition-all duration-150
+          ${isPressed ? 'scale-95' : 'scale-100'}
           ${resolvedTheme === 'dark' 
             ? 'bg-gray-800 hover:bg-gray-700 text-white shadow-gray-900/50' 
             : 'bg-white hover:bg-gray-50 text-gray-800 shadow-gray-900/20'
@@ -49,7 +49,7 @@ export default function FloatingThemeToggle() {
             ? 'bg-gradient-to-r from-[#009bd7]/20 to-[#00E1FF]/20' 
             : 'bg-gradient-to-r from-[#009bd7]/10 to-[#00E1FF]/10'
           }
-          ${isPressed ? 'scale-90 opacity-50' : 'scale-100 opacity-0 group-hover:opacity-100'}
+          ${isPressed ? 'opacity-50' : 'opacity-0 group-hover:opacity-100'}
         `} />
         
         {/* Icon */}

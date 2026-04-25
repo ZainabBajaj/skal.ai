@@ -22,79 +22,12 @@ export default function RescueOffer() {
       <Navbar />
       
       <section className="pt-32 pb-16 sm:pt-36 sm:pb-20 lg:pt-40 lg:pb-24 relative overflow-hidden bg-white dark:bg-gray-800">
-        {/* Footer-style Background Elements - Both Light and Dark Mode */}
-        <div className="absolute inset-0 pointer-events-none">
-          {/* Subtle wavy lines pattern like footer */}
-          <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-gray-400/30 to-transparent animate-pulse"></div>
-          <div className="absolute top-1/4 left-0 w-full h-1 bg-gradient-to-r from-transparent via-gray-400/20 to-transparent animate-pulse" style={{animationDelay: '1s'}}></div>
-          <div className="absolute top-1/2 left-0 w-full h-1 bg-gradient-to-r from-transparent via-gray-400/25 to-transparent animate-pulse" style={{animationDelay: '2s'}}></div>
-          <div className="absolute top-3/4 left-0 w-full h-1 bg-gradient-to-r from-transparent via-gray-400/15 to-transparent animate-pulse" style={{animationDelay: '3s'}}></div>
-          <div className="absolute bottom-0 right-0 w-full h-1 bg-gradient-to-r from-transparent via-gray-400/20 to-transparent animate-pulse" style={{animationDelay: '4s'}}></div>
-          
-          {/* Subtle background pattern overlay */}
-          <div className="absolute inset-0 bg-gradient-to-br from-gray-700/10 via-transparent to-gray-600/10 pointer-events-none"></div>
-          
-          {/* Rescue-specific animated objects */}
-          {/* Wrenches */}
-          <div className="absolute top-20 left-20 w-10 h-10 text-orange-400/30 animate-float">
-            <svg fill="currentColor" viewBox="0 0 24 24">
-              <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/>
-            </svg>
-          </div>
-          <div className="absolute top-40 right-32 w-8 h-8 text-red-400/25 animate-float" style={{animationDelay: '2s'}}>
-            <svg fill="currentColor" viewBox="0 0 24 24">
-              <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/>
-            </svg>
-          </div>
-          
-          {/* Warning triangles */}
-          <div className="absolute top-60 left-1/4 w-12 h-12 text-orange-500/20 animate-pulse">
-            <svg fill="currentColor" viewBox="0 0 24 24">
-              <path d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.964-.833-2.732 0L3.732 16.5c-.77.833.192 2.5 1.732 2.5z"/>
-            </svg>
-          </div>
-          <div className="absolute top-80 right-1/3 w-10 h-10 text-red-500/15 animate-pulse" style={{animationDelay: '1.5s'}}>
-            <svg fill="currentColor" viewBox="0 0 24 24">
-              <path d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.964-.833-2.732 0L3.732 16.5c-.77.833.192 2.5 1.732 2.5z"/>
-            </svg>
-          </div>
-          
-          {/* Screwdrivers */}
-          <div className="absolute bottom-40 left-1/3 w-8 h-8 text-orange-400/20 animate-bounce">
-            <svg fill="currentColor" viewBox="0 0 24 24">
-              <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/>
-            </svg>
-          </div>
-          <div className="absolute bottom-60 right-1/4 w-6 h-6 text-red-400/15 animate-bounce" style={{animationDelay: '0.5s'}}>
-            <svg fill="currentColor" viewBox="0 0 24 24">
-              <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/>
-            </svg>
-          </div>
-          
-          {/* Emergency lights */}
-          <div className="absolute top-1/3 left-1/6 w-4 h-4 text-orange-300/40 animate-ping">
-            <svg fill="currentColor" viewBox="0 0 24 24">
-              <path d="M12 2L13.09 8.26L22 9L13.09 9.74L12 16L10.91 9.74L2 9L10.91 8.26L12 2Z"/>
-            </svg>
-          </div>
-          <div className="absolute top-2/3 right-1/6 w-3 h-3 text-red-300/35 animate-ping" style={{animationDelay: '1s'}}>
-            <svg fill="currentColor" viewBox="0 0 24 24">
-              <path d="M12 2L13.09 8.26L22 9L13.09 9.74L12 16L10.91 9.74L2 9L10.91 8.26L12 2Z"/>
-            </svg>
-          </div>
-          
-          {/* Repair tools */}
-          <div className="absolute top-1/2 left-1/2 w-6 h-6 text-orange-400/25 animate-spin-slow">
-            <svg fill="currentColor" viewBox="0 0 24 24">
-              <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/>
-            </svg>
-          </div>
-        </div>
+        <div className="absolute inset-0 pointer-events-none bg-gradient-to-br from-gray-700/5 via-transparent to-gray-600/5"></div>
 
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           {/* Header */}
           <div className="text-center mb-10 sm:mb-16">
-            <div className="inline-flex items-center space-x-2 bg-gradient-to-r from-blue-500/20 to-cyan-500/20 dark:from-blue-500/30 dark:to-cyan-500/30 rounded-full px-4 sm:px-6 py-2 mb-4 sm:mb-6 backdrop-blur-sm border border-blue-500/20 dark:border-cyan-500/30 animate-pulse">
+            <div className="inline-flex items-center space-x-2 bg-gradient-to-r from-blue-500/20 to-cyan-500/20 dark:from-blue-500/30 dark:to-cyan-500/30 rounded-full px-4 sm:px-6 py-2 mb-4 sm:mb-6 backdrop-blur-sm border border-blue-500/20 dark:border-cyan-500/30">
               <Wrench className="w-4 h-4 sm:w-5 sm:h-5 text-blue-500 dark:text-cyan-400" />
               <span className="text-blue-600 dark:text-cyan-400 text-xs sm:text-sm font-bold tracking-wider">RESCUE PACKAGE</span>
               <Wrench className="w-4 h-4 sm:w-5 sm:h-5 text-blue-500 dark:text-cyan-400" />

@@ -66,7 +66,7 @@ const BrandHero = () => {
             </div>
           </div>
 
-          {/* Right: Abstract Visual — infinity loop (two products, one system) */}
+          {/* Right: Abstract Visual: infinity loop (two products, one system) */}
           <div className="flex-1 w-full max-w-lg lg:max-w-none">
             <svg viewBox="0 0 500 500" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" className="w-full h-auto text-[#0f172a] dark:text-white">
               <defs>
