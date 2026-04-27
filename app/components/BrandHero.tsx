@@ -46,7 +46,7 @@ const BrandHero = () => {
                 { icon: TrendingUp, before: 'New ',  keyword: 'leads',      after: ' find you. No chasing.',                       color: 'text-[#009bd7]' },
                 { icon: Bot,        before: 'Your ', keyword: 'operations', after: ' run without you. No overhead.',               color: 'text-[#0098bd] dark:text-[#00E1FF]' },
                 { icon: Wrench,     before: 'Your ', keyword: 'tools',      after: ' get built around your work. No templates.',   color: 'text-[#1DB5C5]' },
-                { icon: Users,      before: 'Your ', keyword: 'team',       after: ' grows fast. No long hires.',                  color: 'text-[#3da9c9]' },
+                { icon: Users,      before: 'Your ', keyword: 'team',       after: ' ships from day one. No long hires.',         color: 'text-[#3da9c9]' },
               ].map(({ icon: Icon, before, keyword, after, color }) => (
                 <li key={keyword} className="flex items-center gap-2.5 justify-center lg:justify-start">
                   <Icon className={`w-4 h-4 shrink-0 ${color}`} strokeWidth={2.2} />
