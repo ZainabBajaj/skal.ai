@@ -43,15 +43,15 @@ const BrandHero = () => {
 
             <ul className="space-y-2 text-base sm:text-lg text-gray-700 dark:text-gray-200 max-w-xl mx-auto lg:mx-0 leading-relaxed mb-8 animate-fade-in-up" style={{ animationDelay: '160ms' }}>
               {[
-                { icon: TrendingUp, keyword: 'pipeline', after: ' runs itself.', color: 'text-[#009bd7]' },
-                { icon: Bot,        keyword: 'support',  after: ' runs itself.', color: 'text-[#0098bd] dark:text-[#00E1FF]' },
-                { icon: Wrench,     keyword: 'systems',  after: ' are built around you.', color: 'text-[#1DB5C5]' },
-                { icon: Users,      keyword: 'team',     after: ' ships from day one.', color: 'text-[#3da9c9]' },
-              ].map(({ icon: Icon, keyword, after, color }) => (
+                { icon: TrendingUp, before: 'New ',  keyword: 'leads',      after: ' find you. No chasing.',                       color: 'text-[#009bd7]' },
+                { icon: Bot,        before: 'Your ', keyword: 'operations', after: ' run without you. No overhead.',               color: 'text-[#0098bd] dark:text-[#00E1FF]' },
+                { icon: Wrench,     before: 'Your ', keyword: 'tools',      after: ' get built around your work. No templates.',   color: 'text-[#1DB5C5]' },
+                { icon: Users,      before: 'Your ', keyword: 'team',       after: ' grows fast. No long hires.',                  color: 'text-[#3da9c9]' },
+              ].map(({ icon: Icon, before, keyword, after, color }) => (
                 <li key={keyword} className="flex items-center gap-2.5 justify-center lg:justify-start">
                   <Icon className={`w-4 h-4 shrink-0 ${color}`} strokeWidth={2.2} />
                   <span>
-                    Your <span className={`font-semibold ${color}`}>{keyword}</span>{after}
+                    {before}<span className={`font-semibold ${color}`}>{keyword}</span>{after}
                   </span>
                 </li>
               ))}
