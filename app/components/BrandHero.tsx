@@ -58,7 +58,7 @@ const BrandHero = () => {
             </ul>
 
             <p className="text-base sm:text-lg text-gray-600 dark:text-gray-300 max-w-xl mx-auto lg:mx-0 leading-relaxed mb-10 font-semibold animate-fade-in-up" style={{ animationDelay: '220ms' }}>
-              Start anywhere. We take it from there.
+              Start with one. Scale from there.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start animate-fade-in-up" style={{ animationDelay: '300ms' }}>
