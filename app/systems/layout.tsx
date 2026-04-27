@@ -1,11 +1,11 @@
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'SKAL Systems | Sagents: AI Employees You Train and Onboard',
-  description: 'Sagents are AI agents that work with you like employees. We train them, help you onboard them, and they cost a fraction of a human hire.',
+  title: 'SKAL Systems | AI agents that work like employees',
+  description: 'AI agents trained on your business. They talk, chat, and run operations end to end. Live in one week, no engineering required.',
   openGraph: {
-    title: 'SKAL Systems | Meet Sagents',
-    description: 'AI employees that talk, chat, and customise to your business. Trained and onboarded by SKAL.',
+    title: 'SKAL Systems | AI agents that work like employees',
+    description: 'AI agents that talk, chat, and customise to your business. Trained and onboarded by SKAL.',
   },
 };
 

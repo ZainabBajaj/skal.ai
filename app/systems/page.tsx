@@ -15,7 +15,7 @@ const systems = [
     name: 'Sales System',
     icon: BriefcaseBusiness,
     tagline: 'An SDR that never sleeps.',
-    body: 'Outbound outreach, lead qualification, and CRM updates, handled by a Sagent that talks, chats, and keeps the pipeline moving 24/7.',
+    body: 'Outbound outreach, lead qualification, and CRM updates, handled by an AI agent that talks, chats, and keeps the pipeline moving 24/7.',
     bullets: [
       'Cold + warm outreach on voice, chat, email',
       'Qualifies leads against your ICP',
@@ -27,7 +27,7 @@ const systems = [
     name: 'Support System',
     icon: Headset,
     tagline: 'Tier-1 support that scales.',
-    body: 'A Sagent that resolves tickets, answers product questions, and escalates the hard ones to your team, trained on your docs and tone.',
+    body: 'An AI agent that resolves tickets, answers product questions, and escalates the hard ones to your team, trained on your docs and tone.',
     bullets: [
       'Resolves common tickets end-to-end',
       'Trained on your knowledge base + macros',
@@ -85,7 +85,7 @@ export default function SystemsPage() {
                   href={BOOK_URL}
                   className="group inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-[#009bd7] to-[#00E1FF] text-white font-bold rounded-2xl transition-all duration-300 hover:shadow-xl hover:shadow-[#009bd7]/25 hover:scale-105"
                 >
-                  Deploy your first Sagent
+                  Deploy your first AI agent
                   <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
                 </Link>
               </div>
@@ -278,7 +278,7 @@ export default function SystemsPage() {
                 Pick the system you need
               </h2>
               <p className="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
-                Each system is a Sagent packaged for a specific role, trained, integrated, and ready to deploy.
+                Each system is an AI agent packaged for a specific role, trained, integrated, and ready to deploy. We call ours Sagents.
               </p>
             </div>
           </Reveal>
