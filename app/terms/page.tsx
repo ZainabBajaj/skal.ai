@@ -50,8 +50,15 @@ export default function TermsPage() {
 
             <h2>3. Use of the site</h2>
             <p>
-              You may browse skal.ai for personal or business research. You may not scrape, mirror, or republish substantive portions of the site without prior written permission.
+              You may browse skal.ai for personal or business research. Without prior written permission, you may not:
             </p>
+            <ul>
+              <li>Republish material from skal.ai.</li>
+              <li>Sell, rent, or sub-license material from skal.ai.</li>
+              <li>Reproduce, duplicate, or copy material from skal.ai.</li>
+              <li>Redistribute content from skal.ai.</li>
+              <li>Scrape or mirror substantive portions of the site.</li>
+            </ul>
 
             <h2>4. Payment and billing</h2>
             <p>
@@ -63,22 +70,44 @@ export default function TermsPage() {
               Subject to the terms of your engagement, deliverables built specifically for you under a paid SKAL engagement become your property on full payment. Pre-existing SKAL tools, frameworks, and the proprietary contact database referenced in SKAL Scale remain the property of SKAL.
             </p>
 
-            <h2>6. Confidentiality</h2>
+            <h2>6. Linking and embedding</h2>
+            <p>
+              Government agencies, search engines, news organisations, and online directory distributors may link to skal.ai without prior written approval, provided the link is not deceptive, does not falsely imply sponsorship or endorsement, and fits within the context of the linking party&apos;s site. Other organisations may request a link by emailing <a href="mailto:hi@skal.ai">hi@skal.ai</a> with their name, organisation, contact details, the URL of their site, and the URLs they intend to link to and from. We respond within one to two weeks.
+            </p>
+            <p>
+              You may not create frames, iframes, or other embeds around our pages that alter our visual presentation or appearance without prior written permission. No use of SKAL&apos;s logo or other trademarks is allowed without a separate trademark licence.
+            </p>
+            <p>
+              We reserve the right to ask you to remove any link to skal.ai. If we make such a request, you agree to remove the link promptly. If you find a link on our site that you consider offensive, email us and we will consider the request, though we are not obliged to act on every one.
+            </p>
+
+            <h2>7. Confidentiality</h2>
             <p>
               SKAL will treat your business information, data, and any materials you share during an engagement as confidential. You will treat SKAL&apos;s pricing, methods, and unreleased work as confidential. Specifics are governed by the mutual NDA signed at the start of an engagement.
             </p>
 
-            <h2>7. Limitation of liability</h2>
+            <h2>8. Disclaimer</h2>
+            <p>
+              To the maximum extent permitted by applicable law, SKAL excludes all representations, warranties, and conditions relating to skal.ai and its use. We do not warrant that the site is error-free, complete, accurate, available without interruption, or kept up to date at all times. While the site and its information are provided free of charge, SKAL is not liable for any loss or damage of any nature arising from your use of the site.
+            </p>
+            <p>
+              Nothing in this disclaimer limits or excludes liability for death or personal injury, fraud or fraudulent misrepresentation, or any liability that cannot be limited or excluded under applicable law.
+            </p>
+            <p>
+              You are responsible for the content of any third-party site you reach through a link from skal.ai. SKAL is not responsible for content on sites that link to or from us, and no link should appear on any site that may be interpreted as defamatory, obscene, criminal, or that infringes the rights of any third party.
+            </p>
+
+            <h2>9. Limitation of liability</h2>
             <p>
               SKAL&apos;s total liability for any claim arising from an engagement is capped at the amount you paid SKAL in the twelve months preceding the claim. SKAL is not liable for indirect, consequential, or incidental damages.
             </p>
 
-            <h2>8. Governing law</h2>
+            <h2>10. Governing law</h2>
             <p>
               These terms are governed by the laws of the United Arab Emirates. Any dispute will be resolved in the courts of Dubai.
             </p>
 
-            <h2>9. Contact</h2>
+            <h2>11. Contact</h2>
             <p>
               Questions about these terms? Email <a href="mailto:hi@skal.ai">hi@skal.ai</a>.
             </p>

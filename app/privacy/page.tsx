@@ -46,6 +46,17 @@ export default function PrivacyPage() {
             </div>
 
             <div>
+              <h2 className="text-2xl sm:text-3xl font-bold text-[#0f172a] dark:text-white mb-4">When you apply for a role</h2>
+              <p>
+                When you apply for a role at SKAL, either through{' '}
+                <Link href="/careers" className="font-semibold text-[#009bd7] dark:text-[#00E1FF] underline decoration-1 underline-offset-2 hover:no-underline">
+                  /careers
+                </Link>
+                {' '}or directly by email, we collect the information you choose to send us. That typically means your name, contact details, location, and the resume, cover letter, or work samples you share. We use that information only to evaluate your application and follow up with you.
+              </p>
+            </div>
+
+            <div>
               <h2 className="text-2xl sm:text-3xl font-bold text-[#0f172a] dark:text-white mb-4">What we do not do</h2>
               <p>
                 We do not sell your data. We do not share it with advertisers. We do not run retargeting campaigns. The only third parties that see your information are the platforms we use to run the site and respond to you: Google Analytics for usage stats, Supabase for storage and analytics, and Calendly when you book a call.
@@ -67,6 +78,42 @@ export default function PrivacyPage() {
                   hi@skal.ai
                 </a>{' '}
                 and we will delete it.
+              </p>
+            </div>
+
+            <div>
+              <h2 className="text-2xl sm:text-3xl font-bold text-[#0f172a] dark:text-white mb-4">How long we keep it</h2>
+              <p>
+                We keep your information only as long as we need it for the purpose it was given. Form submissions stay in our records while we are following up with you and for a reasonable period after, in case you reach out again. Analytics data follows Google Analytics retention defaults (typically 14 months). When you ask us to delete your information, we will.
+              </p>
+            </div>
+
+            <div>
+              <h2 className="text-2xl sm:text-3xl font-bold text-[#0f172a] dark:text-white mb-4">When we may share it</h2>
+              <p className="mb-4">There are a few narrow cases where we may disclose your information beyond the platforms listed above:</p>
+              <ul className="list-disc list-outside pl-6 space-y-2">
+                <li>To establish, protect, or exercise our legal rights, or to defend against a legal claim.</li>
+                <li>To investigate, prevent, or take action regarding illegal activity, suspected fraud, violations of our terms, or threats to the safety of any person.</li>
+                <li>To comply with applicable laws, court orders, subpoenas, or lawful requests from government or law enforcement.</li>
+                <li>To facilitate a merger, acquisition, or sale of all or part of SKAL&apos;s business. We will notify you on the site or by email before any transfer of your information, and explain the choices you have.</li>
+              </ul>
+            </div>
+
+            <div>
+              <h2 className="text-2xl sm:text-3xl font-bold text-[#0f172a] dark:text-white mb-4">Children&apos;s privacy</h2>
+              <p>
+                This site is not directed at children under 18 and we do not knowingly collect personal information from anyone under 18. If you believe a child has shared information with us, email{' '}
+                <a href="mailto:hi@skal.ai" className="font-semibold text-[#009bd7] dark:text-[#00E1FF] underline decoration-1 underline-offset-2 hover:no-underline">
+                  hi@skal.ai
+                </a>{' '}
+                and we will remove it from our systems.
+              </p>
+            </div>
+
+            <div>
+              <h2 className="text-2xl sm:text-3xl font-bold text-[#0f172a] dark:text-white mb-4">Changes to this policy</h2>
+              <p>
+                We update this policy when our practices change or when the law requires it. The &quot;last updated&quot; date at the top of the page reflects any change. If a change is substantial, we will flag it on the site so you have a chance to review before continuing to use SKAL.
               </p>
             </div>
 
