@@ -1,5 +1,7 @@
 "use client";
 
+import Image from 'next/image';
+import { Star } from 'lucide-react';
 import Logo from './Logo';
 
 export default function Footer() {
@@ -62,6 +64,14 @@ export default function Footer() {
     { city: 'Toronto', country: 'Canada', flag: '🇨🇦', address: '220 Duncan Mill Road, Toronto, Ontario M3B 3J5' },
     { city: 'Ajman', country: 'United Arab Emirates', flag: '🇦🇪', address: '26th Floor, Amber Gem Tower, Ajman' },
     { city: 'Lahore', country: 'Pakistan', flag: '🇵🇰', address: 'H, 21 Mateen Fatima Rd Block, Block H, Gulberg, Lahore' },
+  ];
+
+  // Drop the SKAL profile URL on each platform here when you have them.
+  const reviewPlatforms = [
+    { name: 'Clutch', logo: '/logos/clutch.svg', href: '#' },
+    { name: 'Upwork', logo: '/logos/upwork.svg', href: '#' },
+    { name: 'Trustpilot', logo: '/logos/trustpilot.svg', href: '#' },
+    { name: 'GoodFirms', logo: '/logos/goodfirms.svg', href: '#' },
   ];
 
   return (
@@ -179,25 +189,61 @@ export default function Footer() {
           </div>
         </div>
 
-        {/* Copyright */}
+        {/* Five-star reviews */}
         <div className="mt-12 pt-8 border-t border-gray-200 dark:border-gray-700">
-          <div className="flex flex-wrap justify-center gap-x-6 gap-y-2 mb-3">
-            {legalLinks.map((link) => (
+          <h3 className="text-[#0f172a] dark:text-white font-semibold text-center mb-6">Five-star reviews</h3>
+          <div className="flex flex-wrap items-center justify-center gap-x-10 gap-y-8 sm:gap-x-14 lg:gap-x-20">
+            {reviewPlatforms.map((platform) => (
               <a
-                key={link.name}
-                href={link.href}
-                className="text-gray-500 dark:text-gray-400 text-xs hover:text-[#009bd7] dark:hover:text-[#00E1FF] transition-colors"
+                key={platform.name}
+                href={platform.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={`Five star reviews on ${platform.name}`}
+                className="group flex flex-col items-center gap-2"
               >
-                {link.name}
+                <div className="grayscale opacity-70 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-300">
+                  <Image
+                    src={platform.logo}
+                    alt={platform.name}
+                    width={120}
+                    height={36}
+                    className="h-7 sm:h-8 w-auto object-contain"
+                  />
+                </div>
+                <div className="flex items-center gap-0.5 text-[#009bd7] dark:text-[#00E1FF]" aria-hidden="true">
+                  {Array.from({ length: 5 }).map((_, i) => (
+                    <Star key={i} className="w-3 h-3 fill-current" />
+                  ))}
+                </div>
               </a>
             ))}
           </div>
-          <p className="text-center text-gray-500 dark:text-gray-500 text-xs mb-2">
-            Dubai, UAE · License No: 262305646888
-          </p>
-          <p className="text-center text-gray-600 dark:text-gray-400 text-sm">
-            © {new Date().getFullYear()} SKAL. All rights reserved.
-          </p>
+        </div>
+
+        {/* Bottom row: left = legal links, right = license + copyright */}
+        <div className="mt-12 pt-8 border-t border-gray-200 dark:border-gray-700">
+          <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+            <div className="flex flex-wrap justify-center sm:justify-start gap-x-5 gap-y-2">
+              {legalLinks.map((link) => (
+                <a
+                  key={link.name}
+                  href={link.href}
+                  className="text-gray-500 dark:text-gray-400 text-xs hover:text-[#009bd7] dark:hover:text-[#00E1FF] transition-colors"
+                >
+                  {link.name}
+                </a>
+              ))}
+            </div>
+            <div className="text-center sm:text-right space-y-1">
+              <p className="text-gray-500 dark:text-gray-500 text-xs">
+                Dubai, UAE · License No: 262305646888
+              </p>
+              <p className="text-gray-600 dark:text-gray-400 text-xs">
+                © {new Date().getFullYear()} SKAL. All rights reserved.
+              </p>
+            </div>
+          </div>
         </div>
       </div>
     </footer>
