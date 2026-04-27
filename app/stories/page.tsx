@@ -4,6 +4,7 @@ import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import FloatingThemeToggle from '../components/FloatingThemeToggle';
 import { getAllStories, type StoryAccent } from '@/lib/stories';
+import NewsletterSignup from '../components/NewsletterSignup';
 
 const accentStyles: Record<StoryAccent, { chip: string; bar: string; hover: string }> = {
   blue: {
@@ -153,13 +154,7 @@ export default function StoriesPage() {
               New stories land roughly every two weeks. No marketing fluff, no filler. Just what we&apos;re
               learning on the build floor.
             </p>
-            <Link
-              href="/book"
-              className="group inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-[#009bd7] to-[#00E1FF] text-white font-bold rounded-2xl transition-all duration-300 hover:shadow-xl hover:shadow-[#009bd7]/25 hover:scale-105"
-            >
-              Talk to the team
-              <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-            </Link>
+            <NewsletterSignup />
           </div>
         </div>
       </section>
