@@ -8,20 +8,22 @@ publishedDate: "2026-04-25"
 featured: true
 ---
 
-Every company wants AI. Most pilots die in the gap between "interesting demo" and "production system." Here is what we see on the ground, and the three decisions that separate the ones that make it.
-
 ## The demo trap
 
-> *Draft: open with a concrete story or pattern. What does a typical doomed pilot look like in week one vs week six?*
+_Draft: open with a concrete story or pattern. What does a typical doomed pilot look like in week one vs week six?_
+
 ## Decision one: pick a real workflow, not a showcase
 
-> *Draft: explain why teams pick the wrong first use case. What signals predict the right one?*
+_Draft: explain why teams pick the wrong first use case. What signals predict the right one?_
+
 ## Decision two: define done before you start
 
-> *Draft: what does "shipped" mean? Concrete acceptance criteria, owner, on-call.*
+_Draft: what does "shipped" mean? Concrete acceptance criteria, owner, on-call._
+
 ## Decision three: budget for the long tail
 
-> *Draft: 80% of the work is the last 20% of edge cases. What does that look like in practice?*
+_Draft: 80% of the work is the last 20% of edge cases. What does that look like in practice?_
+
 ## What separates the ones that make it
 
-> *Draft: closing pattern. What do successful pilots have in common at month three?*
+_Draft: closing pattern. What do successful pilots have in common at month three?_
