@@ -12,6 +12,7 @@ export interface StoryFrontmatter {
   accent: StoryAccent;
   publishedDate: string;
   featured?: boolean;
+  pullQuote?: string;
 }
 
 export interface StoryMeta extends StoryFrontmatter {

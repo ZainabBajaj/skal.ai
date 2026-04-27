@@ -87,6 +87,16 @@ export default async function StoryPage({ params }: { params: Promise<{ slug: st
       {/* Article body */}
       <section className="py-12 lg:py-16 relative bg-white dark:bg-gray-800">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          {story.pullQuote && (
+            <figure className="max-w-3xl mx-auto mb-12 relative">
+              <div className="absolute left-0 top-0 bottom-0 w-1 rounded-full bg-gradient-to-b from-[#009bd7] via-[#00E1FF] to-[#1DB5C5]" aria-hidden="true" />
+              <blockquote className="pl-8 sm:pl-10">
+                <p className="text-2xl sm:text-3xl font-semibold italic text-[#0f172a] dark:text-white leading-snug">
+                  {story.pullQuote}
+                </p>
+              </blockquote>
+            </figure>
+          )}
           <article className="max-w-3xl mx-auto prose prose-lg dark:prose-invert prose-headings:text-[#0f172a] dark:prose-headings:text-white prose-headings:font-bold prose-h2:text-2xl sm:prose-h2:text-3xl prose-h2:mt-12 prose-h2:mb-4 prose-h3:text-xl sm:prose-h3:text-2xl prose-h3:mt-8 prose-h3:mb-3 prose-p:text-gray-700 dark:prose-p:text-gray-300 prose-p:leading-relaxed prose-a:text-[#009bd7] dark:prose-a:text-[#00E1FF] prose-a:no-underline hover:prose-a:underline prose-strong:text-[#0f172a] dark:prose-strong:text-white prose-code:text-[#009bd7] dark:prose-code:text-[#00E1FF] prose-code:bg-gray-100 dark:prose-code:bg-gray-900 prose-code:px-1.5 prose-code:py-0.5 prose-code:rounded prose-code:before:content-none prose-code:after:content-none prose-blockquote:border-l-[#009bd7] dark:prose-blockquote:border-l-[#00E1FF] prose-blockquote:text-gray-600 dark:prose-blockquote:text-gray-400">
             <ReactMarkdown remarkPlugins={[remarkGfm]}>{story.content}</ReactMarkdown>
           </article>

@@ -5,6 +5,7 @@ tag: "Playbook"
 readTime: "8 min"
 accent: "cyan"
 publishedDate: "2026-04-18"
+pullQuote: "Agent sprawl doesn't break things loudly. It erodes clarity."
 ---
 
 The first agent feels like leverage.
