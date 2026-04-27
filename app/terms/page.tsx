@@ -36,12 +36,6 @@ export default function TermsPage() {
       <section className="py-12 lg:py-16 relative bg-white dark:bg-gray-800">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl mx-auto prose prose-lg dark:prose-invert prose-headings:text-[#0f172a] dark:prose-headings:text-white prose-headings:font-bold prose-h2:text-2xl sm:prose-h2:text-3xl prose-h2:mt-10 prose-h2:mb-4 prose-p:text-gray-700 dark:prose-p:text-gray-300 prose-p:leading-relaxed prose-a:text-[#009bd7] dark:prose-a:text-[#00E1FF] prose-strong:text-[#0f172a] dark:prose-strong:text-white">
-            <div className="rounded-2xl border border-amber-200 dark:border-amber-700/40 bg-amber-50 dark:bg-amber-900/10 p-4 mb-8 not-prose">
-              <p className="text-sm text-amber-800 dark:text-amber-200">
-                <strong>Draft.</strong> This page is a placeholder. Final terms should be reviewed by legal counsel before publication.
-              </p>
-            </div>
-
             <h2>1. Agreement</h2>
             <p>
               By using <a href="https://skal.ai">skal.ai</a> or engaging SKAL for any service, you agree to these terms.
@@ -71,12 +65,12 @@ export default function TermsPage() {
 
             <h2>6. Confidentiality</h2>
             <p>
-              SKAL will treat your business information, data, and any materials you share during an engagement as confidential. You will treat SKAL's pricing, methods, and unreleased work as confidential. Specifics are governed by the mutual NDA signed at the start of an engagement.
+              SKAL will treat your business information, data, and any materials you share during an engagement as confidential. You will treat SKAL&apos;s pricing, methods, and unreleased work as confidential. Specifics are governed by the mutual NDA signed at the start of an engagement.
             </p>
 
             <h2>7. Limitation of liability</h2>
             <p>
-              SKAL's total liability for any claim arising from an engagement is capped at the amount you paid SKAL in the twelve months preceding the claim. SKAL is not liable for indirect, consequential, or incidental damages.
+              SKAL&apos;s total liability for any claim arising from an engagement is capped at the amount you paid SKAL in the twelve months preceding the claim. SKAL is not liable for indirect, consequential, or incidental damages.
             </p>
 
             <h2>8. Governing law</h2>

@@ -38,15 +38,9 @@ export default function IMSPolicyPage() {
       <section className="py-12 lg:py-16 relative bg-white dark:bg-gray-800">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl mx-auto prose prose-lg dark:prose-invert prose-headings:text-[#0f172a] dark:prose-headings:text-white prose-headings:font-bold prose-h2:text-2xl sm:prose-h2:text-3xl prose-h2:mt-10 prose-h2:mb-4 prose-p:text-gray-700 dark:prose-p:text-gray-300 prose-p:leading-relaxed prose-a:text-[#009bd7] dark:prose-a:text-[#00E1FF] prose-strong:text-[#0f172a] dark:prose-strong:text-white">
-            <div className="rounded-2xl border border-amber-200 dark:border-amber-700/40 bg-amber-50 dark:bg-amber-900/10 p-4 mb-8 not-prose">
-              <p className="text-sm text-amber-800 dark:text-amber-200">
-                <strong>Draft.</strong> This is a placeholder Information Management System Policy. Specific clauses, scope, and certification alignment (ISO 27001 / ISO 9001 / ISO 14001) should be confirmed by SKAL leadership before publication.
-              </p>
-            </div>
-
             <h2>Scope</h2>
             <p>
-              This policy applies to all information SKAL collects, processes, or stores in the course of operating skal.ai and delivering services to clients. It covers employees, contractors, and any third party acting on SKAL's behalf.
+              This policy applies to all information SKAL collects, processes, or stores in the course of operating skal.ai and delivering services to clients. It covers employees, contractors, and any third party acting on SKAL&apos;s behalf.
             </p>
 
             <h2>Principles</h2>
