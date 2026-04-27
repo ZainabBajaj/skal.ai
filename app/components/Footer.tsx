@@ -58,11 +58,10 @@ export default function Footer() {
   ];
 
   const offices = [
-    { city: 'Pembroke Pines', country: 'United States', address: '130 NW 77th Ave, Pembroke Pines, FL 33024' },
-    { city: 'Toronto', country: 'Canada', address: '220 Duncan Mill Road, Toronto, Ontario M3B 3J5' },
-    { city: 'Kuala Lumpur', country: 'Malaysia', address: 'Unit 10, Jalan Kerinchi, Bangsar South, 59200 Kuala Lumpur' },
-    { city: 'Ajman', country: 'United Arab Emirates', address: '26th Floor, Amber Gem Tower, Ajman' },
-    { city: 'Lahore', country: 'Pakistan', address: 'H, 21 Mateen Fatima Rd Block, Block H, Gulberg, Lahore' },
+    { city: 'Pembroke Pines', country: 'United States', flag: '🇺🇸', address: '130 NW 77th Ave, Pembroke Pines, FL 33024' },
+    { city: 'Toronto', country: 'Canada', flag: '🇨🇦', address: '220 Duncan Mill Road, Toronto, Ontario M3B 3J5' },
+    { city: 'Ajman', country: 'United Arab Emirates', flag: '🇦🇪', address: '26th Floor, Amber Gem Tower, Ajman' },
+    { city: 'Lahore', country: 'Pakistan', flag: '🇵🇰', address: 'H, 21 Mateen Fatima Rd Block, Block H, Gulberg, Lahore' },
   ];
 
   return (
@@ -169,9 +168,10 @@ export default function Footer() {
         {/* Offices */}
         <div className="mt-12 pt-8 border-t border-gray-200 dark:border-gray-700">
           <h3 className="text-[#0f172a] dark:text-white font-semibold text-center mb-6">Where you&apos;ll find us</h3>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {offices.map((office) => (
               <div key={office.city} className="text-center sm:text-left">
+                <div className="text-2xl mb-2 leading-none" aria-hidden="true">{office.flag}</div>
                 <div className="font-bold text-[#0f172a] dark:text-white text-sm">{office.city}</div>
                 <div className="text-[10px] font-bold tracking-[0.18em] text-[#009bd7] dark:text-[#00E1FF] mt-0.5 mb-2">
                   {office.country.toUpperCase()}
