@@ -88,6 +88,7 @@ export default async function StoryPage({ params }: { params: Promise<{ slug: st
       <section className="py-12 lg:py-16 relative bg-white dark:bg-gray-800">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           {slug === 'hidden-cost-of-agent-sprawl' && <SprawlBanner />}
+          {slug === 'why-most-ai-pilots-fail' && <PilotGapBanner />}
           {story.pullQuote && (
             <figure className="max-w-3xl mx-auto mb-12 relative">
               <div className="absolute left-0 top-0 bottom-0 w-1 rounded-full bg-gradient-to-b from-[#009bd7] via-[#00E1FF] to-[#1DB5C5]" aria-hidden="true" />
@@ -225,6 +226,95 @@ function SprawlBanner() {
       <div className="absolute left-4 bottom-3 sm:left-6 sm:bottom-4 text-[10px] sm:text-xs font-bold tracking-[0.18em] text-[#00E1FF]/80">
         AGENTS, MOSTLY UNCONNECTED
       </div>
+    </div>
+  );
+}
+
+function PilotGapBanner() {
+  return (
+    <div className="max-w-3xl mx-auto mb-10 relative rounded-2xl overflow-hidden bg-gradient-to-br from-[#0f172a] to-[#0c2d4a] border border-gray-700/40 shadow-xl">
+      <svg
+        viewBox="0 0 800 220"
+        xmlns="http://www.w3.org/2000/svg"
+        aria-hidden="true"
+        className="block w-full h-auto"
+      >
+        <defs>
+          <radialGradient id="pf-glow" cx="50%" cy="50%" r="60%">
+            <stop offset="0%" stopColor="#00E1FF" stopOpacity="0.18" />
+            <stop offset="100%" stopColor="#00E1FF" stopOpacity="0" />
+          </radialGradient>
+          <linearGradient id="pf-stall" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" stopColor="#00E1FF" stopOpacity="0.85" />
+            <stop offset="55%" stopColor="#00E1FF" stopOpacity="0.35" />
+            <stop offset="100%" stopColor="#94a3b8" stopOpacity="0.05" />
+          </linearGradient>
+          <linearGradient id="pf-success" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" stopColor="#00E1FF" stopOpacity="0.9" />
+            <stop offset="100%" stopColor="#1DB5C5" stopOpacity="1" />
+          </linearGradient>
+          <radialGradient id="pf-active" cx="50%" cy="50%" r="50%">
+            <stop offset="0%" stopColor="#FFFFFF" stopOpacity="1" />
+            <stop offset="60%" stopColor="#1DB5C5" stopOpacity="0.85" />
+            <stop offset="100%" stopColor="#1DB5C5" stopOpacity="0" />
+          </radialGradient>
+        </defs>
+
+        {/* Ambient glow over the gap */}
+        <ellipse cx="400" cy="110" rx="360" ry="120" fill="url(#pf-glow)" />
+
+        {/* Faint vertical "the gap" dividers */}
+        <g stroke="#94a3b8" strokeWidth="0.5" strokeDasharray="2 6" opacity="0.25">
+          <line x1="240" y1="20" x2="240" y2="200" />
+          <line x1="560" y1="20" x2="560" y2="200" />
+        </g>
+        <text x="400" y="40" fill="#94a3b8" fontSize="9" fontWeight="700" fontFamily="system-ui, sans-serif" letterSpacing="3" textAnchor="middle" opacity="0.55">THE GAP</text>
+
+        {/* Demo platform (left, lower) */}
+        <line x1="40" y1="170" x2="220" y2="170" stroke="#00E1FF" strokeWidth="2" opacity="0.7" />
+        <text x="50" y="190" fill="#00E1FF" fontSize="10" fontWeight="700" fontFamily="system-ui, sans-serif" letterSpacing="2" opacity="0.85">DEMO</text>
+
+        {/* Production platform (right, higher = shipped) */}
+        <line x1="580" y1="130" x2="760" y2="130" stroke="#1DB5C5" strokeWidth="2" opacity="0.95" />
+        <text x="650" y="150" fill="#1DB5C5" fontSize="10" fontWeight="700" fontFamily="system-ui, sans-serif" letterSpacing="2" opacity="0.95">PRODUCTION</text>
+
+        {/* Pilot trails — most stall in the gap */}
+        <g fill="none">
+          {/* Stall: confident arc that loses energy mid-gap */}
+          <path d="M 130 170 Q 240 80 380 130" stroke="url(#pf-stall)" strokeWidth="1.6" strokeDasharray="3 3" />
+          {/* Stall: high arc that crashes back toward the demo side */}
+          <path d="M 160 170 Q 280 60 420 120" stroke="url(#pf-stall)" strokeWidth="1.6" strokeDasharray="3 3" />
+          {/* Stall: short hop that drops back to the demo level */}
+          <path d="M 100 170 Q 200 140 320 170" stroke="url(#pf-stall)" strokeWidth="1.6" strokeDasharray="3 3" />
+          {/* Stall: ambitious arc that dies past the midpoint */}
+          <path d="M 180 170 Q 360 50 480 130" stroke="url(#pf-stall)" strokeWidth="1.6" strokeDasharray="3 3" />
+          {/* Success: smooth curve all the way to the production platform */}
+          <path d="M 200 170 Q 400 60 600 130" stroke="url(#pf-success)" strokeWidth="2.6" />
+        </g>
+
+        {/* Cluster of pilot dots leaving demo */}
+        <g fill="#00E1FF">
+          <circle cx="100" cy="170" r="3" opacity="0.7" />
+          <circle cx="130" cy="170" r="3" opacity="0.8" />
+          <circle cx="160" cy="170" r="3" opacity="0.8" />
+          <circle cx="180" cy="170" r="3" opacity="0.7" />
+          <circle cx="200" cy="170" r="4" opacity="0.95" />
+        </g>
+
+        {/* Stalled-pilot tombstones — faint dots where each stall died */}
+        <g fill="#94a3b8" opacity="0.45">
+          <circle cx="380" cy="130" r="2.5" />
+          <circle cx="420" cy="120" r="2.5" />
+          <circle cx="320" cy="170" r="2.5" />
+          <circle cx="480" cy="130" r="2.5" />
+        </g>
+
+        {/* The one that landed — pulses on the production platform */}
+        <circle cx="600" cy="130" r="11" fill="url(#pf-active)">
+          <animate attributeName="opacity" values="0.4;0.95;0.4" dur="2.6s" repeatCount="indefinite" />
+        </circle>
+        <circle cx="600" cy="130" r="4" fill="#FFFFFF" opacity="0.95" />
+      </svg>
     </div>
   );
 }
