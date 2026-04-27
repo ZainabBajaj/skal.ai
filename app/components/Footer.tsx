@@ -67,11 +67,12 @@ export default function Footer() {
   ];
 
   // Drop the SKAL profile URL on each platform here when you have them.
-  const reviewPlatforms = [
-    { name: 'Clutch', logo: '/logos/clutch.svg', href: '#' },
-    { name: 'Upwork', logo: '/logos/upwork.svg', href: '#' },
-    { name: 'Trustpilot', logo: '/logos/trustpilot.svg', href: '#' },
-    { name: 'GoodFirms', logo: '/logos/goodfirms.svg', href: '#' },
+  // Set logo to null to render the wordmark fallback below.
+  const reviewPlatforms: { name: string; logo: string | null; wordmarkColor: string; href: string }[] = [
+    { name: 'Clutch', logo: null, wordmarkColor: '#FF3D2E', href: '#' },
+    { name: 'Upwork', logo: '/logos/upwork.svg', wordmarkColor: '#14A800', href: '#' },
+    { name: 'Trustpilot', logo: '/logos/trustpilot.svg', wordmarkColor: '#00B67A', href: '#' },
+    { name: 'GoodFirms', logo: null, wordmarkColor: '#F26522', href: '#' },
   ];
 
   return (
@@ -177,7 +178,6 @@ export default function Footer() {
 
         {/* Offices */}
         <div className="mt-12 pt-8 border-t border-gray-200 dark:border-gray-700">
-          <h3 className="text-[#0f172a] dark:text-white font-semibold text-center mb-6">Where you&apos;ll find us</h3>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {offices.map((office) => (
               <div key={office.country} className="text-center sm:text-left">
@@ -192,7 +192,8 @@ export default function Footer() {
         {/* Five-star reviews */}
         <div className="mt-12 pt-8 border-t border-gray-200 dark:border-gray-700">
           <h3 className="text-[#0f172a] dark:text-white font-semibold text-center mb-6">Five-star reviews</h3>
-          <div className="flex flex-wrap items-center justify-center gap-x-10 gap-y-8 sm:gap-x-14 lg:gap-x-20">
+
+          <div className="flex flex-wrap items-center justify-center gap-x-10 gap-y-6 sm:gap-x-14 lg:gap-x-20 mb-6">
             {reviewPlatforms.map((platform) => (
               <a
                 key={platform.name}
@@ -200,25 +201,36 @@ export default function Footer() {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label={`Five star reviews on ${platform.name}`}
-                className="group flex flex-col items-center gap-2"
+                className="group inline-flex items-center justify-center"
               >
-                <div className="grayscale opacity-70 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-300">
-                  <Image
-                    src={platform.logo}
-                    alt={platform.name}
-                    width={120}
-                    height={36}
-                    className="h-7 sm:h-8 w-auto object-contain"
-                  />
-                </div>
-                <div className="flex items-center gap-0.5 text-[#009bd7] dark:text-[#00E1FF]" aria-hidden="true">
-                  {Array.from({ length: 5 }).map((_, i) => (
-                    <Star key={i} className="w-3 h-3 fill-current" />
-                  ))}
-                </div>
+                {platform.logo ? (
+                  <div className="grayscale opacity-70 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-300">
+                    <Image
+                      src={platform.logo}
+                      alt={platform.name}
+                      width={120}
+                      height={36}
+                      className="h-7 sm:h-8 w-auto object-contain"
+                    />
+                  </div>
+                ) : (
+                  <span
+                    className="text-lg sm:text-xl font-extrabold tracking-tight opacity-70 group-hover:opacity-100 transition-opacity duration-300"
+                    style={{ color: platform.wordmarkColor }}
+                  >
+                    {platform.name}
+                  </span>
+                )}
               </a>
             ))}
           </div>
+
+          <div className="flex items-center justify-center gap-1 text-[#009bd7] dark:text-[#00E1FF]" aria-hidden="true">
+            {Array.from({ length: 5 }).map((_, i) => (
+              <Star key={i} className="w-5 h-5 fill-current" />
+            ))}
+          </div>
+          <p className="sr-only">Five out of five stars across all four platforms.</p>
         </div>
 
         {/* Bottom row: left = legal links, right = license + copyright */}
