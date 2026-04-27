@@ -2,6 +2,7 @@
 import dynamic from 'next/dynamic';
 import BrandHero from './components/BrandHero';
 import ProductSplit from './components/ProductSplit';
+import ProductInMotion from './components/ProductInMotion';
 import Navbar from './components/Navbar';
 import TrustedBy from './components/TrustedBy';
 import FloatingThemeToggle from './components/FloatingThemeToggle';
@@ -15,6 +16,7 @@ export default function Home() {
       <Navbar />
       <BrandHero />
       <ProductSplit />
+      <ProductInMotion />
       <TrustedBy />
       <ContactForm />
       <Footer />
