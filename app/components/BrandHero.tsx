@@ -31,7 +31,7 @@ const BrandHero = () => {
           {/* Left: Text */}
           <div className="flex-1 text-center lg:text-left">
             <div className="text-sm font-semibold text-[#009bd7] dark:text-[#00E1FF] mb-4 animate-fade-in-up" style={{ animationDelay: '40ms' }}>
-              Four ways to run your growth, with
+              Four ways to run your growth with
             </div>
 
             <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-6xl xl:text-7xl font-bold text-[#0f172a] dark:text-white mb-6 leading-tight pb-1 animate-fade-in-up" style={{ animationDelay: '120ms' }}>
