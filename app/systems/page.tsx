@@ -1,5 +1,6 @@
 'use client';
 
+import Link from 'next/link';
 import { Bot, ArrowRight, MessageSquare, Phone, Settings, Headset, BriefcaseBusiness, ConciergeBell, Check } from 'lucide-react';
 import Navbar from '../components/Navbar';
 import ContactForm from '../components/ContactForm';
@@ -7,7 +8,7 @@ import Footer from '../components/Footer';
 import FloatingThemeToggle from '../components/FloatingThemeToggle';
 import Reveal from '../components/Reveal';
 
-const CALENDLY_URL = 'https://calendly.com/skal-ai/discovery-call';
+const BOOK_URL = '/book';
 
 const systems = [
   {
@@ -54,12 +55,7 @@ export default function SystemsPage() {
       <Navbar />
 
       {/* Hero */}
-      <section className="pt-32 pb-16 sm:pt-36 sm:pb-20 lg:pt-40 lg:pb-24 relative overflow-hidden bg-gradient-to-br from-slate-50 via-white to-blue-50 dark:from-gray-900 dark:via-gray-800 dark:to-blue-900">
-        <div className="absolute inset-0 pointer-events-none">
-          <div className="absolute top-20 left-10 w-72 h-72 bg-gradient-to-r from-[#009bd7]/8 to-[#00E1FF]/6 rounded-full blur-3xl"></div>
-          <div className="absolute bottom-20 right-10 w-96 h-96 bg-gradient-to-r from-[#00E1FF]/6 to-[#009bd7]/4 rounded-full blur-3xl"></div>
-        </div>
-
+      <section className="pt-28 pb-12 sm:pt-32 sm:pb-14 lg:pt-36 lg:pb-16 relative overflow-hidden bg-gradient-to-br from-slate-50 via-white to-blue-50 dark:from-gray-900 dark:via-gray-800 dark:to-blue-900">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-16 max-w-7xl mx-auto">
             {/* Left: Text */}
@@ -85,15 +81,13 @@ export default function SystemsPage() {
               </p>
 
               <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start animate-fade-in-up" style={{ animationDelay: '300ms' }}>
-                <a
-                  href={CALENDLY_URL}
-                  target="_blank"
-                  rel="noopener noreferrer"
+                <Link
+                  href={BOOK_URL}
                   className="group inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-[#009bd7] to-[#00E1FF] text-white font-bold rounded-2xl transition-all duration-300 hover:shadow-xl hover:shadow-[#009bd7]/25 hover:scale-105"
                 >
                   Deploy your first Sagent
                   <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-                </a>
+                </Link>
               </div>
             </div>
 
@@ -276,7 +270,7 @@ export default function SystemsPage() {
       </section>
 
       {/* Systems catalog */}
-      <section id="systems" className="py-20 sm:py-24 bg-white dark:bg-gray-900">
+      <section id="systems" className="py-14 sm:py-16 bg-white dark:bg-gray-900">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <Reveal>
             <div className="text-center mb-14">
@@ -310,15 +304,13 @@ export default function SystemsPage() {
                     ))}
                   </ul>
 
-                  <a
-                    href={CALENDLY_URL}
-                    target="_blank"
-                    rel="noopener noreferrer"
+                  <Link
+                    href={BOOK_URL}
                     className="mt-auto group/btn inline-flex items-center justify-center gap-2 px-6 py-3 bg-gradient-to-r from-[#009bd7] to-[#00E1FF] text-white font-bold rounded-xl transition-all duration-300 hover:shadow-xl hover:shadow-[#009bd7]/25 hover:scale-105"
                   >
                     Talk to us
                     <ArrowRight className="w-4 h-4 group-hover/btn:translate-x-1 transition-transform" />
-                  </a>
+                  </Link>
                 </div>
               </Reveal>
             ))}
@@ -335,14 +327,14 @@ export default function SystemsPage() {
 
 
       {/* Customisation + cost split */}
-      <section className="py-20 sm:py-24 bg-white dark:bg-gray-900">
+      <section className="py-14 sm:py-16 bg-white dark:bg-gray-900">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 max-w-6xl mx-auto items-center">
             <Reveal>
               <div>
                 <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[#0f172a] dark:text-white mb-6 leading-snug pb-1">
                   Built around{' '}
-                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#009bd7] to-[#00E1FF]">
+                  <span className="text-[#009bd7] dark:text-[#00E1FF]">
                     your business
                   </span>
                 </h2>
@@ -388,19 +380,17 @@ export default function SystemsPage() {
                     </div>
                     <div className="flex items-baseline justify-between">
                       <span className="text-white font-bold">SKAL System</span>
-                      <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#009bd7] to-[#00E1FF] font-bold text-sm">24/7 · no benefits · trained in days</span>
+                      <span className="text-[#00E1FF] font-bold text-sm">24/7 · no benefits · trained in days</span>
                     </div>
                   </div>
 
-                  <a
-                    href={CALENDLY_URL}
-                    target="_blank"
-                    rel="noopener noreferrer"
+                  <Link
+                    href={BOOK_URL}
                     className="group mt-8 inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-[#009bd7] to-[#00E1FF] text-white font-bold rounded-xl transition-all duration-300 hover:shadow-xl hover:shadow-[#009bd7]/25 hover:scale-105"
                   >
                     Get a quote for your use case
                     <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                  </a>
+                  </Link>
                 </div>
               </div>
             </Reveal>

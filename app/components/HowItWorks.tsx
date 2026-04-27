@@ -27,7 +27,7 @@ export default function HowItWorks({ title, steps, tone = 'cyan', badge }: HowIt
   const BadgeIcon = badge?.icon;
 
   return (
-    <section className="py-20 lg:py-28 relative bg-gradient-to-br from-slate-50 via-white to-blue-50 dark:from-gray-900 dark:via-gray-800 dark:to-blue-900">
+    <section className="py-14 lg:py-20 relative bg-gradient-to-br from-slate-50 via-white to-blue-50 dark:from-gray-900 dark:via-gray-800 dark:to-blue-900">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           {badge && BadgeIcon && (

@@ -30,8 +30,8 @@ const BrandHero = () => {
         <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-16 max-w-7xl mx-auto">
           {/* Left: Text */}
           <div className="flex-1 text-center lg:text-left">
-            <div className="text-[11px] sm:text-xs font-bold tracking-[0.22em] text-[#009bd7] dark:text-[#00E1FF] mb-4 animate-fade-in-up" style={{ animationDelay: '40ms' }}>
-              FOUR DELIVERY LINES
+            <div className="text-sm font-semibold text-[#009bd7] dark:text-[#00E1FF] mb-4 animate-fade-in-up" style={{ animationDelay: '40ms' }}>
+              Four ways we run your growth
             </div>
 
             <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-6xl xl:text-7xl font-bold text-[#0f172a] dark:text-white mb-6 leading-tight pb-1 animate-fade-in-up" style={{ animationDelay: '120ms' }}>
@@ -44,9 +44,9 @@ const BrandHero = () => {
             <ul className="space-y-2 text-base sm:text-lg text-gray-700 dark:text-gray-200 max-w-xl mx-auto lg:mx-0 leading-relaxed mb-8 animate-fade-in-up" style={{ animationDelay: '160ms' }}>
               {[
                 { icon: TrendingUp, keyword: 'pipeline', after: ' runs itself.', color: 'text-[#009bd7]' },
-                { icon: Bot,        keyword: 'support',  after: ' handles itself.', color: 'text-[#0098bd] dark:text-[#00E1FF]' },
-                { icon: Wrench,     keyword: 'systems',  after: ' built for you.', color: 'text-[#1DB5C5]' },
-                { icon: Users,      keyword: 'talent',   after: ' ships from day one.', color: 'text-[#3da9c9]' },
+                { icon: Bot,        keyword: 'support',  after: ' runs itself.', color: 'text-[#0098bd] dark:text-[#00E1FF]' },
+                { icon: Wrench,     keyword: 'systems',  after: ' are built around you.', color: 'text-[#1DB5C5]' },
+                { icon: Users,      keyword: 'team',     after: ' ships from day one.', color: 'text-[#3da9c9]' },
               ].map(({ icon: Icon, keyword, after, color }) => (
                 <li key={keyword} className="flex items-center gap-2.5 justify-center lg:justify-start">
                   <Icon className={`w-4 h-4 shrink-0 ${color}`} strokeWidth={2.2} />
@@ -75,7 +75,7 @@ const BrandHero = () => {
                 href="#products"
                 className="group inline-flex items-center justify-center gap-3 px-8 py-4 border-2 border-[#009bd7] dark:border-[#00E1FF] text-[#009bd7] dark:text-[#00E1FF] font-bold rounded-2xl transition-all duration-300 hover:bg-[#009bd7] hover:text-white dark:hover:bg-[#00E1FF] dark:hover:text-[#0f172a] hover:scale-105 active:scale-95"
               >
-                <span>See what we do</span>
+                <span>Explore how it works</span>
                 <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
               </Link>
             </div>

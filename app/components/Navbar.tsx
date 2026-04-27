@@ -221,16 +221,16 @@ export default function Navbar() {
 
           {/* Desktop Right Side - CTA */}
           <div className="hidden lg:flex items-center space-x-4">
-            <button
-              onClick={() => handleNavClick('#contact')}
+            <Link
+              href="/book"
+              onClick={() => setOpenDropdown(null)}
               className="group relative px-6 py-3 bg-gradient-to-r from-[#009bd7] to-[#00E1FF] text-white rounded-xl font-semibold overflow-hidden transition-all duration-300 hover:shadow-xl hover:shadow-[#009bd7]/25 hover:scale-105 active:scale-95"
             >
               <div className="absolute inset-0 bg-white/20 translate-y-full group-hover:translate-y-0 transition-transform duration-300"></div>
               <span className="relative flex items-center">
-                Get Started
-                <ChevronDown className="w-4 h-4 ml-2 group-hover:rotate-180 transition-transform duration-300" />
+                Book a call
               </span>
-            </button>
+            </Link>
           </div>
 
           {/* Mobile Menu Button */}
@@ -327,12 +327,13 @@ export default function Navbar() {
             })}
 
             <div className="pt-2">
-              <button
-                onClick={() => handleNavClick('#contact')}
+              <Link
+                href="/book"
+                onClick={() => setIsOpen(false)}
                 className="block w-full px-4 py-3 bg-gradient-to-r from-[#009bd7] to-[#00E1FF] text-white rounded-lg font-semibold text-center transition-all duration-300 hover:shadow-lg hover:scale-105 active:scale-95"
               >
-                Get Started
-              </button>
+                Book a call
+              </Link>
             </div>
           </div>
         </div>

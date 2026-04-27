@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useRef, useEffect } from 'react';
+import Link from 'next/link';
 import { MessageCircle, X, Send, ArrowRight, Telescope, RotateCcw } from 'lucide-react';
 
 type Message = { role: 'bot' | 'user'; text: string };
@@ -9,7 +10,7 @@ type Contact = { name: string; email: string; phone: string };
 
 type Option = { label: string; value: string; next?: Step };
 
-const CALENDLY = 'https://calendly.com/skal-ai/discovery-call';
+const BOOK_URL = '/book';
 
 const introMessage =
   "Hey, I'm Scout. SKAL plugs into your business four ways. Tell me where you're stuck and I'll point you to the right one in about 30 seconds.";
@@ -148,9 +149,9 @@ export default function ChatWidget() {
     setTimeout(() => {
       addBot(
         timing === 'urgent'
-          ? "Thanks! We'll be in touch shortly. To move faster, grab a 20 minute discovery slot below."
+          ? "Thanks! We'll be in touch shortly. To move faster, grab a 30 minute discovery slot below."
           : timing === 'soon'
-          ? "Thanks! We'll reach out soon. You can also book a 20 minute discovery call below."
+          ? "Thanks! We'll reach out soon. You can also book a 30 minute discovery call below."
           : "Thanks! We've got your details and will follow up. Feel free to book a call whenever you're ready."
       );
     }, 250);
@@ -274,15 +275,14 @@ export default function ChatWidget() {
           <div className="px-5 py-4 bg-white dark:bg-gray-900 border-t border-gray-100 dark:border-gray-800">
             {step === 'summary' ? (
               <div className="space-y-2">
-                <a
-                  href={CALENDLY}
-                  target="_blank"
-                  rel="noopener noreferrer"
+                <Link
+                  href={BOOK_URL}
+                  onClick={() => setIsOpen(false)}
                   className="group flex items-center justify-between w-full px-4 py-3 bg-gradient-to-r from-[#009bd7] to-[#00E1FF] text-white font-bold rounded-xl hover:shadow-lg hover:shadow-[#009bd7]/25 transition-all"
                 >
                   <span>Book a discovery call</span>
                   <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                </a>
+                </Link>
                 <button
                   onClick={scrollToContact}
                   className="flex items-center justify-between w-full px-4 py-3 border-2 border-[#009bd7] dark:border-[#00E1FF] text-[#009bd7] dark:text-[#00E1FF] font-semibold rounded-xl hover:bg-[#009bd7]/5 transition-colors"

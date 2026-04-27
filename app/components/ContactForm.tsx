@@ -76,19 +76,11 @@ export default function ContactForm({ initialMessage = '' }: ContactFormProps) {
   };
 
   return (
-    <section id="contact" className="relative py-16 sm:py-20 lg:py-24 bg-gradient-to-br from-slate-50 via-white to-blue-50 dark:from-gray-900 dark:via-gray-800 dark:to-blue-900 overflow-hidden">
-      {/* Background Elements */}
-      <div className="absolute inset-0 pointer-events-none">
-        {/* Animated background gradients */}
-        <div className="absolute top-20 left-10 w-48 h-48 sm:w-72 sm:h-72 bg-gradient-to-r from-[#009bd7]/8 to-[#00E1FF]/6 rounded-full blur-3xl"></div>
-        <div className="absolute bottom-20 right-10 w-64 h-64 sm:w-96 sm:h-96 bg-gradient-to-r from-[#00E1FF]/6 to-[#009bd7]/4 rounded-full blur-3xl"></div>
-        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-48 h-48 sm:w-64 sm:h-64 bg-gradient-to-r from-[#1DB5C5]/4 to-[#009bd7]/3 rounded-full blur-3xl"></div>
-      </div>
-
+    <section id="contact" className="relative py-12 sm:py-14 lg:py-16 bg-gradient-to-br from-slate-50 via-white to-blue-50 dark:from-gray-900 dark:via-gray-800 dark:to-blue-900 overflow-hidden">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="max-w-4xl mx-auto">
           {/* Header Section */}
-          <div className="text-center mb-12 sm:mb-16">
+          <div className="text-center mb-8 sm:mb-10">
             <div className="inline-flex items-center space-x-2 bg-gradient-to-r from-[#009bd7]/10 to-[#00E1FF]/10 dark:from-[#009bd7]/20 dark:to-[#00E1FF]/20 rounded-full px-4 sm:px-6 py-2 mb-4 sm:mb-6 backdrop-blur-sm border border-[#009bd7]/20 dark:border-[#00E1FF]/30">
               <Sparkles className="w-3 h-3 sm:w-4 sm:h-4 text-[#009bd7] dark:text-[#00E1FF]" />
               <span className="text-[#009bd7] dark:text-[#00E1FF] text-xs sm:text-sm font-bold tracking-wider">LET&apos;S CONNECT</span>
@@ -100,7 +92,7 @@ export default function ContactForm({ initialMessage = '' }: ContactFormProps) {
             
             <p className="text-lg sm:text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto leading-relaxed font-medium px-4">
               Ready to transform your business with cutting-edge AI solutions? Let&apos;s discuss your project and{' '}
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#009bd7] to-[#00E1FF] font-bold">
+              <span className="text-[#009bd7] dark:text-[#00E1FF] font-bold">
                 bring your vision to life
               </span>
             </p>

@@ -103,16 +103,8 @@ const Stack = () => {
   return (
     <section 
       id="stack" 
-      className="relative py-24 bg-gradient-to-br from-slate-50 via-white to-blue-50 dark:from-gray-900 dark:via-gray-800 dark:to-blue-900 overflow-hidden"
+      className="relative py-14 lg:py-20 bg-gradient-to-br from-slate-50 via-white to-blue-50 dark:from-gray-900 dark:via-gray-800 dark:to-blue-900 overflow-hidden"
     >
-      {/* Simplified Background Elements */}
-      <div className="absolute inset-0 pointer-events-none z-5">
-        {/* Static background gradients for depth */}
-        <div className="absolute top-20 left-10 w-72 h-72 bg-gradient-to-r from-[#009bd7]/8 to-[#00E1FF]/6 rounded-full blur-3xl"></div>
-        <div className="absolute bottom-20 right-10 w-96 h-96 bg-gradient-to-r from-[#00E1FF]/6 to-[#009bd7]/4 rounded-full blur-3xl"></div>
-        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-gradient-to-r from-[#1DB5C5]/4 to-[#009bd7]/3 rounded-full blur-3xl"></div>
-      </div>
-
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-20">
         <div className="text-center mb-20">
           <div className="inline-flex items-center space-x-2 bg-gradient-to-r from-[#009bd7]/10 to-[#00E1FF]/10 dark:from-[#009bd7]/20 dark:to-[#00E1FF]/20 rounded-full px-6 py-2 mb-6 backdrop-blur-sm border border-[#009bd7]/20 dark:border-[#00E1FF]/30">
@@ -120,13 +112,13 @@ const Stack = () => {
             <span className="text-[#009bd7] dark:text-[#00E1FF] text-sm font-bold tracking-wider">OUR TECH STACK</span>
           </div>
         
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#0f172a] via-[#009bd7] to-[#00E1FF] dark:from-white dark:via-[#009bd7] dark:to-[#00E1FF] mb-6 leading-snug pb-1">
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-[#0f172a] dark:text-white mb-6 leading-snug pb-1">
             Technologies We Master
           </h2>
           
           <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto leading-relaxed font-medium">
             Cutting-edge technologies and frameworks we use to build{' '}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#009bd7] to-[#00E1FF] font-bold">
+            <span className="text-[#009bd7] dark:text-[#00E1FF] font-bold">
               exceptional solutions
             </span>
           </p>

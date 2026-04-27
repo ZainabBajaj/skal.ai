@@ -21,7 +21,7 @@ export default function RescueOffer() {
     <main className="relative min-h-screen">
       <Navbar />
       
-      <section className="pt-32 pb-16 sm:pt-36 sm:pb-20 lg:pt-40 lg:pb-24 relative overflow-hidden bg-white dark:bg-gray-800">
+      <section className="pt-28 pb-12 sm:pt-32 sm:pb-14 lg:pt-36 lg:pb-16 relative overflow-hidden bg-white dark:bg-gray-800">
         <div className="absolute inset-0 pointer-events-none bg-gradient-to-br from-gray-700/5 via-transparent to-gray-600/5"></div>
 
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -205,7 +205,7 @@ export default function RescueOffer() {
 
           {/* Package Details Section */}
           <div className="mt-20 sm:mt-24">
-            <h2 className="text-3xl sm:text-4xl font-bold text-center text-transparent bg-clip-text bg-gradient-to-r from-[#0f172a] via-blue-600 to-cyan-500 dark:from-white dark:via-blue-400 dark:to-cyan-400 mb-12 leading-snug pb-1">
+            <h2 className="text-3xl sm:text-4xl font-bold text-center text-[#0f172a] dark:text-white mb-12 leading-snug pb-1">
               Rescue Package Includes
             </h2>
 

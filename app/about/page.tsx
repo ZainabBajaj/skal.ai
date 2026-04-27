@@ -13,12 +13,7 @@ export default function AboutPage() {
       <Navbar />
 
       {/* Hero */}
-      <section className="relative pt-32 pb-16 sm:pt-36 sm:pb-20 lg:pt-40 lg:pb-24 overflow-hidden bg-gradient-to-br from-slate-50 via-white to-blue-50 dark:from-gray-900 dark:via-gray-800 dark:to-blue-900">
-        <div className="absolute inset-0 pointer-events-none">
-          <div className="absolute top-20 right-10 w-72 h-72 bg-gradient-to-r from-[#009bd7]/8 to-[#00E1FF]/6 rounded-full blur-3xl"></div>
-          <div className="absolute bottom-20 left-10 w-96 h-96 bg-gradient-to-r from-[#00E1FF]/6 to-[#009bd7]/4 rounded-full blur-3xl"></div>
-        </div>
-
+      <section className="relative pt-28 pb-12 sm:pt-32 sm:pb-14 lg:pt-36 lg:pb-16 overflow-hidden bg-gradient-to-br from-slate-50 via-white to-blue-50 dark:from-gray-900 dark:via-gray-800 dark:to-blue-900">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-20 max-w-6xl mx-auto">
             {/* Left: Portrait */}
@@ -63,7 +58,7 @@ export default function AboutPage() {
       </section>
 
       {/* Story */}
-      <section className="py-20 lg:py-28 relative bg-white dark:bg-gray-800">
+      <section className="py-14 lg:py-20 relative bg-white dark:bg-gray-800">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl mx-auto">
             <div className="space-y-8 text-lg leading-relaxed text-gray-700 dark:text-gray-300">
@@ -111,7 +106,7 @@ export default function AboutPage() {
                 <p className="text-xl sm:text-2xl font-semibold text-[#0f172a] dark:text-white leading-snug">
                   SKAL exists because most businesses that want this don&apos;t know how to build it, and
                   most technical teams that can build it don&apos;t understand the business well enough to
-                  build it right. <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#009bd7] to-[#00E1FF]">We sit at that intersection.</span>
+                  build it right. <span className="text-[#009bd7] dark:text-[#00E1FF]">We sit at that intersection.</span>
                 </p>
               </div>
 
@@ -130,7 +125,7 @@ export default function AboutPage() {
       </section>
 
       {/* CTA */}
-      <section className="py-20 lg:py-28 relative bg-white dark:bg-gray-800">
+      <section className="py-14 lg:py-20 relative bg-white dark:bg-gray-800">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-4xl mx-auto bg-gradient-to-br from-[#0f172a] to-[#0c2d4a] rounded-3xl p-10 sm:p-16 relative overflow-hidden text-center">
             <div className="absolute top-0 right-0 w-64 h-64 bg-gradient-to-bl from-[#009bd7]/20 to-transparent rounded-full blur-3xl"></div>
@@ -146,15 +141,13 @@ export default function AboutPage() {
               </p>
 
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <a
-                  href="https://calendly.com/skal-ai/discovery-call"
-                  target="_blank"
-                  rel="noopener noreferrer"
+                <Link
+                  href="/book"
                   className="group inline-flex items-center justify-center gap-3 px-8 py-4 bg-gradient-to-r from-[#009bd7] to-[#00E1FF] text-white font-bold rounded-2xl transition-all duration-300 hover:shadow-xl hover:shadow-[#009bd7]/25 hover:scale-105"
                 >
                   Schedule a Call
                   <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-                </a>
+                </Link>
                 <Link
                   href="/systems"
                   className="group inline-flex items-center justify-center gap-3 px-8 py-4 border-2 border-[#00E1FF] text-[#00E1FF] font-bold rounded-2xl transition-all duration-300 hover:bg-[#00E1FF] hover:text-[#0f172a] hover:scale-105"

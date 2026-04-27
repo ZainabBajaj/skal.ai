@@ -1,5 +1,6 @@
 "use client";
 
+import Link from 'next/link';
 import { ArrowRight } from 'lucide-react';
 import Stack from './Stack';
 
@@ -7,14 +8,8 @@ const Services = () => {
   return (
           <section 
         id="services" 
-        className="relative py-24 bg-white dark:bg-gray-900 overflow-hidden"
+        className="relative py-14 lg:py-20 bg-white dark:bg-gray-900 overflow-hidden"
       >
-      {/* Background */}
-      <div className="absolute inset-0 pointer-events-none z-5">
-        <div className="absolute top-20 left-10 w-72 h-72 bg-gradient-to-r from-[#009bd7]/8 to-[#00E1FF]/6 rounded-full blur-3xl"></div>
-        <div className="absolute bottom-20 right-10 w-96 h-96 bg-gradient-to-r from-[#00E1FF]/6 to-[#009bd7]/4 rounded-full blur-3xl"></div>
-      </div>
-
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-20">
         {/* Stack Component */}
         <Stack />
@@ -26,12 +21,12 @@ const Services = () => {
                 <div className="w-2 h-2 bg-gradient-to-r from-[#009bd7] to-[#00E1FF] rounded-full animate-pulse"></div>
                 <span className="text-[#009bd7] dark:text-[#00E1FF] text-xs sm:text-sm font-bold tracking-wider">CHOOSE YOUR PATH</span>
               </div>
-              <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#0f172a] via-[#009bd7] to-[#00E1FF] dark:from-white dark:via-[#009bd7] dark:to-[#00E1FF] mb-4 sm:mb-6 leading-snug pb-1">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-[#0f172a] dark:text-white mb-4 sm:mb-6 leading-snug pb-1">
                 Ready to Transform?
               </h2>
               <p className="text-base sm:text-lg lg:text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto leading-relaxed px-4">
                 Select the path that best fits your journey and let&apos;s build something{' '}
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#009bd7] to-[#00E1FF] font-bold">
+                <span className="text-[#009bd7] dark:text-[#00E1FF] font-bold">
                   extraordinary together
                 </span>
               </p>
@@ -209,10 +204,8 @@ const Services = () => {
               </div>
 
               {/* Extend Your Team Card */}
-              <a
-                href="https://calendly.com/skal-ai/discovery-call"
-                target="_blank"
-                rel="noopener noreferrer"
+              <Link
+                href="/book"
                 className="group relative bg-gradient-to-br from-[#0f172a] via-[#0c2d4a] to-[#0f172a] backdrop-blur-xl rounded-3xl shadow-2xl p-10 sm:p-12 border border-gray-700/50 hover:shadow-3xl hover:shadow-[#009bd7]/20 transition-all duration-500 hover:-translate-y-2 cursor-pointer overflow-hidden min-h-[500px]"
               >
                 {/* Background effects */}
@@ -261,7 +254,7 @@ const Services = () => {
                     </div>
                   </div>
                 </div>
-              </a>
+              </Link>
             </div>
           </div>
         </div>

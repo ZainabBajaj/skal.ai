@@ -1,5 +1,6 @@
 'use client';
 
+import Link from 'next/link';
 import { BookOpen, ArrowRight, Clock, Sparkles } from 'lucide-react';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
@@ -10,7 +11,6 @@ type Story = {
   excerpt: string;
   tag: string;
   readTime: string;
-  date: string;
   accent: 'blue' | 'cyan' | 'teal';
 };
 
@@ -21,7 +21,6 @@ const stories: Story[] = [
       'Every company wants AI. Most pilots die in the gap between "interesting demo" and "production system." Here is what we see on the ground, and the three decisions that separate the ones that make it.',
     tag: 'Field Notes',
     readTime: '6 min',
-    date: 'Coming soon',
     accent: 'blue',
   },
   {
@@ -30,7 +29,6 @@ const stories: Story[] = [
       'Teams bolt on agents faster than they audit them. By the end of Q2, nobody remembers what half of them do. We break down a lightweight governance model that does not slow you down.',
     tag: 'Playbook',
     readTime: '8 min',
-    date: 'Coming soon',
     accent: 'cyan',
   },
   {
@@ -39,7 +37,6 @@ const stories: Story[] = [
       'How we translate a founder&apos;s P&L into a concrete AI roadmap in under two weeks. A walk-through of the diagnostic we run on every new engagement.',
     tag: 'Process',
     readTime: '5 min',
-    date: 'Coming soon',
     accent: 'teal',
   },
   {
@@ -48,7 +45,6 @@ const stories: Story[] = [
       'Live coding, system design, and one question nobody expects. The vetting pipeline that stands behind every engineer in our network.',
     tag: 'Staffing',
     readTime: '7 min',
-    date: 'Coming soon',
     accent: 'blue',
   },
 ];
@@ -79,12 +75,7 @@ export default function StoriesPage() {
       <Navbar />
 
       {/* Hero */}
-      <section className="pt-32 pb-16 sm:pt-36 sm:pb-20 lg:pt-40 lg:pb-24 relative overflow-hidden bg-gradient-to-br from-slate-50 via-white to-blue-50 dark:from-gray-900 dark:via-gray-800 dark:to-blue-900">
-        <div className="absolute inset-0 pointer-events-none">
-          <div className="absolute top-20 right-10 w-72 h-72 bg-gradient-to-r from-[#009bd7]/8 to-[#00E1FF]/6 rounded-full blur-3xl"></div>
-          <div className="absolute bottom-20 left-10 w-96 h-96 bg-gradient-to-r from-[#00E1FF]/6 to-[#009bd7]/4 rounded-full blur-3xl"></div>
-        </div>
-
+      <section className="pt-28 pb-12 sm:pt-32 sm:pb-14 lg:pt-36 lg:pb-16 relative overflow-hidden bg-gradient-to-br from-slate-50 via-white to-blue-50 dark:from-gray-900 dark:via-gray-800 dark:to-blue-900">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
           <div className="inline-flex items-center space-x-2 bg-gradient-to-r from-[#009bd7]/10 to-[#00E1FF]/10 dark:from-[#009bd7]/20 dark:to-[#00E1FF]/20 rounded-full px-6 py-2 mb-6 backdrop-blur-sm border border-[#009bd7]/20 dark:border-[#00E1FF]/30">
             <BookOpen className="w-4 h-4 text-[#009bd7] dark:text-[#00E1FF]" />
@@ -106,7 +97,7 @@ export default function StoriesPage() {
       </section>
 
       {/* Featured + Grid */}
-      <section className="py-20 lg:py-28 relative bg-white dark:bg-gray-800">
+      <section className="py-14 lg:py-20 relative bg-white dark:bg-gray-800">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-6xl mx-auto">
             {/* Featured story */}
@@ -134,7 +125,6 @@ export default function StoriesPage() {
                       <Clock className="w-4 h-4" />
                       <span>{featured.readTime} read</span>
                     </div>
-                    <span>{featured.date}</span>
                   </div>
                   <span className="inline-flex items-center gap-2 text-[#00E1FF] font-semibold group-hover:translate-x-1 transition-transform">
                     Read story
@@ -174,8 +164,7 @@ export default function StoriesPage() {
                         {story.excerpt}
                       </p>
 
-                      <div className="flex items-center justify-between text-sm">
-                        <span className="text-gray-500 dark:text-gray-400">{story.date}</span>
+                      <div className="flex items-center justify-end text-sm">
                         <span className="inline-flex items-center gap-1.5 font-semibold text-[#009bd7] dark:text-[#00E1FF] group-hover:translate-x-1 transition-transform">
                           Read
                           <ArrowRight className="w-4 h-4" />
@@ -193,25 +182,23 @@ export default function StoriesPage() {
       </section>
 
       {/* Subscribe / Stay updated */}
-      <section className="py-20 lg:py-28 relative bg-gradient-to-br from-slate-50 via-white to-blue-50 dark:from-gray-900 dark:via-gray-800 dark:to-blue-900">
+      <section className="py-14 lg:py-20 relative bg-gradient-to-br from-slate-50 via-white to-blue-50 dark:from-gray-900 dark:via-gray-800 dark:to-blue-900">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl mx-auto text-center">
-            <h2 className="text-3xl sm:text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#0f172a] via-[#009bd7] to-[#00E1FF] dark:from-white dark:via-[#009bd7] dark:to-[#00E1FF] mb-4 leading-snug pb-1">
+            <h2 className="text-3xl sm:text-4xl font-bold text-[#0f172a] dark:text-white mb-4 leading-snug pb-1">
               First to read, first to build.
             </h2>
             <p className="text-lg text-gray-600 dark:text-gray-300 mb-10">
               New stories land roughly every two weeks. No marketing fluff, no filler. Just what we&apos;re
               learning on the build floor.
             </p>
-            <a
-              href="https://calendly.com/skal-ai/discovery-call"
-              target="_blank"
-              rel="noopener noreferrer"
+            <Link
+              href="/book"
               className="group inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-[#009bd7] to-[#00E1FF] text-white font-bold rounded-2xl transition-all duration-300 hover:shadow-xl hover:shadow-[#009bd7]/25 hover:scale-105"
             >
               Talk to the team
               <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-            </a>
+            </Link>
           </div>
         </div>
       </section>

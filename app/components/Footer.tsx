@@ -34,8 +34,9 @@ export default function Footer() {
   ];
 
   const productLinks = [
-    { name: 'Systems', href: '/systems' },
     { name: 'Scale', href: '/scale' },
+    { name: 'Systems', href: '/systems' },
+    { name: 'Services', href: '/services' },
     { name: 'Staffing', href: '/staffing' },
   ];
 
@@ -43,7 +44,13 @@ export default function Footer() {
     { name: 'About', href: '/about' },
     { name: 'Stories', href: '/stories' },
     { name: 'FAQ', href: '/faq' },
+    { name: 'Book a call', href: '/book' },
     { name: 'Contact', href: '#contact' },
+  ];
+
+  const legalLinks = [
+    { name: 'Privacy', href: '/privacy' },
+    { name: 'Cookie policy', href: '/cookie-policy' },
   ];
 
   return (
@@ -149,6 +156,17 @@ export default function Footer() {
 
         {/* Copyright */}
         <div className="mt-12 pt-8 border-t border-gray-200 dark:border-gray-700">
+          <div className="flex flex-wrap justify-center gap-x-6 gap-y-2 mb-3">
+            {legalLinks.map((link) => (
+              <a
+                key={link.name}
+                href={link.href}
+                className="text-gray-500 dark:text-gray-400 text-xs hover:text-[#009bd7] dark:hover:text-[#00E1FF] transition-colors"
+              >
+                {link.name}
+              </a>
+            ))}
+          </div>
           <p className="text-center text-gray-500 dark:text-gray-500 text-xs mb-2">
             Dubai, UAE · License No: 262305646888
           </p>

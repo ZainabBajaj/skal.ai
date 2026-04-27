@@ -21,69 +21,7 @@ export default function StartupOffer() {
     <main className="relative min-h-screen">
       <Navbar />
       
-      <section className="pt-32 pb-16 sm:pt-36 sm:pb-20 lg:pt-40 lg:pb-24 relative overflow-hidden bg-white dark:bg-gray-800">
-        {/* Footer-style Background Elements - Both Light and Dark Mode */}
-        <div className="absolute inset-0 pointer-events-none">
-          {/* Subtle wavy lines pattern like footer */}
-          <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-gray-400/30 to-transparent animate-pulse"></div>
-          <div className="absolute top-1/4 left-0 w-full h-1 bg-gradient-to-r from-transparent via-gray-400/20 to-transparent animate-pulse" style={{animationDelay: '1s'}}></div>
-          <div className="absolute top-1/2 left-0 w-full h-1 bg-gradient-to-r from-transparent via-gray-400/25 to-transparent animate-pulse" style={{animationDelay: '2s'}}></div>
-          <div className="absolute top-3/4 left-0 w-full h-1 bg-gradient-to-r from-transparent via-gray-400/15 to-transparent animate-pulse" style={{animationDelay: '3s'}}></div>
-          <div className="absolute bottom-0 right-0 w-full h-1 bg-gradient-to-r from-transparent via-gray-400/20 to-transparent animate-pulse" style={{animationDelay: '4s'}}></div>
-          
-          {/* Subtle background pattern overlay */}
-          <div className="absolute inset-0 bg-gradient-to-br from-gray-700/10 via-transparent to-gray-600/10 pointer-events-none"></div>
-          
-          {/* Startup-specific animated objects */}
-          {/* Floating rockets */}
-          <div className="absolute top-20 left-20 w-8 h-8 text-blue-400/30 animate-float">
-            <svg fill="currentColor" viewBox="0 0 24 24">
-              <path d="M12 2L13.09 8.26L22 9L13.09 9.74L12 16L10.91 9.74L2 9L10.91 8.26L12 2Z"/>
-            </svg>
-          </div>
-          <div className="absolute top-40 right-32 w-6 h-6 text-cyan-400/25 animate-float" style={{animationDelay: '2s'}}>
-            <svg fill="currentColor" viewBox="0 0 24 24">
-              <path d="M12 2L13.09 8.26L22 9L13.09 9.74L12 16L10.91 9.74L2 9L10.91 8.26L12 2Z"/>
-            </svg>
-          </div>
-          
-          {/* Lightning bolts */}
-          <div className="absolute top-60 left-1/4 w-10 h-10 text-blue-500/20 animate-pulse">
-            <svg fill="currentColor" viewBox="0 0 24 24">
-              <path d="M7 2L3 12H8L6 22L21 8H14L16 2H7Z"/>
-            </svg>
-          </div>
-          <div className="absolute top-80 right-1/3 w-8 h-8 text-cyan-500/15 animate-pulse" style={{animationDelay: '1.5s'}}>
-            <svg fill="currentColor" viewBox="0 0 24 24">
-              <path d="M7 2L3 12H8L6 22L21 8H14L16 2H7Z"/>
-            </svg>
-          </div>
-          
-          {/* Upward arrows */}
-          <div className="absolute bottom-40 left-1/3 w-12 h-12 text-blue-400/20 animate-bounce">
-            <svg fill="currentColor" viewBox="0 0 24 24">
-              <path d="M12 4L12 20M12 4L6 10M12 4L18 10"/>
-            </svg>
-          </div>
-          <div className="absolute bottom-60 right-1/4 w-10 h-10 text-cyan-400/15 animate-bounce" style={{animationDelay: '0.5s'}}>
-            <svg fill="currentColor" viewBox="0 0 24 24">
-              <path d="M12 4L12 20M12 4L6 10M12 4L18 10"/>
-            </svg>
-          </div>
-          
-          {/* Sparkles */}
-          <div className="absolute top-1/3 left-1/6 w-4 h-4 text-blue-300/40 animate-ping">
-            <svg fill="currentColor" viewBox="0 0 24 24">
-              <path d="M12 2L13.09 8.26L22 9L13.09 9.74L12 16L10.91 9.74L2 9L10.91 8.26L12 2Z"/>
-            </svg>
-          </div>
-          <div className="absolute top-2/3 right-1/6 w-3 h-3 text-cyan-300/35 animate-ping" style={{animationDelay: '1s'}}>
-            <svg fill="currentColor" viewBox="0 0 24 24">
-              <path d="M12 2L13.09 8.26L22 9L13.09 9.74L12 16L10.91 9.74L2 9L10.91 8.26L12 2Z"/>
-            </svg>
-          </div>
-        </div>
-
+      <section className="pt-28 pb-12 sm:pt-32 sm:pb-14 lg:pt-36 lg:pb-16 relative overflow-hidden bg-white dark:bg-gray-800">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           {/* Header */}
           <div className="text-center mb-10 sm:mb-16">
@@ -275,7 +213,7 @@ export default function StartupOffer() {
 
           {/* Package Details Section */}
           <div className="mt-20 sm:mt-24">
-            <h2 className="text-3xl sm:text-4xl font-bold text-center text-transparent bg-clip-text bg-gradient-to-r from-[#0f172a] via-blue-600 to-cyan-500 dark:from-white dark:via-blue-400 dark:to-cyan-400 mb-12 leading-snug pb-1">
+            <h2 className="text-3xl sm:text-4xl font-bold text-center text-[#0f172a] dark:text-white mb-12 leading-snug pb-1">
               Startup Package Includes
             </h2>
 

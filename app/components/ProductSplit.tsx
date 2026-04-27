@@ -22,7 +22,7 @@ const cards: ProductCard[] = [
     audience: 'For B2B founders done doing outbound manually.',
     body: [
       'Your pipeline should not depend on hustle.',
-      'SKAL Scale runs your entire outbound. AI prospecting, personalised sequences, and a proprietary contact database.',
+      'SKAL Scale runs your entire outbound. AI prospecting, personalised sequences, and a proprietary contact database that turns into qualified meetings.',
       'You only pay per qualified meeting.',
     ],
     cta: 'Join the waitlist',
@@ -36,10 +36,10 @@ const cards: ProductCard[] = [
     audience: 'Live in one week.',
     body: [
       'Customer support should not scale with headcount.',
-      'Voice and chat agents trained on your business, powered by ElevenLabs and Claude. Plus pre-built workflows on n8n, Make, and Zapier.',
-      'No development cycles. No technical lift.',
+      'Voice and chat agents trained on your business, powered by ElevenLabs and Claude. Plus automation that runs your operations end to end.',
+      'No development cycles. No engineering required.',
     ],
-    cta: 'Deploy your first Sagent',
+    cta: 'Deploy your first AI Sagent',
     icon: Bot,
   },
   {
@@ -50,7 +50,7 @@ const cards: ProductCard[] = [
     body: [
       'Off the shelf does not fit your business.',
       'Custom AI agents, agentic workflows, and software scoped to your exact requirements.',
-      'If it does not exist, we build it.',
+      'If it doesn’t exist, we build it from scratch.',
     ],
     cta: 'Tell us what you need',
     icon: Wrench,
@@ -72,14 +72,14 @@ const cards: ProductCard[] = [
 
 const ProductSplit = () => {
   return (
-    <section id="products" className="py-20 lg:py-28 relative bg-white dark:bg-gray-800 overflow-hidden">
+    <section id="products" className="py-14 lg:py-20 relative bg-white dark:bg-gray-800 overflow-hidden">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16 max-w-3xl mx-auto">
+        <div className="text-center mb-10 lg:mb-12 max-w-3xl mx-auto">
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-[#0f172a] dark:text-white mb-4 leading-snug pb-1">
             Four ways SKAL builds with you
           </h2>
           <p className="text-lg text-gray-600 dark:text-gray-300">
-            Most companies need all four. We plug in wherever you are.
+            Each one fixes a different bottleneck.
           </p>
         </div>
 
@@ -124,7 +124,7 @@ const ProductSplit = () => {
           ))}
         </div>
 
-        <p className="mt-12 text-center text-base sm:text-lg text-gray-700 dark:text-gray-300 max-w-2xl mx-auto">
+        <p className="mt-8 lg:mt-10 text-center text-base sm:text-lg text-gray-700 dark:text-gray-300 max-w-2xl mx-auto">
           This is not four tools. It is one system. Most companies need all four;
           <span className="font-semibold text-[#0f172a] dark:text-white"> we plug in wherever you are stuck.</span>
         </p>

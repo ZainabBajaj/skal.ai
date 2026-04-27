@@ -66,12 +66,7 @@ export default function ScalePage() {
       <Navbar />
 
       {/* Scale Hero */}
-      <section className="pt-32 pb-16 sm:pt-36 sm:pb-20 lg:pt-40 lg:pb-24 relative overflow-hidden bg-gradient-to-br from-slate-50 via-white to-blue-50 dark:from-gray-900 dark:via-gray-800 dark:to-blue-900">
-        <div className="absolute inset-0 pointer-events-none">
-          <div className="absolute top-20 right-10 w-72 h-72 bg-gradient-to-r from-[#00E1FF]/8 to-[#1DB5C5]/6 rounded-full blur-3xl"></div>
-          <div className="absolute bottom-20 left-10 w-96 h-96 bg-gradient-to-r from-[#009bd7]/6 to-[#00E1FF]/4 rounded-full blur-3xl"></div>
-        </div>
-
+      <section className="pt-28 pb-12 sm:pt-32 sm:pb-14 lg:pt-36 lg:pb-16 relative overflow-hidden bg-gradient-to-br from-slate-50 via-white to-blue-50 dark:from-gray-900 dark:via-gray-800 dark:to-blue-900">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-16 max-w-7xl mx-auto">
             {/* Left: Text */}
@@ -223,14 +218,14 @@ export default function ScalePage() {
       </section>
 
       {/* Features */}
-      <section className="py-20 lg:py-28 relative bg-white dark:bg-gray-800">
+      <section className="py-14 lg:py-20 relative bg-white dark:bg-gray-800">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <div className="inline-flex items-center space-x-2 bg-gradient-to-r from-[#009bd7]/10 to-[#00E1FF]/10 dark:from-[#009bd7]/20 dark:to-[#00E1FF]/20 rounded-full px-6 py-2 mb-6 border border-[#009bd7]/20 dark:border-[#00E1FF]/30">
               <Sparkles className="w-4 h-4 text-[#009bd7] dark:text-[#00E1FF]" />
               <span className="text-[#009bd7] dark:text-[#00E1FF] text-sm font-bold tracking-wider">FEATURES</span>
             </div>
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#0f172a] via-[#009bd7] to-[#00E1FF] dark:from-white dark:via-[#009bd7] dark:to-[#00E1FF] mb-6 leading-snug pb-1">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-[#0f172a] dark:text-white mb-6 leading-snug pb-1">
               Everything You Need to Scale
             </h2>
             <p className="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
@@ -276,7 +271,7 @@ export default function ScalePage() {
       />
 
       {/* Value Props */}
-      <section className="py-20 lg:py-28 relative bg-white dark:bg-gray-800">
+      <section className="py-14 lg:py-20 relative bg-white dark:bg-gray-800">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-5xl mx-auto bg-gradient-to-br from-[#0f172a] to-[#0c2d4a] rounded-3xl p-10 sm:p-16 relative overflow-hidden">
             <div className="absolute top-0 right-0 w-64 h-64 bg-gradient-to-bl from-[#009bd7]/20 to-transparent rounded-full blur-3xl"></div>
@@ -294,7 +289,7 @@ export default function ScalePage() {
                 { number: '3 Days', label: 'To First Leads', description: 'From setup to qualified meetings' },
               ].map((stat) => (
                 <div key={stat.label} className="text-center">
-                  <div className="text-4xl sm:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#009bd7] to-[#00E1FF] mb-2">
+                  <div className="text-4xl sm:text-5xl font-bold text-[#00E1FF] mb-2">
                     {stat.number}
                   </div>
                   <div className="text-white font-bold mb-1">{stat.label}</div>
@@ -307,7 +302,7 @@ export default function ScalePage() {
       </section>
 
       {/* Waitlist Form */}
-      <section id="waitlist" className="py-20 lg:py-28 relative bg-gradient-to-br from-slate-50 via-white to-blue-50 dark:from-gray-900 dark:via-gray-800 dark:to-blue-900">
+      <section id="waitlist" className="py-14 lg:py-20 relative bg-gradient-to-br from-slate-50 via-white to-blue-50 dark:from-gray-900 dark:via-gray-800 dark:to-blue-900">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-2xl mx-auto text-center">
             <div className="inline-flex items-center space-x-2 bg-gradient-to-r from-[#009bd7]/10 to-[#00E1FF]/10 dark:from-[#009bd7]/20 dark:to-[#00E1FF]/20 rounded-full px-6 py-2 mb-6 border border-[#009bd7]/20 dark:border-[#00E1FF]/30">
@@ -315,7 +310,7 @@ export default function ScalePage() {
               <span className="text-[#009bd7] dark:text-[#00E1FF] text-sm font-bold tracking-wider">EARLY ACCESS</span>
             </div>
 
-            <h2 className="text-3xl sm:text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#0f172a] via-[#009bd7] to-[#00E1FF] dark:from-white dark:via-[#009bd7] dark:to-[#00E1FF] mb-4 leading-snug pb-1">
+            <h2 className="text-3xl sm:text-4xl font-bold text-[#0f172a] dark:text-white mb-4 leading-snug pb-1">
               Get Early Access
             </h2>
             <p className="text-gray-600 dark:text-gray-300 mb-10 text-lg">

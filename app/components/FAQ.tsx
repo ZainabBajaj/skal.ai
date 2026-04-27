@@ -11,44 +11,34 @@ interface FAQItem {
 
 const faqData: FAQItem[] = [
   {
-    question: "How much does AI development cost?",
-    answer: "AI development costs vary based on project complexity, ranging from $1,000 for basic chatbots to $100,000+ for enterprise AI solutions. We offer flexible pricing models including hourly rates ($15-45/hr), monthly retainers ($2,500-5,000/month), and project-based pricing. Contact us for a free consultation and custom quote.",
-    category: "Pricing"
+    question: "I'm not sure which of the four I need. Where do I start?",
+    answer: "Start with a 30-minute discovery call. We listen, name the bottleneck, and tell you which of Scale, Systems, Services, or Staffing fits. Sometimes more than one. If none of them fit, we tell you that too.",
+    category: "Getting started"
   },
   {
-    question: "How long does it take to implement AI solutions?",
-    answer: "Implementation timelines depend on the solution complexity: AI chatbots (2-4 weeks), machine learning models (4-8 weeks), enterprise AI systems (8-16 weeks). We use agile methodologies to deliver working solutions quickly and iterate based on feedback.",
-    category: "Timeline"
+    question: "How does pricing work?",
+    answer: "It depends on the engagement. Scale is priced per qualified meeting. Systems are flat fees per agent deployed. Services are scoped and quoted up front. Staffing is billed hourly. You get a clear number after the discovery call, no surprise line items.",
+    category: "Getting started"
   },
   {
-    question: "What industries do you specialize in?",
-    answer: "We serve diverse industries including healthcare, finance, e-commerce, manufacturing, and technology. Our AI solutions are customized for each industry's specific needs, compliance requirements, and business objectives.",
-    category: "Industries"
+    question: "How long until something is live?",
+    answer: "Systems typically deploy in about a week. Services run on the timeline of the build, scoped before we start so there are no moving goalposts. Staffing engineers can start within days once the brief is set. Scale ramps over the first few weeks as we calibrate to your ICP.",
+    category: "Getting started"
   },
   {
-    question: "Do you provide ongoing support and maintenance?",
-    answer: "Yes, we offer comprehensive support packages including 24/7 monitoring, regular updates, performance optimization, and technical support. Our maintenance plans ensure your AI solutions remain current and perform optimally.",
-    category: "Support"
+    question: "Will SKAL work with the tools we already use?",
+    answer: "Yes. Systems plug into HubSpot, Salesforce, Zendesk, Intercom, Freshdesk, and most of what you already run. Workflows ride on n8n, Make, and Zapier. Voice and chat are powered by ElevenLabs and Claude. We work inside your stack rather than replacing it.",
+    category: "How we work"
   },
   {
-    question: "Can you integrate AI with our existing systems?",
-    answer: "Absolutely! We specialize in seamless integration with existing CRM, ERP, and business systems. Our team ensures minimal disruption while maximizing the value of your current technology investments.",
-    category: "Integration"
+    question: "Can SKAL replace, augment, or build my engineering team?",
+    answer: "All three, depending on what you need. Staffing slots pre-vetted engineers into your existing team. Services builds for you when you do not have one yet. Either way, the people shipping the code stay accountable to you.",
+    category: "How we work"
   },
   {
-    question: "What's the ROI of implementing AI solutions?",
-    answer: "Our clients typically see 300-500% ROI within the first year. AI solutions reduce operational costs by 40-60%, increase efficiency by 50-80%, and improve customer satisfaction by 30-50%. We provide detailed ROI analysis for each project.",
-    category: "ROI"
-  },
-  {
-    question: "Do you offer AI consulting services?",
-    answer: "Yes, we provide comprehensive AI consulting including strategy development, technology assessment, implementation roadmaps, and team training. Our experts help you identify the best AI opportunities for your business.",
-    category: "Consulting"
-  },
-  {
-    question: "How do you ensure data security and privacy?",
-    answer: "We implement enterprise-grade security measures including encryption, secure cloud infrastructure, GDPR compliance, and regular security audits. Your data security and privacy are our top priorities.",
-    category: "Security"
+    question: "What happens after a system goes live?",
+    answer: "We do not disappear. Systems come with monitoring, prompt and policy tuning, and updates as your business changes. Services include a clear handoff and an optional retainer if you want us to keep iterating. You set the level of ongoing involvement.",
+    category: "How we work"
   }
 ];
 
@@ -71,7 +61,7 @@ export default function FAQ() {
   };
 
   return (
-    <section id="faq" className="relative py-16 sm:py-20 lg:py-24 bg-white dark:bg-gray-900 overflow-hidden">
+    <section id="faq" className="relative py-12 sm:py-14 lg:py-20 bg-white dark:bg-gray-900 overflow-hidden">
       {/* Custom CSS for floating animations */}
       <style jsx>{`
         @keyframes float {
@@ -93,12 +83,6 @@ export default function FAQ() {
           }
         }
       `}</style>
-      {/* Background Elements */}
-      <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-20 left-10 w-48 h-48 sm:w-72 sm:h-72 bg-gradient-to-r from-[#009bd7]/8 to-[#00E1FF]/6 rounded-full blur-3xl"></div>
-        <div className="absolute bottom-20 right-10 w-64 h-64 sm:w-96 sm:h-96 bg-gradient-to-r from-[#00E1FF]/6 to-[#009bd7]/4 rounded-full blur-3xl"></div>
-      </div>
-
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="max-w-4xl mx-auto">
           {/* Header Section */}
@@ -113,7 +97,7 @@ export default function FAQ() {
             </h2>
             
             <p className="text-lg sm:text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto leading-relaxed font-medium px-4">
-              Get answers to common questions about AI implementation, pricing, and our services
+              Common questions about how SKAL works. If yours is not here, the discovery call covers it.
             </p>
           </div>
 
@@ -184,23 +168,23 @@ export default function FAQ() {
           <div className="text-center mt-12 sm:mt-16">
             <div className="bg-gradient-to-r from-[#009bd7]/5 to-[#00E1FF]/5 dark:from-[#009bd7]/10 dark:to-[#00E1FF]/10 rounded-2xl p-8 sm:p-12 border border-[#009bd7]/10 dark:border-[#009bd7]/20">
               <h3 className="text-2xl sm:text-3xl font-bold text-gray-800 dark:text-white mb-4">
-                Still Have Questions?
+                Still have questions?
               </h3>
               <p className="text-gray-600 dark:text-gray-300 mb-6 text-sm sm:text-base">
-                Can&apos;t find what you&apos;re looking for? Our AI experts are here to help!
+                If yours is not on the list, the discovery call is the fastest way to get a real answer.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <a
-                  href="#contact"
+                  href="/book"
                   className="inline-flex items-center justify-center px-8 py-3 bg-gradient-to-r from-[#009bd7] to-[#00E1FF] text-white font-semibold rounded-xl hover:shadow-lg hover:scale-105 transition-all duration-300"
                 >
-                  Get Free Consultation
+                  Book a discovery call
                 </a>
                 <a
                   href="mailto:hi@skal.ai"
                   className="inline-flex items-center justify-center px-8 py-3 border-2 border-[#009bd7] text-[#009bd7] font-semibold rounded-xl hover:bg-[#009bd7] hover:text-white transition-all duration-300"
                 >
-                  Email Us
+                  Email us
                 </a>
               </div>
             </div>

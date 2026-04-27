@@ -75,16 +75,8 @@ export default function About() {
   return (
     <section 
       id="about" 
-      className="relative bg-gradient-to-br from-[#f8faff] via-white to-[#f0f7ff] dark:from-gray-900 dark:via-gray-800 dark:to-blue-900 py-16 sm:py-24 overflow-hidden"
+      className="relative bg-gradient-to-br from-[#f8faff] via-white to-[#f0f7ff] dark:from-gray-900 dark:via-gray-800 dark:to-blue-900 py-12 sm:py-16 overflow-hidden"
     >
-      {/* Simplified Background Elements */}
-      <div className="absolute inset-0 pointer-events-none z-5">
-        {/* Static background gradients for depth */}
-        <div className="absolute top-20 left-10 w-72 h-72 bg-gradient-to-r from-[#009bd7]/5 to-[#00E1FF]/3 rounded-full blur-3xl"></div>
-        <div className="absolute bottom-20 right-10 w-96 h-96 bg-gradient-to-r from-[#00E1FF]/3 to-[#009bd7]/2 rounded-full blur-3xl"></div>
-        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-gradient-to-r from-[#1DB5C5]/2 to-[#009bd7]/2 rounded-full blur-3xl"></div>
-      </div>
-
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-20">
         {/* Header Section */}
         <div className="text-center mb-16">
@@ -97,7 +89,7 @@ export default function About() {
             </h2>
             <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto leading-relaxed font-medium">
             We&apos;re passionate about leveraging cutting-edge technology to transform businesses through{' '}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#009bd7] to-[#00E1FF] font-bold">
+            <span className="text-[#009bd7] dark:text-[#00E1FF] font-bold">
               innovative solutions
             </span>
           </p>
@@ -107,21 +99,21 @@ export default function About() {
         <div className="mt-16 text-center" ref={statsRef}>
           <div className="inline-flex items-center justify-center space-x-8 bg-white/80 dark:bg-gray-800/80 backdrop-blur-xl rounded-3xl p-8 shadow-2xl border border-white/50 dark:border-gray-700/50 hover:shadow-3xl transition-all duration-500">
             <div className="text-center">
-              <div className="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#009bd7] to-[#00E1FF] dark:from-[#00E1FF] dark:to-[#009bd7] transition-all duration-300">
+              <div className="text-3xl font-bold text-[#009bd7] dark:text-[#00E1FF]">
                 {projectsCount}+
               </div>
               <div className="text-sm text-gray-600 dark:text-gray-300 font-medium">Projects Delivered</div>
             </div>
             <div className="h-12 w-px bg-gradient-to-b from-transparent via-gray-300 dark:via-gray-600 to-transparent"></div>
             <div className="text-center">
-              <div className="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#009bd7] to-[#00E1FF] dark:from-[#00E1FF] dark:to-[#009bd7] transition-all duration-300">
+              <div className="text-3xl font-bold text-[#009bd7] dark:text-[#00E1FF]">
                 {clientsCount}+
               </div>
               <div className="text-sm text-gray-600 dark:text-gray-300 font-medium">Happy Clients</div>
             </div>
             <div className="h-12 w-px bg-gradient-to-b from-transparent via-gray-300 dark:via-gray-600 to-transparent"></div>
             <div className="text-center">
-              <div className="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#009bd7] to-[#00E1FF] dark:from-[#00E1FF] dark:to-[#009bd7] transition-all duration-300">
+              <div className="text-3xl font-bold text-[#009bd7] dark:text-[#00E1FF]">
                 {yearsCount}+
               </div>
               <div className="text-sm text-gray-600 dark:text-gray-300 font-medium">Years Experience</div>
