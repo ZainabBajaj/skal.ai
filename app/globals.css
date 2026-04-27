@@ -65,6 +65,7 @@
 /* Smooth Scroll */
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: 6rem; /* keeps anchor jumps clear of the fixed navbar */
 }
 
 /* Custom Scrollbar */
