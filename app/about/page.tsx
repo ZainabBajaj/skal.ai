@@ -113,7 +113,7 @@ export default function AboutPage() {
               </div>
 
               <p>
-                We have offices in Dubai and Lahore, and a growing team of engineers and AI specialists
+                We have offices in Pembroke Pines, Toronto, Kuala Lumpur, Ajman, and Lahore, and a growing team of engineers and AI specialists
                 who think the same way.
               </p>
 
