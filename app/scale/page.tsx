@@ -271,44 +271,41 @@ export default function ScalePage() {
         badge={{ icon: Clock, label: 'HOW IT WORKS' }}
       />
 
-      {/* Pricing (with merged "not another lead gen tool" positioning) */}
+      {/* Pricing */}
       <section className="py-14 lg:py-20 relative bg-white dark:bg-gray-800">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-3xl mx-auto text-center">
+          <div className="text-center mb-12">
             <div className="inline-flex items-center space-x-2 bg-gradient-to-r from-[#009bd7]/10 to-[#00E1FF]/10 dark:from-[#009bd7]/20 dark:to-[#00E1FF]/20 rounded-full px-6 py-2 mb-6 border border-[#009bd7]/20 dark:border-[#00E1FF]/30">
               <DollarSign className="w-4 h-4 text-[#009bd7] dark:text-[#00E1FF]" />
               <span className="text-[#009bd7] dark:text-[#00E1FF] text-sm font-bold tracking-wider">PRICING</span>
             </div>
-            <h2 className="text-3xl sm:text-4xl font-bold text-[#0f172a] dark:text-white mb-6 leading-snug pb-1">
-              Performance-based. No surprises.
+            <h2 className="text-3xl sm:text-4xl font-bold text-[#0f172a] dark:text-white mb-4 leading-snug pb-1">
+              You pay when it works.
             </h2>
-            <p className="text-lg text-gray-600 dark:text-gray-300 leading-relaxed mb-6">
-              Most outbound tools sell you access and walk away. A list, a dialer, a sequence builder, and a wish. SKAL Scale is accountable to the same outcome you are: a qualified conversation with someone who can buy.
+            <p className="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
+              Pricing shared on your discovery call. Joining the waitlist is free.
             </p>
-            <p className="text-xl sm:text-2xl font-bold text-[#0f172a] dark:text-white mb-8">
-              You only pay for meetings. Not impressions. Not clicks. Not leads.
-            </p>
-            <div className="space-y-4 text-center text-gray-600 dark:text-gray-300 leading-relaxed">
-              <p>
-                You pay per qualified meeting that shows up on your calendar. A small setup fee applies to cover ICP definition, database build, and campaign launch.
-              </p>
-              <p>
-                A qualified meeting is a confirmed, attended call with a decider at a B2B company who has expressed active interest. No-shows do not count. You do not pay for them.
-              </p>
-              <p>
-                Pricing is shared on your discovery call. No credit card required to join the waitlist.
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+            <div className="text-center md:text-left">
+              <h3 className="text-xl font-bold text-[#0f172a] dark:text-white mb-3">Pay-per-outcome</h3>
+              <p className="text-gray-600 dark:text-gray-300 leading-relaxed">
+                You pay per qualified meeting that lands on your calendar. No-shows do not count.
               </p>
             </div>
-            <p className="mt-8 text-lg font-semibold text-[#0f172a] dark:text-white">
-              No retainers. No monthly minimums. No paying for effort that does not convert.
-            </p>
-            <a
-              href="#waitlist"
-              className="mt-10 group inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-[#009bd7] to-[#00E1FF] text-white font-bold rounded-2xl transition-all duration-300 hover:shadow-xl hover:shadow-[#009bd7]/25 hover:scale-105"
-            >
-              Join the Waitlist
-              <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-            </a>
+            <div className="text-center md:text-left">
+              <h3 className="text-xl font-bold text-[#0f172a] dark:text-white mb-3">What counts as qualified</h3>
+              <p className="text-gray-600 dark:text-gray-300 leading-relaxed">
+                A confirmed, attended call with a decider at a B2B company who has expressed active interest.
+              </p>
+            </div>
+            <div className="text-center md:text-left">
+              <h3 className="text-xl font-bold text-[#0f172a] dark:text-white mb-3">The setup fee</h3>
+              <p className="text-gray-600 dark:text-gray-300 leading-relaxed">
+                A small one-time fee covers ICP definition, database build, and campaign launch.
+              </p>
+            </div>
           </div>
         </div>
       </section>
