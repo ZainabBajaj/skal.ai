@@ -87,6 +87,7 @@ export default async function StoryPage({ params }: { params: Promise<{ slug: st
       {/* Article body */}
       <section className="py-12 lg:py-16 relative bg-white dark:bg-gray-800">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          {slug === 'hidden-cost-of-agent-sprawl' && <SprawlBanner />}
           {story.pullQuote && (
             <figure className="max-w-3xl mx-auto mb-12 relative">
               <div className="absolute left-0 top-0 bottom-0 w-1 rounded-full bg-gradient-to-b from-[#009bd7] via-[#00E1FF] to-[#1DB5C5]" aria-hidden="true" />
@@ -136,5 +137,94 @@ export default async function StoryPage({ params }: { params: Promise<{ slug: st
       <Footer />
       <FloatingThemeToggle />
     </main>
+  );
+}
+
+function SprawlBanner() {
+  return (
+    <div className="max-w-3xl mx-auto mb-10 relative rounded-2xl overflow-hidden bg-gradient-to-br from-[#0f172a] to-[#0c2d4a] border border-gray-700/40 shadow-xl">
+      <svg
+        viewBox="0 0 800 200"
+        xmlns="http://www.w3.org/2000/svg"
+        aria-hidden="true"
+        className="block w-full h-auto"
+      >
+        <defs>
+          <radialGradient id="sb-glow" cx="50%" cy="50%" r="60%">
+            <stop offset="0%" stopColor="#00E1FF" stopOpacity="0.18" />
+            <stop offset="100%" stopColor="#00E1FF" stopOpacity="0" />
+          </radialGradient>
+          <linearGradient id="sb-line" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" stopColor="#00E1FF" stopOpacity="0.5" />
+            <stop offset="100%" stopColor="#1DB5C5" stopOpacity="0.2" />
+          </linearGradient>
+          <radialGradient id="sb-active" cx="50%" cy="50%" r="50%">
+            <stop offset="0%" stopColor="#FFFFFF" stopOpacity="1" />
+            <stop offset="60%" stopColor="#00E1FF" stopOpacity="0.85" />
+            <stop offset="100%" stopColor="#00E1FF" stopOpacity="0" />
+          </radialGradient>
+        </defs>
+
+        {/* Ambient glow */}
+        <ellipse cx="400" cy="100" rx="360" ry="120" fill="url(#sb-glow)" />
+
+        {/* Faint dotted connections — partial, suggesting a system that doesn't quite exist */}
+        <g stroke="url(#sb-line)" strokeWidth="1" strokeDasharray="2 4" fill="none" opacity="0.55">
+          <line x1="80" y1="60" x2="160" y2="115" />
+          <line x1="160" y1="115" x2="260" y2="80" />
+          <line x1="260" y1="80" x2="360" y2="120" />
+          <line x1="430" y1="65" x2="520" y2="105" />
+          <line x1="520" y1="105" x2="610" y2="75" />
+          <line x1="610" y1="75" x2="700" y2="120" />
+        </g>
+
+        {/* Connected nodes */}
+        <g fill="#00E1FF">
+          <circle cx="80" cy="60" r="4" opacity="0.7" />
+          <circle cx="160" cy="115" r="5" opacity="0.85" />
+          <circle cx="260" cy="80" r="4" opacity="0.75" />
+          <circle cx="360" cy="120" r="5" opacity="0.8" />
+          <circle cx="430" cy="65" r="4" opacity="0.7" />
+          <circle cx="520" cy="105" r="5" opacity="0.85" />
+          <circle cx="610" cy="75" r="4" opacity="0.75" />
+          <circle cx="700" cy="120" r="5" opacity="0.8" />
+        </g>
+
+        {/* Two "active" nodes pulsing — the agents you actually trust */}
+        <g>
+          <circle cx="260" cy="80" r="9" fill="url(#sb-active)">
+            <animate attributeName="opacity" values="0.4;0.95;0.4" dur="2.8s" repeatCount="indefinite" />
+          </circle>
+          <circle cx="520" cy="105" r="9" fill="url(#sb-active)">
+            <animate attributeName="opacity" values="0.4;0.95;0.4" dur="2.8s" begin="-1.4s" repeatCount="indefinite" />
+          </circle>
+        </g>
+
+        {/* Orphan nodes — not connected to anything, just floating */}
+        <g fill="#1DB5C5" opacity="0.45">
+          <circle cx="120" cy="155" r="3" />
+          <circle cx="340" cy="40" r="3" />
+          <circle cx="470" cy="155" r="3" />
+          <circle cx="660" cy="155" r="3" />
+          <circle cx="180" cy="35" r="2.5" />
+          <circle cx="580" cy="40" r="2.5" />
+          <circle cx="740" cy="55" r="2.5" />
+        </g>
+
+        {/* A few extra dim dots — "agents nobody remembers" */}
+        <g fill="#94a3b8" opacity="0.2">
+          <circle cx="40" cy="100" r="2" />
+          <circle cx="220" cy="170" r="2" />
+          <circle cx="400" cy="180" r="2" />
+          <circle cx="640" cy="35" r="2" />
+          <circle cx="770" cy="170" r="2" />
+        </g>
+      </svg>
+
+      {/* Caption strip */}
+      <div className="absolute left-4 bottom-3 sm:left-6 sm:bottom-4 text-[10px] sm:text-xs font-bold tracking-[0.18em] text-[#00E1FF]/80">
+        AGENTS, MOSTLY UNCONNECTED
+      </div>
+    </div>
   );
 }
