@@ -108,23 +108,9 @@ export default function Footer() {
 
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-          {/* Logo and Description */}
+          {/* Logo */}
           <div className="space-y-4">
             <Logo />
-            <div className="flex space-x-4 pt-2">
-              {socialLinks.map((social) => (
-                <a
-                  key={social.name}
-                  href={social.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-[#009bd7] hover:text-[#00E1FF] dark:text-[#00E1FF] dark:hover:text-[#009bd7] transition-colors"
-                  aria-label={social.name}
-                >
-                  {social.icon}
-                </a>
-              ))}
-            </div>
           </div>
 
           {/* Products */}
@@ -155,23 +141,70 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Contact */}
-          <div>
-            <h3 className="text-[#0f172a] dark:text-white font-semibold mb-4">Contact</h3>
-            <ul className="space-y-2">
-              <li>
-                <a 
-                  href="mailto:hi@skal.ai"
-                  className="text-gray-600 dark:text-gray-300 hover:text-[#009bd7] dark:hover:text-[#00E1FF] transition-colors flex items-center gap-2"
-                >
-                  <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-                  </svg>
-                  hi@skal.ai
-                </a>
-              </li>
-            </ul>
+          {/* Contact column: Email + 5 Star Reviews + Our Socials */}
+          <div className="space-y-6">
+            {/* Email Us */}
+            <div>
+              <h3 className="text-[#0f172a] dark:text-white font-semibold mb-3">Email Us</h3>
+              <a
+                href="mailto:hi@skal.ai"
+                className="text-gray-600 dark:text-gray-300 hover:text-[#009bd7] dark:hover:text-[#00E1FF] transition-colors inline-flex items-center gap-2"
+              >
+                <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                </svg>
+                hi@skal.ai
+              </a>
+            </div>
 
+            {/* 5 Star Reviews */}
+            <div>
+              <h3 className="text-[#0f172a] dark:text-white font-semibold mb-3 inline-flex items-center gap-2">
+                <Star className="w-4 h-4 fill-[#009bd7] text-[#009bd7] dark:fill-[#00E1FF] dark:text-[#00E1FF]" aria-hidden="true" />
+                5 Star Reviews
+              </h3>
+              <div className="flex flex-wrap items-center gap-x-5 gap-y-3">
+                {reviewPlatforms.map((platform) => (
+                  <a
+                    key={platform.name}
+                    href={platform.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={`Five star reviews on ${platform.name}`}
+                    className="group inline-flex items-center"
+                  >
+                    <div className="grayscale opacity-70 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-300">
+                      <Image
+                        src={platform.logo}
+                        alt={platform.name}
+                        width={120}
+                        height={32}
+                        className="h-7 w-auto object-contain"
+                      />
+                    </div>
+                  </a>
+                ))}
+              </div>
+            </div>
+
+            {/* Our Socials */}
+            <div>
+              <h3 className="text-[#0f172a] dark:text-white font-semibold mb-3">Our Socials</h3>
+              <div className="flex space-x-4">
+                {socialLinks.map((social) => (
+                  <a
+                    key={social.name}
+                    href={social.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-[#009bd7] hover:text-[#00E1FF] dark:text-[#00E1FF] dark:hover:text-[#009bd7] transition-colors"
+                    aria-label={social.name}
+                  >
+                    {social.icon}
+                  </a>
+                ))}
+              </div>
+            </div>
           </div>
         </div>
 
@@ -186,41 +219,6 @@ export default function Footer() {
               </div>
             ))}
           </div>
-        </div>
-
-        {/* Five-star reviews */}
-        <div className="mt-12 pt-8 border-t border-gray-200 dark:border-gray-700">
-          <h3 className="text-[#0f172a] dark:text-white font-semibold text-center mb-6">Five-star reviews</h3>
-
-          <div className="flex flex-wrap items-center justify-center gap-x-10 gap-y-6 sm:gap-x-14 lg:gap-x-20 mb-6">
-            {reviewPlatforms.map((platform) => (
-              <a
-                key={platform.name}
-                href={platform.href}
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label={`Five star reviews on ${platform.name}`}
-                className="group inline-flex items-center justify-center"
-              >
-                <div className="grayscale opacity-70 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-300">
-                  <Image
-                    src={platform.logo}
-                    alt={platform.name}
-                    width={120}
-                    height={36}
-                    className="h-8 sm:h-10 w-auto object-contain"
-                  />
-                </div>
-              </a>
-            ))}
-          </div>
-
-          <div className="flex items-center justify-center gap-1 text-[#009bd7] dark:text-[#00E1FF]" aria-hidden="true">
-            {Array.from({ length: 5 }).map((_, i) => (
-              <Star key={i} className="w-5 h-5 fill-current" />
-            ))}
-          </div>
-          <p className="sr-only">Five out of five stars across all four platforms.</p>
         </div>
 
         {/* Bottom row: left = legal links, right = license + copyright */}
