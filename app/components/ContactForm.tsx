@@ -87,14 +87,15 @@ export default function ContactForm({ initialMessage = '' }: ContactFormProps) {
             </div>
             
             <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-[#0f172a] dark:text-white mb-4 sm:mb-6 leading-snug pb-1">
-              Start Your AI Journey
+              Talk to us
             </h2>
-            
+
             <p className="text-lg sm:text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto leading-relaxed font-medium px-4">
-              Ready to transform your business with cutting-edge AI solutions? Let&apos;s discuss your project and{' '}
+              Tell us what you need. We will tell you what it takes to{' '}
               <span className="text-[#009bd7] dark:text-[#00E1FF] font-bold">
-                bring your vision to life
+                ship it
               </span>
+              .
             </p>
           </div>
 
