@@ -35,11 +35,11 @@ const cards: ProductCard[] = [
     verb: 'Deploys',
     audience: 'Live in one week.',
     body: [
-      'Customer support should not scale with headcount.',
-      'Voice and chat agents trained on your business, powered by ElevenLabs and Claude. Plus automation that runs your operations end to end.',
-      'No development cycles. No engineering required.',
+      'Your operations run without you. Here is what runs them.',
+      'Voice and chat agents trained on your business, powered by ElevenLabs and Claude. Plus end-to-end automation that handles your operations around the clock.',
+      'No development cycles. No engineering required. No overhead.',
     ],
-    cta: 'Deploy your first AI Sagent',
+    cta: 'Deploy your first AI agent',
     icon: Bot,
   },
   {
