@@ -25,7 +25,7 @@ export default function TrackingScripts() {
   const lastPath = useRef<string | null>(null);
 
   useEffect(() => {
-    if (!hydrated || consent !== 'accepted') return;
+    if (!hydrated || !consent?.analytics) return;
     if (lastPath.current === pathname) return;
     lastPath.current = pathname;
 
@@ -46,7 +46,7 @@ export default function TrackingScripts() {
     });
   }, [pathname, consent, hydrated]);
 
-  if (!hydrated || consent !== 'accepted') return null;
+  if (!hydrated || !consent?.analytics) return null;
 
   return <GoogleAnalytics />;
 }

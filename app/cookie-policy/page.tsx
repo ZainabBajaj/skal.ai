@@ -7,13 +7,13 @@ import Footer from '../components/Footer';
 import FloatingThemeToggle from '../components/FloatingThemeToggle';
 
 export default function CookiePolicyPage() {
-  const { consent, hydrated, accept, reject, reset } = useCookieConsent();
+  const { consent, hydrated, acceptAll, saveCustom, reset } = useCookieConsent();
 
   const status =
     !hydrated ? 'Loading…'
-    : consent === 'accepted' ? 'You have accepted analytics cookies.'
-    : consent === 'rejected' ? 'You have rejected analytics cookies. Only essential cookies are running.'
-    : 'No choice made yet.';
+    : consent === null ? 'No choice made yet.'
+    : consent.analytics ? 'You have accepted analytics cookies.'
+    : 'You have rejected analytics cookies. Only essential cookies are running.';
 
   return (
     <main className="relative min-h-screen bg-white dark:bg-gray-900">
@@ -67,15 +67,15 @@ export default function CookiePolicyPage() {
 
               <div className="flex flex-col sm:flex-row gap-3">
                 <button
-                  onClick={accept}
-                  disabled={!hydrated || consent === 'accepted'}
+                  onClick={acceptAll}
+                  disabled={!hydrated || consent?.analytics === true}
                   className="px-6 py-3 bg-gradient-to-r from-[#009bd7] to-[#00E1FF] text-white font-semibold rounded-xl text-sm transition-all duration-200 hover:shadow-lg hover:shadow-[#009bd7]/25 active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:shadow-none"
                 >
                   Accept analytics
                 </button>
                 <button
-                  onClick={reject}
-                  disabled={!hydrated || consent === 'rejected'}
+                  onClick={() => saveCustom({ analytics: false })}
+                  disabled={!hydrated || (consent !== null && consent.analytics === false)}
                   className="px-6 py-3 border border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-200 font-semibold rounded-xl text-sm transition-all duration-200 hover:border-[#009bd7] hover:text-[#009bd7] dark:hover:border-[#00E1FF] dark:hover:text-[#00E1FF] active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed"
                 >
                   Reject analytics
