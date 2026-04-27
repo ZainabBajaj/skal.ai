@@ -43,14 +43,18 @@ export default function Footer() {
   const companyLinks = [
     { name: 'About', href: '/about' },
     { name: 'Stories', href: '/stories' },
+    { name: 'Careers', href: '/careers' },
     { name: 'FAQ', href: '/faq' },
     { name: 'Book a call', href: '/book' },
     { name: 'Contact', href: '#contact' },
   ];
 
   const legalLinks = [
-    { name: 'Privacy', href: '/privacy' },
+    { name: 'Sitemap', href: '/sitemap' },
+    { name: 'Privacy Policy', href: '/privacy' },
     { name: 'Cookie policy', href: '/cookie-policy' },
+    { name: 'IMS Policy', href: '/ims-policy' },
+    { name: 'Terms & Conditions', href: '/terms' },
   ];
 
   return (
