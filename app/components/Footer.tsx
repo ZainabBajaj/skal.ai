@@ -125,7 +125,7 @@ export default function Footer() {
                 <Star className="w-4 h-4 fill-[#009bd7] text-[#009bd7] dark:fill-[#00E1FF] dark:text-[#00E1FF]" aria-hidden="true" />
                 Five-star reviews
               </h3>
-              <div className="flex flex-wrap items-center gap-x-5 gap-y-3">
+              <div className="flex flex-wrap items-center gap-x-5 gap-y-3 mb-4">
                 {reviewPlatforms.map((platform) => (
                   <a
                     key={platform.name}
@@ -147,6 +147,12 @@ export default function Footer() {
                   </a>
                 ))}
               </div>
+              <div className="flex items-center gap-1 text-[#009bd7] dark:text-[#00E1FF]" aria-hidden="true">
+                {Array.from({ length: 5 }).map((_, i) => (
+                  <Star key={i} className="w-5 h-5 fill-current" />
+                ))}
+              </div>
+              <p className="sr-only">Five out of five stars across all four platforms.</p>
             </div>
           </div>
 
