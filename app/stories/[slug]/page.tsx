@@ -90,6 +90,7 @@ export default async function StoryPage({ params }: { params: Promise<{ slug: st
           {slug === 'hidden-cost-of-agent-sprawl' && <SprawlBanner />}
           {slug === 'why-most-ai-pilots-fail' && <PilotGapBanner />}
           {slug === 'from-balance-sheet-to-build-plan' && <BuildPlanBanner />}
+          {slug === 'hiring-the-top-five-percent' && <VettingBanner />}
           {story.pullQuote && (
             <figure className="max-w-3xl mx-auto mb-12 relative">
               <div className="absolute left-0 top-0 bottom-0 w-1 rounded-full bg-gradient-to-b from-[#009bd7] via-[#00E1FF] to-[#1DB5C5]" aria-hidden="true" />
@@ -392,6 +393,109 @@ function BuildPlanBanner() {
           <line x1="510" y1="150" x2="720" y2="150" stroke="url(#bp-build)" strokeWidth="2.6" />
           <circle cx="510" cy="150" r="5" fill="#00E1FF" />
         </g>
+      </svg>
+    </div>
+  );
+}
+
+function VettingBanner() {
+  return (
+    <div className="max-w-3xl mx-auto mb-10 relative rounded-2xl overflow-hidden bg-gradient-to-br from-[#0f172a] to-[#0c2d4a] border border-gray-700/40 shadow-xl">
+      <svg
+        viewBox="0 0 800 220"
+        xmlns="http://www.w3.org/2000/svg"
+        aria-hidden="true"
+        className="block w-full h-auto"
+      >
+        <defs>
+          <radialGradient id="vt-glow" cx="50%" cy="50%" r="60%">
+            <stop offset="0%" stopColor="#00E1FF" stopOpacity="0.18" />
+            <stop offset="100%" stopColor="#00E1FF" stopOpacity="0" />
+          </radialGradient>
+          <radialGradient id="vt-active" cx="50%" cy="50%" r="50%">
+            <stop offset="0%" stopColor="#FFFFFF" stopOpacity="1" />
+            <stop offset="60%" stopColor="#1DB5C5" stopOpacity="0.9" />
+            <stop offset="100%" stopColor="#1DB5C5" stopOpacity="0" />
+          </radialGradient>
+        </defs>
+
+        {/* Ambient glow */}
+        <ellipse cx="400" cy="115" rx="380" ry="120" fill="url(#vt-glow)" />
+
+        {/* Stage labels at the top */}
+        <text x="105" y="22" textAnchor="middle" fill="#94a3b8" fontSize="9" fontWeight="700" fontFamily="system-ui, sans-serif" letterSpacing="2.5" opacity="0.7">CANDIDATES</text>
+        <text x="290" y="22" textAnchor="middle" fill="#94a3b8" fontSize="9" fontWeight="700" fontFamily="system-ui, sans-serif" letterSpacing="2.5" opacity="0.85">FRAMING</text>
+        <text x="450" y="22" textAnchor="middle" fill="#94a3b8" fontSize="9" fontWeight="700" fontFamily="system-ui, sans-serif" letterSpacing="2.5" opacity="0.85">JUDGMENT</text>
+        <text x="595" y="22" textAnchor="middle" fill="#94a3b8" fontSize="9" fontWeight="700" fontFamily="system-ui, sans-serif" letterSpacing="2.5" opacity="0.85">FAILURE</text>
+        <text x="755" y="22" textAnchor="end" fill="#1DB5C5" fontSize="9" fontWeight="700" fontFamily="system-ui, sans-serif" letterSpacing="2.5" opacity="0.95">TOP 5%</text>
+
+        {/* Vertical filter gates */}
+        <g stroke="#94a3b8" strokeWidth="0.8" strokeDasharray="3 5" opacity="0.4">
+          <line x1="210" y1="40" x2="210" y2="200" />
+          <line x1="370" y1="40" x2="370" y2="200" />
+          <line x1="530" y1="40" x2="530" y2="200" />
+          <line x1="680" y1="40" x2="680" y2="200" />
+        </g>
+
+        {/* Initial candidate pool — ~15 dim dots */}
+        <g fill="#94a3b8" opacity="0.55">
+          <circle cx="55" cy="65" r="3" />
+          <circle cx="80" cy="100" r="3" />
+          <circle cx="60" cy="135" r="3" />
+          <circle cx="100" cy="55" r="3" />
+          <circle cx="125" cy="85" r="3" />
+          <circle cx="150" cy="65" r="3" />
+          <circle cx="135" cy="120" r="3" />
+          <circle cx="170" cy="100" r="3" />
+          <circle cx="180" cy="155" r="3" />
+          <circle cx="105" cy="155" r="3" />
+          <circle cx="40" cy="170" r="3" />
+          <circle cx="70" cy="180" r="3" />
+          <circle cx="155" cy="180" r="3" />
+          <circle cx="155" cy="40" r="3" />
+          <circle cx="190" cy="135" r="3" />
+        </g>
+
+        {/* After framing gate — ~8 dots, brighter cyan */}
+        <g fill="#00E1FF" opacity="0.7">
+          <circle cx="240" cy="80" r="3.5" />
+          <circle cx="280" cy="105" r="3.5" />
+          <circle cx="265" cy="140" r="3.5" />
+          <circle cx="310" cy="75" r="3.5" />
+          <circle cx="335" cy="115" r="3.5" />
+          <circle cx="240" cy="160" r="3.5" />
+          <circle cx="305" cy="155" r="3.5" />
+          <circle cx="345" cy="170" r="3.5" />
+        </g>
+
+        {/* After judgment gate — ~5 dots, brighter still */}
+        <g fill="#00E1FF" opacity="0.9">
+          <circle cx="395" cy="95" r="4" />
+          <circle cx="430" cy="115" r="4" />
+          <circle cx="465" cy="100" r="4" />
+          <circle cx="495" cy="130" r="4" />
+          <circle cx="425" cy="155" r="4" />
+        </g>
+
+        {/* After failure gate — 2 dots, brightest teal */}
+        <g fill="#1DB5C5" opacity="0.95">
+          <circle cx="565" cy="100" r="4.5" />
+          <circle cx="615" cy="130" r="4.5" />
+        </g>
+
+        {/* Faint trails connecting one path through every gate */}
+        <g stroke="#1DB5C5" strokeWidth="1" strokeDasharray="2 4" fill="none" opacity="0.45">
+          <line x1="125" y1="85" x2="240" y2="80" />
+          <line x1="240" y1="80" x2="395" y2="95" />
+          <line x1="395" y1="95" x2="565" y2="100" />
+          <line x1="565" y1="100" x2="730" y2="115" />
+        </g>
+
+        {/* The top 5% output — single pulsing dot on the right */}
+        <circle cx="730" cy="115" r="11" fill="url(#vt-active)">
+          <animate attributeName="opacity" values="0.4;0.95;0.4" dur="2.6s" repeatCount="indefinite" />
+        </circle>
+        <circle cx="730" cy="115" r="4" fill="#FFFFFF" opacity="0.95" />
       </svg>
     </div>
   );
