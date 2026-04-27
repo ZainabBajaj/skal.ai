@@ -21,9 +21,9 @@ const cards: ProductCard[] = [
     verb: 'Sells',
     audience: 'For B2B founders done doing outbound manually.',
     body: [
-      'Your pipeline should not depend on hustle.',
-      'SKAL Scale runs your entire outbound. AI prospecting, personalised sequences, and a proprietary contact database that turns into qualified meetings.',
-      'You only pay per qualified meeting.',
+      'Your leads find you. Here is what finds them.',
+      'SKAL Scale runs your entire outbound. AI prospecting, personalised sequences, and a proprietary contact database built to book qualified meetings, not just fill a funnel.',
+      'You only pay when a meeting shows up on your calendar.',
     ],
     cta: 'Join the waitlist',
     icon: TrendingUp,
