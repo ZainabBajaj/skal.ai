@@ -170,12 +170,9 @@ export default function Footer() {
           <h3 className="text-[#0f172a] dark:text-white font-semibold text-center mb-6">Where you&apos;ll find us</h3>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {offices.map((office) => (
-              <div key={office.city} className="text-center sm:text-left">
-                <div className="text-2xl mb-2 leading-none" aria-hidden="true">{office.flag}</div>
-                <div className="font-bold text-[#0f172a] dark:text-white text-sm">{office.city}</div>
-                <div className="text-[10px] font-bold tracking-[0.18em] text-[#009bd7] dark:text-[#00E1FF] mt-0.5 mb-2">
-                  {office.country.toUpperCase()}
-                </div>
+              <div key={office.country} className="text-center sm:text-left">
+                <div className="text-2xl mb-3 leading-none" aria-hidden="true">{office.flag}</div>
+                <span className="sr-only">{office.country}. </span>
                 <div className="text-xs text-gray-500 dark:text-gray-400 leading-relaxed">{office.address}</div>
               </div>
             ))}
