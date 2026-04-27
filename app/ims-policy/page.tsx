@@ -5,8 +5,8 @@ import FloatingThemeToggle from '../components/FloatingThemeToggle';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'IMS Policy | SKAL',
-  description: "SKAL's Information Management System Policy: how we handle data, security, and quality across our engagements.",
+  title: 'Quality & Information Security Management System Policy | SKAL',
+  description: "SKAL's Quality & Information Security Management System Policy, aligned to ISO 9001 and ISO 27001 international standards.",
 };
 
 export default function IMSPolicyPage() {
@@ -24,10 +24,10 @@ export default function IMSPolicyPage() {
             </div>
 
             <h1 className="text-4xl sm:text-5xl font-bold text-[#0f172a] dark:text-white mb-4 leading-snug pb-1">
-              IMS Policy
+              Quality &amp; Information Security Management System Policy
             </h1>
             <p className="text-lg text-gray-600 dark:text-gray-300">
-              How SKAL manages information across our engagements: security, quality, and the data you trust us with.
+              Aligned to ISO 9001 and ISO 27001 international standards.
             </p>
             <p className="mt-4 text-sm text-gray-500 dark:text-gray-400">Last updated: 27 April 2026</p>
           </div>
@@ -37,55 +37,38 @@ export default function IMSPolicyPage() {
       {/* Body */}
       <section className="py-12 lg:py-16 relative bg-white dark:bg-gray-800">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-3xl mx-auto prose prose-lg dark:prose-invert prose-headings:text-[#0f172a] dark:prose-headings:text-white prose-headings:font-bold prose-h2:text-2xl sm:prose-h2:text-3xl prose-h2:mt-10 prose-h2:mb-4 prose-p:text-gray-700 dark:prose-p:text-gray-300 prose-p:leading-relaxed prose-a:text-[#009bd7] dark:prose-a:text-[#00E1FF] prose-strong:text-[#0f172a] dark:prose-strong:text-white">
-            <h2>Scope</h2>
+          <div className="max-w-3xl mx-auto prose prose-lg dark:prose-invert prose-headings:text-[#0f172a] dark:prose-headings:text-white prose-headings:font-bold prose-h2:text-2xl sm:prose-h2:text-3xl prose-h2:mt-10 prose-h2:mb-4 prose-p:text-gray-700 dark:prose-p:text-gray-300 prose-p:leading-relaxed prose-a:text-[#009bd7] dark:prose-a:text-[#00E1FF] prose-strong:text-[#0f172a] dark:prose-strong:text-white prose-li:text-gray-700 dark:prose-li:text-gray-300">
             <p>
-              This policy applies to all information SKAL collects, processes, or stores in the course of operating skal.ai and delivering services to clients. It covers employees, contractors, and any third party acting on SKAL&apos;s behalf.
+              SKAL helps companies build innovative AI systems and software with a team of world-class engineers and an opinionated approach to each project, so clients can be confident in their success with SKAL. Our comprehensive Quality &amp; Information Security Management System, in compliance with ISO 9001 and ISO 27001 international standards, ensures that your business is protected.
             </p>
 
-            <h2>Principles</h2>
             <p>
-              SKAL handles information under four principles: <strong>confidentiality</strong> (only those who need to see it can), <strong>integrity</strong> (data is accurate and not tampered with), <strong>availability</strong> (authorised users can reach what they need), and <strong>accountability</strong> (every change has a clear owner).
+              SKAL aims to maintain and continually improve its Integrated Management System (ISMS &amp; QMS) by implementing quality and information security policies including access control, acceptable use, clear desk and clear screen, anti-malware, password protection, and others. SKAL adheres to best IMS practices that are in complete alignment with industry standards while providing AI systems, custom software, and development services.
             </p>
 
-            <h2>Governance</h2>
             <p>
-              The SKAL leadership team owns this policy and reviews it at least annually. Changes are versioned and communicated to all staff. The policy is aligned to industry-standard frameworks; specific certifications are referenced when achieved.
+              SKAL works in accordance with national and international client requirements within the jurisdictions where it operates, as well as fulfilling its contractual obligations. This is to ensure the protection of all information assets from all threats, internal or external, deliberate or accidental, and natural disasters.
             </p>
 
-            <h2>Data classification</h2>
+            <p>To achieve these objectives SKAL will ensure that:</p>
+
+            <ul>
+              <li>Business and client requirements for quality, security, and privacy are met.</li>
+              <li>At all times, the confidentiality, integrity, and availability of information is maintained throughout the process flow.</li>
+              <li>All corporate assets (tangible and intangible) are held in a physically and logically secure environment.</li>
+              <li>The risks to all corporate assets (tangible and intangible) are assessed, and against those risks, appropriate contingency and mitigation plans are defined.</li>
+              <li>Employees are provided with safe working environments in compliance with best industry practices.</li>
+              <li>All personnel are well-trained on information security procedures.</li>
+              <li>Physical, logical, and remote access to all corporate assets is monitored and controlled.</li>
+              <li>Business continuity plans are established, maintained, and tested as needed.</li>
+            </ul>
+
             <p>
-              Information is classified into four tiers: <strong>public</strong> (marketing, blog posts), <strong>internal</strong> (operations docs, finance), <strong>confidential</strong> (client data, signed NDAs), and <strong>restricted</strong> (credentials, secrets, personal data of identifiable individuals). Each tier has handling, storage, and retention rules.
+              This policy was approved by the SKAL Chief Executive and will be reviewed at regular management review meetings by senior management.
             </p>
 
-            <h2>Access control</h2>
             <p>
-              Access to client data and production systems follows least-privilege. Multi-factor authentication is required on all accounts that touch client data, source code, or cloud infrastructure. Access is reviewed quarterly and revoked the same day a person stops needing it.
-            </p>
-
-            <h2>Security operations</h2>
-            <p>
-              Production systems run with logging enabled and monitored alerts. Patches are applied on a defined cadence. Backups are tested. Encryption in transit and at rest is the default for all client data we hold.
-            </p>
-
-            <h2>Incident response</h2>
-            <p>
-              SKAL maintains an incident response plan. Suspected breaches are triaged within hours, communicated to affected clients without delay, and remediated with a written post-mortem. Lessons feed back into the controls above.
-            </p>
-
-            <h2>Third parties</h2>
-            <p>
-              SKAL uses third-party providers (cloud, email, analytics, payment) under written agreements that match or exceed this policy. A current list is available to clients on request.
-            </p>
-
-            <h2>Continuous improvement</h2>
-            <p>
-              This policy is a starting point, not a stopping point. SKAL reviews controls in light of incidents, audits, regulatory change, and the realities of running production AI systems for our clients.
-            </p>
-
-            <h2>Contact</h2>
-            <p>
-              Questions about this policy or how we handle your data? Email <a href="mailto:hi@skal.ai">hi@skal.ai</a>.
+              For any queries, drop a message at <a href="mailto:hi@skal.ai">hi@skal.ai</a>.
             </p>
           </div>
         </div>
