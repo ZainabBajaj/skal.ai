@@ -121,6 +121,7 @@ export default function Footer() {
           <div className="space-y-6">
             <Logo />
             <div>
+              <h3 className="text-[#0f172a] dark:text-white font-semibold mb-3">Five-star reviews</h3>
               <div className="flex flex-wrap items-center gap-x-5 gap-y-3 mb-4">
                 {reviewPlatforms.map((platform) => (
                   <a
