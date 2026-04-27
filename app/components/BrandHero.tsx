@@ -43,7 +43,7 @@ const BrandHero = () => {
 
             <ul className="space-y-2 text-base sm:text-lg text-gray-700 dark:text-gray-200 max-w-xl mx-auto lg:mx-0 leading-relaxed mb-8 animate-fade-in-up" style={{ animationDelay: '160ms' }}>
               {[
-                { icon: TrendingUp, before: 'New ',  keyword: 'leads',      after: ' find you. No chasing.',                       color: 'text-[#009bd7]' },
+                { icon: TrendingUp, before: 'Your ', keyword: 'leads',      after: ' find you. No chasing.',                      color: 'text-[#009bd7]' },
                 { icon: Bot,        before: 'Your ', keyword: 'operations', after: ' run without you. No overhead.',               color: 'text-[#0098bd] dark:text-[#00E1FF]' },
                 { icon: Wrench,     before: 'Your ', keyword: 'tools',      after: ' get built around your work. No templates.',   color: 'text-[#1DB5C5]' },
                 { icon: Users,      before: 'Your ', keyword: 'team',       after: ' ships from day one. No long hires.',         color: 'text-[#3da9c9]' },
