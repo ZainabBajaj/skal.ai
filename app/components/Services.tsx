@@ -1,6 +1,5 @@
 "use client";
 
-import Link from 'next/link';
 import { ArrowRight } from 'lucide-react';
 import Stack from './Stack';
 
@@ -203,58 +202,6 @@ const Services = () => {
                 
               </div>
 
-              {/* Extend Your Team Card */}
-              <Link
-                href="/book"
-                className="group relative bg-gradient-to-br from-[#0f172a] via-[#0c2d4a] to-[#0f172a] backdrop-blur-xl rounded-3xl shadow-2xl p-10 sm:p-12 border border-gray-700/50 hover:shadow-3xl hover:shadow-[#009bd7]/20 transition-all duration-500 hover:-translate-y-2 cursor-pointer overflow-hidden min-h-[500px]"
-              >
-                {/* Background effects */}
-                <div className="absolute inset-0 bg-gradient-to-br from-[#009bd7]/10 via-transparent to-[#1DB5C5]/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-bl from-[#1DB5C5]/20 to-transparent rounded-full blur-3xl transition-opacity duration-700"></div>
-                <div className="absolute bottom-0 left-0 w-24 h-24 bg-gradient-to-tr from-[#009bd7]/20 to-transparent rounded-full blur-2xl transition-opacity duration-700"></div>
-
-                <div className="relative z-10">
-                  {/* Icon */}
-                  <div className="flex justify-center mb-6">
-                    <div className="w-16 h-16 bg-gradient-to-br from-[#1DB5C5] to-[#009bd7] rounded-2xl flex items-center justify-center shadow-lg">
-                      <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
-                      </svg>
-                    </div>
-                  </div>
-
-                  <h3 className="text-2xl font-bold text-white mb-4 text-center">
-                    Extend Your <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#1DB5C5] to-[#009bd7]">Team.</span>
-                  </h3>
-
-                  <p className="text-gray-300 text-center mb-8 leading-relaxed">
-                    Embed pre-vetted engineers from the top 5% directly into your team. No recruiting, no ramp-up
-                  </p>
-
-                  {/* Features */}
-                  <div className="space-y-3 mb-8">
-                    <div className="flex items-center gap-3 text-sm text-gray-400">
-                      <div className="w-2 h-2 bg-[#1DB5C5] rounded-full"></div>
-                      <span>Top 5% Pre-Vetted Talent</span>
-                    </div>
-                    <div className="flex items-center gap-3 text-sm text-gray-400">
-                      <div className="w-2 h-2 bg-[#009bd7] rounded-full"></div>
-                      <span>Seamless Team Integration</span>
-                    </div>
-                    <div className="flex items-center gap-3 text-sm text-gray-400">
-                      <div className="w-2 h-2 bg-[#00E1FF] rounded-full"></div>
-                      <span>Flexible Engagement Models</span>
-                    </div>
-                  </div>
-
-                  <div className="flex items-center justify-center">
-                    <div className="group/btn relative inline-flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-[#1DB5C5] to-[#009bd7] text-white rounded-2xl font-semibold hover:shadow-2xl hover:shadow-[#1DB5C5]/30 transition-all duration-300 hover:scale-105 active:scale-95 overflow-hidden">
-                      <span className="relative z-10">Book a Discovery Call</span>
-                      <ArrowRight className="w-5 h-5 relative z-10 group-hover/btn:translate-x-1 transition-transform duration-300" />
-                    </div>
-                  </div>
-                </div>
-              </Link>
             </div>
           </div>
         </div>
