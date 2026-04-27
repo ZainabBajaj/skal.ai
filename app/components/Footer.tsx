@@ -67,12 +67,11 @@ export default function Footer() {
   ];
 
   // Drop the SKAL profile URL on each platform here when you have them.
-  // Set logo to null to render the wordmark fallback below.
-  const reviewPlatforms: { name: string; logo: string | null; wordmarkColor: string; href: string }[] = [
-    { name: 'Clutch', logo: null, wordmarkColor: '#FF3D2E', href: '#' },
-    { name: 'Upwork', logo: '/logos/upwork.svg', wordmarkColor: '#14A800', href: '#' },
-    { name: 'Trustpilot', logo: '/logos/trustpilot.svg', wordmarkColor: '#00B67A', href: '#' },
-    { name: 'GoodFirms', logo: null, wordmarkColor: '#F26522', href: '#' },
+  const reviewPlatforms = [
+    { name: 'Clutch', logo: '/logos/clutch.jpeg', href: '#' },
+    { name: 'Upwork', logo: '/logos/upwork.svg', href: '#' },
+    { name: 'Trustpilot', logo: '/logos/trustpilot.svg', href: '#' },
+    { name: 'GoodFirms', logo: '/logos/goodfirms.png', href: '#' },
   ];
 
   return (
@@ -203,24 +202,15 @@ export default function Footer() {
                 aria-label={`Five star reviews on ${platform.name}`}
                 className="group inline-flex items-center justify-center"
               >
-                {platform.logo ? (
-                  <div className="grayscale opacity-70 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-300">
-                    <Image
-                      src={platform.logo}
-                      alt={platform.name}
-                      width={120}
-                      height={36}
-                      className="h-7 sm:h-8 w-auto object-contain"
-                    />
-                  </div>
-                ) : (
-                  <span
-                    className="text-lg sm:text-xl font-extrabold tracking-tight opacity-70 group-hover:opacity-100 transition-opacity duration-300"
-                    style={{ color: platform.wordmarkColor }}
-                  >
-                    {platform.name}
-                  </span>
-                )}
+                <div className="grayscale opacity-70 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-300">
+                  <Image
+                    src={platform.logo}
+                    alt={platform.name}
+                    width={120}
+                    height={36}
+                    className="h-8 sm:h-10 w-auto object-contain"
+                  />
+                </div>
               </a>
             ))}
           </div>
