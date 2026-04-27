@@ -89,6 +89,7 @@ export default async function StoryPage({ params }: { params: Promise<{ slug: st
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           {slug === 'hidden-cost-of-agent-sprawl' && <SprawlBanner />}
           {slug === 'why-most-ai-pilots-fail' && <PilotGapBanner />}
+          {slug === 'from-balance-sheet-to-build-plan' && <BuildPlanBanner />}
           {story.pullQuote && (
             <figure className="max-w-3xl mx-auto mb-12 relative">
               <div className="absolute left-0 top-0 bottom-0 w-1 rounded-full bg-gradient-to-b from-[#009bd7] via-[#00E1FF] to-[#1DB5C5]" aria-hidden="true" />
@@ -314,6 +315,83 @@ function PilotGapBanner() {
           <animate attributeName="opacity" values="0.4;0.95;0.4" dur="2.6s" repeatCount="indefinite" />
         </circle>
         <circle cx="600" cy="130" r="4" fill="#FFFFFF" opacity="0.95" />
+      </svg>
+    </div>
+  );
+}
+
+function BuildPlanBanner() {
+  return (
+    <div className="max-w-3xl mx-auto mb-10 relative rounded-2xl overflow-hidden bg-gradient-to-br from-[#0f172a] to-[#0c2d4a] border border-gray-700/40 shadow-xl">
+      <svg
+        viewBox="0 0 800 220"
+        xmlns="http://www.w3.org/2000/svg"
+        aria-hidden="true"
+        className="block w-full h-auto"
+      >
+        <defs>
+          <radialGradient id="bp-glow" cx="50%" cy="50%" r="60%">
+            <stop offset="0%" stopColor="#1DB5C5" stopOpacity="0.18" />
+            <stop offset="100%" stopColor="#1DB5C5" stopOpacity="0" />
+          </radialGradient>
+          <linearGradient id="bp-lens" x1="0%" y1="50%" x2="100%" y2="50%">
+            <stop offset="0%" stopColor="#00E1FF" stopOpacity="0.05" />
+            <stop offset="100%" stopColor="#00E1FF" stopOpacity="0.25" />
+          </linearGradient>
+          <linearGradient id="bp-build" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" stopColor="#00E1FF" stopOpacity="1" />
+            <stop offset="100%" stopColor="#1DB5C5" stopOpacity="0.6" />
+          </linearGradient>
+        </defs>
+
+        {/* Ambient glow */}
+        <ellipse cx="400" cy="110" rx="380" ry="120" fill="url(#bp-glow)" />
+
+        {/* Section labels */}
+        <text x="40" y="22" fill="#94a3b8" fontSize="9" fontWeight="700" fontFamily="system-ui, sans-serif" letterSpacing="2.5" opacity="0.7">P&amp;L</text>
+        <text x="380" y="22" textAnchor="middle" fill="#FFFFFF" fontSize="9" fontWeight="700" fontFamily="system-ui, sans-serif" letterSpacing="2.5" opacity="0.85">DIAGNOSTIC</text>
+        <text x="510" y="22" fill="#1DB5C5" fontSize="9" fontWeight="700" fontFamily="system-ui, sans-serif" letterSpacing="2.5" opacity="0.95">BUILD PLAN</text>
+
+        {/* Left: P&L noise — many faint horizontal lines suggesting line items */}
+        <g stroke="#94a3b8" strokeOpacity="0.5" strokeWidth="1.2">
+          <line x1="40" y1="55" x2="220" y2="55" />
+          <line x1="40" y1="73" x2="200" y2="73" />
+          <line x1="40" y1="91" x2="240" y2="91" />
+          <line x1="40" y1="109" x2="180" y2="109" />
+          <line x1="40" y1="127" x2="220" y2="127" />
+          <line x1="40" y1="145" x2="160" y2="145" />
+          <line x1="40" y1="163" x2="220" y2="163" />
+          <line x1="40" y1="181" x2="200" y2="181" />
+        </g>
+
+        {/* Constraint markers — bright dots on a couple of P&L lines */}
+        <g fill="#1DB5C5" opacity="0.95">
+          <circle cx="180" cy="91" r="3.5" />
+          <circle cx="160" cy="145" r="3.5" />
+        </g>
+
+        {/* Diagnostic lens — chevron narrowing the input */}
+        <path d="M 280 35 L 480 110 L 280 185 Z" fill="url(#bp-lens)" stroke="#00E1FF" strokeOpacity="0.55" strokeWidth="1.5" />
+
+        {/* Faint convergence lines from the P&L into the lens tip */}
+        <g stroke="#94a3b8" strokeOpacity="0.3" strokeWidth="1" strokeDasharray="2 4" fill="none">
+          <line x1="220" y1="55" x2="478" y2="110" />
+          <line x1="240" y1="91" x2="478" y2="110" />
+          <line x1="220" y1="127" x2="478" y2="110" />
+          <line x1="220" y1="163" x2="478" y2="110" />
+        </g>
+
+        {/* Right: focused builds — three bright lines exiting the lens */}
+        <g>
+          <line x1="510" y1="80" x2="730" y2="80" stroke="url(#bp-build)" strokeWidth="2.6" />
+          <circle cx="510" cy="80" r="5" fill="#00E1FF" />
+          <line x1="510" y1="115" x2="710" y2="115" stroke="url(#bp-build)" strokeWidth="2.6" />
+          <circle cx="510" cy="115" r="5" fill="#00E1FF">
+            <animate attributeName="opacity" values="0.55;1;0.55" dur="2.4s" repeatCount="indefinite" />
+          </circle>
+          <line x1="510" y1="150" x2="720" y2="150" stroke="url(#bp-build)" strokeWidth="2.6" />
+          <circle cx="510" cy="150" r="5" fill="#00E1FF" />
+        </g>
       </svg>
     </div>
   );
