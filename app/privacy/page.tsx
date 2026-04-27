@@ -74,8 +74,8 @@ export default function PrivacyPage() {
               </p>
               <p>
                 If you have submitted a form and want your data removed from our records, email{' '}
-                <a href="mailto:hi@skal.ai" className="font-semibold text-[#009bd7] dark:text-[#00E1FF] underline decoration-1 underline-offset-2 hover:no-underline">
-                  hi@skal.ai
+                <a href="mailto:info@skal.ai" className="font-semibold text-[#009bd7] dark:text-[#00E1FF] underline decoration-1 underline-offset-2 hover:no-underline">
+                  info@skal.ai
                 </a>{' '}
                 and we will delete it.
               </p>
@@ -103,8 +103,8 @@ export default function PrivacyPage() {
               <h2 className="text-2xl sm:text-3xl font-bold text-[#0f172a] dark:text-white mb-4">Children&apos;s privacy</h2>
               <p>
                 This site is not directed at children under 18 and we do not knowingly collect personal information from anyone under 18. If you believe a child has shared information with us, email{' '}
-                <a href="mailto:hi@skal.ai" className="font-semibold text-[#009bd7] dark:text-[#00E1FF] underline decoration-1 underline-offset-2 hover:no-underline">
-                  hi@skal.ai
+                <a href="mailto:info@skal.ai" className="font-semibold text-[#009bd7] dark:text-[#00E1FF] underline decoration-1 underline-offset-2 hover:no-underline">
+                  info@skal.ai
                 </a>{' '}
                 and we will remove it from our systems.
               </p>
@@ -121,8 +121,8 @@ export default function PrivacyPage() {
               <h2 className="text-2xl sm:text-3xl font-bold text-[#0f172a] dark:text-white mb-4">How to reach us</h2>
               <p>
                 SKAL is registered in Dubai, UAE. License No: 262305646888. For any privacy question, email{' '}
-                <a href="mailto:hi@skal.ai" className="font-semibold text-[#009bd7] dark:text-[#00E1FF] underline decoration-1 underline-offset-2 hover:no-underline">
-                  hi@skal.ai
+                <a href="mailto:info@skal.ai" className="font-semibold text-[#009bd7] dark:text-[#00E1FF] underline decoration-1 underline-offset-2 hover:no-underline">
+                  info@skal.ai
                 </a>
                 .
               </p>

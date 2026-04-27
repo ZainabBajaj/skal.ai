@@ -97,8 +97,8 @@ export default function CookiePolicyPage() {
                   privacy policy
                 </Link>
                 . Questions:{' '}
-                <a href="mailto:hi@skal.ai" className="font-semibold text-[#009bd7] dark:text-[#00E1FF] underline decoration-1 underline-offset-2 hover:no-underline">
-                  hi@skal.ai
+                <a href="mailto:info@skal.ai" className="font-semibold text-[#009bd7] dark:text-[#00E1FF] underline decoration-1 underline-offset-2 hover:no-underline">
+                  info@skal.ai
                 </a>
                 .
               </p>

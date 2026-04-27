@@ -68,7 +68,7 @@ export default function IMSPolicyPage() {
             </p>
 
             <p>
-              For any queries, drop a message at <a href="mailto:hi@skal.ai">hi@skal.ai</a>.
+              For any queries, drop a message at <a href="mailto:info@skal.ai">info@skal.ai</a>.
             </p>
           </div>
         </div>

@@ -116,7 +116,7 @@ export default function CareersPage() {
                   you want to build next.
                 </p>
                 <a
-                  href="mailto:hi@skal.ai?subject=Working%20at%20SKAL"
+                  href="mailto:info@skal.ai?subject=Working%20at%20SKAL"
                   className="group inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-[#009bd7] to-[#00E1FF] text-white font-bold rounded-xl transition-all duration-300 hover:shadow-xl hover:shadow-[#009bd7]/25 hover:scale-105"
                 >
                   <Mail className="w-4 h-4" />
@@ -144,7 +144,7 @@ export default function CareersPage() {
                     </div>
                     <p className="text-gray-600 dark:text-gray-300 leading-relaxed mb-5">{role.description}</p>
                     <a
-                      href={`mailto:hi@skal.ai?subject=Application%3A%20${encodeURIComponent(role.title)}`}
+                      href={`mailto:info@skal.ai?subject=Application%3A%20${encodeURIComponent(role.title)}`}
                       className="inline-flex items-center gap-2 text-[#009bd7] dark:text-[#00E1FF] font-semibold hover:gap-3 transition-all"
                     >
                       Apply

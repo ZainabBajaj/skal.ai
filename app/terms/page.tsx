@@ -72,7 +72,7 @@ export default function TermsPage() {
 
             <h2>6. Linking and embedding</h2>
             <p>
-              Government agencies, search engines, news organisations, and online directory distributors may link to skal.ai without prior written approval, provided the link is not deceptive, does not falsely imply sponsorship or endorsement, and fits within the context of the linking party&apos;s site. Other organisations may request a link by emailing <a href="mailto:hi@skal.ai">hi@skal.ai</a> with their name, organisation, contact details, the URL of their site, and the URLs they intend to link to and from. We respond within one to two weeks.
+              Government agencies, search engines, news organisations, and online directory distributors may link to skal.ai without prior written approval, provided the link is not deceptive, does not falsely imply sponsorship or endorsement, and fits within the context of the linking party&apos;s site. Other organisations may request a link by emailing <a href="mailto:info@skal.ai">info@skal.ai</a> with their name, organisation, contact details, the URL of their site, and the URLs they intend to link to and from. We respond within one to two weeks.
             </p>
             <p>
               You may not create frames, iframes, or other embeds around our pages that alter our visual presentation or appearance without prior written permission. No use of SKAL&apos;s logo or other trademarks is allowed without a separate trademark licence.
@@ -109,7 +109,7 @@ export default function TermsPage() {
 
             <h2>11. Contact</h2>
             <p>
-              Questions about these terms? Email <a href="mailto:hi@skal.ai">hi@skal.ai</a>.
+              Questions about these terms? Email <a href="mailto:info@skal.ai">info@skal.ai</a>.
             </p>
           </div>
         </div>

@@ -112,7 +112,7 @@ export default function RootLayout({
               "contactPoint": {
                 "@type": "ContactPoint",
                 "contactType": "customer service",
-                "email": "hi@skal.ai"
+                "email": "info@skal.ai"
               },
               "sameAs": [
                 "https://www.linkedin.com/company/skal-official",
