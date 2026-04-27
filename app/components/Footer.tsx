@@ -25,6 +25,15 @@ export default function Footer() {
       )
     },
     {
+      name: 'YouTube',
+      href: 'https://www.youtube.com/@skal-ai',
+      icon: (
+        <svg className="w-6 h-6 fill-current" viewBox="0 0 24 24">
+          <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+        </svg>
+      )
+    },
+    {
       name: 'Email',
       href: 'mailto:hi@skal.ai',
       icon: (
@@ -108,9 +117,37 @@ export default function Footer() {
 
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-          {/* Logo */}
-          <div className="space-y-4">
+          {/* Logo + 5 Star Reviews */}
+          <div className="space-y-6">
             <Logo />
+            <div>
+              <h3 className="text-[#0f172a] dark:text-white font-semibold mb-3 inline-flex items-center gap-2">
+                <Star className="w-4 h-4 fill-[#009bd7] text-[#009bd7] dark:fill-[#00E1FF] dark:text-[#00E1FF]" aria-hidden="true" />
+                Five-star reviews
+              </h3>
+              <div className="flex flex-wrap items-center gap-x-5 gap-y-3">
+                {reviewPlatforms.map((platform) => (
+                  <a
+                    key={platform.name}
+                    href={platform.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={`Five star reviews on ${platform.name}`}
+                    className="group inline-flex items-center"
+                  >
+                    <div className="grayscale opacity-70 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-300">
+                      <Image
+                        src={platform.logo}
+                        alt={platform.name}
+                        width={120}
+                        height={32}
+                        className="h-7 w-auto object-contain"
+                      />
+                    </div>
+                  </a>
+                ))}
+              </div>
+            </div>
           </div>
 
           {/* Products */}
@@ -141,7 +178,7 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Contact column: Email + 5 Star Reviews + Our Socials */}
+          {/* Contact column: Email + Our Socials */}
           <div className="space-y-6">
             {/* Email Us */}
             <div>
@@ -155,36 +192,6 @@ export default function Footer() {
                 </svg>
                 hi@skal.ai
               </a>
-            </div>
-
-            {/* 5 Star Reviews */}
-            <div>
-              <h3 className="text-[#0f172a] dark:text-white font-semibold mb-3 inline-flex items-center gap-2">
-                <Star className="w-4 h-4 fill-[#009bd7] text-[#009bd7] dark:fill-[#00E1FF] dark:text-[#00E1FF]" aria-hidden="true" />
-                5 Star Reviews
-              </h3>
-              <div className="flex flex-wrap items-center gap-x-5 gap-y-3">
-                {reviewPlatforms.map((platform) => (
-                  <a
-                    key={platform.name}
-                    href={platform.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label={`Five star reviews on ${platform.name}`}
-                    className="group inline-flex items-center"
-                  >
-                    <div className="grayscale opacity-70 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-300">
-                      <Image
-                        src={platform.logo}
-                        alt={platform.name}
-                        width={120}
-                        height={32}
-                        className="h-7 w-auto object-contain"
-                      />
-                    </div>
-                  </a>
-                ))}
-              </div>
             </div>
 
             {/* Our Socials */}
