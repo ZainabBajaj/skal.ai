@@ -3,10 +3,13 @@
 import { useState } from 'react';
 import { Sun, Moon } from 'lucide-react';
 import { useTheme } from '../context/ThemeContext';
+import { useCookieConsent } from '../context/CookieConsentContext';
 
 export default function FloatingThemeToggle() {
   const { theme, setTheme, resolvedTheme } = useTheme();
   const [isPressed, setIsPressed] = useState(false);
+  const { consent, hydrated } = useCookieConsent();
+  const liftForBanner = hydrated && consent === null ? '-translate-y-32 sm:-translate-y-20' : '';
 
   const themes = [
     { value: 'light' as const, icon: Sun, label: 'Light' },
@@ -28,7 +31,7 @@ export default function FloatingThemeToggle() {
   };
 
   return (
-    <div className="fixed bottom-6 right-6 z-50">
+    <div className={`fixed bottom-6 right-6 z-50 transition-transform duration-300 ${liftForBanner}`}>
       <button
         onClick={handleClick}
         className={`

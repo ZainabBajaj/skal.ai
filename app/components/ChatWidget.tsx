@@ -3,6 +3,7 @@
 import { useState, useRef, useEffect } from 'react';
 import Link from 'next/link';
 import { MessageCircle, X, Send, ArrowRight, Telescope, RotateCcw } from 'lucide-react';
+import { useCookieConsent } from '../context/CookieConsentContext';
 
 type Message = { role: 'bot' | 'user'; text: string };
 type Step = 'intro' | 'category' | 'detail' | 'timing' | 'contact' | 'summary';
@@ -74,6 +75,8 @@ const timingOptions: Option[] = [
 
 export default function ChatWidget() {
   const [isOpen, setIsOpen] = useState(false);
+  const { consent, hydrated } = useCookieConsent();
+  const liftForBanner = hydrated && consent === null ? '-translate-y-32 sm:-translate-y-20' : '';
   const [step, setStep] = useState<Step>('intro');
   const [category, setCategory] = useState<string | null>(null);
   const [messages, setMessages] = useState<Message[]>([{ role: 'bot', text: introMessage }]);
@@ -207,7 +210,7 @@ export default function ChatWidget() {
             if (step === 'intro') setStep('category');
           }}
           aria-label="Open chat"
-          className="fixed bottom-24 right-6 z-50 group w-14 h-14 rounded-full bg-gradient-to-r from-[#009bd7] to-[#00E1FF] text-white shadow-xl shadow-[#009bd7]/30 hover:shadow-2xl hover:shadow-[#009bd7]/40 hover:scale-110 active:scale-95 transition-all duration-200 flex items-center justify-center"
+          className={`fixed bottom-24 right-6 z-50 group w-14 h-14 rounded-full bg-gradient-to-r from-[#009bd7] to-[#00E1FF] text-white shadow-xl shadow-[#009bd7]/30 hover:shadow-2xl hover:shadow-[#009bd7]/40 hover:scale-110 active:scale-95 transition-all duration-300 flex items-center justify-center ${liftForBanner}`}
         >
           <MessageCircle className="w-6 h-6" />
           <span className="absolute -top-1 -right-1 flex h-3 w-3">
@@ -219,7 +222,7 @@ export default function ChatWidget() {
 
       {/* Chat panel */}
       {isOpen && (
-        <div className="fixed bottom-24 right-6 z-50 w-[92vw] max-w-sm sm:max-w-md h-[min(600px,75vh)] flex flex-col rounded-3xl overflow-hidden shadow-2xl border border-gray-200/50 dark:border-gray-700/50 bg-white dark:bg-gray-900 backdrop-blur-xl">
+        <div className={`fixed bottom-24 right-6 z-50 w-[92vw] max-w-sm sm:max-w-md h-[min(600px,75vh)] flex flex-col rounded-3xl overflow-hidden shadow-2xl border border-gray-200/50 dark:border-gray-700/50 bg-white dark:bg-gray-900 backdrop-blur-xl transition-transform duration-300 ${liftForBanner}`}>
           {/* Header */}
           <div className="relative flex items-center justify-between px-5 py-4 bg-gradient-to-r from-[#009bd7] to-[#00E1FF] text-white">
             <div className="flex items-center gap-3">
