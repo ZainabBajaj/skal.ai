@@ -1,6 +1,6 @@
 'use client';
 
-import { TrendingUp, Zap, Target, Database, Send, ArrowRight, Sparkles, Mail, Clock, CheckCircle, DollarSign, Layers } from 'lucide-react';
+import { TrendingUp, Zap, Target, Database, Send, ArrowRight, Sparkles, Mail, Clock, CheckCircle, DollarSign } from 'lucide-react';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import HowItWorks from '../components/HowItWorks';
@@ -88,8 +88,12 @@ export default function ScalePage() {
                 For B2B founders done doing outbound manually.
               </p>
 
+              <p className="text-lg sm:text-xl text-gray-600 dark:text-gray-300 max-w-xl mx-auto lg:mx-0 leading-relaxed mb-4">
+                Your pipeline should not depend on how hard you hustle. SKAL Scale runs your entire outbound operation. AI prospecting, personalised sequences, and a proprietary contact database built in-house and exclusive to SKAL Scale.
+              </p>
+
               <p className="text-lg sm:text-xl text-gray-600 dark:text-gray-300 max-w-xl mx-auto lg:mx-0 leading-relaxed mb-8">
-                Your pipeline should not depend on how hard you hustle. SKAL Scale runs your entire outbound operation. AI prospecting, personalised sequences, and a proprietary contact database you cannot access anywhere else. We handle the stack. You show up to the meetings. You only pay when a qualified meeting lands on your calendar.
+                We handle the stack. You show up to the meetings. You only pay when a qualified meeting lands on your calendar.
               </p>
 
               <a
@@ -217,25 +221,8 @@ export default function ScalePage() {
         </div>
       </section>
 
-      {/* Positioning: Not another lead gen tool */}
-      <section className="py-14 lg:py-20 relative bg-white dark:bg-gray-800">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-3xl mx-auto text-center">
-            <h2 className="text-3xl sm:text-4xl font-bold text-[#0f172a] dark:text-white mb-6 leading-snug pb-1">
-              This is not another lead gen tool.
-            </h2>
-            <p className="text-lg text-gray-600 dark:text-gray-300 leading-relaxed mb-4">
-              Most outbound tools sell you access and walk away. A list, a dialer, a sequence builder, and a wish. SKAL Scale is accountable to the same outcome you are: a qualified conversation with someone who can buy.
-            </p>
-            <p className="text-lg font-semibold text-[#0f172a] dark:text-white">
-              No retainers. No monthly minimums. No paying for effort that does not convert.
-            </p>
-          </div>
-        </div>
-      </section>
-
       {/* What it does */}
-      <section className="py-14 lg:py-20 relative bg-gradient-to-br from-slate-50 via-white to-blue-50 dark:from-gray-900 dark:via-gray-800 dark:to-blue-900">
+      <section className="py-14 lg:py-20 relative bg-white dark:bg-gray-800">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <div className="inline-flex items-center space-x-2 bg-gradient-to-r from-[#009bd7]/10 to-[#00E1FF]/10 dark:from-[#009bd7]/20 dark:to-[#00E1FF]/20 rounded-full px-6 py-2 mb-6 border border-[#009bd7]/20 dark:border-[#00E1FF]/30">
@@ -284,7 +271,7 @@ export default function ScalePage() {
         badge={{ icon: Clock, label: 'HOW IT WORKS' }}
       />
 
-      {/* Pricing */}
+      {/* Pricing (with merged "not another lead gen tool" positioning) */}
       <section className="py-14 lg:py-20 relative bg-white dark:bg-gray-800">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl mx-auto text-center">
@@ -292,13 +279,16 @@ export default function ScalePage() {
               <DollarSign className="w-4 h-4 text-[#009bd7] dark:text-[#00E1FF]" />
               <span className="text-[#009bd7] dark:text-[#00E1FF] text-sm font-bold tracking-wider">PRICING</span>
             </div>
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-[#0f172a] dark:text-white mb-6 leading-snug pb-1">
+            <h2 className="text-3xl sm:text-4xl font-bold text-[#0f172a] dark:text-white mb-6 leading-snug pb-1">
               Performance-based. No surprises.
             </h2>
+            <p className="text-lg text-gray-600 dark:text-gray-300 leading-relaxed mb-6">
+              Most outbound tools sell you access and walk away. A list, a dialer, a sequence builder, and a wish. SKAL Scale is accountable to the same outcome you are: a qualified conversation with someone who can buy.
+            </p>
             <p className="text-xl sm:text-2xl font-bold text-[#0f172a] dark:text-white mb-8">
               You only pay for meetings. Not impressions. Not clicks. Not leads.
             </p>
-            <div className="space-y-4 text-left text-gray-600 dark:text-gray-300 leading-relaxed">
+            <div className="space-y-4 text-center text-gray-600 dark:text-gray-300 leading-relaxed">
               <p>
                 You pay per qualified meeting that shows up on your calendar. A small setup fee applies to cover ICP definition, database build, and campaign launch.
               </p>
@@ -309,6 +299,9 @@ export default function ScalePage() {
                 Pricing is shared on your discovery call. No credit card required to join the waitlist.
               </p>
             </div>
+            <p className="mt-8 text-lg font-semibold text-[#0f172a] dark:text-white">
+              No retainers. No monthly minimums. No paying for effort that does not convert.
+            </p>
             <a
               href="#waitlist"
               className="mt-10 group inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-[#009bd7] to-[#00E1FF] text-white font-bold rounded-2xl transition-all duration-300 hover:shadow-xl hover:shadow-[#009bd7]/25 hover:scale-105"
@@ -320,26 +313,8 @@ export default function ScalePage() {
         </div>
       </section>
 
-      {/* Coming Next */}
-      <section className="py-14 lg:py-20 relative bg-gradient-to-br from-slate-50 via-white to-blue-50 dark:from-gray-900 dark:via-gray-800 dark:to-blue-900">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-3xl mx-auto text-center">
-            <div className="inline-flex items-center space-x-2 bg-gradient-to-r from-[#009bd7]/10 to-[#00E1FF]/10 dark:from-[#009bd7]/20 dark:to-[#00E1FF]/20 rounded-full px-6 py-2 mb-6 border border-[#009bd7]/20 dark:border-[#00E1FF]/30">
-              <Layers className="w-4 h-4 text-[#009bd7] dark:text-[#00E1FF]" />
-              <span className="text-[#009bd7] dark:text-[#00E1FF] text-sm font-bold tracking-wider">COMING NEXT</span>
-            </div>
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-[#0f172a] dark:text-white mb-6 leading-snug pb-1">
-              Your pipeline, in one place.
-            </h2>
-            <p className="text-lg text-gray-600 dark:text-gray-300 leading-relaxed">
-              SKAL Scale books the meetings. Soon it will manage everything after them too. An AI-native CRM built for the way agentic sales actually works. No manual data entry. No pipeline hygiene overhead. Early waitlist members get first access.
-            </p>
-          </div>
-        </div>
-      </section>
-
       {/* Waitlist Form */}
-      <section id="waitlist" className="py-14 lg:py-20 relative bg-white dark:bg-gray-800">
+      <section id="waitlist" className="py-14 lg:py-20 relative bg-gradient-to-br from-slate-50 via-white to-blue-50 dark:from-gray-900 dark:via-gray-800 dark:to-blue-900">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-2xl mx-auto text-center">
             <div className="inline-flex items-center space-x-2 bg-gradient-to-r from-[#009bd7]/10 to-[#00E1FF]/10 dark:from-[#009bd7]/20 dark:to-[#00E1FF]/20 rounded-full px-6 py-2 mb-6 border border-[#009bd7]/20 dark:border-[#00E1FF]/30">
@@ -351,7 +326,7 @@ export default function ScalePage() {
               Limited spots available.
             </h2>
             <p className="text-gray-600 dark:text-gray-300 mb-10 text-lg">
-              We are onboarding a small number of founding clients to stress-test the system and lock in results before we scale. If you are a B2B founder done doing outbound manually, this is your spot.
+              We are onboarding a small number of founding clients to stress-test the system before we scale. Founding clients also get first access to the AI-native CRM coming next. If you are a B2B founder done doing outbound manually, this is your spot.
             </p>
 
             <div ref={formRef} className="bg-white/80 dark:bg-gray-800/80 backdrop-blur-xl rounded-3xl shadow-2xl p-8 sm:p-10 border border-white/50 dark:border-gray-700/50 relative overflow-hidden">
@@ -415,18 +390,18 @@ export default function ScalePage() {
               </form>
             </div>
 
-            <div className="mt-8 flex flex-wrap justify-center gap-6 text-sm text-gray-500 dark:text-gray-400">
-              <div className="flex items-center gap-2">
-                <CheckCircle className="w-4 h-4 text-[#009bd7]" />
+            <div className="mt-8 grid grid-cols-1 sm:grid-cols-3 gap-4 text-sm text-gray-500 dark:text-gray-400">
+              <div className="flex items-start justify-center gap-2 text-center sm:text-left">
+                <CheckCircle className="w-4 h-4 mt-0.5 shrink-0 text-[#009bd7]" />
                 <span>No credit card required</span>
               </div>
-              <div className="flex items-center gap-2">
-                <CheckCircle className="w-4 h-4 text-[#009bd7]" />
+              <div className="flex items-start justify-center gap-2 text-center sm:text-left">
+                <CheckCircle className="w-4 h-4 mt-0.5 shrink-0 text-[#009bd7]" />
                 <span>Pricing shared on your call</span>
               </div>
-              <div className="flex items-center gap-2">
-                <CheckCircle className="w-4 h-4 text-[#009bd7]" />
-                <span>Early access pricing locked in for founding clients</span>
+              <div className="flex items-start justify-center gap-2 text-center sm:text-left">
+                <CheckCircle className="w-4 h-4 mt-0.5 shrink-0 text-[#009bd7]" />
+                <span>Founding-client pricing locked in</span>
               </div>
             </div>
           </div>
