@@ -1,6 +1,6 @@
 'use client';
 
-import { TrendingUp, Zap, Target, BarChart3, Send, ArrowRight, Sparkles, Mail, Clock, CheckCircle } from 'lucide-react';
+import { TrendingUp, Zap, Target, Database, Send, ArrowRight, Sparkles, Mail, Clock, CheckCircle, DollarSign, Layers } from 'lucide-react';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import HowItWorks from '../components/HowItWorks';
@@ -18,23 +18,23 @@ export default function ScalePage() {
   const features = [
     {
       icon: Target,
-      title: 'AI-Powered Prospecting',
-      description: 'Identify and qualify your ideal customers with precision targeting powered by advanced AI models.',
+      title: 'Prospecting that finds the right people',
+      description: 'AI identifies and qualifies prospects that match your exact customer profile. No list-buying. No guessing. No wasted outreach.',
     },
     {
       icon: Mail,
-      title: 'Automated Outreach',
-      description: 'Personalized multi-channel sequences that engage prospects at scale without losing the human touch.',
+      title: 'Outreach that does not feel like outreach',
+      description: 'Personalised multi-channel sequences across email and LinkedIn, written and sent at scale without losing the human feel.',
     },
     {
-      icon: BarChart3,
-      title: 'Revenue Intelligence',
-      description: 'Real-time analytics and insights that optimize your pipeline and predict deal outcomes.',
+      icon: Database,
+      title: 'A contact database built in-house',
+      description: 'Not scraped from the same sources everyone else uses. Proprietary, continuously updated, and exclusive to SKAL Scale.',
     },
     {
       icon: Zap,
-      title: 'Instant Pipeline',
-      description: 'Go from zero to a full sales pipeline in days, not months. AI handles the heavy lifting.',
+      title: 'Pipeline from day three, not month three',
+      description: 'Setup takes minutes. Qualified meetings start landing on day three.',
     },
   ];
 
@@ -42,7 +42,7 @@ export default function ScalePage() {
     {
       step: '01',
       title: 'Connect',
-      description: 'Plug in your CRM and define your ideal customer profile. Setup takes minutes.',
+      description: 'Tell us who your ideal customer is. We handle everything from there.',
     },
     {
       step: '02',
@@ -52,12 +52,12 @@ export default function ScalePage() {
     {
       step: '03',
       title: 'Engage',
-      description: 'Automated personalized outreach across email, LinkedIn, and more, at scale.',
+      description: 'Personalised outreach goes out automatically across email and LinkedIn.',
     },
     {
       step: '04',
       title: 'Close',
-      description: 'Warm leads flow directly into your pipeline. You focus on closing, we handle the rest.',
+      description: 'Qualified meetings land in your calendar. You show up and sell.',
     },
   ];
 
@@ -74,7 +74,7 @@ export default function ScalePage() {
               <div className="inline-flex items-center space-x-2 bg-gradient-to-r from-[#009bd7]/10 to-[#00E1FF]/10 dark:from-[#009bd7]/20 dark:to-[#00E1FF]/20 rounded-full px-6 py-2 mb-6 backdrop-blur-sm border border-[#009bd7]/20 dark:border-[#00E1FF]/30">
                 <TrendingUp className="w-4 h-4 text-[#009bd7] dark:text-[#00E1FF]" />
                 <span className="text-[#009bd7] dark:text-[#00E1FF] text-sm font-bold tracking-wider">SKAL SCALE</span>
-                <span className="ml-2 px-2 py-0.5 text-xs font-bold bg-gradient-to-r from-[#009bd7] to-[#00E1FF] text-white rounded-full">COMING SOON</span>
+                <span className="ml-2 px-2 py-0.5 text-xs font-bold bg-gradient-to-r from-[#009bd7] to-[#00E1FF] text-white rounded-full">EARLY ACCESS</span>
               </div>
 
               <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-6xl xl:text-7xl font-bold text-[#0f172a] dark:text-white mb-6 leading-snug pb-1">
@@ -85,11 +85,11 @@ export default function ScalePage() {
               </h1>
 
               <p className="text-lg text-[#009bd7] dark:text-[#00E1FF] font-semibold max-w-xl mx-auto lg:mx-0 mb-4">
-                For B2B founders who are done doing outbound manually.
+                For B2B founders done doing outbound manually.
               </p>
 
               <p className="text-lg sm:text-xl text-gray-600 dark:text-gray-300 max-w-xl mx-auto lg:mx-0 leading-relaxed mb-8">
-                Your pipeline should not depend on how hard you hustle. SKAL Scale runs your entire B2B outbound operation. Prospecting powered by AI, personalised sequences at scale, and a proprietary contact database built in-house that you cannot access anywhere else. We handle the entire stack. You show up to the meetings. Priced per qualified meeting, so you only pay for results.
+                Your pipeline should not depend on how hard you hustle. SKAL Scale runs your entire outbound operation. AI prospecting, personalised sequences, and a proprietary contact database you cannot access anywhere else. We handle the stack. You show up to the meetings. You only pay when a qualified meeting lands on your calendar.
               </p>
 
               <a
@@ -217,20 +217,34 @@ export default function ScalePage() {
         </div>
       </section>
 
-      {/* Features */}
+      {/* Positioning: Not another lead gen tool */}
       <section className="py-14 lg:py-20 relative bg-white dark:bg-gray-800">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="max-w-3xl mx-auto text-center">
+            <h2 className="text-3xl sm:text-4xl font-bold text-[#0f172a] dark:text-white mb-6 leading-snug pb-1">
+              This is not another lead gen tool.
+            </h2>
+            <p className="text-lg text-gray-600 dark:text-gray-300 leading-relaxed mb-4">
+              Most outbound tools sell you access and walk away. A list, a dialer, a sequence builder, and a wish. SKAL Scale is accountable to the same outcome you are: a qualified conversation with someone who can buy.
+            </p>
+            <p className="text-lg font-semibold text-[#0f172a] dark:text-white">
+              No retainers. No monthly minimums. No paying for effort that does not convert.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* What it does */}
+      <section className="py-14 lg:py-20 relative bg-gradient-to-br from-slate-50 via-white to-blue-50 dark:from-gray-900 dark:via-gray-800 dark:to-blue-900">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <div className="inline-flex items-center space-x-2 bg-gradient-to-r from-[#009bd7]/10 to-[#00E1FF]/10 dark:from-[#009bd7]/20 dark:to-[#00E1FF]/20 rounded-full px-6 py-2 mb-6 border border-[#009bd7]/20 dark:border-[#00E1FF]/30">
               <Sparkles className="w-4 h-4 text-[#009bd7] dark:text-[#00E1FF]" />
-              <span className="text-[#009bd7] dark:text-[#00E1FF] text-sm font-bold tracking-wider">FEATURES</span>
+              <span className="text-[#009bd7] dark:text-[#00E1FF] text-sm font-bold tracking-wider">WHAT IT DOES</span>
             </div>
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-[#0f172a] dark:text-white mb-6 leading-snug pb-1">
-              Everything You Need to Scale
+              The full outbound stack. None of the grind.
             </h2>
-            <p className="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
-              One platform to find, engage, and convert your ideal customers, powered by AI.
-            </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
@@ -264,45 +278,68 @@ export default function ScalePage() {
       </section>
 
       <HowItWorks
-        title="From Zero to Pipeline in Days"
+        title="Zero to pipeline in days."
         steps={steps}
         tone="cyan"
         badge={{ icon: Clock, label: 'HOW IT WORKS' }}
       />
 
-      {/* Value Props */}
+      {/* Pricing */}
       <section className="py-14 lg:py-20 relative bg-white dark:bg-gray-800">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-5xl mx-auto bg-gradient-to-br from-[#0f172a] to-[#0c2d4a] rounded-3xl p-10 sm:p-16 relative overflow-hidden">
-            <div className="absolute top-0 right-0 w-64 h-64 bg-gradient-to-bl from-[#009bd7]/20 to-transparent rounded-full blur-3xl"></div>
-            <div className="absolute bottom-0 left-0 w-64 h-64 bg-gradient-to-tr from-[#00E1FF]/20 to-transparent rounded-full blur-3xl"></div>
-
-            <div className="relative z-10 text-center mb-12">
-              <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4">Why SKAL Scale?</h2>
-              <p className="text-gray-300 text-lg max-w-2xl mx-auto">Built by the same team that has integrated 1000+ AI systems for businesses worldwide.</p>
+          <div className="max-w-3xl mx-auto text-center">
+            <div className="inline-flex items-center space-x-2 bg-gradient-to-r from-[#009bd7]/10 to-[#00E1FF]/10 dark:from-[#009bd7]/20 dark:to-[#00E1FF]/20 rounded-full px-6 py-2 mb-6 border border-[#009bd7]/20 dark:border-[#00E1FF]/30">
+              <DollarSign className="w-4 h-4 text-[#009bd7] dark:text-[#00E1FF]" />
+              <span className="text-[#009bd7] dark:text-[#00E1FF] text-sm font-bold tracking-wider">PRICING</span>
             </div>
-
-            <div className="relative z-10 grid grid-cols-1 sm:grid-cols-3 gap-8">
-              {[
-                { number: '10X', label: 'Revenue Growth', description: 'Average increase in qualified pipeline' },
-                { number: '80%', label: 'Time Saved', description: 'On manual prospecting and outreach' },
-                { number: '3 Days', label: 'To First Leads', description: 'From setup to qualified meetings' },
-              ].map((stat) => (
-                <div key={stat.label} className="text-center">
-                  <div className="text-4xl sm:text-5xl font-bold text-[#00E1FF] mb-2">
-                    {stat.number}
-                  </div>
-                  <div className="text-white font-bold mb-1">{stat.label}</div>
-                  <div className="text-gray-400 text-sm">{stat.description}</div>
-                </div>
-              ))}
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-[#0f172a] dark:text-white mb-6 leading-snug pb-1">
+              Performance-based. No surprises.
+            </h2>
+            <p className="text-xl sm:text-2xl font-bold text-[#0f172a] dark:text-white mb-8">
+              You only pay for meetings. Not impressions. Not clicks. Not leads.
+            </p>
+            <div className="space-y-4 text-left text-gray-600 dark:text-gray-300 leading-relaxed">
+              <p>
+                You pay per qualified meeting that shows up on your calendar. A small setup fee applies to cover ICP definition, database build, and campaign launch.
+              </p>
+              <p>
+                A qualified meeting is a confirmed, attended call with a decider at a B2B company who has expressed active interest. No-shows do not count. You do not pay for them.
+              </p>
+              <p>
+                Pricing is shared on your discovery call. No credit card required to join the waitlist.
+              </p>
             </div>
+            <a
+              href="#waitlist"
+              className="mt-10 group inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-[#009bd7] to-[#00E1FF] text-white font-bold rounded-2xl transition-all duration-300 hover:shadow-xl hover:shadow-[#009bd7]/25 hover:scale-105"
+            >
+              Join the Waitlist
+              <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+            </a>
+          </div>
+        </div>
+      </section>
+
+      {/* Coming Next */}
+      <section className="py-14 lg:py-20 relative bg-gradient-to-br from-slate-50 via-white to-blue-50 dark:from-gray-900 dark:via-gray-800 dark:to-blue-900">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="max-w-3xl mx-auto text-center">
+            <div className="inline-flex items-center space-x-2 bg-gradient-to-r from-[#009bd7]/10 to-[#00E1FF]/10 dark:from-[#009bd7]/20 dark:to-[#00E1FF]/20 rounded-full px-6 py-2 mb-6 border border-[#009bd7]/20 dark:border-[#00E1FF]/30">
+              <Layers className="w-4 h-4 text-[#009bd7] dark:text-[#00E1FF]" />
+              <span className="text-[#009bd7] dark:text-[#00E1FF] text-sm font-bold tracking-wider">COMING NEXT</span>
+            </div>
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-[#0f172a] dark:text-white mb-6 leading-snug pb-1">
+              Your pipeline, in one place.
+            </h2>
+            <p className="text-lg text-gray-600 dark:text-gray-300 leading-relaxed">
+              SKAL Scale books the meetings. Soon it will manage everything after them too. An AI-native CRM built for the way agentic sales actually works. No manual data entry. No pipeline hygiene overhead. Early waitlist members get first access.
+            </p>
           </div>
         </div>
       </section>
 
       {/* Waitlist Form */}
-      <section id="waitlist" className="py-14 lg:py-20 relative bg-gradient-to-br from-slate-50 via-white to-blue-50 dark:from-gray-900 dark:via-gray-800 dark:to-blue-900">
+      <section id="waitlist" className="py-14 lg:py-20 relative bg-white dark:bg-gray-800">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-2xl mx-auto text-center">
             <div className="inline-flex items-center space-x-2 bg-gradient-to-r from-[#009bd7]/10 to-[#00E1FF]/10 dark:from-[#009bd7]/20 dark:to-[#00E1FF]/20 rounded-full px-6 py-2 mb-6 border border-[#009bd7]/20 dark:border-[#00E1FF]/30">
@@ -311,10 +348,10 @@ export default function ScalePage() {
             </div>
 
             <h2 className="text-3xl sm:text-4xl font-bold text-[#0f172a] dark:text-white mb-4 leading-snug pb-1">
-              Get Early Access
+              Limited spots available.
             </h2>
             <p className="text-gray-600 dark:text-gray-300 mb-10 text-lg">
-              Be among the first to use SKAL Scale. Limited spots available.
+              We are onboarding a small number of founding clients to stress-test the system and lock in results before we scale. If you are a B2B founder done doing outbound manually, this is your spot.
             </p>
 
             <div ref={formRef} className="bg-white/80 dark:bg-gray-800/80 backdrop-blur-xl rounded-3xl shadow-2xl p-8 sm:p-10 border border-white/50 dark:border-gray-700/50 relative overflow-hidden">
@@ -385,11 +422,11 @@ export default function ScalePage() {
               </div>
               <div className="flex items-center gap-2">
                 <CheckCircle className="w-4 h-4 text-[#009bd7]" />
-                <span>Early adopter pricing</span>
+                <span>Pricing shared on your call</span>
               </div>
               <div className="flex items-center gap-2">
                 <CheckCircle className="w-4 h-4 text-[#009bd7]" />
-                <span>Priority onboarding</span>
+                <span>Early access pricing locked in for founding clients</span>
               </div>
             </div>
           </div>
