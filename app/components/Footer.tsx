@@ -144,7 +144,7 @@ export default function Footer() {
                   </a>
                 ))}
               </div>
-              <div className="flex items-center gap-1 text-[#009bd7] dark:text-[#00E1FF]" aria-hidden="true">
+              <div className="flex items-center gap-1 text-amber-400" aria-hidden="true">
                 {Array.from({ length: 5 }).map((_, i) => (
                   <Star key={i} className="w-5 h-5 fill-current" />
                 ))}
