@@ -18,13 +18,41 @@ interface Role {
 }
 
 const openRoles: Role[] = [
-  // Add roles here. Example:
-  // {
-  //   title: 'AI Engineer',
-  //   type: 'Full-time',
-  //   location: 'Dubai or Lahore (hybrid)',
-  //   description: 'You will design and ship production AI systems for our clients...',
-  // },
+  {
+    title: 'Machine Learning Engineer',
+    type: 'Full-time',
+    location: 'Dubai or Lahore',
+    description:
+      'Ship production ML systems for our clients. Train models, tune them, integrate them into the workflows that run the business. You own the lifecycle from notebook to production, not just the experiment.',
+  },
+  {
+    title: 'Data Scientist',
+    type: 'Full-time',
+    location: 'Dubai or Lahore',
+    description:
+      "Find the signal inside a client's data. Translate business questions into models, models into shipped product, and trade-offs into language non-technical stakeholders can act on.",
+  },
+  {
+    title: 'Marketing',
+    type: 'Full-time',
+    location: 'Dubai or Lahore',
+    description:
+      "Own SKAL's voice in the market. Content, demand, brand, channels. Practitioner-led marketing. We want someone who ships campaigns the way our engineers ship code.",
+  },
+  {
+    title: 'Tech Sales',
+    type: 'Full-time',
+    location: 'Dubai or Lahore',
+    description:
+      'Carry the conversation with B2B founders and operators. Run discovery calls, scope engagements, close the right ones. You understand AI well enough to be a credible counterpart on a technical call.',
+  },
+  {
+    title: 'Internships (ML, DS, Marketing, Tech Sales)',
+    type: 'Internship',
+    location: 'Dubai or Lahore',
+    description:
+      'Open to early-career talent across our four hiring lines. You work alongside senior practitioners on real client projects from week one. Tell us which line you are interested in.',
+  },
 ];
 
 const values = [
@@ -33,7 +61,7 @@ const values = [
     body: 'Everyone here ships. No layer of people who only review the work of people who do the work.',
   },
   {
-    title: 'Small teams. Real outcomes.',
+    title: 'Ownership end to end.',
     body: 'You will own a problem end to end and answer for what you ship. Tight loops, no committees.',
   },
   {
@@ -63,7 +91,7 @@ export default function CareersPage() {
           </h1>
 
           <p className="text-lg sm:text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto leading-relaxed">
-            We are a small team in Dubai and Lahore that ships AI systems into real businesses.
+            We ship AI systems into real businesses, from offices in Dubai and Lahore.
             If you do your best work in tight loops with people who care about the outcome, we want to talk.
           </p>
         </div>
