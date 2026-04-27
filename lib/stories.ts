@@ -51,11 +51,20 @@ export function getStoryBySlug(slug: string): Story | null {
 
 export function getAllStories(): StoryMeta[] {
   return getAllStorySlugs()
-    .map((slug) => {
+    .map((slug): StoryMeta | null => {
       const story = getStoryBySlug(slug);
       if (!story) return null;
-      const { content: _content, ...meta } = story;
-      return meta;
+      return {
+        slug: story.slug,
+        title: story.title,
+        excerpt: story.excerpt,
+        tag: story.tag,
+        readTime: story.readTime,
+        accent: story.accent,
+        publishedDate: story.publishedDate,
+        featured: story.featured,
+        pullQuote: story.pullQuote,
+      };
     })
     .filter((s): s is StoryMeta => s !== null)
     .sort((a, b) => new Date(b.publishedDate).getTime() - new Date(a.publishedDate).getTime());
