@@ -30,8 +30,8 @@ const BrandHero = () => {
         <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-16 max-w-7xl mx-auto">
           {/* Left: Text */}
           <div className="flex-1 text-center lg:text-left">
-            <div className="text-sm font-semibold text-[#009bd7] dark:text-[#00E1FF] mb-4 animate-fade-in-up" style={{ animationDelay: '40ms' }}>
-              Four ways we run your growth
+            <div className="text-[11px] sm:text-xs font-bold tracking-[0.22em] text-[#009bd7] dark:text-[#00E1FF] mb-4 animate-fade-in-up" style={{ animationDelay: '40ms' }}>
+              FOUR WAYS WE RUN YOUR GROWTH
             </div>
 
             <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-6xl xl:text-7xl font-bold text-[#0f172a] dark:text-white mb-6 leading-tight pb-1 animate-fade-in-up" style={{ animationDelay: '120ms' }}>
