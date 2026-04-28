@@ -244,9 +244,9 @@ export default function ContactForm({ initialMessage = '' }: ContactFormProps) {
               Prefer to reach out directly? We&apos;d love to hear from you!
             </p>
             <div className="flex flex-col sm:flex-row flex-wrap justify-center gap-4 sm:gap-6 text-sm">
-              <a href="mailto:info@skal.ai" className="flex items-center justify-center gap-2 text-[#009bd7] dark:text-[#00E1FF] hover:text-[#00E1FF] dark:hover:text-[#009bd7] transition-colors font-medium">
+              <a href="mailto:hi@skal.ai" className="flex items-center justify-center gap-2 text-[#009bd7] dark:text-[#00E1FF] hover:text-[#00E1FF] dark:hover:text-[#009bd7] transition-colors font-medium">
                 <Mail className="w-4 h-4" />
-                info@skal.ai
+                hi@skal.ai
               </a>
               <span className="hidden sm:inline text-gray-300 dark:text-gray-500">|</span>
               <span className="text-gray-600 dark:text-gray-300">
