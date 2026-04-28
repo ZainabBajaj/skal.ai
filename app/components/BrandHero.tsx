@@ -79,13 +79,6 @@ const BrandHero = () => {
                 <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
               </Link>
             </div>
-
-            <p className="mt-6 text-sm text-gray-500 dark:text-gray-400 animate-fade-in-up" style={{ animationDelay: '380ms' }}>
-              Built by an AI team based in Dubai and Lahore.{' '}
-              <Link href="/about" className="font-semibold text-[#009bd7] dark:text-[#00E1FF] hover:underline">
-                Meet the team →
-              </Link>
-            </p>
           </div>
 
           {/* Right: convergence flow — work in, growth out */}
