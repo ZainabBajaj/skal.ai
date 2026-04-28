@@ -70,7 +70,6 @@ export default function Footer() {
 
   const offices = [
     { city: 'Pembroke Pines', country: 'United States', flag: '🇺🇸', address: '130 NW 77th Ave, Pembroke Pines, FL 33024' },
-    { city: 'Toronto', country: 'Canada', flag: '🇨🇦', address: '220 Duncan Mill Road, Toronto, Ontario M3B 3J5' },
     { city: 'Ajman', country: 'United Arab Emirates', flag: '🇦🇪', address: '26th Floor, Amber Gem Tower, Ajman' },
     { city: 'Lahore', country: 'Pakistan', flag: '🇵🇰', address: 'H, 21 Mateen Fatima Rd Block, Block H, Gulberg, Lahore' },
   ];
@@ -220,7 +219,7 @@ export default function Footer() {
 
         {/* Offices */}
         <div className="mt-12 pt-8 border-t border-gray-200 dark:border-gray-700">
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {offices.map((office) => (
               <div key={office.country} className="text-center sm:text-left">
                 <div className="text-2xl mb-3 leading-none" aria-hidden="true">{office.flag}</div>
