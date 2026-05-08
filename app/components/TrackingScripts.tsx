@@ -1,8 +1,12 @@
 "use client";
 
-import { useEffect, useRef } from 'react';
+// TEMPORARY: consent gate removed to A/B-test whether the GA drop is purely
+// caused by low Accept-All conversion. Banner UI still shows but does not
+// gate analytics. Revert by restoring the useCookieConsent gate before
+// shipping to EU/UK traffic long-term.
+
+import { useEffect, useRef, useState } from 'react';
 import { usePathname } from 'next/navigation';
-import { useCookieConsent } from '../context/CookieConsentContext';
 import GoogleAnalytics from './GoogleAnalytics';
 
 const SESSION_KEY = 'skal_session_id';
@@ -20,12 +24,16 @@ function getSessionId(): string {
 }
 
 export default function TrackingScripts() {
-  const { consent, hydrated } = useCookieConsent();
   const pathname = usePathname();
   const lastPath = useRef<string | null>(null);
+  const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
-    if (!hydrated || !consent?.analytics) return;
+    setMounted(true);
+  }, []);
+
+  useEffect(() => {
+    if (!mounted) return;
     if (lastPath.current === pathname) return;
     lastPath.current = pathname;
 
@@ -44,9 +52,9 @@ export default function TrackingScripts() {
     }).catch(() => {
       // fire-and-forget; analytics failures should not surface
     });
-  }, [pathname, consent, hydrated]);
+  }, [pathname, mounted]);
 
-  if (!hydrated || !consent?.analytics) return null;
+  if (!mounted) return null;
 
   return <GoogleAnalytics />;
 }
