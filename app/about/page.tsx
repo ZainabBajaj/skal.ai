@@ -87,7 +87,7 @@ export default function AboutPage() {
               </p>
 
               <p>
-                I went after it seriously. I graduated with top global marks in{' '}
+                I went after it seriously. I graduated with one of the highest marks in the world in{' '}
                 <span className="font-semibold text-[#0f172a] dark:text-white">Data Science and Business Analytics</span>,
                 earning a{' '}
                 <span className="font-semibold text-[#009bd7] dark:text-[#00E1FF]">London School of Economics Letter of Commendation</span>.
@@ -113,7 +113,7 @@ export default function AboutPage() {
               </div>
 
               <p>
-                We have offices in the United States, Canada, the UAE, and Pakistan, and a growing team of engineers and AI specialists
+                We have offices in the United States, the UAE, and Pakistan, and a growing team of engineers and AI specialists
                 who think the same way.
               </p>
 
