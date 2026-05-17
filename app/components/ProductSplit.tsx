@@ -33,23 +33,23 @@ const cards: ProductCard[] = [
     href: '/systems',
     eyebrow: 'NEED AUTOMATION?',
     verb: 'Deploys',
-    audience: 'Live in one week.',
+    audience: 'Operational from day one.',
     body: [
       'Your operations run without you. Here is what runs them.',
-      'Voice and chat agents trained on your business, powered by ElevenLabs and Claude. Plus end-to-end automation that handles your operations around the clock.',
+      'Voice and chat systems trained on your business, powered by ElevenLabs and Claude. End-to-end workflow automation that handles your operations around the clock.',
       'No development cycles. No engineering required. No overhead.',
     ],
-    cta: 'Deploy your first AI agent',
+    cta: 'Deploy your first AI system',
     icon: Bot,
   },
   {
     href: '/services',
     eyebrow: 'NEED SOMETHING CUSTOM?',
     verb: 'Fits',
-    audience: 'No templates. No constraints. Just solutions.',
+    audience: 'Custom AI systems built around your operations.',
     body: [
       'Off the shelf does not fit your business.',
-      'Custom AI agents, agentic workflows, and software scoped to your exact requirements.',
+      'Custom AI systems, workflow automation, and software built specifically for your operations.',
       'If it doesn’t exist, we build it from scratch.',
     ],
     cta: 'Tell us what you need',
@@ -59,13 +59,13 @@ const cards: ProductCard[] = [
     href: '/staffing',
     eyebrow: 'NEED EXECUTION?',
     verb: 'Executes',
-    audience: 'Your direction, our talent, zero friction.',
+    audience: 'AI-native operators embedded into your workflow.',
     body: [
       'No hiring loops. No onboarding drag.',
-      'Pre-vetted, AI-native talent placed straight into your workflow.',
-      'Tell them what you need. They ship it. Billed by the hour.',
+      'Pre-vetted engineers and operators who work AI-first, embedded directly into your workflow.',
+      'Drop them in and start shipping immediately. Billed by the hour.',
     ],
-    cta: 'Find your person',
+    cta: 'Deploy your operators',
     icon: Users,
   },
 ];
@@ -76,10 +76,10 @@ const ProductSplit = () => {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-10 lg:mb-12 max-w-3xl mx-auto">
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-[#0f172a] dark:text-white mb-4 leading-snug pb-1">
-            Four ways SKAL builds with you
+            Four ways SKAL operates with you
           </h2>
           <p className="text-lg text-gray-600 dark:text-gray-300">
-            Each one fixes a different bottleneck.
+            Each one removes a different operational bottleneck.
           </p>
         </div>
 

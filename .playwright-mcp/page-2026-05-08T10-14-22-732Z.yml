@@ -1,0 +1,371 @@
+- generic [active] [ref=e1]:
+  - main [ref=e2]:
+    - navigation [ref=e3]:
+      - generic [ref=e5]:
+        - link "Go to homepage" [ref=e7] [cursor=pointer]:
+          - /url: /
+          - button "Go to homepage" [ref=e8]:
+            - img "SKAL Logo" [ref=e9]
+            - generic [ref=e10]: SKAL
+        - generic [ref=e11]:
+          - button "Scale NEW" [ref=e12] [cursor=pointer]:
+            - text: Scale
+            - generic [ref=e13]: NEW
+          - generic [ref=e14]:
+            - button "Solutions" [ref=e15] [cursor=pointer]:
+              - text: Solutions
+              - img [ref=e16]
+            - generic:
+              - menu:
+                - menuitem "Systems"
+                - menuitem "Services"
+                - menuitem "Staffing"
+          - button "Stories" [ref=e18] [cursor=pointer]: Stories
+          - button "About" [ref=e19] [cursor=pointer]: About
+          - button "Contact" [ref=e20] [cursor=pointer]: Contact
+        - link "Book a call" [ref=e22] [cursor=pointer]:
+          - /url: /book
+          - generic [ref=e24]: Book a call
+    - generic [ref=e27]:
+      - generic [ref=e28]:
+        - generic [ref=e29]: FOUR WAYS TO RUN YOUR GROWTH WITH
+        - heading "One AI partner." [level=1] [ref=e30]
+        - list [ref=e31]:
+          - listitem [ref=e32]:
+            - img [ref=e33]
+            - generic [ref=e36]: Your leads find you. No chasing.
+          - listitem [ref=e37]:
+            - img [ref=e38]
+            - generic [ref=e41]: Your operations run without you. No overhead.
+          - listitem [ref=e42]:
+            - img [ref=e43]
+            - generic [ref=e45]: Your tools get built around your work. No templates.
+          - listitem [ref=e46]:
+            - img [ref=e47]
+            - generic [ref=e52]: Your team ships from day one. No long hires.
+        - paragraph [ref=e53]: Start with one. Scale from there.
+        - generic [ref=e54]:
+          - link "Schedule a discovery call" [ref=e55] [cursor=pointer]:
+            - /url: https://calendly.com/skal-ai/discovery-call
+            - generic [ref=e56]: Schedule a discovery call
+            - img [ref=e57]
+          - link "Explore how it works" [ref=e59] [cursor=pointer]:
+            - /url: "#products"
+            - generic [ref=e60]: Explore how it works
+            - img [ref=e61]
+      - generic [ref=e63]:
+        - img [ref=e64]:
+          - generic [ref=e108]: LIVE IN DAYS
+          - generic [ref=e116]: YOUR GROWTH
+        - generic:
+          - generic:
+            - generic: SCALE
+            - generic: sells
+          - generic:
+            - img
+        - generic:
+          - generic:
+            - generic: SYSTEMS
+            - generic: deploys
+          - generic:
+            - img
+        - generic:
+          - generic:
+            - generic: SERVICES
+            - generic: fits
+          - generic:
+            - img
+        - generic:
+          - generic:
+            - generic: STAFFING
+            - generic: executes
+          - generic:
+            - img
+    - generic [ref=e118]:
+      - generic [ref=e119]:
+        - heading "Four ways SKAL builds with you" [level=2] [ref=e120]
+        - paragraph [ref=e121]: Each one fixes a different bottleneck.
+      - generic [ref=e122]:
+        - link "NEW NEED LEADS? AI That Sells For B2B founders done doing outbound manually. Your leads find you. Here is what finds them. SKAL Scale runs your entire outbound. AI prospecting, personalised sequences, and a proprietary contact database built to book qualified meetings, not just fill a funnel. You only pay when a meeting shows up on your calendar. Join the waitlist" [ref=e123] [cursor=pointer]:
+          - /url: /scale
+          - generic [ref=e124]:
+            - img [ref=e126]
+            - generic [ref=e129]: NEW
+          - generic [ref=e130]: NEED LEADS?
+          - heading "AI That Sells" [level=3] [ref=e131]
+          - paragraph [ref=e132]: For B2B founders done doing outbound manually.
+          - generic [ref=e133]:
+            - paragraph [ref=e134]: Your leads find you. Here is what finds them.
+            - paragraph [ref=e135]: SKAL Scale runs your entire outbound. AI prospecting, personalised sequences, and a proprietary contact database built to book qualified meetings, not just fill a funnel.
+            - paragraph [ref=e136]: You only pay when a meeting shows up on your calendar.
+          - generic [ref=e137]:
+            - generic [ref=e138]: Join the waitlist
+            - img [ref=e139]
+        - link "NEED AUTOMATION? AI That Deploys Live in one week. Your operations run without you. Here is what runs them. Voice and chat agents trained on your business, powered by ElevenLabs and Claude. Plus end-to-end automation that handles your operations around the clock. No development cycles. No engineering required. No overhead. Deploy your first AI agent" [ref=e141] [cursor=pointer]:
+          - /url: /systems
+          - img [ref=e144]
+          - generic [ref=e147]: NEED AUTOMATION?
+          - heading "AI That Deploys" [level=3] [ref=e148]
+          - paragraph [ref=e149]: Live in one week.
+          - generic [ref=e150]:
+            - paragraph [ref=e151]: Your operations run without you. Here is what runs them.
+            - paragraph [ref=e152]: Voice and chat agents trained on your business, powered by ElevenLabs and Claude. Plus end-to-end automation that handles your operations around the clock.
+            - paragraph [ref=e153]: No development cycles. No engineering required. No overhead.
+          - generic [ref=e154]:
+            - generic [ref=e155]: Deploy your first AI agent
+            - img [ref=e156]
+        - link "NEED SOMETHING CUSTOM? AI That Fits No templates. No constraints. Just solutions. Off the shelf does not fit your business. Custom AI agents, agentic workflows, and software scoped to your exact requirements. If it doesn’t exist, we build it from scratch. Tell us what you need" [ref=e158] [cursor=pointer]:
+          - /url: /services
+          - img [ref=e161]
+          - generic [ref=e163]: NEED SOMETHING CUSTOM?
+          - heading "AI That Fits" [level=3] [ref=e164]
+          - paragraph [ref=e165]: No templates. No constraints. Just solutions.
+          - generic [ref=e166]:
+            - paragraph [ref=e167]: Off the shelf does not fit your business.
+            - paragraph [ref=e168]: Custom AI agents, agentic workflows, and software scoped to your exact requirements.
+            - paragraph [ref=e169]: If it doesn’t exist, we build it from scratch.
+          - generic [ref=e170]:
+            - generic [ref=e171]: Tell us what you need
+            - img [ref=e172]
+        - link "NEED EXECUTION? AI That Executes Your direction, our talent, zero friction. No hiring loops. No onboarding drag. Pre-vetted, AI-native talent placed straight into your workflow. Tell them what you need. They ship it. Billed by the hour. Find your person" [ref=e174] [cursor=pointer]:
+          - /url: /staffing
+          - img [ref=e177]
+          - generic [ref=e182]: NEED EXECUTION?
+          - heading "AI That Executes" [level=3] [ref=e183]
+          - paragraph [ref=e184]: Your direction, our talent, zero friction.
+          - generic [ref=e185]:
+            - paragraph [ref=e186]: No hiring loops. No onboarding drag.
+            - paragraph [ref=e187]: Pre-vetted, AI-native talent placed straight into your workflow.
+            - paragraph [ref=e188]: Tell them what you need. They ship it. Billed by the hour.
+          - generic [ref=e189]:
+            - generic [ref=e190]: Find your person
+            - img [ref=e191]
+      - paragraph [ref=e193]: This is not four tools. It is one system. Most companies need all four; we plug in wherever you are stuck.
+    - generic [ref=e195]:
+      - generic [ref=e196]:
+        - generic [ref=e197]:
+          - img [ref=e198]
+          - generic [ref=e200]: IN PRODUCTION
+        - heading "What shipped looks like." [level=2] [ref=e201]
+        - paragraph [ref=e202]: Real systems running inside real businesses. No demos. No mockups.
+      - generic [ref=e203]:
+        - img [ref=e205]:
+          - generic [ref=e213]: skal.ai / production
+          - generic [ref=e215]: LIVE
+          - generic [ref=e217]: LIVE EVENTS
+          - generic [ref=e219]:
+            - generic [ref=e224]: LEAD QUALIFIED · acme corp · 87
+            - generic [ref=e225]: now
+          - generic [ref=e226]:
+            - generic [ref=e231]: CALL HANDLED · sarah b · 4m 12s
+            - generic [ref=e232]: 6s
+          - generic [ref=e233]:
+            - generic [ref=e238]: REPLY SENT · marcus t · 2.1s
+            - generic [ref=e239]: 14s
+          - generic [ref=e240]:
+            - generic [ref=e245]: MEETING BOOKED · 10:30 · zoom
+            - generic [ref=e246]: 38s
+          - generic [ref=e247]:
+            - generic [ref=e252]: AGENT ONLINE · queue empty
+            - generic [ref=e253]: 1m
+          - generic [ref=e254]:
+            - generic [ref=e259]: LEAD ASSIGNED · julia r
+            - generic [ref=e260]: 2m
+          - generic [ref=e261]:
+            - generic [ref=e263]: CALLS · 24H
+            - generic [ref=e264]: 1,247
+          - generic [ref=e265]:
+            - generic [ref=e267]: REPLIES · 24H
+            - generic [ref=e268]: 3,902
+          - generic [ref=e269]:
+            - generic [ref=e271]: AVG RESPONSE
+            - generic [ref=e272]: 2.1s
+          - generic [ref=e273]:
+            - generic [ref=e275]: PIPELINE · TODAY
+            - generic [ref=e276]: $184k
+          - generic [ref=e278]: VOICE AGENT
+          - generic [ref=e282]: ACTIVE
+          - generic [ref=e293]: "Sarah B · account #2843 · listening"
+        - generic:
+          - paragraph: Live in production.
+          - paragraph: Voice + chat agents. Automated outbound. Custom systems.
+      - link "Schedule a discovery call" [ref=e295] [cursor=pointer]:
+        - /url: /book
+        - text: Schedule a discovery call
+        - img [ref=e296]
+    - generic [ref=e299]:
+      - paragraph [ref=e300]: Trusted By
+      - generic [ref=e301]:
+        - img "National University of Singapore" [ref=e303]
+        - img "Educative" [ref=e305]
+        - img "Outranker" [ref=e307]
+    - generic [ref=e310]:
+      - generic [ref=e311]:
+        - generic [ref=e312]:
+          - img [ref=e313]
+          - generic [ref=e315]: LET'S CONNECT
+        - heading "Talk to us" [level=2] [ref=e316]
+        - paragraph [ref=e317]: Tell us what you need. We will tell you what it takes to ship it.
+        - link "Schedule a discovery call" [ref=e318] [cursor=pointer]:
+          - /url: https://calendly.com/skal-ai/discovery-call
+          - text: Schedule a discovery call
+          - img [ref=e319]
+        - paragraph [ref=e321]: Prefer to write? Send us a note below.
+      - generic [ref=e325]:
+        - generic [ref=e326]:
+          - generic [ref=e327]:
+            - generic [ref=e328]:
+              - img [ref=e329]
+              - text: Full Name
+            - textbox "Full Name" [ref=e333]:
+              - /placeholder: Enter your full name
+          - generic [ref=e334]:
+            - generic [ref=e335]:
+              - img [ref=e336]
+              - text: Email Address
+            - textbox "Email Address" [ref=e340]:
+              - /placeholder: your.email@company.com
+        - generic [ref=e341]:
+          - generic [ref=e342]:
+            - img [ref=e343]
+            - text: Business Website
+          - textbox "Business Website" [ref=e347]:
+            - /placeholder: https://yourcompany.com
+        - generic [ref=e348]:
+          - generic [ref=e349]:
+            - img [ref=e350]
+            - text: Project Details
+          - textbox "Project Details" [ref=e353]:
+            - /placeholder: Tell us about your project goals, timeline, and any specific requirements...
+        - button "Send Message" [ref=e355] [cursor=pointer]:
+          - generic [ref=e356]: Send Message
+          - img [ref=e357]
+      - generic [ref=e361]:
+        - paragraph [ref=e362]: Prefer to reach out directly? We'd love to hear from you!
+        - generic [ref=e363]:
+          - link "hi@skal.ai" [ref=e364] [cursor=pointer]:
+            - /url: mailto:hi@skal.ai
+            - img [ref=e365]
+            - text: hi@skal.ai
+          - generic [ref=e368]: "|"
+          - generic [ref=e369]: Response within 24 hours
+    - generic [ref=e377]:
+      - generic [ref=e378]:
+        - generic [ref=e379]:
+          - button "Go to homepage" [ref=e380] [cursor=pointer]:
+            - img "SKAL Logo" [ref=e381]
+            - generic [ref=e382]: SKAL
+          - generic [ref=e383]:
+            - heading "Five-star reviews" [level=3] [ref=e384]
+            - generic [ref=e385]:
+              - link "Five star reviews on Clutch" [ref=e386] [cursor=pointer]:
+                - /url: "#"
+                - img "Clutch" [ref=e388]
+              - link "Five star reviews on Upwork" [ref=e389] [cursor=pointer]:
+                - /url: "#"
+                - img "Upwork" [ref=e391]
+              - link "Five star reviews on Trustpilot" [ref=e392] [cursor=pointer]:
+                - /url: "#"
+                - img "Trustpilot" [ref=e394]
+              - link "Five star reviews on GoodFirms" [ref=e395] [cursor=pointer]:
+                - /url: "#"
+                - img "GoodFirms" [ref=e397]
+            - generic [ref=e398]:
+              - img [ref=e399]
+              - img [ref=e401]
+              - img [ref=e403]
+              - img [ref=e405]
+              - img [ref=e407]
+            - paragraph [ref=e409]: Five out of five stars across all four platforms.
+        - generic [ref=e410]:
+          - heading "Products" [level=3] [ref=e411]
+          - list [ref=e412]:
+            - listitem [ref=e413]:
+              - link "Scale" [ref=e414] [cursor=pointer]:
+                - /url: /scale
+            - listitem [ref=e415]:
+              - link "Systems" [ref=e416] [cursor=pointer]:
+                - /url: /systems
+            - listitem [ref=e417]:
+              - link "Services" [ref=e418] [cursor=pointer]:
+                - /url: /services
+            - listitem [ref=e419]:
+              - link "Staffing" [ref=e420] [cursor=pointer]:
+                - /url: /staffing
+        - generic [ref=e421]:
+          - heading "Company" [level=3] [ref=e422]
+          - list [ref=e423]:
+            - listitem [ref=e424]:
+              - link "About" [ref=e425] [cursor=pointer]:
+                - /url: /about
+            - listitem [ref=e426]:
+              - link "Stories" [ref=e427] [cursor=pointer]:
+                - /url: /stories
+            - listitem [ref=e428]:
+              - link "Careers" [ref=e429] [cursor=pointer]:
+                - /url: /careers
+            - listitem [ref=e430]:
+              - link "FAQ" [ref=e431] [cursor=pointer]:
+                - /url: /faq
+            - listitem [ref=e432]:
+              - link "Book a call" [ref=e433] [cursor=pointer]:
+                - /url: /book
+            - listitem [ref=e434]:
+              - link "Contact" [ref=e435] [cursor=pointer]:
+                - /url: "#contact"
+        - generic [ref=e436]:
+          - generic [ref=e437]:
+            - heading "Email Us" [level=3] [ref=e438]
+            - link "hi@skal.ai" [ref=e439] [cursor=pointer]:
+              - /url: mailto:hi@skal.ai
+              - img [ref=e440]
+              - text: hi@skal.ai
+          - generic [ref=e442]:
+            - heading "Our Socials" [level=3] [ref=e443]
+            - generic [ref=e444]:
+              - link "LinkedIn" [ref=e445] [cursor=pointer]:
+                - /url: https://www.linkedin.com/company/skal-official
+                - img [ref=e446]
+              - link "Instagram" [ref=e448] [cursor=pointer]:
+                - /url: https://www.instagram.com/skalai_official
+                - img [ref=e449]
+              - link "YouTube" [ref=e451] [cursor=pointer]:
+                - /url: https://www.youtube.com/@skal-ai
+                - img [ref=e452]
+              - link "Email" [ref=e454] [cursor=pointer]:
+                - /url: mailto:hi@skal.ai
+                - img [ref=e455]
+      - generic [ref=e458]:
+        - generic [ref=e459]:
+          - generic [ref=e460]: 🇺🇸
+          - generic [ref=e461]: United States.
+          - generic [ref=e462]: 130 NW 77th Ave, Pembroke Pines, FL 33024
+        - generic [ref=e463]:
+          - generic [ref=e464]: 🇦🇪
+          - generic [ref=e465]: United Arab Emirates.
+          - generic [ref=e466]: 26th Floor, Amber Gem Tower, Ajman
+        - generic [ref=e467]:
+          - generic [ref=e468]: 🇵🇰
+          - generic [ref=e469]: Pakistan.
+          - generic [ref=e470]: H, 21 Mateen Fatima Rd Block, Block H, Gulberg, Lahore
+      - generic [ref=e472]:
+        - generic [ref=e473]:
+          - link "Sitemap" [ref=e474] [cursor=pointer]:
+            - /url: /sitemap
+          - link "Privacy Policy" [ref=e475] [cursor=pointer]:
+            - /url: /privacy
+          - link "Cookie policy" [ref=e476] [cursor=pointer]:
+            - /url: /cookie-policy
+          - link "IMS Policy" [ref=e477] [cursor=pointer]:
+            - /url: /ims-policy
+          - link "Terms & Conditions" [ref=e478] [cursor=pointer]:
+            - /url: /terms
+        - generic [ref=e479]:
+          - paragraph [ref=e480]: "Dubai, UAE · License No: 262305646888"
+          - paragraph [ref=e481]: © 2026 SKAL. All rights reserved.
+    - button "Switch to Light theme" [ref=e483] [cursor=pointer]:
+      - img [ref=e486]
+      - generic: Light Mode
+  - button "Open chat" [ref=e492] [cursor=pointer]:
+    - img [ref=e493]
+  - alert [ref=e498]

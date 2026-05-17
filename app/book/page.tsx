@@ -5,19 +5,24 @@ import Footer from '../components/Footer';
 import FloatingThemeToggle from '../components/FloatingThemeToggle';
 import CalendlyEmbed from './CalendlyEmbed';
 
-const CALENDLY_URL = 'https://calendly.com/skal-ai/discovery-call';
+const CALENDLY_URL = 'https://calendly.com/skal-ai/discovery-call?utm_source=website';
 
 export const metadata: Metadata = {
   title: 'Book a Discovery Call | SKAL',
   description:
     'Schedule a focused 30-minute discovery call with SKAL. Real conversation, no pitch, useful next step either way.',
-  alternates: { canonical: '/book' },
+  alternates: { canonical: 'https://skal.ai/book' },
   openGraph: {
     title: 'Book a Discovery Call | SKAL',
     description:
-      'A 30-minute call to understand what you are building, where the bottleneck is, and whether SKAL is the right partner.',
+      'A 30-minute call to understand what you are building, where the bottleneck is, and how SKAL plugs in.',
     url: 'https://skal.ai/book',
     type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Book a Discovery Call | SKAL',
+    description: 'A 30-minute call. Real conversation, no pitch.',
   },
 };
 

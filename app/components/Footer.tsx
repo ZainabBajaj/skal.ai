@@ -54,6 +54,8 @@ export default function Footer() {
   const companyLinks = [
     { name: 'About', href: '/about' },
     { name: 'Stories', href: '/stories' },
+    { name: 'Industries', href: '/industries' },
+    { name: 'Compare', href: '/compare' },
     { name: 'Careers', href: '/careers' },
     { name: 'FAQ', href: '/faq' },
     { name: 'Book a call', href: '/book' },
@@ -74,12 +76,12 @@ export default function Footer() {
     { city: 'Lahore', country: 'Pakistan', flag: '🇵🇰', address: 'H, 21 Mateen Fatima Rd Block, Block H, Gulberg, Lahore' },
   ];
 
-  // Drop the SKAL profile URL on each platform here when you have them.
-  const reviewPlatforms = [
-    { name: 'Clutch', logo: '/logos/clutch.jpeg', href: '#' },
-    { name: 'Upwork', logo: '/logos/upwork.svg', href: '#' },
-    { name: 'Trustpilot', logo: '/logos/trustpilot.svg', href: '#' },
-    { name: 'GoodFirms', logo: '/logos/goodfirms.png', href: '#' },
+  // Add href when a real profile URL exists; until then the logo renders as a non-clickable trust mark.
+  const reviewPlatforms: { name: string; logo: string; href?: string }[] = [
+    { name: 'Clutch', logo: '/logos/clutch.jpeg' },
+    { name: 'Upwork', logo: '/logos/upwork.svg' },
+    { name: 'Trustpilot', logo: '/logos/trustpilot.svg' },
+    { name: 'GoodFirms', logo: '/logos/goodfirms.png' },
   ];
 
   return (
@@ -122,26 +124,35 @@ export default function Footer() {
             <div>
               <h3 className="text-[#0f172a] dark:text-white font-semibold mb-3">Five-star reviews</h3>
               <div className="flex flex-wrap items-center gap-x-5 gap-y-3 mb-4">
-                {reviewPlatforms.map((platform) => (
-                  <a
-                    key={platform.name}
-                    href={platform.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label={`Five star reviews on ${platform.name}`}
-                    className="group inline-flex items-center"
-                  >
-                    <div className="grayscale opacity-70 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-300">
+                {reviewPlatforms.map((platform) => {
+                  const logo = (
+                    <div className="grayscale opacity-70 hover:grayscale-0 hover:opacity-100 transition-all duration-300">
                       <Image
                         src={platform.logo}
-                        alt={platform.name}
+                        alt={`Five star reviews on ${platform.name}`}
                         width={120}
                         height={32}
                         className="h-7 w-auto object-contain"
                       />
                     </div>
-                  </a>
-                ))}
+                  );
+                  return platform.href ? (
+                    <a
+                      key={platform.name}
+                      href={platform.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label={`Five star reviews on ${platform.name}`}
+                      className="inline-flex items-center"
+                    >
+                      {logo}
+                    </a>
+                  ) : (
+                    <div key={platform.name} className="inline-flex items-center" aria-label={`${platform.name} reviews`}>
+                      {logo}
+                    </div>
+                  );
+                })}
               </div>
               <div className="flex items-center gap-1 text-amber-400" aria-hidden="true">
                 {Array.from({ length: 5 }).map((_, i) => (

@@ -19,8 +19,8 @@ export default function StaffingPage() {
   const process = [
     { step: '01', title: 'Tell Us What You Need', description: 'Share your requirements: tech stack, team size, timeline.' },
     { step: '02', title: 'We Match Top Talent', description: 'Hand-picked engineers from our pre-vetted top 5% talent pool.' },
-    { step: '03', title: 'Meet Your Team', description: 'Interview candidates. Only move forward if it\'s the right fit.' },
-    { step: '04', title: 'Start Building', description: 'Your new team members integrate seamlessly and ship from week one.' },
+    { step: '03', title: 'Deploy Your Operators', description: 'Interview candidates. Only move forward if it\'s the right fit.' },
+    { step: '04', title: 'Start Shipping', description: 'Your operators embed immediately and ship production work from week one.' },
   ];
 
   return (
@@ -46,11 +46,11 @@ export default function StaffingPage() {
               </h1>
 
               <p className="text-lg text-[#1DB5C5] font-semibold max-w-xl mx-auto lg:mx-0 mb-4">
-                Your direction, our talent, zero friction.
+                AI-native operators embedded into your workflow.
               </p>
 
               <p className="text-lg sm:text-xl text-gray-600 dark:text-gray-300 max-w-xl mx-auto lg:mx-0 leading-relaxed mb-8">
-                No hiring loops. No onboarding drag. SKAL Staffing places pre-vetted, AI-native talent straight into your workflow. Tell them what you need; they ship it. Billed by the hour, no long-term commitment.
+                No hiring loops. No onboarding drag. SKAL Staffing connects companies with pre-vetted engineers and operators who already work AI-first and ship fast inside modern workflows. Drop them into your workflow and start shipping immediately. Billed by the hour.
               </p>
 
               <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
@@ -58,7 +58,7 @@ export default function StaffingPage() {
                   href="/book"
                   className="group inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-[#1DB5C5] to-[#009bd7] text-white font-bold rounded-2xl transition-all duration-300 hover:shadow-xl hover:shadow-[#1DB5C5]/25 hover:scale-105"
                 >
-                  Find your person
+                  Deploy your operators
                   <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
                 </Link>
               </div>
@@ -204,10 +204,10 @@ export default function StaffingPage() {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-[#0f172a] dark:text-white mb-6 leading-snug pb-1">
-              Talent You Can Hire
+              Operators Ready to Deploy
             </h2>
             <p className="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
-              Every engineer in our network has been rigorously vetted through technical assessments, live coding, and real-project evaluation.
+              Every operator in our network has been rigorously vetted through technical assessments, live coding, and real-project evaluation. All are fluent in modern AI tooling and autonomous workflows.
             </p>
           </div>
 
@@ -257,7 +257,7 @@ export default function StaffingPage() {
             <div className="relative z-10 grid grid-cols-1 sm:grid-cols-3 gap-8">
               {[
                 { icon: Shield, label: 'Rigorously Vetted', description: 'Multi-stage technical assessments and real-project trials' },
-                { icon: Clock, label: 'Fast Onboarding', description: 'Engineers ship production code within the first week' },
+                { icon: Clock, label: 'Immediate Execution', description: 'Operators ship production work inside your workflow from week one' },
                 { icon: CheckCircle, label: 'Zero Risk', description: 'Not the right fit? We replace them at no extra cost' },
               ].map((item) => {
                 const Icon = item.icon;
@@ -278,7 +278,7 @@ export default function StaffingPage() {
                 href="/book"
                 className="group inline-flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-[#1DB5C5] to-[#009bd7] text-white font-bold rounded-2xl transition-all duration-300 hover:shadow-xl hover:shadow-[#1DB5C5]/25 hover:scale-105"
               >
-                Book a Discovery Call
+                Deploy your operators
                 <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
               </Link>
             </div>

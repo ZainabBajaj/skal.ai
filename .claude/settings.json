@@ -1,7 +1,18 @@
 {
   "permissions": {
     "allow": [
-      "mcp__plugin_playwright_playwright__browser_navigate"
+      "mcp__plugin_playwright_playwright__browser_navigate",
+      "Bash(lsof -iTCP:3000 -sTCP:LISTEN -n -P)",
+      "Bash(git restore *)",
+      "mcp__plugin_playwright_playwright__browser_take_screenshot",
+      "mcp__plugin_playwright_playwright__browser_network_requests",
+      "mcp__ide__getDiagnostics",
+      "mcp__plugin_playwright_playwright__browser_close",
+      "mcp__plugin_playwright_playwright__browser_snapshot",
+      "Bash(curl -s -o /dev/null http://localhost:*)",
+      "Bash(curl -sS -o /dev/null http://localhost:*)",
+      "Bash(npm run dev)",
+      "Bash(npm run build)"
     ]
   }
 }

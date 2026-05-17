@@ -7,7 +7,8 @@ import FloatingThemeToggle from '../components/FloatingThemeToggle';
 export const metadata: Metadata = {
   title: 'Privacy Policy | SKAL',
   description: 'How SKAL collects, uses, and protects your information.',
-  alternates: { canonical: '/privacy' },
+  alternates: { canonical: 'https://skal.ai/privacy' },
+  robots: { index: true, follow: true },
 };
 
 export default function PrivacyPage() {

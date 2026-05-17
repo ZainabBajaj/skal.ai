@@ -4,11 +4,15 @@ import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import FloatingThemeToggle from '../components/FloatingThemeToggle';
 import { getAllStories } from '@/lib/stories';
+import { industries } from '@/lib/industries';
+import { comparisons } from '@/lib/comparisons';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
   title: 'Sitemap | SKAL',
   description: 'Every page on skal.ai in one place.',
+  alternates: { canonical: 'https://skal.ai/sitemap' },
+  robots: { index: true, follow: true },
 };
 
 interface Group {
@@ -42,6 +46,20 @@ export default function SitemapPage() {
     {
       heading: 'Stories',
       links: stories.map((s) => ({ label: s.title, href: `/stories/${s.slug}` })),
+    },
+    {
+      heading: 'Industries',
+      links: [
+        { label: 'All industries', href: '/industries' },
+        ...industries.map((i) => ({ label: `AI for ${i.name}`, href: `/industries/${i.slug}` })),
+      ],
+    },
+    {
+      heading: 'Comparisons',
+      links: [
+        { label: 'All comparisons', href: '/compare' },
+        ...comparisons.map((c) => ({ label: `SKAL vs ${c.competitor}`, href: `/compare/${c.slug}` })),
+      ],
     },
     {
       heading: 'Legal',

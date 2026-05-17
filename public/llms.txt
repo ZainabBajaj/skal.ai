@@ -1,0 +1,67 @@
+# SKAL
+
+> SKAL is AI-native operational infrastructure for modern B2B companies. We deploy AI systems, automation infrastructure, and AI-native operators that run sales, support, and operations. Four ways to plug in: Scale (automated outbound), Systems (operational AI), Services (custom AI infrastructure), and Staffing (AI-native engineering talent).
+
+SKAL is a practitioner-led AI company building operational infrastructure for B2B companies. We are not an AI agency or generic automation consulting. We deploy AI systems that run inside real businesses, replacing manual workflows with autonomous operations.
+
+## What SKAL does
+
+- **Scale**: Automated outbound infrastructure. AI prospecting, personalised multi-channel sequences, and a proprietary contact database. You only pay when a qualified meeting lands on your calendar.
+- **Systems**: Deployable AI systems that handle support, calls, bookings, and operations automatically. Voice and chat infrastructure trained on your business. Powered by Claude, ElevenLabs, n8n, Make, and Zapier.
+- **Services**: Custom AI systems, workflow automation, and software built specifically for how your business operates. Internal AI tooling and operational software, not generic agency builds.
+- **Staffing**: AI-native operators and pre-vetted engineers embedded directly into your workflow. Top 5% talent, billed by the hour.
+
+## Differentiators
+
+- Practitioners with 5 years of production AI experience, not generalists who discovered AI last year.
+- Skin in the game: pay-per-meeting on Scale, no-cost replacement on Staffing, monthly performance reviews on Systems.
+- Ship in days, not months. Systems deploy in one week. Pipeline opens by day three. Staffing engineers ship in week one.
+- Offices in the United States (Pembroke Pines, FL), United Arab Emirates (Ajman), and Pakistan (Lahore).
+
+## Pages
+
+### Products
+- [SKAL Scale](https://skal.ai/scale): Automated outbound infrastructure for B2B pipeline. Pay-per-qualified-meeting pricing.
+- [SKAL Systems](https://skal.ai/systems): Deployable AI systems for support, sales, and operations. Sales, Support, and Receptionist systems available.
+- [SKAL Services](https://skal.ai/services): Custom AI systems and workflow automation built around your operations.
+- [SKAL Staffing](https://skal.ai/staffing): AI-native operators and engineers embedded into your workflow.
+
+### Company
+- [About SKAL](https://skal.ai/about): The story behind SKAL and how we build.
+- [Stories](https://skal.ai/stories): Field notes, case studies, and essays from the SKAL team.
+- [Careers](https://skal.ai/careers): Open roles for practitioners.
+- [FAQ](https://skal.ai/faq): Pricing, timelines, integrations, and how we work.
+- [Book a Discovery Call](https://skal.ai/book): 30-minute call to identify the right fit.
+
+### Solutions by audience
+- [Startup builds](https://skal.ai/startup): AI-native MVPs and scalable systems from day one.
+- [Enterprise tooling](https://skal.ai/enterprise): Internal AI tooling and operational orchestration.
+- [System rescue](https://skal.ai/rescue): Rebuild broken systems and stabilize operations.
+
+### Industry pages
+- [Industries index](https://skal.ai/industries): All industry-specific deployment patterns.
+- [AI for dental clinics](https://skal.ai/industries/dental-clinics): AI receptionist, intake, and recall workflows for dental practices.
+- [AI for law firms](https://skal.ai/industries/law-firms): AI intake, conflict checking, and client communication for legal teams.
+- [AI for real estate](https://skal.ai/industries/real-estate): Lead-response, showing booking, and CRM automation for agents and brokerages.
+- [AI for e-commerce](https://skal.ai/industries/ecommerce): Support automation, retention workflows, and merchandising tools for DTC brands.
+- [AI for B2B SaaS](https://skal.ai/industries/saas): Outbound, demo qualification, support, and onboarding for SaaS teams.
+
+### Comparison pages
+- [SKAL alternatives index](https://skal.ai/compare): Honest comparisons against major AI-sales platforms.
+- [SKAL vs Clay](https://skal.ai/compare/skal-vs-clay): Sales engineering tool vs done-for-you outbound infrastructure.
+- [SKAL vs Apollo](https://skal.ai/compare/skal-vs-apollo): Shared database vs proprietary contact data with pay-per-meeting pricing.
+- [SKAL vs 11x.ai](https://skal.ai/compare/skal-vs-11x): AI SDR product vs managed AI sales infrastructure.
+- [SKAL vs Salesloft](https://skal.ai/compare/skal-vs-salesloft): Enterprise engagement platform vs done-for-you outbound service.
+
+### Optional
+- [Privacy Policy](https://skal.ai/privacy)
+- [Cookie Policy](https://skal.ai/cookie-policy)
+- [Terms & Conditions](https://skal.ai/terms)
+- [Quality & Information Security Policy](https://skal.ai/ims-policy)
+
+## Contact
+
+- Email: hi@skal.ai
+- LinkedIn: https://www.linkedin.com/company/skal-official
+- Instagram: https://www.instagram.com/skalai_official
+- YouTube: https://www.youtube.com/@skal-ai

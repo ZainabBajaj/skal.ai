@@ -1,7 +1,10 @@
 "use client";
 
 import { useState, useEffect } from 'react';
-import { Send, Mail, User, MessageCircle, Sparkles, Globe, ArrowRight } from 'lucide-react';
+import { Send, Mail, User, MessageCircle, Sparkles, Globe, ArrowRight, Calendar, Clock, ShieldCheck } from 'lucide-react';
+import CalendlyPopupButton from './CalendlyPopupButton';
+
+const CALENDLY_URL = 'https://calendly.com/skal-ai/discovery-call';
 
 type FormStatus = {
   type: 'idle' | 'sending' | 'success' | 'error';
@@ -82,36 +85,85 @@ export default function ContactForm({ initialMessage = '' }: ContactFormProps) {
               <Sparkles className="w-3 h-3 sm:w-4 sm:h-4 text-[#009bd7] dark:text-[#00E1FF]" />
               <span className="text-[#009bd7] dark:text-[#00E1FF] text-xs sm:text-sm font-bold tracking-wider">LET&apos;S CONNECT</span>
             </div>
-            
+
             <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-[#0f172a] dark:text-white mb-4 sm:mb-6 leading-snug pb-1">
               Talk to us
             </h2>
 
-            <p className="text-lg sm:text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto leading-relaxed font-medium px-4 mb-6">
+            <p className="text-lg sm:text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto leading-relaxed font-medium px-4">
               Tell us what you need. We will tell you what it takes to{' '}
               <span className="text-[#009bd7] dark:text-[#00E1FF] font-bold">
                 ship it
               </span>
               .
             </p>
+          </div>
 
-            <a
-              href="https://calendly.com/skal-ai/discovery-call"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group inline-flex items-center justify-center gap-3 px-8 py-4 bg-gradient-to-r from-[#009bd7] to-[#00E1FF] text-white font-bold rounded-2xl transition-all duration-300 hover:shadow-xl hover:shadow-[#009bd7]/25 hover:scale-105"
-            >
-              Schedule a discovery call
-              <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-            </a>
+          {/* Primary CTA: Book a call */}
+          <div className="relative mb-12 sm:mb-14 rounded-3xl overflow-hidden bg-gradient-to-br from-[#0f172a] via-[#0c2d4a] to-[#0f172a] p-8 sm:p-10 md:p-12 shadow-2xl border border-[#009bd7]/30">
+            <div className="absolute top-0 right-0 w-64 h-64 bg-gradient-to-bl from-[#00E1FF]/20 to-transparent rounded-full blur-3xl" aria-hidden="true"></div>
+            <div className="absolute bottom-0 left-0 w-64 h-64 bg-gradient-to-tr from-[#009bd7]/20 to-transparent rounded-full blur-3xl" aria-hidden="true"></div>
 
-            <p className="text-sm text-gray-500 dark:text-gray-400 mt-6">
-              Prefer to write? Send us a note below.
+            <div className="relative z-10 flex flex-col lg:flex-row items-start lg:items-center gap-8 lg:gap-10">
+              <div className="flex-1">
+                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#00E1FF]/10 border border-[#00E1FF]/30 mb-4">
+                  <span className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></span>
+                  <span className="text-[10px] sm:text-xs font-bold tracking-widest text-[#00E1FF]">FASTEST WAY IN</span>
+                </div>
+
+                <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-3 leading-snug">
+                  Book a 30-minute discovery call.
+                </h3>
+
+                <p className="text-base sm:text-lg text-gray-300 leading-relaxed mb-6 max-w-xl">
+                  Real conversation, no pitch. We listen, name the bottleneck, and tell you which of Scale, Systems, Services, or Staffing fits. Useful next step either way.
+                </p>
+
+                <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-4 mb-8">
+                  <div className="flex items-center gap-2 text-sm text-gray-300">
+                    <Clock className="w-4 h-4 text-[#00E1FF] flex-shrink-0" />
+                    <span>30 focused minutes</span>
+                  </div>
+                  <div className="flex items-center gap-2 text-sm text-gray-300">
+                    <ShieldCheck className="w-4 h-4 text-[#00E1FF] flex-shrink-0" />
+                    <span>No sales pressure</span>
+                  </div>
+                  <div className="flex items-center gap-2 text-sm text-gray-300">
+                    <Calendar className="w-4 h-4 text-[#00E1FF] flex-shrink-0" />
+                    <span>Book in 30 seconds</span>
+                  </div>
+                </div>
+
+                <CalendlyPopupButton
+                  url={CALENDLY_URL}
+                  utmSource="contact_form"
+                  className="group inline-flex items-center justify-center gap-3 px-8 py-4 bg-gradient-to-r from-[#009bd7] to-[#00E1FF] text-white font-bold rounded-2xl transition-all duration-300 hover:shadow-xl hover:shadow-[#00E1FF]/30 hover:scale-105 w-full sm:w-auto"
+                  ariaLabel="Schedule a 30-minute discovery call"
+                >
+                  <Calendar className="w-5 h-5" />
+                  Schedule a discovery call
+                  <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                </CalendlyPopupButton>
+              </div>
+            </div>
+          </div>
+
+          {/* Or, send a note — secondary path */}
+          <div className="relative flex items-center justify-center mb-8" aria-hidden="true">
+            <div className="absolute inset-y-1/2 inset-x-0 h-px bg-gradient-to-r from-transparent via-gray-300 dark:via-gray-600 to-transparent"></div>
+            <span className="relative px-5 bg-gradient-to-br from-slate-50 via-white to-blue-50 dark:from-gray-900 dark:via-gray-800 dark:to-blue-900 text-xs sm:text-sm font-semibold tracking-wider text-gray-500 dark:text-gray-400 uppercase">
+              Or send a note
+            </span>
+          </div>
+
+          <div className="text-center mb-6">
+            <p className="text-sm sm:text-base text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
+              Not ready to book yet? Press, partnerships, careers, or a quick question. Write to us and we will reply within 24 hours.
             </p>
           </div>
 
           {/* Contact Form */}
-          <div className="bg-white/80 dark:bg-gray-800/80 backdrop-blur-xl rounded-2xl sm:rounded-3xl shadow-2xl p-6 sm:p-8 md:p-12 border border-white/50 dark:border-gray-700/50 relative overflow-hidden">
+          <div className="bg-white/80 dark:bg-gray-800/80 backdrop-blur-xl rounded-2xl sm:rounded-3xl shadow-lg p-6 sm:p-8 md:p-10 border border-white/50 dark:border-gray-700/50 relative overflow-hidden">
             {/* Form Background Effects */}
             <div className="absolute inset-0 bg-gradient-to-br from-[#009bd7]/5 via-transparent to-[#00E1FF]/5 pointer-events-none"></div>
             <div className="absolute top-0 right-0 w-32 h-32 sm:w-64 sm:h-64 bg-gradient-to-bl from-[#00E1FF]/10 to-transparent rounded-full blur-3xl"></div>
@@ -238,21 +290,15 @@ export default function ContactForm({ initialMessage = '' }: ContactFormProps) {
             </form>
           </div>
 
-          {/* Contact Info */}
-          <div className="text-center mt-8 sm:mt-12">
-            <p className="text-gray-600 dark:text-gray-300 mb-4 text-sm sm:text-base">
-              Prefer to reach out directly? We&apos;d love to hear from you!
-            </p>
-            <div className="flex flex-col sm:flex-row flex-wrap justify-center gap-4 sm:gap-6 text-sm">
-              <a href="mailto:hi@skal.ai" className="flex items-center justify-center gap-2 text-[#009bd7] dark:text-[#00E1FF] hover:text-[#00E1FF] dark:hover:text-[#009bd7] transition-colors font-medium">
-                <Mail className="w-4 h-4" />
+          {/* Email fallback */}
+          <div className="text-center mt-8 sm:mt-10">
+            <p className="text-sm text-gray-500 dark:text-gray-400">
+              Or email us directly at{' '}
+              <a href="mailto:hi@skal.ai" className="text-[#009bd7] dark:text-[#00E1FF] hover:underline font-medium">
                 hi@skal.ai
               </a>
-              <span className="hidden sm:inline text-gray-300 dark:text-gray-500">|</span>
-              <span className="text-gray-600 dark:text-gray-300">
-                Response within 24 hours
-              </span>
-            </div>
+              .
+            </p>
           </div>
         </div>
       </div>

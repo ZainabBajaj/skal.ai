@@ -85,12 +85,12 @@ export default function About() {
               <span className="text-[#009bd7] dark:text-[#00E1FF] text-sm font-bold tracking-wider">ABOUT US</span>
             </div>
                       <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-[#0f172a] dark:text-white mb-6 leading-snug pb-1">
-              Pioneering Digital Excellence
+              Building AI-native operational infrastructure.
             </h2>
             <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto leading-relaxed font-medium">
-            We&apos;re passionate about leveraging cutting-edge technology to transform businesses through{' '}
+              We design and deploy AI systems, automation infrastructure, and operational tooling for{' '}
             <span className="text-[#009bd7] dark:text-[#00E1FF] font-bold">
-              innovative solutions
+              modern B2B companies.
             </span>
           </p>
         </div>

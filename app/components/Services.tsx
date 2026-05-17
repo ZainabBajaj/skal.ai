@@ -21,13 +21,14 @@ const Services = () => {
                 <span className="text-[#009bd7] dark:text-[#00E1FF] text-xs sm:text-sm font-bold tracking-wider">CHOOSE YOUR PATH</span>
               </div>
               <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-[#0f172a] dark:text-white mb-4 sm:mb-6 leading-snug pb-1">
-                Ready to Transform?
+                Which describes you?
               </h2>
               <p className="text-base sm:text-lg lg:text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto leading-relaxed px-4">
-                Select the path that best fits your journey and let&apos;s build something{' '}
+                Each path leads to{' '}
                 <span className="text-[#009bd7] dark:text-[#00E1FF] font-bold">
-                  extraordinary together
+                  custom AI infrastructure
                 </span>
+                {' '}built around your operations.
               </p>
             </div>
             
@@ -55,22 +56,22 @@ const Services = () => {
                   </h3>
                   
                   <p className="text-gray-700 dark:text-gray-300 text-center mb-8 leading-relaxed">
-                    Remarkable ideas often stall without the right team to bring them to life
+                    Launch with AI-native infrastructure from day one. Automation-first architecture that scales with you.
                   </p>
-                  
+
                   {/* Additional features */}
                   <div className="space-y-3 mb-8">
                     <div className="flex items-center gap-3 text-sm text-gray-600 dark:text-gray-400">
                       <div className="w-2 h-2 bg-blue-500 rounded-full"></div>
-                      <span>MVP Development in 2-4 weeks</span>
+                      <span>AI-native MVP in 2-4 weeks</span>
                     </div>
                     <div className="flex items-center gap-3 text-sm text-gray-600 dark:text-gray-400">
                       <div className="w-2 h-2 bg-cyan-500 rounded-full"></div>
-                      <span>Scalable Architecture Design</span>
+                      <span>Automation-first infrastructure</span>
                     </div>
                     <div className="flex items-center gap-3 text-sm text-gray-600 dark:text-gray-400">
                       <div className="w-2 h-2 bg-[#1DB5C5] rounded-full"></div>
-                      <span>24/7 Technical Support</span>
+                      <span>Scalable systems from day one</span>
                     </div>
                   </div>
                   
@@ -112,22 +113,22 @@ const Services = () => {
                   </h3>
 
                   <p className="text-gray-300 text-center mb-8 leading-relaxed">
-                    Scaling without the right infrastructure and expertise can lead to costly bottlenecks
+                    Automate internal workflows, reduce manual operations, and deploy AI tooling built around how your team actually works.
                   </p>
 
                   {/* Additional features */}
                   <div className="space-y-3 mb-8">
                     <div className="flex items-center gap-3 text-sm text-gray-400">
                       <div className="w-2 h-2 bg-[#009bd7] rounded-full"></div>
-                      <span>Enterprise-grade Security</span>
+                      <span>Internal AI workflow tooling</span>
                     </div>
                     <div className="flex items-center gap-3 text-sm text-gray-400">
                       <div className="w-2 h-2 bg-[#00E1FF] rounded-full"></div>
-                      <span>Compliance & Governance</span>
+                      <span>Operational efficiency at scale</span>
                     </div>
                     <div className="flex items-center gap-3 text-sm text-gray-400">
                       <div className="w-2 h-2 bg-[#1DB5C5] rounded-full"></div>
-                      <span>Dedicated Project Manager</span>
+                      <span>Process automation and orchestration</span>
                     </div>
                   </div>
 
@@ -169,22 +170,22 @@ const Services = () => {
                   </h3>
                   
                   <p className="text-gray-700 dark:text-gray-300 text-center mb-8 leading-relaxed">
-                    A messy codebase and tech debt are suffocating your progress
+                    Rebuild broken systems, automate technical debt, and stabilize your operations.
                   </p>
-                  
+
                   {/* Additional features */}
                   <div className="space-y-3 mb-8">
                     <div className="flex items-center gap-3 text-sm text-gray-600 dark:text-gray-400">
                       <div className="w-2 h-2 bg-red-500 rounded-full"></div>
-                      <span>Code Review & Refactoring</span>
+                      <span>System rebuild and stabilization</span>
                     </div>
                     <div className="flex items-center gap-3 text-sm text-gray-600 dark:text-gray-400">
                       <div className="w-2 h-2 bg-orange-500 rounded-full"></div>
-                      <span>Performance Optimization</span>
+                      <span>Technical debt automation</span>
                     </div>
                     <div className="flex items-center gap-3 text-sm text-gray-600 dark:text-gray-400">
                       <div className="w-2 h-2 bg-amber-500 rounded-full"></div>
-                      <span>Technical Debt Cleanup</span>
+                      <span>Operational recovery</span>
                     </div>
                   </div>
                   

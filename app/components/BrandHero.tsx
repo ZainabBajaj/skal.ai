@@ -3,6 +3,9 @@
 import { ArrowRight, TrendingUp, Bot, Wrench, Users, type LucideIcon } from 'lucide-react';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
+import CalendlyPopupButton from './CalendlyPopupButton';
+
+const CALENDLY_URL = 'https://calendly.com/skal-ai/discovery-call';
 
 const inputNodes: {
   label: string;
@@ -37,7 +40,7 @@ const BrandHero = () => {
             <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-6xl xl:text-7xl font-bold text-[#0f172a] dark:text-white mb-6 leading-tight pb-1 animate-fade-in-up" style={{ animationDelay: '120ms' }}>
               One AI{' '}
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#009bd7] via-[#00E1FF] to-[#1DB5C5]">
-                partner.
+                company.
               </span>
             </h1>
 
@@ -62,15 +65,15 @@ const BrandHero = () => {
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start animate-fade-in-up" style={{ animationDelay: '300ms' }}>
-              <a
-                href="https://calendly.com/skal-ai/discovery-call"
-                target="_blank"
-                rel="noopener noreferrer"
+              <CalendlyPopupButton
+                url={CALENDLY_URL}
+                utmSource="brand_hero"
+                ariaLabel="Schedule a 30-minute discovery call"
                 className="group inline-flex items-center justify-center gap-3 px-8 py-4 bg-gradient-to-r from-[#009bd7] to-[#00E1FF] text-white font-bold rounded-2xl transition-all duration-300 hover:shadow-xl hover:shadow-[#009bd7]/25 hover:scale-105 active:scale-95"
               >
                 <span>Schedule a discovery call</span>
                 <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-              </a>
+              </CalendlyPopupButton>
               <Link
                 href="#products"
                 className="group inline-flex items-center justify-center gap-3 px-8 py-4 border-2 border-[#009bd7] dark:border-[#00E1FF] text-[#009bd7] dark:text-[#00E1FF] font-bold rounded-2xl transition-all duration-300 hover:bg-[#009bd7] hover:text-white dark:hover:bg-[#00E1FF] dark:hover:text-[#0f172a] hover:scale-105 active:scale-95"
