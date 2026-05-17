@@ -7,6 +7,8 @@ import type { Metadata } from 'next';
 export const metadata: Metadata = {
   title: 'Quality & Information Security Management System Policy | SKAL',
   description: "SKAL's Quality & Information Security Management System Policy, aligned to ISO 9001 and ISO 27001 international standards.",
+  alternates: { canonical: 'https://skal.ai/ims-policy' },
+  robots: { index: true, follow: true },
 };
 
 export default function IMSPolicyPage() {

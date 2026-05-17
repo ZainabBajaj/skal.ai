@@ -14,8 +14,8 @@ const systems = [
   {
     name: 'Sales System',
     icon: BriefcaseBusiness,
-    tagline: 'An SDR that never sleeps.',
-    body: 'Outbound outreach, lead qualification, and CRM updates, handled by an AI agent that talks, chats, and keeps the pipeline moving 24/7.',
+    tagline: 'Automated outbound infrastructure for your pipeline.',
+    body: 'Automated outreach, lead qualification, and CRM updates. Keeps your pipeline moving 24/7 with no additional headcount.',
     bullets: [
       'Cold + warm outreach on voice, chat, email',
       'Qualifies leads against your ICP',
@@ -26,8 +26,8 @@ const systems = [
   {
     name: 'Support System',
     icon: Headset,
-    tagline: 'Tier-1 support that scales.',
-    body: 'An AI agent that resolves tickets, answers product questions, and escalates the hard ones to your team, trained on your docs and tone.',
+    tagline: 'Support infrastructure that scales without increasing headcount.',
+    body: 'Resolves tickets, answers product questions, and escalates the hard ones to your team. Trained on your docs and tone.',
     bullets: [
       'Resolves common tickets end-to-end',
       'Trained on your knowledge base + macros',
@@ -38,8 +38,8 @@ const systems = [
   {
     name: 'Receptionist System',
     icon: ConciergeBell,
-    tagline: 'Your front desk, on every line.',
-    body: 'Inbound calls, bookings, and FAQs handled instantly, in your brand voice, in the languages your customers actually speak.',
+    tagline: 'Always-on inbound operations.',
+    body: 'Inbound calls, scheduling, and routing handled instantly. In your brand voice, in every language your customers speak.',
     bullets: [
       'Answers every call, no hold music',
       'Books and reschedules straight to calendar',
@@ -73,11 +73,11 @@ export default function SystemsPage() {
               </h1>
 
               <p className="text-2xl sm:text-3xl text-[#009bd7] dark:text-[#00E1FF] font-bold max-w-xl mx-auto lg:mx-0 mb-6 animate-fade-in-up" style={{ animationDelay: '160ms' }}>
-                Live in one week.
+                Deploy AI systems that handle support, calls, bookings, and operations automatically.
               </p>
 
               <p className="text-lg sm:text-xl text-gray-600 dark:text-gray-300 max-w-xl mx-auto lg:mx-0 leading-relaxed mb-8 animate-fade-in-up" style={{ animationDelay: '220ms' }}>
-                Voice and chat agents trained on your business, powered by ElevenLabs and Claude. Plus pre-built workflows on n8n, Make, and Zapier. Tell us what you need; we deploy the right agent.
+                SKAL Systems deploys voice, chat, and workflow automation built around your business. Customer support, inbound calls, lead qualification, and operational tasks handled 24/7. Powered by Claude, ElevenLabs, and production-ready workflow infrastructure including n8n, Make, and Zapier.
               </p>
 
               <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start animate-fade-in-up" style={{ animationDelay: '300ms' }}>
@@ -85,13 +85,13 @@ export default function SystemsPage() {
                   href={BOOK_URL}
                   className="group inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-[#009bd7] to-[#00E1FF] text-white font-bold rounded-2xl transition-all duration-300 hover:shadow-xl hover:shadow-[#009bd7]/25 hover:scale-105"
                 >
-                  Deploy your first AI agent
+                  Deploy your first AI system
                   <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
                 </Link>
               </div>
             </div>
 
-            {/* Right: live Sagent conversation */}
+            {/* Right: live AI system conversation */}
             <div className="flex-1 w-full max-w-lg lg:max-w-none animate-fade-in-up" style={{ animationDelay: '380ms' }}>
               <svg viewBox="0 0 500 500" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" className="w-full h-auto">
                 <defs>
@@ -123,7 +123,7 @@ export default function SystemsPage() {
                 <g>
                   <circle cx="115" cy="78" r="14" fill="url(#sy-avatar)" />
                   <text x="115" y="83" textAnchor="middle" fill="#FFFFFF" fontSize="13" fontWeight="800" fontFamily="system-ui, sans-serif">S</text>
-                  <text x="140" y="73" fill="#FFFFFF" fontSize="12" fontWeight="700" fontFamily="system-ui, sans-serif">SAGENT</text>
+                  <text x="140" y="73" fill="#FFFFFF" fontSize="12" fontWeight="700" fontFamily="system-ui, sans-serif">SKAL SYSTEM</text>
                   <text x="140" y="87" fill="#94a3b8" fontSize="9" fontFamily="system-ui, sans-serif">trained on your business</text>
                   <g transform="translate(385, 78)">
                     <circle r="4" fill="#22c55e">
@@ -278,7 +278,7 @@ export default function SystemsPage() {
                 Pick the system you need
               </h2>
               <p className="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
-                Each system is an AI agent packaged for a specific role, trained, integrated, and ready to deploy. We call ours Sagents.
+                Each system is packaged for a specific operational role, trained, integrated, and ready to deploy.
               </p>
             </div>
           </Reveal>
@@ -345,7 +345,7 @@ export default function SystemsPage() {
 
                 <div className="space-y-5">
                   {[
-                    { icon: Phone, title: 'Voice & chat', body: 'Phone, web chat, WhatsApp; same system, same memory.' },
+                    { icon: Phone, title: 'Voice & chat', body: 'Phone, web chat, WhatsApp. Shared context across every customer interaction.' },
                     { icon: Settings, title: 'Persona & tone', body: 'Name, voice, language, level of formality. Your brand, not ours.' },
                     { icon: MessageSquare, title: 'Knowledge & tools', body: 'Connect your docs, CRM, calendar, payment, ticketing. They use what your team uses.' },
                   ].map(({ icon: Icon, title, body }) => (
@@ -369,9 +369,12 @@ export default function SystemsPage() {
 
                 <div className="relative z-10">
                   <div className="text-sm font-bold tracking-widest text-[#00E1FF] mb-3">THE MATH</div>
-                  <h3 className="text-2xl sm:text-3xl font-bold text-white mb-6 leading-snug">
+                  <h3 className="text-2xl sm:text-3xl font-bold text-white mb-2 leading-snug">
                     A fraction of the cost. Always on.
                   </h3>
+                  <p className="text-gray-400 text-sm mb-6 leading-relaxed">
+                    Traditional support and operations teams scale linearly. SKAL Systems do not.
+                  </p>
 
                   <div className="space-y-4">
                     <div className="flex items-baseline justify-between border-b border-gray-700/50 pb-4">

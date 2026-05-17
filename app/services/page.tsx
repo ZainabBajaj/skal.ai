@@ -33,11 +33,11 @@ export default function ServicesPage() {
               </h1>
 
               <p className="text-lg text-[#009bd7] dark:text-[#00E1FF] font-semibold max-w-xl mx-auto lg:mx-0 mb-4 animate-fade-in-up" style={{ animationDelay: '160ms' }}>
-                No templates. No constraints. Just solutions.
+                Custom AI systems built around your operations.
               </p>
 
               <p className="text-lg sm:text-xl text-gray-600 dark:text-gray-300 max-w-xl mx-auto lg:mx-0 leading-relaxed mb-8 animate-fade-in-up" style={{ animationDelay: '220ms' }}>
-                Off the shelf does not fit your business. SKAL Services builds custom AI agents, agentic workflows, and software scoped entirely to your requirements. If it does not exist, we build it.
+                Off the shelf does not fit your business. SKAL Services designs and deploys internal AI systems, workflow automation, and custom software built specifically for how your business operates.
               </p>
 
               <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start animate-fade-in-up" style={{ animationDelay: '300ms' }}>

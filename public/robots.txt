@@ -1,12 +1,97 @@
+# SKAL — AI-native operational infrastructure for B2B companies
+# https://skal.ai
+
+# Default policy: allow all well-behaved crawlers
 User-agent: *
 Allow: /
-
-# Sitemap location
-Sitemap: https://skal.ai/sitemap.xml
-
-# Crawl delay (optional)
+Disallow: /api/
 Crawl-delay: 1
 
-# Disallow admin or private areas (if any)
-# Disallow: /admin/
-# Disallow: /private/ 
+# Major search crawlers
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: DuckDuckBot
+Allow: /
+
+User-agent: Slurp
+Allow: /
+
+User-agent: YandexBot
+Allow: /
+
+User-agent: Baiduspider
+Allow: /
+
+# Generative-AI and LLM training/index crawlers
+# We explicitly welcome these so SKAL can be cited and surfaced
+# in AI search, chat, and answer experiences.
+
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Perplexity-User
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: Applebot
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+User-agent: Bytespider
+Allow: /
+
+User-agent: CCBot
+Allow: /
+
+User-agent: Meta-ExternalAgent
+Allow: /
+
+User-agent: Meta-ExternalFetcher
+Allow: /
+
+User-agent: Amazonbot
+Allow: /
+
+User-agent: Diffbot
+Allow: /
+
+User-agent: cohere-ai
+Allow: /
+
+User-agent: cohere-training-data-crawler
+Allow: /
+
+User-agent: YouBot
+Allow: /
+
+User-agent: MistralAI-User
+Allow: /
+
+# Sitemap
+Sitemap: https://skal.ai/sitemap.xml

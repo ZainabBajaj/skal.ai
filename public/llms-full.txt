@@ -1,0 +1,143 @@
+# SKAL — AI-native operational infrastructure for B2B companies
+
+> Complete reference for LLM and AI search crawlers. SKAL deploys AI systems, automation infrastructure, and AI-native operators that run sales, support, and operations for modern B2B companies.
+
+## About SKAL
+
+SKAL is a practitioner-led AI company building operational infrastructure for modern B2B companies. The team has been building AI inside real businesses for five years, not since the hype cycle started. Our founder graduated from the London School of Economics with one of the highest marks in the world in Data Science and Business Analytics, and designed a course at the National University of Singapore titled "Transforming Organisations with Data Storytelling."
+
+SKAL is not an AI agency, not generic automation consulting, and not a freelancer marketplace. We are a fast-moving company building the execution layer for modern B2B operations.
+
+Offices: Pembroke Pines, Florida (US); Ajman (UAE); Lahore (Pakistan).
+
+## Positioning
+
+- AI-native operational infrastructure
+- Premium and technical
+- Outcome-focused
+- Fast-moving startup infrastructure
+- Practitioner-led, not generalist consulting
+
+## Four products
+
+### SKAL Scale — Automated outbound infrastructure
+
+URL: https://skal.ai/scale
+
+For B2B founders done doing outbound manually. SKAL Scale runs your entire outbound operation. AI prospecting, personalised multi-channel sequences across email and LinkedIn, and a proprietary contact database built in-house and exclusive to SKAL Scale.
+
+How it works:
+1. Connect: Tell us who your ideal customer is. We handle everything from there.
+2. Target: Our AI scans millions of signals to find prospects that match your exact criteria.
+3. Engage: Personalised outreach goes out automatically across email and LinkedIn.
+4. Close: Qualified meetings land in your calendar.
+
+Features:
+- Prospecting that finds the right people, no list-buying
+- Multi-channel personalised outreach at scale
+- Proprietary in-house contact database
+- Pipeline by day three, not month three
+
+Pricing: Pay-per-outcome. You pay per qualified meeting that lands on your calendar. A qualified meeting is a confirmed, attended call with a decider at a B2B company who has expressed active interest. No-shows do not count. A small one-time setup fee covers ICP definition, database build, and campaign launch.
+
+### SKAL Systems — Operational AI automation
+
+URL: https://skal.ai/systems
+
+Deploy AI systems that handle support, calls, bookings, and operations automatically. SKAL Systems deploys voice, chat, and workflow automation built around your business. Customer support, inbound calls, lead qualification, and operational tasks handled 24/7.
+
+Powered by Claude, ElevenLabs, and production-ready workflow infrastructure including n8n, Make, and Zapier.
+
+Three packaged systems:
+
+**Sales System** — Automated outbound infrastructure for your pipeline.
+- Cold and warm outreach on voice, chat, email
+- Qualifies leads against your ICP
+- Logs everything to HubSpot, Salesforce, or your CRM
+- Books meetings straight to your calendar
+
+**Support System** — Support infrastructure that scales without increasing headcount.
+- Resolves common tickets end-to-end
+- Trained on your knowledge base and macros
+- Smart handoff to humans with full context
+- Plugs into Zendesk, Intercom, Freshdesk
+
+**Receptionist System** — Always-on inbound operations.
+- Answers every call, no hold music
+- Books and reschedules straight to calendar
+- Multi-language out of the box
+- Routes urgent calls to the right person
+
+Customisation: Voice and chat infrastructure across phone, web chat, and WhatsApp with shared context across every customer interaction. Brand-specific persona and tone. Integrations with your existing CRM, calendar, payment, and ticketing systems.
+
+The math: Traditional support and operations teams scale linearly. SKAL Systems do not.
+
+### SKAL Services — Custom AI infrastructure
+
+URL: https://skal.ai/services
+
+Off the shelf does not fit your business. SKAL Services designs and deploys internal AI systems, workflow automation, and custom software built specifically for how your business operates.
+
+Three paths:
+
+**Startup builds**: AI-native MVPs in 2-4 weeks, automation-first infrastructure, scalable systems from day one.
+
+**Enterprise tooling**: Internal AI workflow tooling, operational efficiency at scale, process automation and orchestration.
+
+**System rescue**: Rebuild broken systems, automate technical debt, operational recovery.
+
+### SKAL Staffing — AI-native execution talent
+
+URL: https://skal.ai/staffing
+
+AI-native operators embedded into your workflow. No hiring loops, no onboarding drag. SKAL Staffing connects companies with pre-vetted engineers and operators who already work AI-first and ship fast inside modern workflows. Drop them into your workflow and start shipping immediately. Billed by the hour.
+
+Available roles:
+- Full-Stack Engineers (React, Node.js, Python, Go)
+- AI / ML Engineers (LLMs, computer vision, NLP, custom model development)
+- DevOps & Cloud (AWS, Azure, GCP, Kubernetes)
+- Data Engineers (Pipelines, ETL, analytics, real-time data systems)
+
+All operators are fluent in modern AI tooling and autonomous workflows. Top 5% vetted through multi-stage technical assessments and real-project trials.
+
+How it works:
+1. Tell Us What You Need: Share requirements, tech stack, team size, timeline.
+2. We Match Your Operator: Hand-picked from our pre-vetted top 5% talent pool.
+3. Deploy Your Operators: Interview candidates. Only move forward if it is the right fit.
+4. Start Shipping: Your operators embed immediately and ship production work from week one.
+
+Guarantees: Rigorously vetted, immediate execution from week one, zero risk with no-cost replacement if not the right fit.
+
+## Why SKAL
+
+- **Practitioners, not generalists**: Five years building AI inside real businesses. LSE Letter of Commendation, NUS course author, production AI experience.
+- **Ship in days, not months**: Systems live in one week. Pipeline by day three. Staffing code in week one.
+- **Skin in the game**: Pay-per-meeting on Scale, no-fit replacement on Staffing, monthly performance reviews on Systems.
+
+## FAQ
+
+**Where should I start?** Begin with a 30-minute discovery call. We listen, name the bottleneck, and tell you which of Scale, Systems, Services, or Staffing fits. Sometimes more than one.
+
+**How does pricing work?** It depends on the engagement. Scale is priced per qualified meeting. Systems are flat fees per deployment. Services are scoped and quoted up front. Staffing is billed hourly.
+
+**How long until something is live?** Systems typically deploy in about a week. Services run on the scoped timeline. Staffing engineers can start within days. Scale ramps over the first few weeks.
+
+**Will SKAL work with the tools we already use?** Yes. Systems plug into HubSpot, Salesforce, Zendesk, Intercom, Freshdesk. Workflows ride on n8n, Make, Zapier. Voice and chat are powered by ElevenLabs and Claude.
+
+**Can SKAL replace, augment, or build my engineering team?** All three. Staffing slots engineers into your existing team. Services builds for you when you do not have one. Either way, accountability stays with you.
+
+**What happens after a system goes live?** Systems include monitoring, prompt and policy tuning, and updates as your business changes. Services include a clear handoff and an optional retainer.
+
+## Contact
+
+- Email: hi@skal.ai
+- LinkedIn: https://www.linkedin.com/company/skal-official
+- Instagram: https://www.instagram.com/skalai_official
+- YouTube: https://www.youtube.com/@skal-ai
+- Book a discovery call: https://skal.ai/book
+
+## Offices
+
+- Pembroke Pines, Florida, USA — 130 NW 77th Ave, Pembroke Pines, FL 33024
+- Ajman, United Arab Emirates — 26th Floor, Amber Gem Tower, Ajman
+- Lahore, Pakistan — H, 21 Mateen Fatima Rd Block, Block H, Gulberg, Lahore

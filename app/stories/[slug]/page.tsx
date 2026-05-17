@@ -20,11 +20,20 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   return {
     title: `${story.title} | SKAL Stories`,
     description: story.excerpt,
+    alternates: { canonical: `https://skal.ai/stories/${slug}` },
     openGraph: {
       title: story.title,
       description: story.excerpt,
       type: 'article',
+      url: `https://skal.ai/stories/${slug}`,
       publishedTime: story.publishedDate,
+      authors: ['SKAL'],
+      tags: [story.tag],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: story.title,
+      description: story.excerpt,
     },
   };
 }
@@ -46,8 +55,121 @@ export default async function StoryPage({ params }: { params: Promise<{ slug: st
     day: 'numeric',
   });
 
+  const relatedProductBySlug: Record<string, { href: string; label: string; pitch: string }> = {
+    'hidden-cost-of-agent-sprawl': {
+      href: '/systems',
+      label: 'SKAL Systems',
+      pitch: 'Stop deploying disconnected agents. SKAL Systems gives you operational AI infrastructure built around your business, with shared context across every customer interaction.',
+    },
+    'why-most-ai-pilots-fail': {
+      href: '/services',
+      label: 'SKAL Services',
+      pitch: 'Most pilots stall because nobody builds the production infrastructure. SKAL Services scopes the gap before you start and ships systems built around how your business actually operates.',
+    },
+    'from-balance-sheet-to-build-plan': {
+      href: '/services',
+      label: 'SKAL Services',
+      pitch: 'Map the bottleneck on your P&L to a concrete build plan. SKAL Services designs and deploys the internal AI tooling that removes operational drag from your numbers.',
+    },
+    'hiring-the-top-five-percent': {
+      href: '/staffing',
+      label: 'SKAL Staffing',
+      pitch: 'Skip the hiring loops. SKAL Staffing embeds pre-vetted, AI-native operators directly into your workflow. Shipping production work from week one.',
+    },
+    'how-ai-receptionists-actually-work': {
+      href: '/systems',
+      label: 'SKAL Systems',
+      pitch: 'The voice model is the easy part. SKAL Systems deploys AI receptionists with the knowledge, integrations, and escalation logic that actually hold up in production.',
+    },
+    'true-cost-of-missed-sales-call': {
+      href: '/scale',
+      label: 'SKAL Scale',
+      pitch: 'Stop leaking pipeline to slow response. SKAL Scale runs your outbound and inbound first-response, with five-minute reply at any hour, in any timezone.',
+    },
+    'sdr-vs-ai-when-to-hire-when-to-deploy': {
+      href: '/scale',
+      label: 'SKAL Scale',
+      pitch: 'The hybrid pattern most companies should run starts with AI infrastructure for the top of funnel. SKAL Scale handles outbound on pay-per-qualified-meeting pricing.',
+    },
+    'build-vs-buy-framework-for-b2b-ai': {
+      href: '/services',
+      label: 'SKAL Services',
+      pitch: 'When the answer is "build," SKAL Services designs and deploys custom AI systems and internal tooling built specifically for how your business operates.',
+    },
+    'ai-for-dental-what-we-learned': {
+      href: '/industries/dental-clinics',
+      label: 'AI for Dental Clinics',
+      pitch: 'The full deployment pattern for dental practices and DSOs. AI receptionists, reminders, intake, and treatment-plan follow-up, integrated with Dentrix, Eaglesoft, and Open Dental.',
+    },
+    'support-team-is-retention-team': {
+      href: '/industries/ecommerce',
+      label: 'AI for E-commerce',
+      pitch: 'Cut tier-1 support cost without trading away CSAT. SKAL deploys AI support that resolves WISMO, returns, and product questions end-to-end on Shopify and Gorgias.',
+    },
+    'ai-engineering-hiring-loop-is-broken': {
+      href: '/staffing',
+      label: 'SKAL Staffing',
+      pitch: 'AI-native operators embedded into your workflow. Pre-screened against the loop in this piece. Shipping production work from week one.',
+    },
+    'what-ai-native-actually-means': {
+      href: '/staffing',
+      label: 'SKAL Staffing',
+      pitch: 'Hire AI-native operators or run an AI-painted operation. SKAL Staffing embeds engineers who actually work the way this piece describes.',
+    },
+    'architecture-of-ai-sales-system-that-books-meetings': {
+      href: '/scale',
+      label: 'SKAL Scale',
+      pitch: 'The full seven-component architecture, run as managed infrastructure. Proprietary data, multi-channel sequencing, sub-60-second reply, pay per qualified meeting.',
+    },
+    'pay-per-meeting-contract-that-aligns-ai-sales': {
+      href: '/scale',
+      label: 'SKAL Scale',
+      pitch: 'The only AI sales product priced per qualified meeting that actually lands on your calendar. No retainer, no monthly minimum, no-shows do not count.',
+    },
+    'what-i-would-build-if-starting-saas-in-2026': {
+      href: '/industries/saas',
+      label: 'AI for B2B SaaS',
+      pitch: 'The full SKAL deployment pattern for AI-native SaaS companies. Outbound, demo qualification, support, onboarding, and embedded engineering, all on one execution layer.',
+    },
+    'pilot-to-production-gap': {
+      href: '/services',
+      label: 'SKAL Services',
+      pitch: 'Production discipline built in from day one. SKAL Services scopes the integration, monitoring, and operational ownership before the pilot starts, not after.',
+    },
+  };
+  const relatedProduct = relatedProductBySlug[slug];
+
+  const articleSchema = {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": story.title,
+    "description": story.excerpt,
+    "datePublished": story.publishedDate,
+    "dateModified": story.publishedDate,
+    "url": `https://skal.ai/stories/${slug}`,
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": `https://skal.ai/stories/${slug}`,
+    },
+    "author": {
+      "@type": "Organization",
+      "name": "SKAL",
+      "url": "https://skal.ai",
+    },
+    "publisher": {
+      "@id": "https://skal.ai/#organization",
+    },
+    "image": "https://skal.ai/skal-logo.png",
+    "keywords": [story.tag, "AI systems", "operational infrastructure"],
+    "articleSection": story.tag,
+  };
+
   return (
     <main className="relative min-h-screen">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }}
+      />
       <Navbar />
 
       {/* Article header */}
@@ -104,6 +226,22 @@ export default async function StoryPage({ params }: { params: Promise<{ slug: st
           <article className="max-w-3xl mx-auto prose prose-lg dark:prose-invert prose-headings:text-[#0f172a] dark:prose-headings:text-white prose-headings:font-bold prose-h2:text-2xl sm:prose-h2:text-3xl prose-h2:mt-12 prose-h2:mb-4 prose-h3:text-xl sm:prose-h3:text-2xl prose-h3:mt-8 prose-h3:mb-3 prose-p:text-gray-700 dark:prose-p:text-gray-300 prose-p:leading-relaxed prose-a:text-[#009bd7] dark:prose-a:text-[#00E1FF] prose-a:no-underline hover:prose-a:underline prose-strong:text-[#0f172a] dark:prose-strong:text-white prose-code:text-[#009bd7] dark:prose-code:text-[#00E1FF] prose-code:bg-gray-100 dark:prose-code:bg-gray-900 prose-code:px-1.5 prose-code:py-0.5 prose-code:rounded prose-code:before:content-none prose-code:after:content-none prose-blockquote:border-l-[#009bd7] dark:prose-blockquote:border-l-[#00E1FF] prose-blockquote:text-gray-600 dark:prose-blockquote:text-gray-400">
             <ReactMarkdown remarkPlugins={[remarkGfm]}>{story.content}</ReactMarkdown>
           </article>
+
+          {relatedProduct && (
+            <aside className="max-w-3xl mx-auto mt-16 p-8 rounded-3xl bg-gradient-to-br from-[#009bd7]/5 to-[#00E1FF]/5 dark:from-[#009bd7]/10 dark:to-[#00E1FF]/10 border border-[#009bd7]/20 dark:border-[#00E1FF]/20">
+              <div className="text-xs font-bold tracking-widest text-[#009bd7] dark:text-[#00E1FF] mb-3">RELATED</div>
+              <h2 className="text-xl sm:text-2xl font-bold text-[#0f172a] dark:text-white mb-3 leading-snug">
+                {relatedProduct.label}
+              </h2>
+              <p className="text-gray-700 dark:text-gray-300 leading-relaxed mb-5">{relatedProduct.pitch}</p>
+              <Link
+                href={relatedProduct.href}
+                className="inline-flex items-center gap-2 text-[#009bd7] dark:text-[#00E1FF] font-semibold hover:gap-3 transition-all duration-300"
+              >
+                Explore {relatedProduct.label} <ArrowRight className="w-4 h-4" />
+              </Link>
+            </aside>
+          )}
         </div>
       </section>
 

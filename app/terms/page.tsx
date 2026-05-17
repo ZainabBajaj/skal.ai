@@ -7,6 +7,8 @@ import type { Metadata } from 'next';
 export const metadata: Metadata = {
   title: 'Terms & Conditions | SKAL',
   description: 'Terms governing the use of skal.ai and SKAL services.',
+  alternates: { canonical: 'https://skal.ai/terms' },
+  robots: { index: true, follow: true },
 };
 
 export default function TermsPage() {

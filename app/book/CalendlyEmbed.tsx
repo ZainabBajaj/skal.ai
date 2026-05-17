@@ -7,7 +7,7 @@ type Props = {
 };
 
 export default function CalendlyEmbed({ url }: Props) {
-  const embedUrl = `${url}?hide_event_type_details=1&hide_gdpr_banner=1&primary_color=009bd7`;
+  const embedUrl = `${url}${url.includes('?') ? '&' : '?'}hide_event_type_details=1&hide_gdpr_banner=1&primary_color=009bd7`;
 
   return (
     <>

@@ -7,7 +7,14 @@ import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
   title: 'Careers | SKAL',
-  description: 'Open roles at SKAL. Practitioners who ship AI systems for real businesses, in Dubai and Lahore.',
+  description: 'Open roles at SKAL. Practitioners who ship AI systems and operational infrastructure for real businesses. Offices in the US, UAE, and Pakistan.',
+  alternates: { canonical: 'https://skal.ai/careers' },
+  openGraph: {
+    title: 'Careers | SKAL',
+    description: 'Open roles for practitioners who ship AI systems and operational infrastructure.',
+    url: 'https://skal.ai/careers',
+    type: 'website',
+  },
 };
 
 interface Role {

@@ -1,11 +1,24 @@
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Startup Package | SKAL',
-  description: 'Transform your startup idea into reality with expert AI development, strategic guidance, and scalable solutions that accelerate growth.',
+  title: 'AI-native MVP builds for startups | SKAL',
+  description: 'Launch with AI-native infrastructure from day one. Automation-first architecture and scalable systems built for startups that move fast.',
+  keywords: [
+    'AI-native MVP',
+    'startup AI',
+    'automation-first architecture',
+    'AI MVP development',
+    'scalable startup infrastructure',
+    'AI for founders',
+  ],
+  alternates: {
+    canonical: 'https://skal.ai/startup',
+  },
   openGraph: {
-    title: 'Startup Package | SKAL',
-    description: 'Transform your startup idea into reality with expert AI development, strategic guidance, and scalable solutions.',
+    title: 'AI-native MVP builds for startups | SKAL',
+    description: 'Launch with AI-native infrastructure from day one. Built for startups that move fast.',
+    url: 'https://skal.ai/startup',
+    type: 'website',
   },
 };
 
