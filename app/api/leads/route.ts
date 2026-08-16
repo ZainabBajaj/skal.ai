@@ -54,7 +54,7 @@ export async function POST(req: Request) {
     timing: sanitize(body.timing),
   };
 
-  const { data, error } = await supabaseAdmin
+  const { data, error } = await supabaseAdmin()
     .from('leads')
     .insert(row)
     .select('id')
