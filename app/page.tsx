@@ -2,6 +2,7 @@
 import dynamic from 'next/dynamic';
 import BrandHero from './components/BrandHero';
 import ProductSplit from './components/ProductSplit';
+import SystemDiagram from './components/SystemDiagram';
 import ProductInMotion from './components/ProductInMotion';
 import WhySkal from './components/WhySkal';
 import Navbar from './components/Navbar';
@@ -17,6 +18,7 @@ export default function Home() {
       <Navbar />
       <BrandHero />
       <ProductSplit />
+      <SystemDiagram />
       <ProductInMotion />
       <WhySkal />
       <TrustedBy />
