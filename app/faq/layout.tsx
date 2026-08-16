@@ -33,7 +33,7 @@ const faqPageSchema = {
       "name": "How does pricing work?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "It depends on the engagement. Scale is priced per qualified meeting. Systems are flat fees per deployment. Services are scoped and quoted up front. Staffing is billed hourly. You get a clear number after the discovery call, no surprise line items.",
+        "text": "It depends on the engagement. Sky is a subscription with a free tier, metered in leads. Systems are flat fees per deployment. Services are scoped and quoted up front. Staffing is billed hourly. You get a clear number after the discovery call, no surprise line items.",
       },
     },
     {

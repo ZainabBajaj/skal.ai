@@ -92,8 +92,8 @@ const SystemDiagram = () => (
             Scale, Systems, Services and Staffing all feed into the same three
             stages: your business context and tone, the agents that run on it,
             and the tools you already use. Anything the agents cannot settle
-            goes to a human. What comes out is a qualified meeting, a running
-            system, a custom build, or an embedded operator.
+            goes to a human. What comes out is a lead you would have lost, a
+            running system, a custom build, or an embedded operator.
           </desc>
 
           {/* Column headers, each over its own hairline — the .spec device,

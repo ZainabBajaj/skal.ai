@@ -14,13 +14,13 @@ const pillars: Pillar[] = [
   },
   {
     headline: 'Days, not roadmaps.',
-    body: 'Most agencies disappear into a three month plan. We do not. Systems go live in one week. Scale opens pipeline by day three. Staffing engineers ship production code in their first week.',
-    proof: ['Systems live in one week', 'Pipeline by day three', 'Code in week one'],
+    body: 'Most agencies disappear into a three month plan. We do not. Systems go live in one week. Sky is capturing leads the minute you install it. Staffing engineers ship production code in their first week.',
+    proof: ['Systems live in one week', 'Sky live in one click', 'Code in week one'],
   },
   {
     headline: 'Skin in the game.',
-    body: 'We earn our keep. With Scale you pay only when a meeting shows up. With Staffing we replace any engineer at no cost. With Systems, monthly performance reviews keep us honest.',
-    proof: ['Pay per meeting', 'No-fit replacement', 'Monthly reviews'],
+    body: 'We earn our keep. Sky is free until it is worth paying for. With Staffing we replace any engineer at no cost. With Systems, monthly performance reviews keep us honest.',
+    proof: ['Free to start', 'No-fit replacement', 'Monthly reviews'],
   },
 ];
 

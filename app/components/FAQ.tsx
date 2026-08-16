@@ -17,12 +17,12 @@ const faqData: FAQItem[] = [
   },
   {
     question: "How does pricing work?",
-    answer: "It depends on the engagement. Scale is priced per qualified meeting. Systems are flat fees per agent deployed. Services are scoped and quoted up front. Staffing is billed hourly. You get a clear number after the discovery call, no surprise line items.",
+    answer: "It depends on the engagement. Sky is a subscription with a free tier, metered in leads. Systems are flat fees per agent deployed. Services are scoped and quoted up front. Staffing is billed hourly. You get a clear number after the discovery call, no surprise line items.",
     category: "Getting started"
   },
   {
     question: "How long until something is live?",
-    answer: "Systems typically deploy in about a week. Services run on the timeline of the build, scoped before we start so there are no moving goalposts. Staffing engineers can start within days once the brief is set. Scale ramps over the first few weeks as we calibrate to your ICP.",
+    answer: "Systems typically deploy in about a week. Services run on the timeline of the build, scoped before we start so there are no moving goalposts. Staffing engineers can start within days once the brief is set. Sky works the moment you install it, and sharpens as you tune your ICP.",
     category: "Getting started"
   },
   {

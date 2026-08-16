@@ -247,7 +247,7 @@ const professionalServiceSchema = {
         "itemOffered": {
           "@type": "Service",
           "name": "SKAL Sky",
-          "description": "Automated outbound infrastructure. AI prospecting, personalised sequences, and a proprietary contact database. Pay only when qualified meetings land on your calendar.",
+          "description": "A Chrome extension that captures a lead from any page you are reading, extracts it into structured fields and scores it against your ideal customer profile. Free to start.",
           "url": "https://skal.ai/scale",
         },
       },

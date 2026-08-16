@@ -5,6 +5,13 @@ import Image from 'next/image';
 
 interface Technology {
   name: string;
+  /**
+   * Filename in /public/svgs. Leave empty when there is no logo file for it —
+   * the tile then sets the name in the display face instead. That is on
+   * purpose: Claude and ElevenLabs are named in the page copy three times as
+   * what the systems run on, and shipping an approximated version of somebody
+   * else's mark to fill the hole is worse than setting their name in type.
+   */
   svgName: string;
   color: string;
   bgGradient: string;
@@ -47,6 +54,8 @@ const Stack = () => {
       { name: 'GitHub Actions', svgName: 'GitHub Actions.svg', color: 'text-gray-800', bgGradient: 'from-gray-100 to-gray-50' },
     ],
     'AI & ML': [
+      { name: 'Claude', svgName: '', color: 'text-orange-500', bgGradient: 'from-orange-100 to-orange-50' },
+      { name: 'ElevenLabs', svgName: '', color: 'text-ink', bgGradient: 'from-gray-100 to-gray-50' },
       { name: 'Hugging Face', svgName: 'hf-logo.svg', color: 'text-yellow-500', bgGradient: 'from-yellow-100 to-yellow-50' },
       { name: 'Langchain', svgName: 'Langchain.svg', color: 'text-purple-600', bgGradient: 'from-purple-100 to-purple-50' },
       { name: 'TensorFlow', svgName: 'tensorflow.svg', color: 'text-orange-500', bgGradient: 'from-orange-100 to-amber-50' },
@@ -87,6 +96,16 @@ const Stack = () => {
       svgPath = 'c%23.svg';
     }
     
+    if (!tech.svgName) {
+      return (
+        <div className="w-9 h-9 flex items-center justify-center">
+          <span className="font-display text-[1.5rem] leading-none text-ink">
+            {tech.name.charAt(0)}
+          </span>
+        </div>
+      );
+    }
+
     return (
       <div className="w-9 h-9 relative">
         <Image
@@ -127,11 +146,17 @@ const Stack = () => {
         ))}
       </div>
 
-      <ul className="mt-10 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-px bg-rule border border-rule">
+      {/* Rules come from each cell's own right and bottom border, with the top
+          and left supplied by the list. The previous version painted the list
+          `bg-rule` and let a 1px gap show it through, which works only while
+          the last row is full — the unfilled cells rendered as solid grey
+          blocks, and the count changes with both the filter and the
+          breakpoint. */}
+      <ul className="mt-10 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 border-t border-l border-rule">
         {Object.values(getDisplayedTechnologies()).flat().map((tech: Technology, index: number) => (
           <li
             key={`${tech.name}-${index}`}
-            className="bg-surface flex flex-col items-center justify-center gap-3 py-8 px-3 text-center"
+            className="border-r border-b border-rule bg-surface flex flex-col items-center justify-center gap-3 py-8 px-3 text-center"
           >
             {renderIcon(tech)}
             <span className="font-mono text-[10px] uppercase tracking-[0.12em] text-ink-2">

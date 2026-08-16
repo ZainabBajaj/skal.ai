@@ -20,7 +20,13 @@ const BrandHero = () => {
       {/* Atmosphere, from the previous site. Behind everything, touching no
           text colour, so the page can feel alive without getting harder to
           read. */}
-      <div aria-hidden="true" className="absolute inset-0 -z-10">
+      {/* The whole layer fades out before the section ends. Without this the
+          section's overflow-hidden cuts the aurora off mid-blur and leaves a
+          hard horizontal seam straight across the page. */}
+      <div
+        aria-hidden="true"
+        className="absolute inset-0 -z-10 [mask-image:linear-gradient(to_bottom,black_50%,transparent_96%)]"
+      >
         <div className="absolute inset-0 dot-grid [mask-image:radial-gradient(ellipse_70%_60%_at_45%_35%,black,transparent)]" />
         <div className="aurora aurora--a aurora--brand -top-24 -left-40 w-[34rem] h-[34rem]" />
         <div className="aurora aurora--b aurora--signal -bottom-32 right-[-6rem] w-[40rem] h-[40rem]" />

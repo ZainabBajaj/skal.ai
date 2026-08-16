@@ -57,7 +57,13 @@ export default function PageHero({
     <section className="relative overflow-hidden pt-28 lg:pt-36 pb-10 lg:pb-14">
       {/* Same atmosphere as the home page, so a surface page does not land on
           flat paper after arriving from one that breathes. */}
-      <div aria-hidden="true" className="absolute inset-0 -z-10">
+      {/* Faded out at the foot for the same reason as the home page: the
+          section clips its own overflow, and an unfaded aurora meets that clip
+          as a hard seam. */}
+      <div
+        aria-hidden="true"
+        className="absolute inset-0 -z-10 [mask-image:linear-gradient(to_bottom,black_50%,transparent_96%)]"
+      >
         <div className="absolute inset-0 dot-grid [mask-image:radial-gradient(ellipse_70%_55%_at_45%_30%,black,transparent)]" />
         <div className="aurora aurora--a aurora--brand -top-28 -left-40 w-[32rem] h-[32rem]" />
         <div className="aurora aurora--b aurora--signal -bottom-32 right-[-6rem] w-[36rem] h-[36rem]" />
