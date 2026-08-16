@@ -112,11 +112,11 @@ export default function AboutPage() {
               </p>
 
               <p>
-                The stall was the start of a habit. By my teens I had spent real
-                time inside spinning mills, FMCG lines, and banquet halls, close
-                enough to see exactly where each one made money and where it
-                lost it. Reading a balance sheet came early. Business was never
-                something I studied. It was something I was already doing.
+                I come from one of the oldest business communities in South Asia,
+                generations of merchants and traders woven into the fabric of
+                society for as long as anyone can remember. Reading a balance
+                sheet came early. Business was not something I studied. It was
+                the water I grew up in.
               </p>
 
               <p>
