@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
-import { ArrowRight, ArrowLeft, Check, X, GitCompare } from 'lucide-react';
+import { ArrowRight, ArrowLeft, Check, GitCompare } from 'lucide-react';
 import Navbar from '../../components/Navbar';
 import Footer from '../../components/Footer';
 import FloatingThemeToggle from '../../components/FloatingThemeToggle';

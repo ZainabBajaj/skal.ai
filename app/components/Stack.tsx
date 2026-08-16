@@ -88,7 +88,7 @@ const Stack = () => {
     }
     
     return (
-      <div className="w-12 h-12 relative mb-4">
+      <div className="w-9 h-9 relative">
         <Image
           src={`/svgs/${svgPath}`}
           alt={tech.name}
@@ -101,125 +101,47 @@ const Stack = () => {
   };
 
   return (
-    <section 
-      id="stack" 
-      className="relative py-14 lg:py-20 bg-gradient-to-br from-slate-50 via-white to-blue-50 dark:from-gray-900 dark:via-gray-800 dark:to-blue-900 overflow-hidden"
-    >
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-20">
-        <div className="text-center mb-20">
-          <div className="inline-flex items-center space-x-2 bg-gradient-to-r from-[#009bd7]/10 to-[#00E1FF]/10 dark:from-[#009bd7]/20 dark:to-[#00E1FF]/20 rounded-full px-6 py-2 mb-6 backdrop-blur-sm border border-[#009bd7]/20 dark:border-[#00E1FF]/30">
-            <div className="w-2 h-2 bg-gradient-to-r from-[#009bd7] to-[#00E1FF] rounded-full"></div>
-            <span className="text-[#009bd7] dark:text-[#00E1FF] text-sm font-bold tracking-wider">OUR TECH STACK</span>
-          </div>
-        
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-[#0f172a] dark:text-white mb-6 leading-snug pb-1">
-            Technologies We Master
-          </h2>
-          
-          <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto leading-relaxed font-medium">
-            Cutting-edge technologies and frameworks we use to build{' '}
-            <span className="text-[#009bd7] dark:text-[#00E1FF] font-bold">
-              exceptional solutions
-            </span>
-          </p>
-        </div>
-
-        {/* Enhanced Tab Navigation */}
-        <div className="flex flex-wrap justify-center mb-16 bg-white/80 dark:bg-gray-800/80 backdrop-blur-xl rounded-3xl shadow-2xl p-3 max-w-5xl mx-auto border border-white/50 dark:border-gray-700/50 relative overflow-hidden">
-          <div className="absolute inset-0 bg-gradient-to-r from-[#009bd7]/5 via-transparent to-[#00E1FF]/5"></div>
-          {tabs.map((tab) => (
-            <button
-              key={tab}
-              onClick={() => setActiveTab(tab)}
-              className={`relative px-6 py-4 rounded-2xl font-bold transition-all duration-300 m-1 ${
-                activeTab === tab
-                  ? 'bg-gradient-to-r from-[#009bd7] to-[#00E1FF] text-white shadow-xl shadow-[#009bd7]/30'
-                  : 'text-gray-600 dark:text-gray-300 hover:text-[#009bd7] hover:bg-white/80 dark:hover:bg-gray-700/80 hover:shadow-lg'
-              }`}
-            >
-              <span className="relative z-10">{tab}</span>
-              {activeTab === tab && (
-                <div className="absolute inset-0 bg-gradient-to-r from-[#009bd7] to-[#00E1FF] rounded-2xl blur-sm opacity-50 -z-10"></div>
-              )}
-            </button>
-          ))}
-        </div>
-
-        {/* Enhanced Technology Grid */}
-        <div className="max-w-7xl mx-auto">
-          {activeTab === 'All' ? (
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
-              {Object.values(getDisplayedTechnologies()).flat().map((tech: Technology, index: number) => (
-                <div
-                  key={`${tech.name}-${index}`}
-                  className={`group relative bg-gradient-to-br ${tech.bgGradient} dark:from-gray-800/80 dark:to-gray-700/80 rounded-3xl p-8 hover:shadow-2xl transition-all duration-500 border border-white/50 dark:border-gray-600/50 hover:border-[#009bd7]/30 backdrop-blur-sm overflow-hidden`}
-                  style={{
-                    animationDelay: `${index * 100}ms`,
-                  }}
-                >
-                  {/* Animated background gradient */}
-                  <div className="absolute inset-0 bg-gradient-to-br from-white/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                  
-                  {/* Glow effect */}
-                  <div className="absolute inset-0 bg-gradient-to-r from-[#009bd7]/0 to-[#00E1FF]/0 group-hover:from-[#009bd7]/10 group-hover:to-[#00E1FF]/10 rounded-3xl transition-all duration-500"></div>
-                  
-                  <div className="relative z-10 flex flex-col items-center text-center">
-                    {renderIcon(tech)}
-                    
-                    <h3 className="font-bold text-gray-800 dark:text-white text-base group-hover:text-[#009bd7] transition-all duration-300 mb-2">
-                      {tech.name}
-                    </h3>
-                    
-                  </div>
-                  
-                  {/* Enhanced hover effect bar */}
-                  <div className="absolute bottom-0 left-0 right-0 h-2 bg-gradient-to-r from-[#009bd7] via-[#00E1FF] to-[#009bd7] rounded-b-3xl transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-center"></div>
-                  
-                  {/* Shine effect */}
-                </div>
-              ))}
-            </div>
-          ) : (
-            Object.entries(getDisplayedTechnologies()).map(([category, techs]) => (
-              <div key={category} className="mb-16">
-                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
-                  {techs.map((tech: Technology, index: number) => (
-                    <div
-                      key={`${tech.name}-${index}`}
-                      className={`group relative bg-gradient-to-br ${tech.bgGradient} dark:from-gray-800/80 dark:to-gray-700/80 rounded-3xl p-8 hover:shadow-2xl transition-all duration-500 border border-white/50 dark:border-gray-600/50 hover:border-[#009bd7]/30 backdrop-blur-sm overflow-hidden`}
-                      style={{
-                        animationDelay: `${index * 100}ms`,
-                      }}
-                    >
-                      {/* Animated background gradient */}
-                      <div className="absolute inset-0 bg-gradient-to-br from-white/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                      
-                      {/* Glow effect */}
-                      <div className="absolute inset-0 bg-gradient-to-r from-[#009bd7]/0 to-[#00E1FF]/0 group-hover:from-[#009bd7]/10 group-hover:to-[#00E1FF]/10 rounded-3xl transition-all duration-500"></div>
-                      
-                      <div className="relative z-10 flex flex-col items-center text-center">
-                        {renderIcon(tech)}
-                        
-                        <h3 className="font-bold text-gray-800 dark:text-white text-base group-hover:text-[#009bd7] dark:group-hover:text-[#00E1FF] transition-all duration-300 mb-2">
-                          {tech.name}
-                        </h3>
-                        
-                      </div>
-                      
-                      {/* Enhanced hover effect bar */}
-                      <div className="absolute bottom-0 left-0 right-0 h-2 bg-gradient-to-r from-[#009bd7] via-[#00E1FF] to-[#009bd7] rounded-b-3xl transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-center"></div>
-                      
-                      {/* Shine effect */}
-                        </div>
-                  ))}
-                </div>
-              </div>
-            ))
-          )}
-        </div>
+    <div id="stack">
+      <div className="spec">
+        <span className="t-label t-label--ink">Our tech stack</span>
+        <span className="t-label">What we build with</span>
       </div>
-    </section>
+
+      <h2 className="font-display t-h2 text-ink mt-8 max-w-[16ch]">
+        The tools underneath the systems.
+      </h2>
+
+      {/* Tabs read as a filter, not as a hero control. */}
+      <div className="mt-10 flex flex-wrap gap-x-7 gap-y-3 border-b border-rule pb-4">
+        {tabs.map((tab) => (
+          <button
+            key={tab}
+            onClick={() => setActiveTab(tab)}
+            aria-pressed={activeTab === tab}
+            className={`font-mono text-[11px] uppercase tracking-[0.14em] transition-colors ${
+              activeTab === tab ? 'text-ink' : 'text-ink-3 hover:text-ink'
+            }`}
+          >
+            {tab}
+          </button>
+        ))}
+      </div>
+
+      <ul className="mt-10 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-px bg-rule border border-rule">
+        {Object.values(getDisplayedTechnologies()).flat().map((tech: Technology, index: number) => (
+          <li
+            key={`${tech.name}-${index}`}
+            className="bg-surface flex flex-col items-center justify-center gap-3 py-8 px-3 text-center"
+          >
+            {renderIcon(tech)}
+            <span className="font-mono text-[10px] uppercase tracking-[0.12em] text-ink-2">
+              {tech.name}
+            </span>
+          </li>
+        ))}
+      </ul>
+    </div>
   );
 };
 
-export default Stack; 
+export default Stack;

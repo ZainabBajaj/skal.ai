@@ -1,213 +1,105 @@
 "use client";
 
+import Link from 'next/link';
 import { ArrowRight } from 'lucide-react';
 import Stack from './Stack';
 
+/* ---------------------------------------------------------------------------
+   Three paths into Services.
+
+   What separates them is not a sequence but a situation: where the business
+   already is when it arrives. That is the left column, and it is the only
+   sorting device the section needs.
+   ------------------------------------------------------------------------- */
+
+interface Path {
+  href: string;
+  situation: string;
+  name: string;
+  body: string;
+  bullets: string[];
+  cta: string;
+}
+
+const paths: Path[] = [
+  {
+    href: '/startup',
+    situation: 'Building from scratch',
+    name: 'Startup',
+    body: 'Launch with AI-native infrastructure from day one. Automation-first architecture that scales as you do, rather than something you rebuild at Series A.',
+    bullets: ['AI-native MVP in two to four weeks', 'Automation-first infrastructure', 'Scalable systems from day one'],
+    cta: 'Get started',
+  },
+  {
+    href: '/enterprise',
+    situation: 'Running at scale',
+    name: 'Enterprise',
+    body: 'Automate internal workflows, reduce manual operations, and deploy AI tooling built around how your team actually works rather than how a vendor assumed it would.',
+    bullets: ['Internal AI workflow tooling', 'Operational efficiency at scale', 'Process automation and orchestration'],
+    cta: 'Explore more',
+  },
+  {
+    href: '/rescue',
+    situation: 'Something is broken',
+    name: 'Rescue',
+    body: 'Rebuild broken systems, automate technical debt, and stabilise operations that have stopped being predictable.',
+    bullets: ['System rebuild and stabilisation', 'Technical debt automation', 'Operational recovery'],
+    cta: 'Need a fix',
+  },
+];
+
 const Services = () => {
   return (
-          <section 
-        id="services" 
-        className="relative py-14 lg:py-20 bg-white dark:bg-gray-900 overflow-hidden"
-      >
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-20">
-        {/* Stack Component */}
-        <Stack />
-
-          {/* Enhanced Service Category Cards */}
-          <div className="mt-16 sm:mt-20 lg:mt-24">
-            <div className="text-center mb-12 sm:mb-16">
-              <div className="inline-flex items-center gap-2 px-3 sm:px-4 py-2 bg-gradient-to-r from-[#009bd7]/10 to-[#00E1FF]/10 rounded-full border border-[#009bd7]/20 mb-4">
-                <div className="w-2 h-2 bg-gradient-to-r from-[#009bd7] to-[#00E1FF] rounded-full animate-pulse"></div>
-                <span className="text-[#009bd7] dark:text-[#00E1FF] text-xs sm:text-sm font-bold tracking-wider">CHOOSE YOUR PATH</span>
-              </div>
-              <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-[#0f172a] dark:text-white mb-4 sm:mb-6 leading-snug pb-1">
-                Which describes you?
-              </h2>
-              <p className="text-base sm:text-lg lg:text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto leading-relaxed px-4">
-                Each path leads to{' '}
-                <span className="text-[#009bd7] dark:text-[#00E1FF] font-bold">
-                  custom AI infrastructure
-                </span>
-                {' '}built around your operations.
-              </p>
-            </div>
-            
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 lg:gap-12 px-4 sm:px-0">
-              {/* Enhanced Startup Card */}
-              <div className="group relative bg-gradient-to-br from-blue-50 via-cyan-50 to-sky-50 dark:from-blue-900/30 dark:via-cyan-900/20 dark:to-sky-900/30 backdrop-blur-xl rounded-2xl sm:rounded-3xl shadow-2xl p-6 sm:p-8 lg:p-10 xl:p-12 border border-blue-200/50 dark:border-blue-700/50 hover:shadow-3xl hover:shadow-[#009bd7]/20 transition-all duration-500 hover:-translate-y-2 cursor-pointer overflow-hidden min-h-[400px] sm:min-h-[500px]">
-                {/* Animated background elements */}
-                <div className="absolute inset-0 bg-gradient-to-br from-[#009bd7]/5 via-cyan-500/5 to-[#00E1FF]/5 pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-[#009bd7]/20 to-cyan-400/20 rounded-full blur-3xl transition-opacity duration-700"></div>
-                <div className="absolute bottom-0 left-0 w-24 h-24 bg-gradient-to-tr from-[#00E1FF]/20 to-[#009bd7]/20 rounded-full blur-2xl transition-opacity duration-700"></div>
-                
-                
-                <div className="relative z-10">
-                  {/* Icon */}
-                  <div className="flex justify-center mb-6">
-                    <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-cyan-500 rounded-2xl flex items-center justify-center shadow-lg">
-                      <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
-                      </svg>
-                    </div>
-                  </div>
-                  
-                  <h3 className="text-2xl font-bold text-blue-600 dark:text-blue-400 mb-4 text-center">
-                    I&apos;m A <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-700 to-cyan-600 dark:from-blue-300 dark:to-cyan-400">Startup.</span>
-                  </h3>
-                  
-                  <p className="text-gray-700 dark:text-gray-300 text-center mb-8 leading-relaxed">
-                    Launch with AI-native infrastructure from day one. Automation-first architecture that scales with you.
-                  </p>
-
-                  {/* Additional features */}
-                  <div className="space-y-3 mb-8">
-                    <div className="flex items-center gap-3 text-sm text-gray-600 dark:text-gray-400">
-                      <div className="w-2 h-2 bg-blue-500 rounded-full"></div>
-                      <span>AI-native MVP in 2-4 weeks</span>
-                    </div>
-                    <div className="flex items-center gap-3 text-sm text-gray-600 dark:text-gray-400">
-                      <div className="w-2 h-2 bg-cyan-500 rounded-full"></div>
-                      <span>Automation-first infrastructure</span>
-                    </div>
-                    <div className="flex items-center gap-3 text-sm text-gray-600 dark:text-gray-400">
-                      <div className="w-2 h-2 bg-[#1DB5C5] rounded-full"></div>
-                      <span>Scalable systems from day one</span>
-                    </div>
-                  </div>
-                  
-                  <div className="flex items-center justify-center">
-                    <button 
-                      onClick={() => window.location.href = '/startup'}
-                      className="group/btn relative inline-flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-blue-500 to-cyan-500 text-white rounded-2xl font-semibold hover:shadow-2xl hover:shadow-blue-500/30 transition-all duration-300 hover:scale-105 active:scale-95 overflow-hidden"
-                    >
-                      <span className="relative z-10">Get Started</span>
-                      <ArrowRight className="w-5 h-5 relative z-10 group-hover/btn:translate-x-1 transition-transform duration-300" />
-                      <div className="absolute inset-0 bg-gradient-to-r from-blue-600 to-cyan-600 opacity-0 group-hover/btn:opacity-100 transition-opacity duration-300"></div>
-                    </button>
-                  </div>
-                </div>
-                
-                {/* Shine effect */}
-              </div>
-
-              {/* Enhanced Enterprise Card */}
-              <div className="group relative bg-gradient-to-br from-gray-900 via-[#0f172a] to-[#0c2d4a] backdrop-blur-xl rounded-3xl shadow-2xl p-10 sm:p-12 border border-gray-700/50 hover:shadow-3xl hover:shadow-[#009bd7]/20 transition-all duration-500 hover:-translate-y-2 cursor-pointer overflow-hidden min-h-[500px]">
-                {/* Animated background elements */}
-                <div className="absolute inset-0 bg-gradient-to-br from-[#009bd7]/10 via-[#00E1FF]/10 to-[#1DB5C5]/10 pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-[#009bd7]/20 to-[#00E1FF]/20 rounded-full blur-3xl transition-opacity duration-700"></div>
-                <div className="absolute bottom-0 left-0 w-24 h-24 bg-gradient-to-tr from-[#00E1FF]/20 to-[#1DB5C5]/20 rounded-full blur-2xl transition-opacity duration-700"></div>
-
-
-                <div className="relative z-10">
-                  {/* Icon */}
-                  <div className="flex justify-center mb-6">
-                    <div className="w-16 h-16 bg-gradient-to-br from-[#009bd7] to-[#00E1FF] rounded-2xl flex items-center justify-center shadow-lg">
-                      <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
-                      </svg>
-                    </div>
-                  </div>
-
-                  <h3 className="text-2xl font-bold text-white mb-4 text-center">
-                    I&apos;m An <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#009bd7] to-[#00E1FF]">Enterprise.</span>
-                  </h3>
-
-                  <p className="text-gray-300 text-center mb-8 leading-relaxed">
-                    Automate internal workflows, reduce manual operations, and deploy AI tooling built around how your team actually works.
-                  </p>
-
-                  {/* Additional features */}
-                  <div className="space-y-3 mb-8">
-                    <div className="flex items-center gap-3 text-sm text-gray-400">
-                      <div className="w-2 h-2 bg-[#009bd7] rounded-full"></div>
-                      <span>Internal AI workflow tooling</span>
-                    </div>
-                    <div className="flex items-center gap-3 text-sm text-gray-400">
-                      <div className="w-2 h-2 bg-[#00E1FF] rounded-full"></div>
-                      <span>Operational efficiency at scale</span>
-                    </div>
-                    <div className="flex items-center gap-3 text-sm text-gray-400">
-                      <div className="w-2 h-2 bg-[#1DB5C5] rounded-full"></div>
-                      <span>Process automation and orchestration</span>
-                    </div>
-                  </div>
-
-                  <div className="flex items-center justify-center">
-                    <button
-                      onClick={() => window.location.href = '/enterprise'}
-                      className="group/btn relative inline-flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-[#009bd7] to-[#00E1FF] text-white rounded-2xl font-semibold hover:shadow-2xl hover:shadow-[#009bd7]/30 transition-all duration-300 hover:scale-105 active:scale-95 overflow-hidden"
-                    >
-                      <span className="relative z-10">Explore More</span>
-                      <ArrowRight className="w-5 h-5 relative z-10 group-hover/btn:translate-x-1 transition-transform duration-300" />
-                      <div className="absolute inset-0 bg-gradient-to-r from-[#008bc1] to-[#00c7e3] opacity-0 group-hover/btn:opacity-100 transition-opacity duration-300"></div>
-                    </button>
-                  </div>
-                </div>
-
-                {/* Shine effect */}
-              </div>
-
-              {/* Enhanced Rescue Card */}
-              <div className="group relative bg-gradient-to-br from-red-50 via-orange-50 to-amber-50 dark:from-red-900/30 dark:via-orange-900/20 dark:to-amber-900/30 backdrop-blur-xl rounded-3xl shadow-2xl p-10 sm:p-12 border border-red-200/50 dark:border-red-700/50 hover:shadow-3xl hover:shadow-red-500/20 transition-all duration-500 hover:-translate-y-2 cursor-pointer overflow-hidden min-h-[500px]">
-                {/* Animated background elements */}
-                <div className="absolute inset-0 bg-gradient-to-br from-red-500/5 via-orange-500/5 to-amber-500/5 pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-red-400/20 to-orange-400/20 rounded-full blur-3xl transition-opacity duration-700"></div>
-                <div className="absolute bottom-0 left-0 w-24 h-24 bg-gradient-to-tr from-orange-400/20 to-amber-400/20 rounded-full blur-2xl transition-opacity duration-700"></div>
-                
-                
-                <div className="relative z-10">
-                  {/* Icon */}
-                  <div className="flex justify-center mb-6">
-                    <div className="w-16 h-16 bg-gradient-to-br from-red-500 to-orange-500 rounded-2xl flex items-center justify-center shadow-lg">
-                      <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.964-.833-2.732 0L3.732 16.5c-.77.833.192 2.5 1.732 2.5z" />
-                      </svg>
-                    </div>
-                  </div>
-                  
-                  <h3 className="text-2xl font-bold text-red-600 dark:text-red-400 mb-4 text-center">
-                    I Need A <span className="text-transparent bg-clip-text bg-gradient-to-r from-red-700 to-orange-600 dark:from-red-300 dark:to-orange-400">Rescue.</span>
-                  </h3>
-                  
-                  <p className="text-gray-700 dark:text-gray-300 text-center mb-8 leading-relaxed">
-                    Rebuild broken systems, automate technical debt, and stabilize your operations.
-                  </p>
-
-                  {/* Additional features */}
-                  <div className="space-y-3 mb-8">
-                    <div className="flex items-center gap-3 text-sm text-gray-600 dark:text-gray-400">
-                      <div className="w-2 h-2 bg-red-500 rounded-full"></div>
-                      <span>System rebuild and stabilization</span>
-                    </div>
-                    <div className="flex items-center gap-3 text-sm text-gray-600 dark:text-gray-400">
-                      <div className="w-2 h-2 bg-orange-500 rounded-full"></div>
-                      <span>Technical debt automation</span>
-                    </div>
-                    <div className="flex items-center gap-3 text-sm text-gray-600 dark:text-gray-400">
-                      <div className="w-2 h-2 bg-amber-500 rounded-full"></div>
-                      <span>Operational recovery</span>
-                    </div>
-                  </div>
-                  
-                  <div className="flex items-center justify-center">
-                    <button 
-                      onClick={() => window.location.href = '/rescue'}
-                      className="group/btn relative inline-flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-red-500 to-orange-500 text-white rounded-2xl font-semibold hover:shadow-2xl hover:shadow-red-500/30 transition-all duration-300 hover:scale-105 active:scale-95 overflow-hidden"
-                    >
-                      <span className="relative z-10">Need a Fix</span>
-                      <ArrowRight className="w-5 h-5 relative z-10 group-hover/btn:translate-x-1 transition-transform duration-300" />
-                      <div className="absolute inset-0 bg-gradient-to-r from-red-600 to-orange-600 opacity-0 group-hover/btn:opacity-100 transition-opacity duration-300"></div>
-                    </button>
-                  </div>
-                </div>
-                
-              </div>
-
-            </div>
-          </div>
+    <section id="services" className="band bg-surface">
+      <div className="shell">
+        <div className="spec">
+          <span className="t-label t-label--ink">Which describes you?</span>
+          <span className="t-label">{paths.length} ways in</span>
         </div>
-      </section>
-    );
-  }
 
-export default Services; 
+        <h2 className="font-display t-h2 text-ink mt-8 max-w-[17ch]">
+          Every path ends at infrastructure built around your operations.
+        </h2>
+
+        <ul className="mt-14 lg:mt-20 border-t border-rule">
+          {paths.map((p) => (
+            <li key={p.href} className="border-b border-rule">
+              <Link
+                href={p.href}
+                className="group grid grid-cols-1 lg:grid-cols-12 gap-y-5 lg:gap-x-8 py-9 lg:py-11 transition-colors duration-200 hover:bg-paper"
+              >
+                <div className="lg:col-span-3">
+                  <div className="t-label">{p.situation}</div>
+                  <h3 className="font-display t-h3 text-ink mt-2">{p.name}</h3>
+                </div>
+
+                <div className="lg:col-span-5">
+                  <p className="text-[0.9375rem] leading-relaxed text-ink-2 max-w-[52ch]">{p.body}</p>
+                </div>
+
+                <ul className="lg:col-span-3 lg:border-l border-rule lg:pl-8">
+                  {p.bullets.map((b) => (
+                    <li key={b} className="t-label py-1.5">{b}</li>
+                  ))}
+                </ul>
+
+                <div className="lg:col-span-1 lg:text-right">
+                  <span className="inline-flex items-center gap-2 font-mono text-[11px] uppercase tracking-[0.14em] text-ink group-hover:text-signal transition-colors whitespace-nowrap">
+                    {p.cta}
+                    <ArrowRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-1" strokeWidth={1.75} />
+                  </span>
+                </div>
+              </Link>
+            </li>
+          ))}
+        </ul>
+
+        <div className="mt-20 lg:mt-28">
+          <Stack />
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default Services;

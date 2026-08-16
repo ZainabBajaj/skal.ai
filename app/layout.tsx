@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
+import { Newsreader } from "next/font/google";
 import "./globals.css";
 
 import { Suspense } from "react";
@@ -18,6 +19,16 @@ const geistMono = localFont({
   src: "./fonts/GeistMonoVF.woff",
   variable: "--font-geist-mono",
   weight: "100 900",
+});
+
+// The claim voice. Newsreader carries an optical-size axis, so the hero gets a
+// true display cut (high contrast, tight joins) rather than body text scaled up.
+const newsreader = Newsreader({
+  subsets: ["latin"],
+  variable: "--font-newsreader",
+  weight: ["400", "500", "600"],
+  style: ["normal", "italic"],
+  display: "swap",
 });
 
 export const metadata: Metadata = {
@@ -281,7 +292,7 @@ export default function RootLayout({
         <link rel="dns-prefetch" href="https://calendly.com" />
       </head>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} ${newsreader.variable} antialiased`}
       >
         <script
           type="application/ld+json"

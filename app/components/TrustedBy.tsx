@@ -10,26 +10,23 @@ const clients = [
 
 const TrustedBy = () => {
   return (
-    <section className="py-10 lg:py-12 relative bg-white dark:bg-gray-800">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <p className="text-center text-sm font-semibold tracking-wider text-gray-400 dark:text-gray-500 uppercase mb-6">
-          Trusted By
-        </p>
+    <section className="band-tight bg-surface">
+      <div className="shell">
+        <div className="spec">
+          <span className="t-label t-label--ink">Trusted by</span>
+          <span className="t-label">{clients.length} organisations</span>
+        </div>
 
-        <div className="flex flex-wrap items-center justify-center gap-12 lg:gap-16">
+        <div className="mt-8 flex flex-wrap items-center gap-x-14 gap-y-8">
           {clients.map((client) => (
-            <div
+            <Image
               key={client.name}
-              className="grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300"
-            >
-              <Image
-                src={client.logo}
-                alt={client.name}
-                width={140}
-                height={60}
-                className="h-12 w-auto object-contain"
-              />
-            </div>
+              src={client.logo}
+              alt={client.name}
+              width={140}
+              height={60}
+              className="h-10 w-auto object-contain grayscale opacity-80 hover:opacity-100 hover:grayscale-0 transition-all duration-300 dark:brightness-0 dark:invert dark:opacity-70 dark:hover:opacity-100"
+            />
           ))}
         </div>
       </div>

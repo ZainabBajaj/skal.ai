@@ -1,6 +1,6 @@
 'use client';
 
-import { TrendingUp, Zap, Target, Database, Send, ArrowRight, Sparkles, Mail, Clock, CheckCircle, DollarSign } from 'lucide-react';
+import { TrendingUp, Zap, Target, Database, Send, ArrowRight, Sparkles, Mail, CheckCircle, DollarSign } from 'lucide-react';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import HowItWorks from '../components/HowItWorks';
@@ -268,7 +268,7 @@ export default function ScalePage() {
         title="Zero to pipeline in days."
         steps={steps}
         tone="cyan"
-        badge={{ icon: Clock, label: 'HOW IT WORKS' }}
+        badge={{ label: 'Four steps, in order' }}
       />
 
       {/* Pricing */}
