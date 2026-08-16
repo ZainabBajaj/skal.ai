@@ -112,11 +112,12 @@ export default function AboutPage() {
               </p>
 
               <p>
-                I come from one of the oldest business communities in South Asia,
-                generations of merchants and traders woven into the fabric of
-                society for as long as anyone can remember. Reading a balance
-                sheet came early. Business was not something I studied. It was
-                the water I grew up in.
+                The stall was not the start of the story. I come from one of the
+                oldest business communities in South Asia, generations of
+                merchants and traders woven into the fabric of society for as
+                long as anyone can remember. Reading a balance sheet came early.
+                Business was not something I studied. It was the water I grew up
+                in.
               </p>
 
               <p>
