@@ -102,7 +102,7 @@ export default function SystemsPage() {
 
                   <div className="lg:col-span-4">
                     <p className="text-[0.9375rem] leading-relaxed text-ink-2">{body}</p>
-                    <Link href={BOOK_URL} className="group inline-flex items-center gap-2 mt-6 font-mono text-[11px] uppercase tracking-[0.14em] text-ink hover:text-signal transition-colors">
+                    <Link href={BOOK_URL} className="group inline-flex items-center gap-2 mt-6 font-mono text-[12px] uppercase tracking-[0.12em] text-ink hover:text-signal transition-colors">
                       Talk to us
                       <ArrowRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-1" strokeWidth={1.75} />
                     </Link>

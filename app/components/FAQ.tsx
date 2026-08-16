@@ -83,7 +83,7 @@ export default function FAQ() {
               key={category}
               onClick={() => setActiveCategory(category)}
               aria-pressed={activeCategory === category}
-              className={`font-mono text-[11px] uppercase tracking-[0.14em] transition-colors ${
+              className={`font-mono text-[12px] uppercase tracking-[0.12em] transition-colors ${
                 activeCategory === category ? 'text-ink' : 'text-ink-3 hover:text-ink'
               }`}
             >

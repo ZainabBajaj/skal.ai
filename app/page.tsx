@@ -6,6 +6,7 @@ import SystemDiagram from './components/SystemDiagram';
 import ProductInMotion from './components/ProductInMotion';
 import WhySkal from './components/WhySkal';
 import Navbar from './components/Navbar';
+import ScrollProgress from './components/ScrollProgress';
 import TrustedBy from './components/TrustedBy';
 import FloatingThemeToggle from './components/FloatingThemeToggle';
 
@@ -15,6 +16,7 @@ const Footer = dynamic(() => import('./components/Footer'));
 export default function Home() {
   return (
     <main className="relative">
+      <ScrollProgress />
       <Navbar />
       <BrandHero />
       <ProductSplit />

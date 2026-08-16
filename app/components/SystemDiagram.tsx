@@ -98,7 +98,7 @@ const SystemDiagram = () => (
 
           {/* Column headers, each over its own hairline — the .spec device,
               carried into the drawing so the sheet matches the page. */}
-          <g className="font-mono" fontSize="10" letterSpacing="0.16em" fill="currentColor">
+          <g className="font-mono" fontSize="11" letterSpacing="0.12em" fill="currentColor">
             <g className="text-ink-3">
               <text x="0" y="26">FOUR WAYS IN</text>
               <text x={BOX_X[0]} y="26">THE SAME THREE STAGES</text>
@@ -147,7 +147,7 @@ const SystemDiagram = () => (
               />
               <text
                 className="font-mono text-ink-3" fill="currentColor"
-                fontSize="9" letterSpacing="0.16em"
+                fontSize="10" letterSpacing="0.12em"
                 x={BOX_X[i] + 16} y={BOX_Y + 24}
               >
                 {st.n}
@@ -201,7 +201,7 @@ const SystemDiagram = () => (
           </g>
           <text
             className="font-mono text-ink-3" fill="currentColor"
-            fontSize="10" letterSpacing="0.16em" textAnchor="middle"
+            fontSize="11" letterSpacing="0.12em" textAnchor="middle"
             x={BOX_X[1] + BOX_W / 2} y="248"
           >
             HUMAN, ON EXCEPTION

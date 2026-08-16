@@ -110,7 +110,7 @@ export default function Navbar() {
   // Nav items read as small caps set in the fact voice — the same mono the rest
   // of the page uses for labels, so the chrome and the content agree.
   const itemBase =
-    'relative px-3 py-2 font-mono text-[11px] font-medium uppercase tracking-[0.14em] transition-colors duration-200';
+    'relative px-3 py-2 font-mono text-[12px] font-medium uppercase tracking-[0.12em] transition-colors duration-200';
 
   return (
     <nav
@@ -179,7 +179,7 @@ export default function Navbar() {
                               key={child.href}
                               role="menuitem"
                               onClick={() => handleNavClick(child.href)}
-                              className={`block w-full text-left px-4 py-3 font-mono text-[11px] uppercase tracking-[0.14em] transition-colors ${
+                              className={`block w-full text-left px-4 py-3 font-mono text-[12px] uppercase tracking-[0.12em] transition-colors ${
                                 i > 0 ? 'border-t border-rule-faint' : ''
                               } ${childActive ? 'text-ink bg-paper' : 'text-ink-3 hover:text-ink hover:bg-paper'}`}
                             >
@@ -201,7 +201,7 @@ export default function Navbar() {
                 >
                   {link.name}
                   {link.badge && (
-                    <span className="font-mono text-[9px] tracking-[0.14em] uppercase text-signal border border-signal/40 px-1.5 py-px">
+                    <span className="font-mono text-[10px] tracking-[0.12em] uppercase text-signal border border-signal/40 px-1.5 py-px">
                       {link.badge}
                     </span>
                   )}
@@ -246,7 +246,7 @@ export default function Navbar() {
                   <button
                     onClick={() => setOpenMobileGroup(expanded ? null : link.name)}
                     aria-expanded={expanded}
-                    className={`flex items-center justify-between w-full text-left py-4 font-mono text-[11px] uppercase tracking-[0.14em] ${
+                    className={`flex items-center justify-between w-full text-left py-4 font-mono text-[12px] uppercase tracking-[0.12em] ${
                       active ? 'text-ink' : 'text-ink-3'
                     }`}
                   >
@@ -259,7 +259,7 @@ export default function Navbar() {
                         <button
                           key={child.href}
                           onClick={() => handleNavClick(child.href)}
-                          className={`block w-full text-left py-2.5 pl-4 font-mono text-[11px] uppercase tracking-[0.14em] ${
+                          className={`block w-full text-left py-2.5 pl-4 font-mono text-[12px] uppercase tracking-[0.12em] ${
                             pathname === child.href ? 'text-ink' : 'text-ink-3'
                           }`}
                         >
@@ -276,13 +276,13 @@ export default function Navbar() {
               <button
                 key={link.name}
                 onClick={() => handleNavClick(link.href)}
-                className={`flex items-center gap-2 w-full text-left py-4 font-mono text-[11px] uppercase tracking-[0.14em] ${
+                className={`flex items-center gap-2 w-full text-left py-4 font-mono text-[12px] uppercase tracking-[0.12em] ${
                   idx > 0 ? 'border-t border-rule-faint' : ''
                 } ${active ? 'text-ink' : 'text-ink-3'}`}
               >
                 {link.name}
                 {link.badge && (
-                  <span className="text-[9px] tracking-[0.14em] text-signal border border-signal/40 px-1.5 py-px">
+                  <span className="text-[10px] tracking-[0.12em] text-signal border border-signal/40 px-1.5 py-px">
                     {link.badge}
                   </span>
                 )}

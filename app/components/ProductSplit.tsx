@@ -98,7 +98,7 @@ const ProductSplit = () => {
                   <h3 className="flex items-baseline gap-3 flex-wrap">
                     <span className="font-display t-h3 text-ink">{s.name}</span>
                     {s.badge && (
-                      <span className="font-mono text-[9px] uppercase tracking-[0.14em] text-signal border border-signal/40 px-1.5 py-px">
+                      <span className="font-mono text-[10px] uppercase tracking-[0.12em] text-signal border border-signal/40 px-1.5 py-px">
                         {s.badge}
                       </span>
                     )}
@@ -113,7 +113,7 @@ const ProductSplit = () => {
 
                 {/* The way in. */}
                 <div className="lg:col-span-3 lg:text-right">
-                  <span className="inline-flex items-center gap-2 font-mono text-[11px] uppercase tracking-[0.14em] text-ink group-hover:text-signal transition-colors">
+                  <span className="inline-flex items-center gap-2 font-mono text-[12px] uppercase tracking-[0.12em] text-ink group-hover:text-signal transition-colors">
                     {s.cta}
                     <ArrowRight
                       className="w-3.5 h-3.5 transition-transform group-hover:translate-x-1"

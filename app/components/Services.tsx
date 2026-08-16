@@ -84,7 +84,7 @@ const Services = () => {
                 </ul>
 
                 <div className="lg:col-span-1 lg:text-right">
-                  <span className="inline-flex items-center gap-2 font-mono text-[11px] uppercase tracking-[0.14em] text-ink group-hover:text-signal transition-colors whitespace-nowrap">
+                  <span className="inline-flex items-center gap-2 font-mono text-[12px] uppercase tracking-[0.12em] text-ink group-hover:text-signal transition-colors whitespace-nowrap">
                     {p.cta}
                     <ArrowRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-1" strokeWidth={1.75} />
                   </span>

@@ -19,7 +19,7 @@
   --surface: #FFFFFF;  /* raised panels */
   --ink:     #0B1220;  /* primary text */
   --ink-2:   #4C586F;  /* secondary text */
-  --ink-3:   #667286;  /* mono labels — 4.6:1 on paper */
+  --ink-3:   #5A6779;  /* mono labels — 5.3:1 on paper */
   --rule:    #DCE1E8;  /* hairlines: the page skeleton */
   --rule-2:  #E9EDF2;  /* faint hairlines */
   --signal:  #00688F;  /* the one accent — accessible on paper */
@@ -153,12 +153,19 @@ body,
 .t-read > p + p { margin-top: 1.5rem; }
 .t-read strong { color: var(--ink); font-weight: 600; }
 
-/* The fact voice: monospace, small, wide. Every label on the site is this. */
+/* The fact voice: monospace, small, wide. Every label on the site is this.
+
+   "Small and wide" has a floor. At 11px/.16em this class set the navigation,
+   every section header and every call to action — 157 uses — in the least
+   readable thing on the page: tracked uppercase mono at 4.5:1. Uppercase loses
+   the word-shape a reader matches on, and tracking pulls the letters apart
+   just as the size stops carrying them, so the contrast ratio flatters it.
+   12px and .12em cost about 3% width and read as the same device. */
 .t-label {
   font-family: var(--font-geist-mono), ui-monospace, SFMono-Regular, Menlo, monospace;
-  font-size: .6875rem;
+  font-size: .75rem;
   font-weight: 500;
-  letter-spacing: .16em;
+  letter-spacing: .12em;
   text-transform: uppercase;
   color: var(--ink-3);
   line-height: 1.4;

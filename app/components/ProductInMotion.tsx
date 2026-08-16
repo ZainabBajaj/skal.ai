@@ -131,8 +131,8 @@ function StillFrame() {
       <ul className="grid grid-cols-2 sm:grid-cols-4 gap-y-4 gap-x-6 border-t border-band-rule pt-5">
         {surfaces.map(([name, what]) => (
           <li key={name}>
-            <div className="font-mono text-[11px] uppercase tracking-[0.14em] text-band-ink">{name}</div>
-            <div className="font-mono text-[11px] uppercase tracking-[0.14em] text-band-2 mt-1">{what}</div>
+            <div className="font-mono text-[12px] uppercase tracking-[0.12em] text-band-ink">{name}</div>
+            <div className="font-mono text-[12px] uppercase tracking-[0.12em] text-band-2 mt-1">{what}</div>
           </li>
         ))}
       </ul>

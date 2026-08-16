@@ -118,7 +118,7 @@ const Stack = () => {
             key={tab}
             onClick={() => setActiveTab(tab)}
             aria-pressed={activeTab === tab}
-            className={`font-mono text-[11px] uppercase tracking-[0.14em] transition-colors ${
+            className={`font-mono text-[12px] uppercase tracking-[0.12em] transition-colors ${
               activeTab === tab ? 'text-ink' : 'text-ink-3 hover:text-ink'
             }`}
           >
