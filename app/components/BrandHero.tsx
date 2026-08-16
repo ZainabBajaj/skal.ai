@@ -3,6 +3,7 @@
 import Link from 'next/link';
 import { ArrowRight } from 'lucide-react';
 import CalendlyPopupButton from './CalendlyPopupButton';
+import ConvergenceFlow from './ConvergenceFlow';
 
 const CALENDLY_URL = 'https://calendly.com/skal-ai/discovery-call';
 
@@ -33,40 +34,56 @@ const BrandHero = () => {
           <span className="t-label">AI-native operational infrastructure</span>
         </div>
 
-        <h1
-          className="font-display t-hero text-ink mt-10 lg:mt-14 max-w-[19ch] rise"
-          style={{ animationDelay: '120ms' }}
-        >
-          Systems that run inside{' '}
-          <span className="accent accent-flow">real businesses.</span>
-        </h1>
+        {/* Two columns from lg up: the argument on the left, the picture of it
+            on the right. Below lg the illustration drops out entirely rather
+            than stacking — at phone width it is a 500-unit drawing rendered
+            two inches wide, which is decoration pretending to be information,
+            and it would push the buttons below the fold to do it. */}
+        <div className="mt-10 lg:mt-14 grid grid-cols-1 lg:grid-cols-12 lg:gap-x-10 items-center">
+          <div className="lg:col-span-7">
+            <h1
+              className="font-display t-hero text-ink max-w-[19ch] rise"
+              style={{ animationDelay: '120ms' }}
+            >
+              Systems that run inside{' '}
+              <span className="accent accent-flow">real businesses.</span>
+            </h1>
 
-        <p
-          className="t-lead mt-8 max-w-[52ch] rise"
-          style={{ animationDelay: '200ms' }}
-        >
-          Not experiments. Not demos. SKAL builds and operates the AI
-          infrastructure your sales, support, and operations actually run on.
-          Four ways to plug in. Start with one.
-        </p>
+            <p
+              className="t-lead mt-8 max-w-[52ch] rise"
+              style={{ animationDelay: '200ms' }}
+            >
+              Not experiments. Not demos. SKAL builds and operates the AI
+              infrastructure your sales, support, and operations actually run on.
+              Four ways to plug in. Start with one.
+            </p>
 
-        <div
-          className="mt-10 flex flex-col sm:flex-row gap-3 rise"
-          style={{ animationDelay: '280ms' }}
-        >
-          <CalendlyPopupButton
-            url={CALENDLY_URL}
-            utmSource="brand_hero"
-            ariaLabel="Schedule a 30-minute discovery call"
-            className="btn btn-solid group"
+            <div
+              className="mt-10 flex flex-col sm:flex-row gap-3 rise"
+              style={{ animationDelay: '280ms' }}
+            >
+              <CalendlyPopupButton
+                url={CALENDLY_URL}
+                utmSource="brand_hero"
+                ariaLabel="Schedule a 30-minute discovery call"
+                className="btn btn-solid group"
+              >
+                <span>Book a discovery call</span>
+                <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-0.5" strokeWidth={1.75} />
+              </CalendlyPopupButton>
+
+              <Link href="#products" className="btn btn-line">
+                See what we build
+              </Link>
+            </div>
+          </div>
+
+          <div
+            className="hidden lg:block lg:col-span-5 rise"
+            style={{ animationDelay: '380ms' }}
           >
-            <span>Book a discovery call</span>
-            <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-0.5" strokeWidth={1.75} />
-          </CalendlyPopupButton>
-
-          <Link href="#products" className="btn btn-line">
-            See what we build
-          </Link>
+            <ConvergenceFlow />
+          </div>
         </div>
 
         {/* Closing rule carries the standfirst and hands off to the index. */}
