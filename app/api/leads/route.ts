@@ -55,7 +55,7 @@ export async function POST(req: Request) {
   };
 
   const { data, error } = await supabaseAdmin()
-    .from('leads')
+    .from('website-leads')
     .insert(row)
     .select('id')
     .single();
