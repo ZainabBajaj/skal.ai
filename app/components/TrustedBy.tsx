@@ -18,6 +18,8 @@ const TrustedBy = () => {
         </div>
 
         <div className="mt-8 flex flex-wrap items-center gap-x-14 gap-y-8">
+          {/* These rendered grayscale at 80%. Three real logos were the only
+              outside colour on the page, and it was switched off. */}
           {clients.map((client) => (
             <Image
               key={client.name}
@@ -25,7 +27,7 @@ const TrustedBy = () => {
               alt={client.name}
               width={140}
               height={60}
-              className="h-10 w-auto object-contain grayscale opacity-80 hover:opacity-100 hover:grayscale-0 transition-all duration-300 dark:brightness-0 dark:invert dark:opacity-70 dark:hover:opacity-100"
+              className="h-11 w-auto object-contain opacity-95 hover:opacity-100 transition-opacity duration-300 dark:brightness-110"
             />
           ))}
         </div>
