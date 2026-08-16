@@ -8,7 +8,6 @@ import Stack from './components/Stack';
 import WhySkal from './components/WhySkal';
 import Navbar from './components/Navbar';
 import ScrollProgress from './components/ScrollProgress';
-import TrustedBy from './components/TrustedBy';
 import FloatingThemeToggle from './components/FloatingThemeToggle';
 
 const ContactForm = dynamic(() => import('./components/ContactForm'));
@@ -31,7 +30,6 @@ export default function Home() {
         </div>
       </section>
       <WhySkal />
-      <TrustedBy />
       <ContactForm />
       <Footer />
       <FloatingThemeToggle />

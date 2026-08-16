@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { ArrowRight } from 'lucide-react';
 
 const VIDEO_SRC = '/video/product-loop.mp4';
@@ -104,38 +105,62 @@ export default function ProductInMotion() {
   );
 }
 
-/* The frame shown until a real recording is dropped in. It names the four
-   surfaces and says nothing it cannot back up — no invented metrics, no live
-   badge, no fake feed. */
+/* What shipped, actually shown.
+
+   This frame used to be a text card standing in for a product recording that
+   was never supplied, which left the largest picture-shaped hole on the site
+   filled with more words. These are the real thing: `tools/render-ui.js` in the
+   Sky repo boots `popup.html` and `content.js` off disk behind a `chrome.*`
+   shim, so what was captured is the actual panel and the actual in-page card in
+   its shadow DOM — the shipped interface, not a mockup of it.
+
+   The lead in them is fabricated and says so in the caption. Rendering a real
+   customer's message here would put someone's contact details on a marketing
+   page, which is a worse trade than a made-up name.
+
+   If a recording ever does land at VIDEO_SRC it still takes over on top. */
 function StillFrame() {
-  const surfaces = [
-    ['Sky', 'lead capture'],
-    ['Systems', 'voice and chat'],
-    ['Services', 'custom builds'],
-    ['Staffing', 'embedded operators'],
-  ];
-
   return (
-    <div className="absolute inset-0 flex flex-col p-6 sm:p-10 lg:p-14">
-      <span className="t-label !text-band-2">skal.ai / production</span>
+    <div className="absolute inset-0 flex flex-col sm:flex-row items-stretch gap-6 p-6 sm:p-8 lg:p-12">
+      <div className="flex flex-col justify-between shrink-0 sm:max-w-[34%]">
+        <span className="t-label !text-band-2">skal.ai / sky</span>
 
-      {/* Centred, so the frame reads as composed rather than as a box with a
-          caption stuck to the floor. */}
-      <div className="flex-1 flex items-center">
-        <p className="font-display text-[clamp(1.4rem,3.4vw,2.6rem)] leading-[1.15] text-band-ink max-w-[20ch]">
-          Systems in production across{' '}
-          <span className="text-band-accent">four surfaces.</span>
+        <p className="font-display text-[clamp(1.15rem,2.4vw,1.9rem)] leading-[1.15] text-band-ink mt-4 sm:mt-0">
+          You highlight it.{' '}
+          <span className="text-band-accent">Sky does the rest.</span>
+        </p>
+
+        <p className="hidden sm:block font-mono text-[11px] uppercase tracking-[0.12em] text-band-2 leading-relaxed">
+          The review card and the panel,
+          <br />
+          rendered from the shipped extension.
+          <br />
+          Sample lead, not a customer.
         </p>
       </div>
 
-      <ul className="grid grid-cols-2 sm:grid-cols-4 gap-y-4 gap-x-6 border-t border-band-rule pt-5">
-        {surfaces.map(([name, what]) => (
-          <li key={name}>
-            <div className="font-mono text-[12px] uppercase tracking-[0.12em] text-band-ink">{name}</div>
-            <div className="font-mono text-[12px] uppercase tracking-[0.12em] text-band-2 mt-1">{what}</div>
-          </li>
-        ))}
-      </ul>
+      {/* Both shots are portrait and the frame is 16:9, so they are laid out
+          against the bottom edge and allowed to run past it. Scaling them to
+          fit would have made the type inside them unreadable, which defeats
+          the point of showing a real interface. */}
+      <div className="relative flex-1 hidden sm:block">
+        <div className="absolute inset-x-0 bottom-[-12%] top-[2%] flex items-start justify-center gap-5 lg:gap-8">
+          <Image
+            src="/product/sky-review-card.png"
+            alt="Sky's in-page review card, showing a captured lead scored 76 as a strong fit"
+            width={690}
+            height={1600}
+            className="h-full w-auto object-contain object-top border border-band-rule"
+          />
+          <Image
+            src="/product/sky-panel.png"
+            alt="Sky's side panel, showing leads that need attention and recent captures"
+            width={800}
+            height={1560}
+            className="h-full w-auto object-contain object-top border border-band-rule hidden lg:block"
+          />
+        </div>
+      </div>
     </div>
   );
 }
