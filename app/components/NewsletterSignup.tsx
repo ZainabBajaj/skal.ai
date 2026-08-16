@@ -28,21 +28,21 @@ export default function NewsletterSignup() {
           disabled={isSending || isSuccess}
           placeholder="your@email.com"
           aria-label="Email address"
-          className="flex-1 px-5 py-4 border border-gray-200 dark:border-gray-700 rounded-2xl focus:ring-2 focus:ring-[#009bd7]/30 focus:border-[#009bd7] dark:focus:border-[#00E1FF] focus:outline-none bg-white/90 dark:bg-gray-800/90 text-gray-800 dark:text-white placeholder-gray-400 transition-all duration-300 disabled:opacity-60"
+          className="flex-1 bg-transparent border-b border-rule py-3 text-[0.9375rem] text-ink placeholder:text-ink-3/70 focus:outline-none focus:border-ink transition-colors disabled:opacity-60"
         />
         <button
           type="submit"
           disabled={isSending || isSuccess}
-          className="group inline-flex items-center justify-center gap-2 px-6 py-4 bg-gradient-to-r from-[#009bd7] to-[#00E1FF] text-white font-bold rounded-2xl transition-all duration-300 hover:shadow-xl hover:shadow-[#009bd7]/25 hover:scale-105 disabled:opacity-60 disabled:hover:scale-100 disabled:cursor-not-allowed"
+          className="btn btn-solid group disabled:opacity-60"
         >
           <span>{isSending ? 'Subscribing…' : isSuccess ? 'Subscribed' : 'Subscribe'}</span>
-          {!isSuccess && <ArrowRight className={`w-5 h-5 ${isSending ? 'animate-pulse' : 'group-hover:translate-x-1'} transition-transform`} />}
-          {isSuccess && <CheckCircle className="w-5 h-5" />}
+          {!isSuccess && <ArrowRight className={`w-4 h-4 ${isSending ? 'animate-pulse' : 'group-hover:translate-x-0.5'} transition-transform`} />}
+          {isSuccess && <CheckCircle className="w-4 h-4" />}
         </button>
       </form>
 
       {status.type === 'success' && (
-        <p className="mt-4 text-sm text-gray-600 dark:text-gray-300 text-center">
+        <p className="mt-4 text-sm text-ink-2 text-center">
           You are on the list. New stories land in your inbox.
         </p>
       )}
@@ -53,7 +53,7 @@ export default function NewsletterSignup() {
         </p>
       )}
 
-      <p className="mt-3 text-xs text-gray-500 dark:text-gray-400 text-center">
+      <p className="mt-3 text-xs text-ink-3 text-center">
         No spam. Unsubscribe any time.
       </p>
     </div>

@@ -124,7 +124,7 @@ function StillFrame() {
       <div className="flex-1 flex items-center">
         <p className="font-display text-[clamp(1.4rem,3.4vw,2.6rem)] leading-[1.15] text-band-ink max-w-[20ch]">
           Systems in production across{' '}
-          <em className="italic text-band-accent">four surfaces.</em>
+          <span className="text-band-accent">four surfaces.</span>
         </p>
       </div>
 

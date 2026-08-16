@@ -102,7 +102,7 @@ const ProductSplit = () => {
                         {s.badge}
                       </span>
                     )}
-                    <span className="font-display text-ink-2 text-[1.05rem] italic">
+                    <span className="text-ink-2 text-[0.95rem]">
                       {s.claim}
                     </span>
                   </h3>

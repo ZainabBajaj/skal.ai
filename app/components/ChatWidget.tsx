@@ -275,7 +275,7 @@ export default function ChatWidget() {
           </div>
 
           {/* Actions */}
-          <div className="px-5 py-4 bg-white dark:bg-gray-900 border-t border-gray-100 dark:border-gray-800">
+          <div className="px-5 py-4 bg-surface border-t border-rule">
             {step === 'summary' ? (
               <div className="space-y-2">
                 <Link
@@ -295,7 +295,7 @@ export default function ChatWidget() {
                 </button>
                 <button
                   onClick={reset}
-                  className="w-full text-xs text-gray-500 dark:text-gray-400 hover:text-signal py-1 transition-colors"
+                  className="w-full text-xs text-ink-3 hover:text-signal py-1 transition-colors"
                 >
                   Start over
                 </button>
@@ -377,7 +377,7 @@ export default function ChatWidget() {
                 ))}
               </div>
             )}
-            <div className="mt-3 text-[10px] text-center text-gray-400 dark:text-gray-500">
+            <div className="mt-3 text-[10px] text-center text-ink-3">
               Not a live chat. This is a guided qualifier.
             </div>
           </div>

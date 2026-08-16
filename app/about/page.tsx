@@ -26,7 +26,7 @@ export default function AboutPage() {
             <div className="lg:col-span-7 rise" style={{ animationDelay: '120ms' }}>
               <h1 className="font-display t-hero text-ink max-w-[13ch]">
                 Practitioners, not{' '}
-                <em className="italic text-signal">generalists.</em>
+                <span className="accent">generalists.</span>
               </h1>
 
               <p className="t-lead mt-8 max-w-[48ch]">
@@ -135,7 +135,7 @@ export default function AboutPage() {
                 <strong>Data Science and Business Analytics</strong>, earning a{' '}
                 <strong>London School of Economics Letter of Commendation</strong>.
                 I designed a course,{' '}
-                <em className="font-display italic text-ink">
+                <em className="italic text-ink font-medium">
                   Transforming Organisations with Data Storytelling
                 </em>
                 , which is delivered at the National University of Singapore.
@@ -158,9 +158,9 @@ export default function AboutPage() {
             <blockquote className="mt-14 pt-8 border-t border-rule">
               <p className="font-display text-[clamp(1.5rem,3vw,2.15rem)] leading-[1.2] text-ink">
                 That is what we build at SKAL. Not experiments. Not demos.{' '}
-                <em className="italic text-signal">
+                <span className="accent">
                   Systems that run inside real businesses.
-                </em>
+                </span>
               </p>
             </blockquote>
 

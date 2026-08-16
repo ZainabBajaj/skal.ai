@@ -18,7 +18,7 @@ export interface PageHeroProps {
   eyebrow: string;
   /** Right side of the opening rule. */
   meta?: string;
-  /** The claim. Plain text runs in ink; `emphasis` is set in italic signal. */
+  /** The claim. Plain text runs in ink; `emphasis` is picked out in signal. */
   title: string;
   emphasis?: string;
   lead: ReactNode;
@@ -54,7 +54,7 @@ export default function PageHero({
           {emphasis && (
             <>
               {' '}
-              <em className="italic text-signal">{emphasis}</em>
+              <span className="accent">{emphasis}</span>
             </>
           )}
         </h1>

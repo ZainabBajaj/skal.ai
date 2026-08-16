@@ -95,7 +95,7 @@ export default function SystemsPage() {
                 <div className="grid grid-cols-1 lg:grid-cols-12 gap-y-6 lg:gap-x-8 py-10 lg:py-12">
                   <div className="lg:col-span-4">
                     <h3 className="font-display t-h3 text-ink">{name}</h3>
-                    <p className="font-display italic text-ink-2 text-[1.05rem] mt-2 max-w-[26ch]">
+                    <p className="text-ink-2 text-[0.9375rem] leading-relaxed mt-2 max-w-[30ch]">
                       {tagline}
                     </p>
                   </div>

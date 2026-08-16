@@ -58,8 +58,8 @@ export default {
         black: '#0f172a',
       },
       fontFamily: {
-        sans:    ['var(--font-geist-sans)', 'ui-sans-serif', 'system-ui', 'sans-serif'],
-        display: ['var(--font-newsreader)', 'Iowan Old Style', 'Georgia', 'serif'],
+        sans:    ['var(--font-body)', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+        display: ['var(--font-display)', 'ui-sans-serif', 'system-ui', 'sans-serif'],
         mono:    ['var(--font-geist-mono)', 'ui-monospace', 'SFMono-Regular', 'monospace'],
       },
       maxWidth: {

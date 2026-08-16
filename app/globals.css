@@ -7,9 +7,9 @@
 
    Two registers, meeting. That is the company's whole thesis: businesses that
    want AI systems cannot build them, and teams that can build them do not know
-   business. So the page is set in two voices — an editorial serif (Newsreader)
-   for anything that makes a claim, and a machine mono (Geist Mono) for anything
-   that states a fact. The neutral grotesque body sits between them.
+   business. So the page is set in two voices — a tight, heavy grotesque
+   (Inter Tight) for anything that makes a claim, and a machine mono (Geist
+   Mono) for anything that states a fact. Inter carries the reading copy.
 
    No gradients. Structure comes from hairline rules and space.
    ========================================================================== */
@@ -70,7 +70,7 @@ html {
 body {
   color: var(--ink);
   background: var(--paper);
-  font-family: var(--font-geist-sans), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-family: var(--font-body), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   font-size: 1rem;
   line-height: 1.7;
   -webkit-font-smoothing: antialiased;
@@ -111,25 +111,31 @@ body,
 /* ----------------------------------------------------------- typography ---- */
 
 .font-display {
-  font-family: var(--font-newsreader), "Iowan Old Style", Georgia, serif;
-  font-weight: 400;
-  font-variation-settings: "opsz" 36;
-  letter-spacing: -0.02em;
+  font-family: var(--font-display), -apple-system, "Segoe UI", sans-serif;
+  font-weight: 600;
+  letter-spacing: -0.035em;
+}
+
+/* The emphasised clause inside a claim. A sans has no display italic worth
+   using at this size, so emphasis is carried by colour alone. */
+.accent {
+  font-style: normal;
+  color: var(--signal);
 }
 
 .t-hero {
-  font-size: clamp(2.6rem, 6.4vw, 5rem);
-  line-height: 1.02;
+  font-size: clamp(2.5rem, 6vw, 4.6rem);
+  line-height: 1.04;
 }
 
 .t-h2 {
-  font-size: clamp(1.9rem, 4vw, 3rem);
-  line-height: 1.08;
+  font-size: clamp(1.8rem, 3.7vw, 2.75rem);
+  line-height: 1.1;
 }
 
 .t-h3 {
-  font-size: clamp(1.35rem, 2.2vw, 1.75rem);
-  line-height: 1.18;
+  font-size: clamp(1.25rem, 2vw, 1.55rem);
+  line-height: 1.2;
 }
 
 .t-lead {
@@ -211,6 +217,50 @@ body,
 /* A hairline that spans the full shell, used between rows and sections. */
 .hair { border-top: 1px solid var(--rule); }
 .hair-faint { border-top: 1px solid var(--rule-2); }
+
+/* ------------------------------------------------------- long-form prose ---
+
+   The legal and policy routes render markdown-shaped content. One class here
+   beats a forty-modifier `prose-*` string repeated on every page, and it reads
+   from the same tokens as everything else.
+   -------------------------------------------------------------------------- */
+
+.prose-skal {
+  font-size: 1.0625rem;
+  line-height: 1.78;
+  color: var(--ink-2);
+}
+.prose-skal h2 {
+  font-family: var(--font-display), sans-serif;
+  font-weight: 600;
+  letter-spacing: -0.025em;
+  font-size: clamp(1.25rem, 2vw, 1.55rem);
+  line-height: 1.2;
+  color: var(--ink);
+  margin-top: 3rem;
+  margin-bottom: 1rem;
+}
+.prose-skal h3 {
+  font-weight: 600;
+  font-size: 1.0625rem;
+  color: var(--ink);
+  margin-top: 2rem;
+  margin-bottom: .5rem;
+}
+.prose-skal p { margin-bottom: 1.25rem; }
+.prose-skal ul, .prose-skal ol { margin: 0 0 1.25rem 1.1rem; }
+.prose-skal ul { list-style: disc; }
+.prose-skal ol { list-style: decimal; }
+.prose-skal li { margin-bottom: .5rem; padding-left: .25rem; }
+.prose-skal strong { color: var(--ink); font-weight: 600; }
+.prose-skal a {
+  color: var(--ink);
+  text-decoration: none;
+  border-bottom: 1px solid var(--rule);
+  transition: border-color .18s ease, color .18s ease;
+}
+.prose-skal a:hover { color: var(--signal); border-bottom-color: var(--signal); }
+.prose-skal > :first-child { margin-top: 0; }
 
 /* --------------------------------------------------------------- links ----- */
 

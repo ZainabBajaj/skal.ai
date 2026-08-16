@@ -28,7 +28,7 @@ const BrandHero = () => {
           style={{ animationDelay: '120ms' }}
         >
           Systems that run inside{' '}
-          <em className="italic text-signal">real businesses.</em>
+          <span className="accent">real businesses.</span>
         </h1>
 
         <p

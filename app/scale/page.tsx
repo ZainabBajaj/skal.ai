@@ -1,6 +1,6 @@
 'use client';
 
-import { TrendingUp, Zap, Target, Database, Send, ArrowRight, Sparkles, Mail, CheckCircle, DollarSign } from 'lucide-react';
+import { Zap, Target, Database, ArrowRight, Mail, CheckCircle } from 'lucide-react';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import HowItWorks from '../components/HowItWorks';
@@ -62,47 +62,53 @@ export default function ScalePage() {
   ];
 
   return (
-    <main className="relative min-h-screen">
+    <main className="min-h-screen bg-paper">
       <Navbar />
 
       {/* Scale Hero */}
-      <section className="pt-28 pb-12 sm:pt-32 sm:pb-14 lg:pt-36 lg:pb-16 relative overflow-hidden bg-gradient-to-br from-slate-50 via-white to-blue-50 dark:from-gray-900 dark:via-gray-800 dark:to-blue-900">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-16 max-w-7xl mx-auto">
+      <section className="pt-28 lg:pt-36 pb-10 lg:pb-14">
+        <div className="shell">
+          <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-16">
             {/* Left: Text */}
-            <div className="flex-1 text-center lg:text-left">
-              <div className="inline-flex items-center space-x-2 bg-gradient-to-r from-[#009bd7]/10 to-[#00E1FF]/10 dark:from-[#009bd7]/20 dark:to-[#00E1FF]/20 rounded-full px-6 py-2 mb-6 backdrop-blur-sm border border-[#009bd7]/20 dark:border-[#00E1FF]/30">
-                <TrendingUp className="w-4 h-4 text-[#009bd7] dark:text-[#00E1FF]" />
-                <span className="text-[#009bd7] dark:text-[#00E1FF] text-sm font-bold tracking-wider">SKAL SCALE</span>
-                <span className="ml-2 px-2 py-0.5 text-xs font-bold bg-gradient-to-r from-[#009bd7] to-[#00E1FF] text-white rounded-full">EARLY ACCESS</span>
+            <div className="flex-1">
+              <div className="spec">
+                <span className="t-label t-label--ink">SKAL Scale</span>
+                <span className="t-label">Early access</span>
               </div>
 
-              <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-6xl xl:text-7xl font-bold text-[#0f172a] dark:text-white mb-6 leading-snug pb-1">
-                AI That{' '}
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#009bd7] via-[#00E1FF] to-[#1DB5C5]">
-                  Sells
-                </span>
+              <h1 className="font-display t-hero text-ink mt-10 max-w-[14ch]">
+                Pipeline that does not depend on how hard you{' '}
+                <span className="accent">hustle.</span>
               </h1>
 
-              <p className="text-lg text-[#009bd7] dark:text-[#00E1FF] font-semibold max-w-xl mx-auto lg:mx-0 mb-4">
-                For B2B founders done doing outbound manually.
+              <p className="t-lead mt-8 max-w-[50ch]">
+                SKAL Scale runs your entire outbound operation. AI prospecting,
+                personalised sequences, and a proprietary contact database built
+                in-house and exclusive to Scale. We handle the stack. You show up
+                to the meetings.
               </p>
 
-              <p className="text-lg sm:text-xl text-gray-600 dark:text-gray-300 max-w-xl mx-auto lg:mx-0 leading-relaxed mb-4">
-                Your pipeline should not depend on how hard you hustle. SKAL Scale runs your entire outbound operation. AI prospecting, personalised sequences, and a proprietary contact database built in-house and exclusive to SKAL Scale.
-              </p>
+              <div className="mt-10">
+                <a href="#waitlist" className="btn btn-solid group">
+                  Join the waitlist
+                  <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-0.5" strokeWidth={1.75} />
+                </a>
+              </div>
 
-              <p className="text-lg sm:text-xl text-gray-600 dark:text-gray-300 max-w-xl mx-auto lg:mx-0 leading-relaxed mb-8">
-                We handle the stack. You show up to the meetings. You only pay when a qualified meeting lands on your calendar.
-              </p>
-
-              <a
-                href="#waitlist"
-                className="group inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-[#009bd7] to-[#00E1FF] text-white font-bold rounded-2xl transition-all duration-300 hover:shadow-xl hover:shadow-[#009bd7]/25 hover:scale-105"
-              >
-                Join the Waitlist
-                <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-              </a>
+              <dl className="spec mt-14">
+                <div className="w-full grid grid-cols-1 sm:grid-cols-3 gap-y-4 gap-x-10">
+                  {[
+                    { k: 'What you buy', v: 'Qualified meetings' },
+                    { k: 'Terms', v: 'Pay per meeting' },
+                    { k: 'First pipeline', v: 'Day three' },
+                  ].map(({ k, v }) => (
+                    <div key={k}>
+                      <dt className="t-label">{k}</dt>
+                      <dd className="t-label t-label--ink mt-1">{v}</dd>
+                    </div>
+                  ))}
+                </div>
+              </dl>
             </div>
 
             {/* Right: Abstract Visual: Growth / Pipeline funnel */}
@@ -222,41 +228,37 @@ export default function ScalePage() {
       </section>
 
       {/* What it does */}
-      <section className="py-14 lg:py-20 relative bg-white dark:bg-gray-800">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <div className="inline-flex items-center space-x-2 bg-gradient-to-r from-[#009bd7]/10 to-[#00E1FF]/10 dark:from-[#009bd7]/20 dark:to-[#00E1FF]/20 rounded-full px-6 py-2 mb-6 border border-[#009bd7]/20 dark:border-[#00E1FF]/30">
-              <Sparkles className="w-4 h-4 text-[#009bd7] dark:text-[#00E1FF]" />
-              <span className="text-[#009bd7] dark:text-[#00E1FF] text-sm font-bold tracking-wider">WHAT IT DOES</span>
+      <section className="band bg-surface">
+        <div className="shell">
+          <div className="mb-14">
+            <div className="mb-6">
+              <span className="t-label">WHAT IT DOES</span>
             </div>
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-[#0f172a] dark:text-white mb-6 leading-snug pb-1">
+            <h2 className="font-display t-h2 text-ink mb-6 max-w-[18ch]">
               The full outbound stack. None of the grind.
             </h2>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {features.map((feature) => {
               const Icon = feature.icon;
               return (
                 <div
                   key={feature.title}
-                  className="group relative bg-white/80 dark:bg-gray-800/80 backdrop-blur-xl p-8 rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 border border-gray-200/50 dark:border-gray-700/50 overflow-hidden"
+                  className="group border border-rule bg-surface p-8 transition-colors duration-200 hover:border-ink"
                 >
-                  <div className="absolute inset-0 bg-gradient-to-br from-[#009bd7]/5 to-transparent rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
 
                   <div className="relative z-10">
-                    <div className="w-14 h-14 bg-gradient-to-br from-[#009bd7] to-[#00E1FF] rounded-2xl flex items-center justify-center mb-6">
+                    <div className="mb-6 text-signal">
                       <Icon className="w-7 h-7 text-white" />
                     </div>
-                    <h3 className="text-xl font-bold text-[#0f172a] dark:text-white mb-3 group-hover:text-[#009bd7] transition-colors">
+                    <h3 className="text-xl font-bold text-ink mb-3 group-hover:text-signal transition-colors">
                       {feature.title}
                     </h3>
-                    <p className="text-gray-600 dark:text-gray-300 leading-relaxed">
+                    <p className="text-ink-2 leading-relaxed">
                       {feature.description}
                     </p>
                   </div>
-
-                  <div className="absolute bottom-0 left-0 right-0 h-1.5 bg-gradient-to-r from-[#009bd7] via-[#00E1FF] to-[#009bd7] rounded-b-3xl transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-center"></div>
                 </div>
               );
             })}
@@ -272,37 +274,36 @@ export default function ScalePage() {
       />
 
       {/* Pricing */}
-      <section className="py-14 lg:py-20 relative bg-white dark:bg-gray-800">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <div className="inline-flex items-center space-x-2 bg-gradient-to-r from-[#009bd7]/10 to-[#00E1FF]/10 dark:from-[#009bd7]/20 dark:to-[#00E1FF]/20 rounded-full px-6 py-2 mb-6 border border-[#009bd7]/20 dark:border-[#00E1FF]/30">
-              <DollarSign className="w-4 h-4 text-[#009bd7] dark:text-[#00E1FF]" />
-              <span className="text-[#009bd7] dark:text-[#00E1FF] text-sm font-bold tracking-wider">PRICING</span>
+      <section className="band bg-surface">
+        <div className="shell">
+          <div className="mb-12">
+            <div className="mb-6">
+              <span className="t-label">PRICING</span>
             </div>
-            <h2 className="text-3xl sm:text-4xl font-bold text-[#0f172a] dark:text-white mb-4 leading-snug pb-1">
+            <h2 className="font-display t-h2 text-ink mb-5 max-w-[18ch]">
               You pay when it works.
             </h2>
-            <p className="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
+            <p className="t-lead max-w-[52ch]">
               Pricing shared on your discovery call. Joining the waitlist is free.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div className="text-center md:text-left">
-              <h3 className="text-xl font-bold text-[#0f172a] dark:text-white mb-3">Pay-per-outcome</h3>
-              <p className="text-gray-600 dark:text-gray-300 leading-relaxed">
+              <h3 className="font-display t-h3 text-ink mb-3">Pay-per-outcome</h3>
+              <p className="text-ink-2 leading-relaxed">
                 You pay per qualified meeting that lands on your calendar. No-shows do not count.
               </p>
             </div>
             <div className="text-center md:text-left">
-              <h3 className="text-xl font-bold text-[#0f172a] dark:text-white mb-3">What counts as qualified</h3>
-              <p className="text-gray-600 dark:text-gray-300 leading-relaxed">
+              <h3 className="font-display t-h3 text-ink mb-3">What counts as qualified</h3>
+              <p className="text-ink-2 leading-relaxed">
                 A confirmed, attended call with a decider at a B2B company who has expressed active interest.
               </p>
             </div>
             <div className="text-center md:text-left">
-              <h3 className="text-xl font-bold text-[#0f172a] dark:text-white mb-3">The setup fee</h3>
-              <p className="text-gray-600 dark:text-gray-300 leading-relaxed">
+              <h3 className="font-display t-h3 text-ink mb-3">The setup fee</h3>
+              <p className="text-ink-2 leading-relaxed">
                 A small one-time fee covers ICP definition, database build, and campaign launch.
               </p>
             </div>
@@ -311,23 +312,21 @@ export default function ScalePage() {
       </section>
 
       {/* Waitlist Form */}
-      <section id="waitlist" className="py-14 lg:py-20 relative bg-gradient-to-br from-slate-50 via-white to-blue-50 dark:from-gray-900 dark:via-gray-800 dark:to-blue-900">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-2xl mx-auto text-center">
-            <div className="inline-flex items-center space-x-2 bg-gradient-to-r from-[#009bd7]/10 to-[#00E1FF]/10 dark:from-[#009bd7]/20 dark:to-[#00E1FF]/20 rounded-full px-6 py-2 mb-6 border border-[#009bd7]/20 dark:border-[#00E1FF]/30">
-              <Send className="w-4 h-4 text-[#009bd7] dark:text-[#00E1FF]" />
-              <span className="text-[#009bd7] dark:text-[#00E1FF] text-sm font-bold tracking-wider">EARLY ACCESS</span>
+      <section id="waitlist" className="band">
+        <div className="shell">
+          <div className="max-w-[54ch] text-center">
+            <div className="mb-6">
+              <span className="t-label">EARLY ACCESS</span>
             </div>
 
-            <h2 className="text-3xl sm:text-4xl font-bold text-[#0f172a] dark:text-white mb-4 leading-snug pb-1">
+            <h2 className="font-display t-h2 text-ink mb-5 max-w-[18ch]">
               Limited spots available.
             </h2>
-            <p className="text-gray-600 dark:text-gray-300 mb-10 text-lg">
+            <p className="text-ink-2 mb-10 text-lg">
               We are onboarding a small number of founding clients to stress-test the system before we scale. Founding clients also get first access to the AI-native CRM coming next. If you are a B2B founder done doing outbound manually, this is your spot.
             </p>
 
-            <div ref={formRef} className="bg-white/80 dark:bg-gray-800/80 backdrop-blur-xl rounded-3xl shadow-2xl p-8 sm:p-10 border border-white/50 dark:border-gray-700/50 relative overflow-hidden">
-              <div className="absolute inset-0 bg-gradient-to-br from-[#009bd7]/5 via-transparent to-[#00E1FF]/5 pointer-events-none"></div>
+            <div ref={formRef} className="border border-rule bg-surface p-8 sm:p-10">
 
               <form onSubmit={(e) => handleSubmit(e, { source: 'waitlist_scale', from_name: formData.name, reply_to: formData.email, website: formData.company, idea: 'SKAL Scale Early Access Waitlist', outcome: 'Early access to SKAL Scale platform', budget: 'N/A' })} className="relative z-10 space-y-5">
                 <div>
@@ -338,7 +337,7 @@ export default function ScalePage() {
                     onChange={handleChange}
                     required
                     placeholder="Your name"
-                    className="w-full px-6 py-4 border border-gray-200 dark:border-gray-600 rounded-2xl focus:ring-2 focus:ring-[#009bd7]/20 focus:border-[#009bd7] dark:focus:border-[#00E1FF] bg-white/90 dark:bg-gray-700/90 text-gray-800 dark:text-white placeholder-gray-400 transition-all duration-300"
+                    className="w-full bg-transparent border-b border-rule py-3 text-[0.9375rem] text-ink placeholder:text-ink-3/70 focus:outline-none focus:border-ink transition-colors"
                   />
                 </div>
                 <div>
@@ -349,7 +348,7 @@ export default function ScalePage() {
                     onChange={handleChange}
                     required
                     placeholder="your@email.com"
-                    className="w-full px-6 py-4 border border-gray-200 dark:border-gray-600 rounded-2xl focus:ring-2 focus:ring-[#009bd7]/20 focus:border-[#009bd7] dark:focus:border-[#00E1FF] bg-white/90 dark:bg-gray-700/90 text-gray-800 dark:text-white placeholder-gray-400 transition-all duration-300"
+                    className="w-full bg-transparent border-b border-rule py-3 text-[0.9375rem] text-ink placeholder:text-ink-3/70 focus:outline-none focus:border-ink transition-colors"
                   />
                 </div>
                 <div>
@@ -359,14 +358,14 @@ export default function ScalePage() {
                     value={formData.company}
                     onChange={handleChange}
                     placeholder="Company name (optional)"
-                    className="w-full px-6 py-4 border border-gray-200 dark:border-gray-600 rounded-2xl focus:ring-2 focus:ring-[#009bd7]/20 focus:border-[#009bd7] dark:focus:border-[#00E1FF] bg-white/90 dark:bg-gray-700/90 text-gray-800 dark:text-white placeholder-gray-400 transition-all duration-300"
+                    className="w-full bg-transparent border-b border-rule py-3 text-[0.9375rem] text-ink placeholder:text-ink-3/70 focus:outline-none focus:border-ink transition-colors"
                   />
                 </div>
 
                 <button
                   type="submit"
                   disabled={status.type === 'sending'}
-                  className="w-full group relative inline-flex items-center justify-center gap-3 px-8 py-4 bg-gradient-to-r from-[#009bd7] to-[#00E1FF] text-white font-bold rounded-2xl transition-all duration-300 hover:shadow-xl hover:shadow-[#009bd7]/25 hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100"
+                  className="btn btn-solid group w-full disabled:opacity-50"
                 >
                   <span>{status.type === 'sending' ? 'Joining...' : 'Join the Waitlist'}</span>
                   <ArrowRight className={`w-5 h-5 ${status.type === 'sending' ? 'animate-pulse' : 'group-hover:translate-x-1'} transition-transform`} />
@@ -387,17 +386,17 @@ export default function ScalePage() {
               </form>
             </div>
 
-            <div className="mt-8 grid grid-cols-1 sm:grid-cols-3 gap-4 text-sm text-gray-500 dark:text-gray-400">
+            <div className="mt-8 grid grid-cols-1 sm:grid-cols-3 gap-4 text-sm text-ink-3">
               <div className="flex items-start justify-center gap-2 text-center sm:text-left">
-                <CheckCircle className="w-4 h-4 mt-0.5 shrink-0 text-[#009bd7]" />
+                <CheckCircle className="w-4 h-4 mt-0.5 shrink-0 text-signal" />
                 <span>No credit card required</span>
               </div>
               <div className="flex items-start justify-center gap-2 text-center sm:text-left">
-                <CheckCircle className="w-4 h-4 mt-0.5 shrink-0 text-[#009bd7]" />
+                <CheckCircle className="w-4 h-4 mt-0.5 shrink-0 text-signal" />
                 <span>Pricing shared on your call</span>
               </div>
               <div className="flex items-start justify-center gap-2 text-center sm:text-left">
-                <CheckCircle className="w-4 h-4 mt-0.5 shrink-0 text-[#009bd7]" />
+                <CheckCircle className="w-4 h-4 mt-0.5 shrink-0 text-signal" />
                 <span>Founding-client pricing locked in</span>
               </div>
             </div>

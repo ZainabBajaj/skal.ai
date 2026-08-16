@@ -1,4 +1,4 @@
-import { FileText } from 'lucide-react';
+
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import FloatingThemeToggle from '../components/FloatingThemeToggle';
@@ -13,31 +13,30 @@ export const metadata: Metadata = {
 
 export default function TermsPage() {
   return (
-    <main className="relative min-h-screen">
+    <main className="min-h-screen bg-paper">
       <Navbar />
 
       {/* Header */}
-      <section className="pt-28 pb-10 sm:pt-32 sm:pb-12 lg:pt-36 lg:pb-14 relative overflow-hidden bg-gradient-to-br from-slate-50 via-white to-blue-50 dark:from-gray-900 dark:via-gray-800 dark:to-blue-900">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="max-w-3xl mx-auto">
-            <div className="inline-flex items-center space-x-2 bg-gradient-to-r from-[#009bd7]/10 to-[#00E1FF]/10 dark:from-[#009bd7]/20 dark:to-[#00E1FF]/20 rounded-full px-6 py-2 mb-6 backdrop-blur-sm border border-[#009bd7]/20 dark:border-[#00E1FF]/30">
-              <FileText className="w-4 h-4 text-[#009bd7] dark:text-[#00E1FF]" />
-              <span className="text-[#009bd7] dark:text-[#00E1FF] text-sm font-bold tracking-wider">LEGAL</span>
+      <section className="pt-28 lg:pt-36 pb-10 lg:pb-14">
+        <div className="shell">
+          <div className="max-w-[58ch]">
+            <div className="mb-6">
+              <span className="text-signal text-sm font-bold tracking-wider">LEGAL</span>
             </div>
 
-            <h1 className="text-4xl sm:text-5xl font-bold text-[#0f172a] dark:text-white mb-4 leading-snug pb-1">
+            <h1 className="font-display t-hero text-ink mb-4 max-w-[18ch]">
               Terms &amp; Conditions
             </h1>
 
-            <p className="text-sm text-gray-500 dark:text-gray-400">Last updated: 27 April 2026</p>
+            <p className="text-sm text-ink-3">Last updated: 27 April 2026</p>
           </div>
         </div>
       </section>
 
       {/* Body */}
-      <section className="py-12 lg:py-16 relative bg-white dark:bg-gray-800">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-3xl mx-auto prose prose-lg dark:prose-invert prose-headings:text-[#0f172a] dark:prose-headings:text-white prose-headings:font-bold prose-h2:text-2xl sm:prose-h2:text-3xl prose-h2:mt-10 prose-h2:mb-4 prose-p:text-gray-700 dark:prose-p:text-gray-300 prose-p:leading-relaxed prose-a:text-[#009bd7] dark:prose-a:text-[#00E1FF] prose-strong:text-[#0f172a] dark:prose-strong:text-white">
+      <section className="py-12 lg:py-16 relative bg-surface">
+        <div className="shell">
+          <div className="shell-tight prose-skal">
             <h2>1. Agreement</h2>
             <p>
               By using <a href="https://skal.ai">skal.ai</a> or engaging SKAL for any service, you agree to these terms.

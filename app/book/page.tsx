@@ -46,27 +46,27 @@ const expectations = [
 
 export default function BookPage() {
   return (
-    <main className="relative min-h-screen">
+    <main className="min-h-screen bg-paper">
       <Navbar />
 
       {/* Hero */}
-      <section className="pt-28 pb-12 sm:pt-32 sm:pb-14 lg:pt-36 lg:pb-16 relative overflow-hidden bg-gradient-to-br from-slate-50 via-white to-blue-50 dark:from-gray-900 dark:via-gray-800 dark:to-blue-900">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="max-w-3xl mx-auto text-center">
-            <div className="text-[11px] sm:text-xs font-bold tracking-[0.22em] text-[#009bd7] dark:text-[#00E1FF] mb-4 animate-fade-in-up">
+      <section className="pt-28 lg:pt-36 pb-10 lg:pb-14">
+        <div className="shell">
+          <div className="max-w-[54ch]">
+            <div className="text-[11px] sm:text-xs font-bold tracking-[0.22em] text-signal mb-4 animate-fade-in-up">
               DISCOVERY CALL
             </div>
             <h1
-              className="text-4xl sm:text-5xl md:text-6xl lg:text-6xl font-bold text-[#0f172a] dark:text-white mb-6 leading-tight tracking-tight animate-fade-in-up"
+              className="text-4xl sm:text-5xl md:text-6xl lg:text-6xl font-bold text-ink mb-6 leading-tight tracking-tight animate-fade-in-up"
               style={{ animationDelay: '80ms' }}
             >
               Let&apos;s see if we&apos;re a{' '}
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#009bd7] via-[#00E1FF] to-[#1DB5C5]">
+              <span className="accent">
                 fit.
               </span>
             </h1>
             <p
-              className="text-lg sm:text-xl text-gray-600 dark:text-gray-300 leading-relaxed animate-fade-in-up"
+              className="text-lg sm:text-xl text-ink-2 leading-relaxed animate-fade-in-up"
               style={{ animationDelay: '160ms' }}
             >
               A focused 30-minute call to understand what you are building, where the
@@ -79,14 +79,14 @@ export default function BookPage() {
 
       {/* Calendly */}
       <section className="pt-4 pb-12 sm:pt-6 sm:pb-16 bg-white dark:bg-[#0a0a0a]">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-5xl mx-auto">
-            <div className="rounded-2xl sm:rounded-3xl overflow-hidden border border-gray-100 dark:border-gray-800 bg-white dark:bg-[#111] shadow-2xl shadow-[#009bd7]/5">
+        <div className="shell">
+          <div className="">
+            <div className="overflow-hidden border border-rule bg-surface">
               <CalendlyEmbed url={CALENDLY_URL} />
             </div>
 
-            <div className="mt-6 flex items-center justify-center gap-2 text-sm text-gray-500 dark:text-gray-400">
-              <ShieldCheck className="w-4 h-4 text-[#009bd7] dark:text-[#00E1FF]" />
+            <div className="mt-6 flex items-center justify-center gap-2 text-sm text-ink-3">
+              <ShieldCheck className="w-4 h-4 text-signal" />
               <span>Confirmation lands in your inbox the moment you book.</span>
             </div>
           </div>
@@ -95,23 +95,23 @@ export default function BookPage() {
 
       {/* What to expect */}
       <section className="pb-14 sm:pb-20 bg-white dark:bg-[#0a0a0a]">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-5xl mx-auto grid grid-cols-1 sm:grid-cols-3 gap-6 sm:gap-8">
+        <div className="shell">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 sm:gap-8">
             {expectations.map(({ icon: Icon, title, body }) => (
               <div
                 key={title}
-                className="rounded-2xl border border-gray-100 dark:border-gray-800 bg-white dark:bg-gray-900/40 p-6 transition-all duration-300 hover:border-[#009bd7]/30 dark:hover:border-[#00E1FF]/30 hover:shadow-lg hover:shadow-[#009bd7]/5"
+                className="border border-rule bg-surface p-6 transition-colors duration-200 hover:border-ink"
               >
-                <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-[#009bd7]/10 to-[#00E1FF]/10 flex items-center justify-center mb-4">
+                <div className="mb-4 text-signal">
                   <Icon
-                    className="w-5 h-5 text-[#009bd7] dark:text-[#00E1FF]"
+                    className="w-5 h-5 text-signal"
                     strokeWidth={2.2}
                   />
                 </div>
-                <h3 className="text-base sm:text-lg font-bold text-[#0f172a] dark:text-white mb-2">
+                <h3 className="text-base sm:text-lg font-bold text-ink mb-2">
                   {title}
                 </h3>
-                <p className="text-sm sm:text-base text-gray-600 dark:text-gray-400 leading-relaxed">
+                <p className="text-sm sm:text-base text-ink-2 leading-relaxed">
                   {body}
                 </p>
               </div>
