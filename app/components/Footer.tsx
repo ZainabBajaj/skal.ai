@@ -112,7 +112,7 @@ export default function Footer() {
                     alt={`Five star reviews on ${platform.name}`}
                     width={120}
                     height={32}
-                    className="h-6 w-auto object-contain grayscale opacity-60 hover:opacity-100 hover:grayscale-0 transition-all duration-300 dark:brightness-0 dark:invert dark:opacity-60"
+                    className="h-7 w-auto object-contain opacity-90 hover:opacity-100 transition-opacity duration-300 dark:brightness-110"
                   />
                 );
                 return platform.href ? (
