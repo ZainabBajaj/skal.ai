@@ -176,7 +176,11 @@ const ConvergenceFlow = () => {
       {/* The one caption. "One week" is the number the rest of the page already
           commits to, so this is the only claim the picture is allowed to make. */}
       <g>
-        <rect x="290" y="237" width="118" height="20" rx="10" fill="#FFFFFF" stroke="#00E1FF" strokeWidth="0.8" opacity="0.95" />
+        {/* 148 wide, not 118. The label started life as "LIVE IN DAYS" and the
+            pill was cut to fit it; four more characters overran the rounded end.
+            Text starts at 312 and needs ~112 units, so the pill has to reach
+            438 to close around it. */}
+        <rect x="290" y="237" width="148" height="20" rx="10" fill="#FFFFFF" stroke="#00E1FF" strokeWidth="0.8" opacity="0.95" />
         <circle cx="302" cy="247" r="2.5" fill="#22c55e">
           {!still && <animate attributeName="opacity" values="0.5;1;0.5" dur="1.6s" repeatCount="indefinite" />}
         </circle>
