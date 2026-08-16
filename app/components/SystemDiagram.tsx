@@ -25,7 +25,7 @@
 // The four ways in, in the order ProductSplit lists them, paired with what
 // each one leaves you holding. Keep both halves in step with that file.
 const surfaces = [
-  { name: 'Scale',    buys: 'Qualified meetings' },
+  { name: 'Sky',      buys: 'Leads you would have lost' },
   { name: 'Systems',  buys: 'A running system' },
   { name: 'Services', buys: 'A custom build' },
   { name: 'Staffing', buys: 'An embedded operator' },

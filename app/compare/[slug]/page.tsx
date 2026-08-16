@@ -93,10 +93,10 @@ export default async function ComparisonPage({ params }: { params: Promise<{ slu
                 <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
               </Link>
               <Link
-                href="/scale"
+                href="/sky"
                 className="inline-flex items-center justify-center gap-2 px-8 py-4 border-2 border-signal dark:border-[#00E1FF] text-signal font-bold rounded-none transition-all duration-300 hover:bg-[#009bd7] hover:text-white dark:hover:bg-[#00E1FF] dark:hover:text-[#0f172a]"
               >
-                See SKAL Scale
+                See SKAL Sky
               </Link>
             </div>
           </div>
@@ -154,7 +154,7 @@ export default async function ComparisonPage({ params }: { params: Promise<{ slu
                 <thead>
                   <tr className="bg-band text-band-ink">
                     <th className="px-6 py-4 text-left font-bold">Feature</th>
-                    <th className="px-6 py-4 text-left font-bold">SKAL Scale</th>
+                    <th className="px-6 py-4 text-left font-bold">SKAL Sky</th>
                     <th className="px-6 py-4 text-left font-bold">{c.competitor}</th>
                   </tr>
                 </thead>

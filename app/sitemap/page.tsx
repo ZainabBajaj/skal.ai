@@ -27,7 +27,7 @@ export default function SitemapPage() {
     {
       heading: 'Products',
       links: [
-        { label: 'Scale', href: '/scale' },
+        { label: 'Sky', href: '/sky' },
         { label: 'Systems', href: '/systems' },
         { label: 'Services', href: '/services' },
         { label: 'Staffing', href: '/staffing' },

@@ -246,7 +246,7 @@ const professionalServiceSchema = {
         "@type": "Offer",
         "itemOffered": {
           "@type": "Service",
-          "name": "SKAL Scale",
+          "name": "SKAL Sky",
           "description": "Automated outbound infrastructure. AI prospecting, personalised sequences, and a proprietary contact database. Pay only when qualified meetings land on your calendar.",
           "url": "https://skal.ai/scale",
         },

@@ -9,7 +9,7 @@ import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
   title: 'SKAL alternatives and comparisons | SKAL',
-  description: 'Honest comparisons of SKAL Scale against Clay, Apollo, 11x.ai, Salesloft, and other AI sales platforms. When SKAL fits and when it does not.',
+  description: 'Honest comparisons of SKAL Sky against Clay, Apollo, 11x.ai, Salesloft, and other AI sales platforms. When SKAL fits and when it does not.',
   keywords: [
     'SKAL alternatives',
     'Clay alternative',
@@ -51,7 +51,7 @@ export default function ComparisonsHubPage() {
               SKAL vs the alternatives.
             </h1>
             <p className="t-lead max-w-[54ch]">
-              Honest comparisons. We will tell you when a competitor is the right pick. Most AI-sales tools are products you operate; SKAL Scale is the outbound function itself, run as managed infrastructure with pay-per-meeting pricing.
+              Honest comparisons. We will tell you when a competitor is the right pick. Most AI-sales tools are products you operate; SKAL Sky is the outbound function itself, run as managed infrastructure with pay-per-meeting pricing.
             </p>
           </div>
         </div>

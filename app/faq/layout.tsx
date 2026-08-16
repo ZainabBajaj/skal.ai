@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
   title: 'FAQ | SKAL',
-  description: 'Common questions about SKAL Scale, Systems, Services, and Staffing. Pricing, timelines, integrations, and how we work.',
+  description: 'Common questions about SKAL Sky, Systems, Services, and Staffing. Pricing, timelines, integrations, and how we work.',
   keywords: ['SKAL FAQ', 'AI consulting questions', 'AI implementation pricing', 'how SKAL works'],
   alternates: {
     canonical: 'https://skal.ai/faq',

@@ -109,7 +109,7 @@ export default function ProductInMotion() {
    badge, no fake feed. */
 function StillFrame() {
   const surfaces = [
-    ['Scale', 'outbound'],
+    ['Sky', 'lead capture'],
     ['Systems', 'voice and chat'],
     ['Services', 'custom builds'],
     ['Staffing', 'embedded operators'],

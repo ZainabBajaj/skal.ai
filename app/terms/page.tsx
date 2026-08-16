@@ -45,7 +45,7 @@ export default function TermsPage() {
 
             <h2>2. Services</h2>
             <p>
-              SKAL offers four product lines: SKAL Scale (outbound automation), SKAL Systems (AI agents), SKAL Services (custom builds), and SKAL Staffing (talent placement).
+              SKAL offers four product lines: SKAL Sky (lead capture and scoring), SKAL Systems (AI agents), SKAL Services (custom builds), and SKAL Staffing (talent placement).
               The scope of any specific engagement is defined in a signed proposal or statement of work between you and SKAL.
             </p>
 
@@ -63,12 +63,12 @@ export default function TermsPage() {
 
             <h2>4. Payment and billing</h2>
             <p>
-              Pricing and payment terms for engagements are set out in the relevant proposal or statement of work. SKAL Scale uses a per-qualified-meeting pricing model; details are confirmed before any work begins.
+              Pricing and payment terms for engagements are set out in the relevant proposal or statement of work. SKAL Sky is a subscription product with a free tier and paid plans metered in leads; its current plan limits and prices are published on the Sky pricing page.
             </p>
 
             <h2>5. Intellectual property</h2>
             <p>
-              Subject to the terms of your engagement, deliverables built specifically for you under a paid SKAL engagement become your property on full payment. Pre-existing SKAL tools, frameworks, and the proprietary contact database referenced in SKAL Scale remain the property of SKAL.
+              Subject to the terms of your engagement, deliverables built specifically for you under a paid SKAL engagement become your property on full payment. Pre-existing SKAL tools, frameworks, and the SKAL Sky software itself remain the property of SKAL. Lead records you create in SKAL Sky remain yours and are exportable.
             </p>
 
             <h2>6. Linking and embedding</h2>

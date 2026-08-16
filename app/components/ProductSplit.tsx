@@ -25,14 +25,14 @@ interface Surface {
 
 const surfaces: Surface[] = [
   {
-    href: '/scale',
-    name: 'Scale',
-    buys: 'Qualified meetings',
-    terms: 'Pay per meeting',
-    claim: 'Runs your outbound end to end.',
-    body: 'AI prospecting, personalised sequences, and a proprietary contact database built to book meetings that are worth taking, not to fill a funnel.',
-    cta: 'Join the waitlist',
-    badge: 'New',
+    href: '/sky',
+    name: 'Sky',
+    buys: 'Leads you would have lost',
+    terms: 'Free to start',
+    claim: 'Turns anything you read into a scored lead.',
+    body: 'Highlight a message on WhatsApp, a post on LinkedIn, a reply in a thread. Sky pulls out who they are and what they need, scores it against your ideal customer, and files it. Any page, inside Chrome.',
+    cta: 'Add to Chrome',
+    badge: 'Live',
   },
   {
     href: '/systems',

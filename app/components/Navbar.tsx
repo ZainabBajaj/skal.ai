@@ -11,7 +11,7 @@ type NavItem =
   | { name: string; children: { name: string; href: string }[] };
 
 const navLinks: NavItem[] = [
-  { name: 'Scale', href: '/scale', badge: 'New' },
+  { name: 'Sky', href: '/sky', badge: 'New' },
   {
     name: 'Solutions',
     children: [

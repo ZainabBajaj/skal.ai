@@ -5,7 +5,7 @@ import Link from 'next/link';
 import Logo from './Logo';
 
 const productLinks = [
-  { name: 'Scale', href: '/scale' },
+  { name: 'Sky', href: '/sky' },
   { name: 'Systems', href: '/systems' },
   { name: 'Services', href: '/services' },
   { name: 'Staffing', href: '/staffing' },

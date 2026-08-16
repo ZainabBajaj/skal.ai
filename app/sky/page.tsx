@@ -6,58 +6,56 @@ import Footer from '../components/Footer';
 import HowItWorks from '../components/HowItWorks';
 
 import FloatingThemeToggle from '../components/FloatingThemeToggle';
-import { useLeadForm } from '../hooks/useLeadForm';
 
-export default function ScalePage() {
-  const { formRef, formData, status, handleChange, handleSubmit } = useLeadForm({
-    name: '',
-    email: '',
-    company: '',
-  });
+/* The listing Sky actually ships from. Kept next to the page that links it so
+   a store move is one edit, not a hunt. */
+const CHROME_STORE_URL =
+  'https://chromewebstore.google.com/detail/kdokkmdbghnlgmkancohkocpmkmikfhi';
 
+export default function SkyPage() {
   const features = [
     {
       icon: Target,
-      title: 'Prospecting that finds the right people',
-      description: 'AI identifies and qualifies prospects that match your exact customer profile. No list-buying. No guessing. No wasted outreach.',
+      title: 'Scored against your customer, not a generic one',
+      description: 'You describe who is worth your time once. Every capture is rated against it trait by trait, and the lead shows its working so you can see why it scored what it did.',
     },
     {
       icon: Mail,
-      title: 'Outreach that does not feel like outreach',
-      description: 'Personalised multi-channel sequences across email and LinkedIn, written and sent at scale without losing the human feel.',
+      title: 'Works where the leads actually are',
+      description: 'WhatsApp, LinkedIn, email, a forum thread, a comment nobody else read. If it renders in Chrome, you can capture from it.',
     },
     {
       icon: Database,
-      title: 'A contact database built in-house',
-      description: 'Not scraped from the same sources everyone else uses. Proprietary, continuously updated, and exclusive to SKAL Scale.',
+      title: 'Your columns, not a fixed form',
+      description: 'Different lists need different fields. Name a list and Sky sets up the columns to match, including dates, which quietly turn on deadline tracking.',
     },
     {
       icon: Zap,
-      title: 'Pipeline from day three, not month three',
-      description: 'Setup takes minutes. Qualified meetings start landing on day three.',
+      title: 'It tells you what is going cold',
+      description: 'Leads age. Sky opens on the ones running out of time and emails you weekly about the rest, so remembering is not your job.',
     },
   ];
 
   const steps = [
     {
       step: '01',
-      title: 'Connect',
-      description: 'Tell us who your ideal customer is. We handle everything from there.',
+      title: 'Highlight',
+      description: 'Select the message, post or reply that looks like a lead. Anywhere in Chrome.',
     },
     {
       step: '02',
-      title: 'Target',
-      description: 'Our AI scans millions of signals to find prospects that match your exact criteria.',
+      title: 'Capture',
+      description: 'Sky reads it and pulls out who they are, what they need and how urgent it is.',
     },
     {
       step: '03',
-      title: 'Engage',
-      description: 'Personalised outreach goes out automatically across email and LinkedIn.',
+      title: 'Score',
+      description: 'It rates the lead against your ideal customer profile and files it in the right list.',
     },
     {
       step: '04',
-      title: 'Close',
-      description: 'Qualified meetings land in your calendar. You show up and sell.',
+      title: 'Work it',
+      description: 'Your dashboard shows what is worth chasing first, and drafts the first message when you are ready.',
     },
   ];
 
@@ -65,42 +63,55 @@ export default function ScalePage() {
     <main className="min-h-screen bg-paper">
       <Navbar />
 
-      {/* Scale Hero */}
+      {/* Sky hero */}
       <section className="pt-28 lg:pt-36 pb-10 lg:pb-14">
         <div className="shell">
           <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-16">
             {/* Left: Text */}
             <div className="flex-1">
               <div className="spec">
-                <span className="t-label t-label--ink">SKAL Scale</span>
-                <span className="t-label">Early access</span>
+                <span className="t-label t-label--ink">SKAL Sky</span>
+                <span className="t-label">Live on the Chrome Web Store</span>
               </div>
 
-              <h1 className="font-display t-hero text-ink mt-10 max-w-[14ch]">
-                Pipeline that does not depend on how hard you{' '}
-                <span className="accent">hustle.</span>
+              <h1 className="font-display t-hero text-ink mt-10 max-w-[15ch]">
+                The lead was in a message you already{' '}
+                <span className="accent accent-flow">read.</span>
               </h1>
 
               <p className="t-lead mt-8 max-w-[50ch]">
-                SKAL Scale runs your entire outbound operation. AI prospecting,
-                personalised sequences, and a proprietary contact database built
-                in-house and exclusive to Scale. We handle the stack. You show up
-                to the meetings.
+                Sky is a Chrome extension. Highlight a message, a post, a reply
+                in a thread, and it pulls out who they are and what they need,
+                scores it against your ideal customer, and files it. No CRM to
+                fill in. No keys to bring.
               </p>
 
-              <div className="mt-10">
-                <a href="#waitlist" className="btn btn-solid group">
-                  Join the waitlist
+              <div className="mt-10 flex flex-col sm:flex-row gap-3">
+                <a
+                  href={CHROME_STORE_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="btn btn-solid group"
+                >
+                  Add to Chrome
                   <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-0.5" strokeWidth={1.75} />
+                </a>
+                <a
+                  href="https://sky.skal.ai"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="btn btn-line"
+                >
+                  See the dashboard
                 </a>
               </div>
 
               <dl className="spec mt-14">
                 <div className="w-full grid grid-cols-1 sm:grid-cols-3 gap-y-4 gap-x-10">
                   {[
-                    { k: 'What you buy', v: 'Qualified meetings' },
-                    { k: 'Terms', v: 'Pay per meeting' },
-                    { k: 'First pipeline', v: 'Day three' },
+                    { k: 'What you get', v: 'Scored leads' },
+                    { k: 'Terms', v: 'Free to start' },
+                    { k: 'Setup', v: 'One click' },
                   ].map(({ k, v }) => (
                     <div key={k}>
                       <dt className="t-label">{k}</dt>
@@ -179,9 +190,9 @@ export default function ScalePage() {
                 <line x1="170" y1="300" x2="330" y2="300" stroke="#FFFFFF" strokeWidth="1" opacity="0.4" />
 
                 {/* Stage labels */}
-                <text x="250" y="190" textAnchor="middle" fill="#FFFFFF" fontSize="13" fontWeight="700" fontFamily="system-ui, sans-serif" letterSpacing="2" opacity="0.95">PROSPECTS</text>
-                <text x="250" y="267" textAnchor="middle" fill="#FFFFFF" fontSize="12" fontWeight="700" fontFamily="system-ui, sans-serif" letterSpacing="2" opacity="0.95">QUALIFIED</text>
-                <text x="250" y="347" textAnchor="middle" fill="#FFFFFF" fontSize="12" fontWeight="700" fontFamily="system-ui, sans-serif" letterSpacing="2" opacity="0.95">DEALS</text>
+                <text x="250" y="190" textAnchor="middle" fill="#FFFFFF" fontSize="13" fontWeight="700" fontFamily="system-ui, sans-serif" letterSpacing="2" opacity="0.95">CAPTURED</text>
+                <text x="250" y="267" textAnchor="middle" fill="#FFFFFF" fontSize="12" fontWeight="700" fontFamily="system-ui, sans-serif" letterSpacing="2" opacity="0.95">SCORED</text>
+                <text x="250" y="347" textAnchor="middle" fill="#FFFFFF" fontSize="12" fontWeight="700" fontFamily="system-ui, sans-serif" letterSpacing="2" opacity="0.95">WORTH IT</text>
 
                 {/* Flowing white dots descending through funnel */}
                 <circle r="4" fill="#FFFFFF" opacity="0">
@@ -213,10 +224,11 @@ export default function ScalePage() {
                   <animate attributeName="opacity" values="0.85;0;0.85" dur="3s" repeatCount="indefinite" />
                 </circle>
 
-                {/* 10X REVENUE callout chip */}
+                {/* The chip used to read "10X REVENUE", which was a number nothing
+                    on the page supported. This one states what the funnel shows. */}
                 <g transform="translate(400, 425)">
-                  <rect x="-72" y="-18" width="144" height="36" rx="18" fill="#0f172a" />
-                  <text x="0" y="6" textAnchor="middle" fill="#00E1FF" fontSize="14" fontWeight="800" fontFamily="system-ui, sans-serif" letterSpacing="1.5">10X REVENUE</text>
+                  <rect x="-88" y="-18" width="176" height="36" rx="18" fill="#0f172a" />
+                  <text x="0" y="6" textAnchor="middle" fill="#00E1FF" fontSize="14" fontWeight="800" fontFamily="system-ui, sans-serif" letterSpacing="1.5">NONE FORGOTTEN</text>
                 </g>
                 <path d="M 285 420 L 325 424" stroke="#1DB5C5" strokeWidth="1.5" opacity="0.55" strokeDasharray="3 3">
                   <animate attributeName="stroke-dashoffset" from="0" to="-12" dur="2s" repeatCount="indefinite" />
@@ -281,124 +293,99 @@ export default function ScalePage() {
               <span className="t-label">PRICING</span>
             </div>
             <h2 className="font-display t-h2 text-ink mb-5 max-w-[18ch]">
-              You pay when it works.
+              Free until it is worth paying for.
             </h2>
+            {/* No figures printed here on purpose. Sky's plan caps are rows in
+                its own database, so the numbers live on its pricing page and
+                this one links to them rather than keeping a second copy that
+                can quietly go stale. */}
             <p className="t-lead max-w-[52ch]">
-              Pricing shared on your discovery call. Joining the waitlist is free.
+              Start on the free plan and capture without paying anything. The
+              paid plans are priced in leads, and what a lead costs is printed
+              on the button that spends it.
             </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div className="text-center md:text-left">
-              <h3 className="font-display t-h3 text-ink mb-3">Pay-per-outcome</h3>
+              <h3 className="font-display t-h3 text-ink mb-3">Start free</h3>
               <p className="text-ink-2 leading-relaxed">
-                You pay per qualified meeting that lands on your calendar. No-shows do not count.
+                A monthly allowance of leads at no cost, with no card and no trial clock running down.
               </p>
             </div>
             <div className="text-center md:text-left">
-              <h3 className="font-display t-h3 text-ink mb-3">What counts as qualified</h3>
+              <h3 className="font-display t-h3 text-ink mb-3">Priced in leads</h3>
               <p className="text-ink-2 leading-relaxed">
-                A confirmed, attended call with a decider at a B2B company who has expressed active interest.
+                One meter, counted in the thing you actually came for. Nothing is discovered by being charged for it.
               </p>
             </div>
             <div className="text-center md:text-left">
-              <h3 className="font-display t-h3 text-ink mb-3">The setup fee</h3>
+              <h3 className="font-display t-h3 text-ink mb-3">Bring no keys</h3>
               <p className="text-ink-2 leading-relaxed">
-                A small one-time fee covers ICP definition, database build, and campaign launch.
+                No API key to buy, no model to choose, no bill from anyone but us. Sign in with an email code and go.
               </p>
             </div>
+          </div>
+
+          <div className="mt-10">
+            <a
+              href="https://sky.skal.ai/pricing"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn btn-line group"
+            >
+              See the full pricing
+              <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-0.5" strokeWidth={1.75} />
+            </a>
           </div>
         </div>
       </section>
 
-      {/* Waitlist Form */}
-      <section id="waitlist" className="band">
+      {/* Install. The product shipped, so this asks for the install rather
+          than for a place in a queue. The lead form that used to sit here was
+          collecting names for something people can already just use. */}
+      <section id="install" className="band">
         <div className="shell">
-          <div className="max-w-[54ch] text-center">
-            <div className="mb-6">
-              <span className="t-label">EARLY ACCESS</span>
+          <div className="max-w-[54ch]">
+            <div className="spec">
+              <span className="t-label t-label--ink">Get Sky</span>
+              <span className="t-label">Chrome, free to start</span>
             </div>
 
-            <h2 className="font-display t-h2 text-ink mb-5 max-w-[18ch]">
-              Limited spots available.
+            <h2 className="font-display t-h2 text-ink mt-8 max-w-[18ch]">
+              It is already built. Go and use it.
             </h2>
-            <p className="text-ink-2 mb-10 text-lg">
-              We are onboarding a small number of founding clients to stress-test the system before we scale. Founding clients also get first access to the AI-native CRM coming next. If you are a B2B founder done doing outbound manually, this is your spot.
+            <p className="t-lead mt-5">
+              Install it, sign in with an email code, and capture your first
+              lead from whatever tab you already have open.
             </p>
 
-            <div ref={formRef} className="border border-rule bg-surface p-8 sm:p-10">
-
-              <form onSubmit={(e) => handleSubmit(e, { source: 'waitlist_scale', from_name: formData.name, reply_to: formData.email, website: formData.company, idea: 'SKAL Scale Early Access Waitlist', outcome: 'Early access to SKAL Scale platform', budget: 'N/A' })} className="relative z-10 space-y-5">
-                <div>
-                  <input
-                    type="text"
-                    name="name"
-                    value={formData.name}
-                    onChange={handleChange}
-                    required
-                    placeholder="Your name"
-                    className="w-full bg-transparent border-b border-rule py-3 text-[0.9375rem] text-ink placeholder:text-ink-3/70 focus:outline-none focus:border-ink transition-colors"
-                  />
-                </div>
-                <div>
-                  <input
-                    type="email"
-                    name="email"
-                    value={formData.email}
-                    onChange={handleChange}
-                    required
-                    placeholder="your@email.com"
-                    className="w-full bg-transparent border-b border-rule py-3 text-[0.9375rem] text-ink placeholder:text-ink-3/70 focus:outline-none focus:border-ink transition-colors"
-                  />
-                </div>
-                <div>
-                  <input
-                    type="text"
-                    name="company"
-                    value={formData.company}
-                    onChange={handleChange}
-                    placeholder="Company name (optional)"
-                    className="w-full bg-transparent border-b border-rule py-3 text-[0.9375rem] text-ink placeholder:text-ink-3/70 focus:outline-none focus:border-ink transition-colors"
-                  />
-                </div>
-
-                <button
-                  type="submit"
-                  disabled={status.type === 'sending'}
-                  className="btn btn-solid group w-full disabled:opacity-50"
-                >
-                  <span>{status.type === 'sending' ? 'Joining...' : 'Join the Waitlist'}</span>
-                  <ArrowRight className={`w-5 h-5 ${status.type === 'sending' ? 'animate-pulse' : 'group-hover:translate-x-1'} transition-transform`} />
-                </button>
-
-                {status.type === 'success' && (
-                  <div className="flex items-center justify-center gap-2 px-6 py-3 bg-green-50 dark:bg-green-900/20 border border-green-200 dark:border-green-800 rounded-xl">
-                    <CheckCircle className="w-5 h-5 text-green-500" />
-                    <p className="text-green-700 dark:text-green-400 font-medium">You&apos;re on the list! We&apos;ll be in touch soon.</p>
-                  </div>
-                )}
-
-                {status.type === 'error' && (
-                  <div className="flex items-center justify-center gap-2 px-6 py-3 bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 rounded-xl">
-                    <p className="text-red-700 dark:text-red-400 font-medium">{status.message}</p>
-                  </div>
-                )}
-              </form>
+            <div className="mt-10 flex flex-col sm:flex-row gap-3">
+              <a
+                href={CHROME_STORE_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn btn-solid group"
+              >
+                Add to Chrome
+                <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-0.5" strokeWidth={1.75} />
+              </a>
+              <a href="/book" className="btn btn-line">
+                Talk to us first
+              </a>
             </div>
 
-            <div className="mt-8 grid grid-cols-1 sm:grid-cols-3 gap-4 text-sm text-ink-3">
-              <div className="flex items-start justify-center gap-2 text-center sm:text-left">
-                <CheckCircle className="w-4 h-4 mt-0.5 shrink-0 text-signal" />
-                <span>No credit card required</span>
-              </div>
-              <div className="flex items-start justify-center gap-2 text-center sm:text-left">
-                <CheckCircle className="w-4 h-4 mt-0.5 shrink-0 text-signal" />
-                <span>Pricing shared on your call</span>
-              </div>
-              <div className="flex items-start justify-center gap-2 text-center sm:text-left">
-                <CheckCircle className="w-4 h-4 mt-0.5 shrink-0 text-signal" />
-                <span>Founding-client pricing locked in</span>
-              </div>
+            <div className="mt-10 grid grid-cols-1 sm:grid-cols-3 gap-4 text-sm text-ink-3">
+              {[
+                'No card, no trial clock',
+                'No API key to bring',
+                'Your rows, exportable',
+              ].map((line) => (
+                <div key={line} className="flex items-start gap-2">
+                  <CheckCircle className="w-4 h-4 mt-0.5 shrink-0 text-signal" />
+                  <span>{line}</span>
+                </div>
+              ))}
             </div>
           </div>
         </div>

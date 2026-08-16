@@ -20,11 +20,11 @@ Offices: Pembroke Pines, Florida (US); Ajman (UAE); Lahore (Pakistan).
 
 ## Four products
 
-### SKAL Scale — Automated outbound infrastructure
+### SKAL Sky — Automated outbound infrastructure
 
-URL: https://skal.ai/scale
+URL: https://skal.ai/sky
 
-For B2B founders done doing outbound manually. SKAL Scale runs your entire outbound operation. AI prospecting, personalised multi-channel sequences across email and LinkedIn, and a proprietary contact database built in-house and exclusive to SKAL Scale.
+For B2B founders done doing outbound manually. SKAL Sky runs your entire outbound operation. AI prospecting, personalised multi-channel sequences across email and LinkedIn, and a proprietary contact database built in-house and exclusive to SKAL Sky.
 
 How it works:
 1. Connect: Tell us who your ideal customer is. We handle everything from there.
@@ -34,7 +34,7 @@ How it works:
 
 Features:
 - Prospecting that finds the right people, no list-buying
-- Multi-channel personalised outreach at scale
+- Leads captured from any page in Chrome, extracted and scored against your ICP
 - Proprietary in-house contact database
 - Pipeline by day three, not month three
 

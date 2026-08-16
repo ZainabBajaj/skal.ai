@@ -82,14 +82,14 @@ export default async function StoryPage({ params }: { params: Promise<{ slug: st
       pitch: 'The voice model is the easy part. SKAL Systems deploys AI receptionists with the knowledge, integrations, and escalation logic that actually hold up in production.',
     },
     'true-cost-of-missed-sales-call': {
-      href: '/scale',
-      label: 'SKAL Scale',
-      pitch: 'Stop leaking pipeline to slow response. SKAL Scale runs your outbound and inbound first-response, with five-minute reply at any hour, in any timezone.',
+      href: '/sky',
+      label: 'SKAL Sky',
+      pitch: 'Stop leaking pipeline to slow response. SKAL Sky runs your outbound and inbound first-response, with five-minute reply at any hour, in any timezone.',
     },
     'sdr-vs-ai-when-to-hire-when-to-deploy': {
-      href: '/scale',
-      label: 'SKAL Scale',
-      pitch: 'The hybrid pattern most companies should run starts with AI infrastructure for the top of funnel. SKAL Scale handles outbound on pay-per-qualified-meeting pricing.',
+      href: '/sky',
+      label: 'SKAL Sky',
+      pitch: 'The hybrid pattern most companies should run starts with AI infrastructure for the top of funnel. SKAL Sky handles outbound on pay-per-qualified-meeting pricing.',
     },
     'build-vs-buy-framework-for-b2b-ai': {
       href: '/services',
@@ -117,13 +117,13 @@ export default async function StoryPage({ params }: { params: Promise<{ slug: st
       pitch: 'Hire AI-native operators or run an AI-painted operation. SKAL Staffing embeds engineers who actually work the way this piece describes.',
     },
     'architecture-of-ai-sales-system-that-books-meetings': {
-      href: '/scale',
-      label: 'SKAL Scale',
+      href: '/sky',
+      label: 'SKAL Sky',
       pitch: 'The full seven-component architecture, run as managed infrastructure. Proprietary data, multi-channel sequencing, sub-60-second reply, pay per qualified meeting.',
     },
     'pay-per-meeting-contract-that-aligns-ai-sales': {
-      href: '/scale',
-      label: 'SKAL Scale',
+      href: '/sky',
+      label: 'SKAL Sky',
       pitch: 'The only AI sales product priced per qualified meeting that actually lands on your calendar. No retainer, no monthly minimum, no-shows do not count.',
     },
     'what-i-would-build-if-starting-saas-in-2026': {

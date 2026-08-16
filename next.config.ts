@@ -88,6 +88,13 @@ const nextConfig: NextConfig = {
         destination: '/',
         permanent: true,
       },
+      /* The product shipped as Sky. /scale was live and is still linked from
+         the stories and comparison pages, so it redirects rather than 404s. */
+      {
+        source: '/scale',
+        destination: '/sky',
+        permanent: true,
+      },
     ];
   },
 
