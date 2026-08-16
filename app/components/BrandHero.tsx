@@ -15,7 +15,17 @@ const standfirst = [
 
 const BrandHero = () => {
   return (
-    <section className="pt-28 lg:pt-36 pb-10 lg:pb-14">
+    <section className="relative overflow-hidden pt-28 lg:pt-36 pb-10 lg:pb-14">
+      {/* Atmosphere, from the previous site. Behind everything, touching no
+          text colour, so the page can feel alive without getting harder to
+          read. */}
+      <div aria-hidden="true" className="absolute inset-0 -z-10">
+        <div className="absolute inset-0 dot-grid [mask-image:radial-gradient(ellipse_70%_60%_at_45%_35%,black,transparent)]" />
+        <div className="aurora aurora--a aurora--brand -top-24 -left-40 w-[34rem] h-[34rem]" />
+        <div className="aurora aurora--b aurora--signal -bottom-32 right-[-6rem] w-[40rem] h-[40rem]" />
+        <div className="aurora aurora--a aurora--brand top-16 right-[18%] w-[26rem] h-[26rem] opacity-70" />
+      </div>
+
       <div className="shell">
         {/* Opening rule. The page states what it is before it says anything. */}
         <div className="spec rise" style={{ animationDelay: '40ms' }}>
@@ -28,7 +38,7 @@ const BrandHero = () => {
           style={{ animationDelay: '120ms' }}
         >
           Systems that run inside{' '}
-          <span className="accent">real businesses.</span>
+          <span className="accent accent-flow">real businesses.</span>
         </h1>
 
         <p

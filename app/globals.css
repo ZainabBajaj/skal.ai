@@ -313,6 +313,64 @@ body,
 }
 .btn-line:hover { border-color: var(--ink); }
 
+/* ----------------------------------------------------------- atmosphere ----
+
+   Carried back from the previous site, turned down.
+
+   That site opened on a dot grid and three drifting aurora blobs. This one
+   opened on flat paper, and flat paper is most of why it read as printed
+   matter rather than as something running. These put the depth back without
+   letting gradients near the type: they sit *behind* the content, at low
+   opacity, and never set a text colour.
+
+   Entirely decorative, so the markup marks them aria-hidden, and the
+   prefers-reduced-motion rule at the top of this file already stops the drift.
+   -------------------------------------------------------------------------- */
+
+.dot-grid {
+  background-image: radial-gradient(circle, rgb(11 18 32 / .07) 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+.dark .dot-grid {
+  background-image: radial-gradient(circle, rgb(255 255 255 / .05) 1px, transparent 1px);
+}
+
+.aurora {
+  position: absolute;
+  border-radius: 9999px;
+  filter: blur(72px);
+  pointer-events: none;
+}
+
+@keyframes aurora-drift {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  33%      { transform: translate(32px, -24px) scale(1.06); }
+  66%      { transform: translate(-24px, 18px) scale(.97); }
+}
+.aurora--a { animation: aurora-drift 18s ease-in-out infinite; }
+.aurora--b { animation: aurora-drift 26s ease-in-out infinite reverse; }
+
+/* The tints are written out rather than taken from the colour tokens, because
+   the tokens are whole colours (`--brand: #009BD7`) and Tailwind cannot put an
+   alpha on one of those. `bg-brand/25` compiles to nothing at all — no error,
+   no rule, just an invisible element. Anything here that needs a translucent
+   brand colour has to state it, so the values live next to each other. */
+.aurora--brand  { background: rgb(0 155 215 / .17); }
+.aurora--signal { background: rgb(0 104 143 / .12); }
+.dark .aurora--brand  { background: rgb(53 185 236 / .20); }
+.dark .aurora--signal { background: rgb(92 189 234 / .16); }
+
+/* The emphasised clause, but moving through the brand rather than sitting on
+   one flat accent. Both stops stay dark enough to clear 3:1 at display size —
+   the light cyan the old site ended on did not, and this type has already been
+   hard enough to read. */
+.accent-flow {
+  background-image: linear-gradient(96deg, var(--signal), var(--brand));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
 /* ------------------------------------------------------------- entrance ---- */
 
 @keyframes rise {
