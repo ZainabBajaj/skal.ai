@@ -95,3 +95,5 @@ temp_interactive_push.bat
 .claude/settings.local.json
 .env
 .env*
+
+supabase/.temp
