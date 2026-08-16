@@ -2,6 +2,7 @@
 
 import Navbar from '../components/Navbar';
 import PageHero from '../components/PageHero';
+import { ServicesVisual } from '../components/SurfaceVisuals';
 import About from '../components/About';
 import Services from '../components/Services';
 import ContactForm from '../components/ContactForm';
@@ -15,6 +16,7 @@ export default function ServicesPage() {
       <Navbar />
 
       <PageHero
+        visual={<ServicesVisual />}
         eyebrow="SKAL Services"
         meta="Custom builds"
         title="Built around how you"

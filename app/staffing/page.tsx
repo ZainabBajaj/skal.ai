@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { ArrowRight, Shield, Zap, Code, Brain } from 'lucide-react';
 import Navbar from '../components/Navbar';
 import PageHero from '../components/PageHero';
+import { StaffingVisual } from '../components/SurfaceVisuals';
 import ContactForm from '../components/ContactForm';
 import Footer from '../components/Footer';
 import HowItWorks from '../components/HowItWorks';
@@ -29,6 +30,7 @@ export default function StaffingPage() {
       <Navbar />
 
       <PageHero
+        visual={<StaffingVisual />}
         eyebrow="SKAL Staffing"
         meta="Billed by the hour"
         title="Operators who ship from"

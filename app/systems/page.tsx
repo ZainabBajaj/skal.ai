@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { ArrowRight, Check } from 'lucide-react';
 import Navbar from '../components/Navbar';
 import PageHero from '../components/PageHero';
+import { SystemsVisual } from '../components/SurfaceVisuals';
 import ContactForm from '../components/ContactForm';
 import Footer from '../components/Footer';
 import FloatingThemeToggle from '../components/FloatingThemeToggle';
@@ -52,6 +53,7 @@ export default function SystemsPage() {
       <Navbar />
 
       <PageHero
+        visual={<SystemsVisual />}
         eyebrow="SKAL Systems"
         meta="Live in one week"
         title="Handles the work that"
