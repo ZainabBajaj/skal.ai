@@ -72,8 +72,7 @@ export default function AboutPage() {
 
               <p>
                 I come from one of the oldest business communities in South Asia, generations of merchants
-                and traders woven into the fabric of society for as long as anyone can remember. By the
-                time it reached me, it looked like spinning mills, FMCG, and banquet halls. Reading a
+                and traders woven into the fabric of society for as long as anyone can remember. Reading a
                 balance sheet came early. Business was not something I studied. It was the water I grew
                 up in.
               </p>
