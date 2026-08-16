@@ -2,159 +2,217 @@
 
 import Image from 'next/image';
 import Link from 'next/link';
-import { ArrowRight, Sparkles } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import FloatingThemeToggle from '../components/FloatingThemeToggle';
 
 export default function AboutPage() {
   return (
-    <main className="relative min-h-screen bg-white dark:bg-gray-900">
+    <main className="min-h-screen bg-paper">
       <Navbar />
 
-      {/* Hero */}
-      <section className="relative pt-28 pb-12 sm:pt-32 sm:pb-14 lg:pt-36 lg:pb-16 overflow-hidden bg-gradient-to-br from-slate-50 via-white to-blue-50 dark:from-gray-900 dark:via-gray-800 dark:to-blue-900">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-20 max-w-6xl mx-auto">
-            {/* Left: Portrait */}
-            <div className="flex-shrink-0 w-full max-w-sm lg:max-w-md">
-              <div className="relative group">
-                <div className="absolute -inset-4 bg-gradient-to-r from-[#009bd7] via-[#00E1FF] to-[#1DB5C5] rounded-3xl blur-2xl opacity-20 group-hover:opacity-35 transition-opacity duration-500"></div>
-                <div className="relative overflow-hidden rounded-3xl shadow-2xl border border-white/60 dark:border-gray-700/60">
-                  <Image
-                    src="/founder.jpg"
-                    alt="Portrait of the SKAL founder"
-                    width={900}
-                    height={1200}
-                    priority
-                    className="w-full h-auto object-cover"
-                  />
-                </div>
-              </div>
-            </div>
+      {/* ---------------------------------------------------------------- */}
+      {/* Hero                                                             */}
+      {/* ---------------------------------------------------------------- */}
+      <section className="pt-28 lg:pt-36 pb-12 lg:pb-16">
+        <div className="shell">
+          <div className="spec rise" style={{ animationDelay: '40ms' }}>
+            <span className="t-label t-label--ink">Founder&apos;s story</span>
+            <span className="t-label">SKAL</span>
+          </div>
 
-            {/* Right: Intro */}
-            <div className="flex-1 text-center lg:text-left">
-              <div className="inline-flex items-center space-x-2 bg-gradient-to-r from-[#009bd7]/10 to-[#00E1FF]/10 dark:from-[#009bd7]/20 dark:to-[#00E1FF]/20 rounded-full px-6 py-2 mb-6 backdrop-blur-sm border border-[#009bd7]/20 dark:border-[#00E1FF]/30">
-                <Sparkles className="w-4 h-4 text-[#009bd7] dark:text-[#00E1FF]" />
-                <span className="text-[#009bd7] dark:text-[#00E1FF] text-sm font-bold tracking-wider">FOUNDER&apos;S STORY</span>
-              </div>
-
-              <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold text-[#0f172a] dark:text-white mb-6 leading-snug pb-1">
+          <div className="mt-10 lg:mt-14 grid grid-cols-1 lg:grid-cols-12 gap-y-12 lg:gap-x-12 items-start">
+            <div className="lg:col-span-7 rise" style={{ animationDelay: '120ms' }}>
+              <h1 className="font-display t-hero text-ink max-w-[13ch]">
                 Practitioners, not{' '}
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#009bd7] via-[#00E1FF] to-[#1DB5C5]">
-                  generalists.
-                </span>
+                <span className="accent">generalists.</span>
               </h1>
 
-              <p className="text-lg sm:text-xl text-gray-600 dark:text-gray-300 leading-relaxed">
-                SKAL exists because businesses that want AI systems don&apos;t know how to build them,
-                and teams that can build them don&apos;t understand business well enough to build them right.
-                We sit at that intersection.
+              <p className="t-lead mt-8 max-w-[48ch]">
+                SKAL exists because businesses that want AI systems do not know
+                how to build them, and teams that can build them do not
+                understand business well enough to build them right. We sit at
+                that intersection.
               </p>
+
+              <dl className="mt-12 border-t border-rule">
+                {[
+                  ['Founded', '2024'],
+                  ['Building AI in production', 'Five years'],
+                  ['Offices', 'Florida · Ajman · Lahore'],
+                ].map(([k, v]) => (
+                  <div key={k} className="flex justify-between gap-6 py-3.5 border-b border-rule">
+                    <dt className="t-label">{k}</dt>
+                    <dd className="t-label t-label--ink text-right">{v}</dd>
+                  </div>
+                ))}
+              </dl>
             </div>
-          </div>
-        </div>
-      </section>
 
-      {/* Story */}
-      <section className="py-14 lg:py-20 relative bg-white dark:bg-gray-800">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-3xl mx-auto">
-            <div className="space-y-8 text-lg leading-relaxed text-gray-700 dark:text-gray-300">
-              <p className="text-2xl sm:text-3xl font-semibold text-[#0f172a] dark:text-white leading-snug">
-                My first business was a pop-up fry stall. I was ten.
-              </p>
-
-              <p>
-                While other kids were eating, I was thinking about ingredients, margins, and foot traffic.
-              </p>
-
-              <p>
-                The stall was not the start of the story. I come from one of the oldest business
-                communities in South Asia, generations of merchants and traders woven into the fabric of
-                society for as long as anyone can remember. Reading a balance sheet came early. Business
-                was not something I studied. It was the water I grew up in.
-              </p>
-
-              <p>
-                In O levels, I wanted to know where my brain naturally went, so I started tracking my
-                thoughts. Business was at the top. But right next to it was something else: technology.
-                Not for its own sake, but for what it could do inside a business. The idea that you could
-                build systems that take over repetitive work, so you can focus on the parts that actually
-                matter, felt like the closest thing to magic.
-              </p>
-
-              <p>
-                I went after it seriously. I graduated with one of the highest marks in the world in{' '}
-                <span className="font-semibold text-[#0f172a] dark:text-white">Data Science and Business Analytics</span>,
-                earning a{' '}
-                <span className="font-semibold text-[#009bd7] dark:text-[#00E1FF]">London School of Economics Letter of Commendation</span>.
-                I designed a course,{' '}
-                <em className="text-[#0f172a] dark:text-white">Transforming Organisations with Data Storytelling</em>,
-                which is delivered at the National University of Singapore. Data has always felt
-                intuitive to me. I usually see the story before I run the numbers.
-              </p>
-
-              <p>
-                When AI agents arrived, it felt like the natural end of a thread I had been pulling since
-                I was ten. For the first time, systems could actually operate inside real businesses. Not
-                just tools, but infrastructure that does work in the background. Work that continues
-                without friction. Operations that stay consistent as you scale. Processes that support
-                teams instead of slowing them down.
-              </p>
-
-              <div className="my-12 p-8 sm:p-10 rounded-3xl bg-gradient-to-br from-[#009bd7]/5 via-[#00E1FF]/5 to-[#1DB5C5]/5 dark:from-[#009bd7]/10 dark:via-[#00E1FF]/10 dark:to-[#1DB5C5]/10 border border-[#009bd7]/20 dark:border-[#00E1FF]/20">
-                <p className="text-xl sm:text-2xl font-semibold text-[#0f172a] dark:text-white leading-snug">
-                  That is what we build at SKAL. Not experiments. Not demos.{' '}
-                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#009bd7] to-[#00E1FF]">Systems that run inside real businesses.</span>
-                </p>
+            {/* Portrait as an editorial plate: hairline, no glow, mono caption. */}
+            <figure className="lg:col-span-5 rise" style={{ animationDelay: '200ms' }}>
+              <div className="border border-rule bg-surface p-2">
+                <Image
+                  src="/founder.jpg"
+                  alt="Portrait of the SKAL founder"
+                  width={900}
+                  height={1200}
+                  priority
+                  className="w-full h-auto object-cover"
+                />
               </div>
-
-              <p>
-                We have offices in the United States, the UAE, and Pakistan, and a growing team of engineers and AI specialists
-                who think the same way.
-              </p>
-
-              <p className="text-xl sm:text-2xl font-semibold text-[#0f172a] dark:text-white leading-snug pt-4">
-                We are not generalists who discovered AI last year. We are practitioners who have been
-                building toward this for a long time.
-              </p>
-            </div>
+              <figcaption className="t-label mt-4">
+                Founder, SKAL
+              </figcaption>
+            </figure>
           </div>
         </div>
       </section>
 
-      {/* CTA */}
-      <section className="py-14 lg:py-20 relative bg-white dark:bg-gray-800">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-4xl mx-auto bg-gradient-to-br from-[#0f172a] to-[#0c2d4a] rounded-3xl p-10 sm:p-16 relative overflow-hidden text-center">
-            <div className="absolute top-0 right-0 w-64 h-64 bg-gradient-to-bl from-[#009bd7]/20 to-transparent rounded-full blur-3xl"></div>
-            <div className="absolute bottom-0 left-0 w-64 h-64 bg-gradient-to-tr from-[#00E1FF]/20 to-transparent rounded-full blur-3xl"></div>
+      {/* ---------------------------------------------------------------- */}
+      {/* The story — set at a reading measure                             */}
+      {/* ---------------------------------------------------------------- */}
+      <section className="band bg-surface">
+        <div className="shell">
+          <div className="spec">
+            <span className="t-label t-label--ink">How it started</span>
+            <span className="t-label">A thread pulled since ten</span>
+          </div>
 
-            <div className="relative z-10">
-              <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4 leading-snug">
-                Want to see what practitioners build?
-              </h2>
-              <p className="text-gray-300 text-lg mb-10 max-w-2xl mx-auto">
-                Start a conversation. No pitch decks, no fluff. Just a discovery call to understand the
-                shape of your problem.
+        <div className="mt-14 lg:mt-20 grid grid-cols-1 lg:grid-cols-12 lg:gap-x-12">
+          {/* The one place on the site where numbering is honest: this is a
+              chronology, so the order carries information. */}
+          <aside className="hidden lg:block lg:col-span-3">
+            <ol className="sticky top-28 border-t border-rule">
+              {[
+                ['Age ten', 'A pop-up fry stall'],
+                ['O levels', 'Business, then technology'],
+                ['LSE', 'Data Science and Business Analytics'],
+                ['NUS', 'Course author'],
+                ['Now', 'SKAL'],
+              ].map(([when, what]) => (
+                <li key={when} className="py-3.5 border-b border-rule">
+                  <div className="t-label t-label--ink">{when}</div>
+                  <div className="t-label mt-1">{what}</div>
+                </li>
+              ))}
+            </ol>
+          </aside>
+
+          <div className="lg:col-span-8 lg:col-start-5">
+            <p className="font-display text-[clamp(1.5rem,3vw,2.15rem)] leading-[1.2] text-ink">
+              My first business was a pop-up fry stall. I was ten.
+            </p>
+
+            <div className="t-read mt-10">
+              <p>
+                While other kids were eating, I was thinking about ingredients,
+                margins, and foot traffic.
               </p>
 
-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Link
-                  href="/book"
-                  className="group inline-flex items-center justify-center gap-3 px-8 py-4 bg-gradient-to-r from-[#009bd7] to-[#00E1FF] text-white font-bold rounded-2xl transition-all duration-300 hover:shadow-xl hover:shadow-[#009bd7]/25 hover:scale-105"
-                >
-                  Schedule a Call
-                  <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+              <p>
+                The stall was not the start of the story. I come from one of the
+                oldest business communities in South Asia, generations of
+                merchants and traders woven into the fabric of society for as
+                long as anyone can remember. Reading a balance sheet came early.
+                Business was not something I studied. It was the water I grew up
+                in.
+              </p>
+
+              <p>
+                In O levels, I wanted to know where my brain naturally went, so I
+                started tracking my thoughts. Business was at the top. But right
+                next to it was something else: technology. Not for its own sake,
+                but for what it could do inside a business. The idea that you
+                could build systems that take over repetitive work, so you can
+                focus on the parts that actually matter, felt like the closest
+                thing to magic.
+              </p>
+
+              <p>
+                I went after it seriously. I graduated with one of the highest
+                marks in the world in{' '}
+                <strong>Data Science and Business Analytics</strong>, earning a{' '}
+                <strong>London School of Economics Letter of Commendation</strong>.
+                I designed a course,{' '}
+                <em className="italic text-ink font-medium">
+                  Transforming Organisations with Data Storytelling
+                </em>
+                , which is delivered at the National University of Singapore.
+                Data has always felt intuitive to me. I usually see the story
+                before I run the numbers.
+              </p>
+
+              <p>
+                When AI agents arrived, it felt like the natural end of a thread
+                I had been pulling since I was ten. For the first time, systems
+                could actually operate inside real businesses. Not just tools,
+                but infrastructure that does work in the background. Work that
+                continues without friction. Operations that stay consistent as
+                you scale. Processes that support teams instead of slowing them
+                down.
+              </p>
+            </div>
+
+            {/* The claim, set in the claim voice, on a rule. No tinted card. */}
+            <blockquote className="mt-14 pt-8 border-t border-rule">
+              <p className="font-display text-[clamp(1.5rem,3vw,2.15rem)] leading-[1.2] text-ink">
+                That is what we build at SKAL. Not experiments. Not demos.{' '}
+                <span className="accent">
+                  Systems that run inside real businesses.
+                </span>
+              </p>
+            </blockquote>
+
+            <div className="t-read mt-14">
+              <p>
+                We have offices in the United States, the UAE, and Pakistan, and
+                a growing team of engineers and AI specialists who think the same
+                way.
+              </p>
+              <p>
+                <strong>
+                  We are not generalists who discovered AI last year. We are
+                  practitioners who have been building toward this for a long
+                  time.
+                </strong>
+              </p>
+            </div>
+          </div>
+        </div>
+        </div>
+      </section>
+
+      {/* ---------------------------------------------------------------- */}
+      {/* CTA                                                              */}
+      {/* ---------------------------------------------------------------- */}
+      <section className="band">
+        <div className="shell">
+          <div className="spec">
+            <span className="t-label t-label--ink">Start a conversation</span>
+            <span className="t-label">No pitch decks</span>
+          </div>
+
+          <div className="mt-10 grid grid-cols-1 lg:grid-cols-12 gap-y-8 lg:gap-x-12 items-end">
+            <h2 className="lg:col-span-7 font-display t-h2 text-ink max-w-[16ch]">
+              Want to see what practitioners build?
+            </h2>
+
+            <div className="lg:col-span-5">
+              <p className="text-[0.9375rem] leading-relaxed text-ink-2 max-w-[42ch]">
+                A discovery call, not a pitch. We spend it understanding the
+                shape of your problem and telling you plainly whether we are the
+                right people for it.
+              </p>
+
+              <div className="mt-8 flex flex-col sm:flex-row gap-3">
+                <Link href="/book" className="btn btn-solid group">
+                  Book a discovery call
+                  <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-0.5" strokeWidth={1.75} />
                 </Link>
-                <Link
-                  href="/systems"
-                  className="group inline-flex items-center justify-center gap-3 px-8 py-4 border-2 border-[#00E1FF] text-[#00E1FF] font-bold rounded-2xl transition-all duration-300 hover:bg-[#00E1FF] hover:text-[#0f172a] hover:scale-105"
-                >
-                  Explore Services
-                  <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                <Link href="/systems" className="btn btn-line">
+                  Explore what we build
                 </Link>
               </div>
             </div>

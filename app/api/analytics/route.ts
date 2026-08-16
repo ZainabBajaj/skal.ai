@@ -39,7 +39,7 @@ export async function POST(req: Request) {
     ip_country,
   };
 
-  const { error } = await supabaseAdmin.from('page_views').insert(row);
+  const { error } = await supabaseAdmin().from('page_views').insert(row);
 
   if (error) {
     console.error('[analytics] insert failed', error);

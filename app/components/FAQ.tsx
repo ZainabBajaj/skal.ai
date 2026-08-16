@@ -61,136 +61,90 @@ export default function FAQ() {
   };
 
   return (
-    <section id="faq" className="relative py-12 sm:py-14 lg:py-20 bg-white dark:bg-gray-900 overflow-hidden">
-      {/* Custom CSS for floating animations */}
-      <style jsx>{`
-        @keyframes float {
-          0%, 100% { 
-            transform: translateY(0px) rotate(0deg); 
-            opacity: 0.7;
-          }
-          25% { 
-            transform: translateY(-15px) rotate(90deg); 
-            opacity: 1;
-          }
-          50% { 
-            transform: translateY(-25px) rotate(180deg); 
-            opacity: 0.8;
-          }
-          75% { 
-            transform: translateY(-10px) rotate(270deg); 
-            opacity: 0.9;
-          }
-        }
-      `}</style>
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="max-w-4xl mx-auto">
-          {/* Header Section */}
-          <div className="text-center mb-12 sm:mb-16">
-            <div className="inline-flex items-center space-x-2 bg-gradient-to-r from-[#009bd7]/10 to-[#00E1FF]/10 rounded-full px-4 sm:px-6 py-2 mb-4 sm:mb-6 backdrop-blur-sm border border-[#009bd7]/20">
-              <div className="w-2 h-2 bg-gradient-to-r from-[#009bd7] to-[#00E1FF] rounded-full animate-ping"></div>
-              <span className="text-[#009bd7] text-xs sm:text-sm font-bold tracking-wider">FREQUENTLY ASKED QUESTIONS</span>
-            </div>
-            
-            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-[#0f172a] dark:text-white mb-4 sm:mb-6 leading-snug pb-1">
-              Everything You Need to Know
-            </h2>
-            
-            <p className="text-lg sm:text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto leading-relaxed font-medium px-4">
-              Common questions about how SKAL works. If yours is not here, the discovery call covers it.
-            </p>
-          </div>
+    <section id="faq" className="band bg-surface">
+      <div className="shell">
+        <div className="spec">
+          <span className="t-label t-label--ink">Frequently asked</span>
+          <span className="t-label">{filteredFAQs.length} of {faqData.length} questions</span>
+        </div>
 
-          {/* Category Filter */}
-          <div className="flex flex-wrap justify-center gap-2 sm:gap-4 mb-8 sm:mb-12">
-            {categories.map((category) => (
-              <button
-                key={category}
-                onClick={() => setActiveCategory(category)}
-                className={`px-4 sm:px-6 py-2 sm:py-3 rounded-full font-medium transition-all duration-300 ${
-                  activeCategory === category
-                    ? 'bg-gradient-to-r from-[#009bd7] to-[#00E1FF] text-white shadow-lg'
-                    : 'bg-white/80 dark:bg-gray-800/80 text-gray-700 dark:text-gray-300 hover:bg-[#009bd7]/10 dark:hover:bg-[#009bd7]/20 hover:text-[#009bd7] border border-gray-200 dark:border-gray-700'
-                }`}
-              >
-                {category}
-              </button>
-            ))}
-          </div>
+        <h2 className="font-display t-h2 text-ink mt-8 max-w-[16ch]">
+          Everything you need to know.
+        </h2>
+        <p className="t-lead mt-5 max-w-[48ch]">
+          Common questions about how SKAL works. If yours is not here, the
+          discovery call covers it.
+        </p>
 
-          {/* FAQ Items */}
-          <div className="space-y-4 sm:space-y-6">
-            {filteredFAQs.map((item, index) => (
-              <div
-                key={index}
-                className="bg-white/80 dark:bg-gray-800/80 backdrop-blur-xl rounded-2xl border border-gray-200/50 dark:border-gray-700/50 shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden"
-              >
+        {/* Category filter reads as a filter, not as a row of buttons. */}
+        <div className="mt-10 flex flex-wrap gap-x-7 gap-y-3 border-b border-rule pb-4">
+          {categories.map((category) => (
+            <button
+              key={category}
+              onClick={() => setActiveCategory(category)}
+              aria-pressed={activeCategory === category}
+              className={`font-mono text-[11px] uppercase tracking-[0.14em] transition-colors ${
+                activeCategory === category ? 'text-ink' : 'text-ink-3 hover:text-ink'
+              }`}
+            >
+              {category}
+            </button>
+          ))}
+        </div>
+
+        <ul className="mt-2">
+          {filteredFAQs.map((item, index) => {
+            const open = openItems.includes(index);
+            return (
+              <li key={item.question} className="border-b border-rule">
                 <button
                   onClick={() => toggleItem(index)}
-                  aria-expanded={openItems.includes(index)}
+                  aria-expanded={open}
                   aria-controls={`faq-answer-${index}`}
-                  className="w-full px-6 sm:px-8 py-4 sm:py-6 text-left flex items-center justify-between hover:bg-gray-50/50 dark:hover:bg-gray-700/50 transition-colors duration-300"
+                  className="w-full py-6 text-left flex items-start justify-between gap-6 group"
                 >
-                  <h3 className="text-lg sm:text-xl font-semibold text-gray-800 dark:text-white pr-4">
+                  <h3 className="font-display text-[1.0625rem] sm:text-[1.15rem] text-ink pr-4 group-hover:text-signal transition-colors">
                     {item.question}
                   </h3>
-                  <div className="flex-shrink-0">
-                    {openItems.includes(index) ? (
-                      <ChevronUp className="w-5 h-5 text-[#009bd7]" />
-                    ) : (
-                      <ChevronDown className="w-5 h-5 text-gray-400" />
-                    )}
-                  </div>
+                  {open
+                    ? <ChevronUp className="w-4 h-4 mt-1 shrink-0 text-ink" strokeWidth={1.75} />
+                    : <ChevronDown className="w-4 h-4 mt-1 shrink-0 text-ink-3" strokeWidth={1.75} />}
                 </button>
-                
+
+                {/* Grid rows rather than a max-height clamp: the old max-h-96
+                    silently cut off any answer taller than 24rem. */}
                 <div
                   id={`faq-answer-${index}`}
                   role="region"
-                  className={`transition-all duration-300 ease-in-out ${
-                    openItems.includes(index)
-                      ? 'max-h-96 opacity-100'
-                      : 'max-h-0 opacity-0'
-                  } overflow-hidden`}
+                  className={`grid transition-[grid-template-rows] duration-300 ease-out ${
+                    open ? 'grid-rows-[1fr]' : 'grid-rows-[0fr]'
+                  }`}
                 >
-                  <div className="px-6 sm:px-8 pb-4 sm:pb-6">
-                    <div className="pt-2 border-t border-gray-100 dark:border-gray-700">
-                      <p className="text-gray-600 dark:text-gray-300 leading-relaxed text-sm sm:text-base">
-                        {item.answer}
-                      </p>
-                    </div>
+                  <div className="overflow-hidden">
+                    <p className="pb-7 pr-10 text-[0.9375rem] leading-relaxed text-ink-2 max-w-[62ch]">
+                      {item.answer}
+                    </p>
                   </div>
                 </div>
-              </div>
-            ))}
-          </div>
+              </li>
+            );
+          })}
+        </ul>
 
-          {/* CTA Section */}
-          <div className="text-center mt-12 sm:mt-16">
-            <div className="bg-gradient-to-r from-[#009bd7]/5 to-[#00E1FF]/5 dark:from-[#009bd7]/10 dark:to-[#00E1FF]/10 rounded-2xl p-8 sm:p-12 border border-[#009bd7]/10 dark:border-[#009bd7]/20">
-              <h3 className="text-2xl sm:text-3xl font-bold text-gray-800 dark:text-white mb-4">
-                Still have questions?
-              </h3>
-              <p className="text-gray-600 dark:text-gray-300 mb-6 text-sm sm:text-base">
-                If yours is not on the list, the discovery call is the fastest way to get a real answer.
-              </p>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <a
-                  href="/book"
-                  className="inline-flex items-center justify-center px-8 py-3 bg-gradient-to-r from-[#009bd7] to-[#00E1FF] text-white font-semibold rounded-xl hover:shadow-lg hover:scale-105 transition-all duration-300"
-                >
-                  Book a discovery call
-                </a>
-                <a
-                  href="mailto:info@skal.ai"
-                  className="inline-flex items-center justify-center px-8 py-3 border-2 border-[#009bd7] text-[#009bd7] font-semibold rounded-xl hover:bg-[#009bd7] hover:text-white transition-all duration-300"
-                >
-                  Email us
-                </a>
-              </div>
-            </div>
+        <div className="mt-16 pt-10 border-t border-rule grid grid-cols-1 lg:grid-cols-12 gap-y-6 lg:gap-x-12 items-end">
+          <div className="lg:col-span-7">
+            <h3 className="font-display t-h3 text-ink max-w-[18ch]">Still have questions?</h3>
+            <p className="mt-4 text-[0.9375rem] leading-relaxed text-ink-2 max-w-[46ch]">
+              If yours is not on the list, the discovery call is the fastest way
+              to get a real answer.
+            </p>
+          </div>
+          <div className="lg:col-span-5 flex flex-col sm:flex-row gap-3">
+            <a href="/book" className="btn btn-solid">Book a discovery call</a>
+            <a href="mailto:hi@skal.ai" className="btn btn-line">Email us</a>
           </div>
         </div>
       </div>
     </section>
   );
-} 
+}

@@ -18,60 +18,56 @@ export default function EnterpriseOffer() {
   });
 
   return (
-    <main className="relative min-h-screen">
+    <main className="min-h-screen bg-paper">
       <Navbar />
       
-      <section className="pt-28 pb-12 sm:pt-32 sm:pb-14 lg:pt-36 lg:pb-16 relative overflow-hidden bg-white dark:bg-gray-800">
-        <div className="absolute inset-0 pointer-events-none bg-gradient-to-br from-gray-700/5 via-transparent to-gray-600/5"></div>
+      <section className="pt-28 pb-12 sm:pt-32 sm:pb-14 lg:pt-36 lg:pb-16 relative overflow-hidden bg-surface">
 
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div className="shell">
           {/* Header */}
-          <div className="text-center mb-10 sm:mb-16">
-            <div className="inline-flex items-center space-x-2 bg-gradient-to-r from-gray-800/20 to-blue-800/20 dark:from-gray-700/30 dark:to-blue-700/30 rounded-full px-4 sm:px-6 py-2 mb-4 sm:mb-6 backdrop-blur-sm border border-gray-700/20 dark:border-blue-700/30">
+          <div className="mb-12">
+            <div className="mb-6">
               <Building2 className="w-4 h-4 sm:w-5 sm:h-5 text-gray-600 dark:text-blue-400" />
               <span className="text-gray-700 dark:text-blue-400 text-xs sm:text-sm font-bold tracking-wider">ENTERPRISE PACKAGE</span>
               <Building2 className="w-4 h-4 sm:w-5 sm:h-5 text-gray-600 dark:text-blue-400" />
             </div>
             
-            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-gray-800 via-blue-700 to-purple-600 dark:from-white dark:via-blue-300 dark:to-purple-400 mb-4 sm:mb-6 leading-snug pb-1">
-              I&apos;m An <span className="text-blue-600 dark:text-blue-300">Enterprise.</span>
+            <h1 className="font-display t-hero text-ink max-w-[16ch]">
+              I&apos;m An <span className="accent">Enterprise.</span>
             </h1>
             
-            <h2 className="text-xl sm:text-2xl md:text-3xl font-semibold text-gray-700 dark:text-gray-300 mb-6">
+            <h2 className="t-lead mt-6 max-w-[46ch]">
               Scaling without the right infrastructure and expertise can lead to costly bottlenecks
             </h2>
             
-            <p className="text-lg sm:text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto leading-relaxed font-medium">
+            <p className="mt-5 text-[0.9375rem] leading-relaxed text-ink-2 max-w-[54ch]">
               We help enterprises build robust, scalable solutions with enterprise-grade security, 
               compliance, and performance that drives business transformation.
             </p>
             
-            <div className="mt-8 inline-flex items-center gap-2 bg-gray-100 dark:bg-gray-800/50 border border-gray-300 dark:border-gray-700 rounded-full px-6 py-3">
+            <div className="mt-8 inline-flex items-center gap-2">
               <Building2 className="w-5 h-5 text-gray-600 dark:text-blue-400" />
               <span className="text-gray-700 dark:text-blue-400 font-medium">Enterprise-grade solutions for complex challenges</span>
             </div>
           </div>
 
           {/* Form Section */}
-          <div className="max-w-4xl mx-auto" ref={formRef}>
-            <div className="bg-white/80 dark:bg-gray-800/80 backdrop-blur-xl rounded-2xl sm:rounded-3xl shadow-2xl p-6 sm:p-8 md:p-12 border border-white/50 dark:border-gray-700/50 relative overflow-hidden">
+          <div className="" ref={formRef}>
+            <div className="border border-rule bg-surface p-8">
               {/* Form Background Effects */}
-              <div className="absolute inset-0 bg-gradient-to-br from-gray-800/5 via-transparent to-blue-700/5 pointer-events-none"></div>
-              <div className="absolute top-0 right-0 w-32 h-32 sm:w-64 sm:h-64 bg-gradient-to-bl from-blue-700/10 to-transparent rounded-full blur-3xl"></div>
-              <div className="absolute bottom-0 left-0 w-32 h-32 sm:w-64 sm:h-64 bg-gradient-to-tr from-gray-800/10 to-transparent rounded-full blur-3xl"></div>
 
-              <h3 className="text-2xl sm:text-3xl font-bold text-gray-800 dark:text-white mb-6 text-center relative z-10">
+              <h3 className="text-2xl sm:text-3xl font-bold text-ink mb-6 text-center relative z-10">
                 Enterprise Solutions Inquiry
               </h3>
               
-              <p className="text-center text-gray-600 dark:text-gray-300 mb-8 relative z-10">
+              <p className="text-center text-ink-2 mb-8 relative z-10">
                 Fill out this form and we&apos;ll contact you within 1-2 hours to discuss your enterprise needs
               </p>
 
               <form onSubmit={(e) => handleSubmit(e, { source: 'waitlist_enterprise', from_name: formData.name, reply_to: formData.email, website: formData.company, idea: formData.project, outcome: formData.outcome, budget: formData.budget })} className="relative z-10 space-y-6 sm:space-y-8">
                 {/* Name Field */}
                 <div className="group">
-                  <label htmlFor="name" className="flex items-center gap-2 text-sm font-bold text-gray-700 dark:text-gray-200 mb-2 sm:mb-3">
+                  <label htmlFor="name" className="t-label block mb-1">
                     <User className="w-4 h-4 text-gray-600 dark:text-blue-400" />
                     Name
                   </label>
@@ -83,16 +79,15 @@ export default function EnterpriseOffer() {
                       value={formData.name}
                       onChange={handleChange}
                       required
-                      className="w-full px-4 sm:px-6 py-3 sm:py-4 border border-gray-200 dark:border-gray-600 rounded-xl sm:rounded-2xl focus:ring-2 focus:ring-gray-500/20 focus:border-gray-500 dark:focus:border-blue-400 bg-white/90 dark:bg-gray-700/90 text-gray-800 dark:text-white placeholder-gray-400 dark:placeholder-gray-400 transition-all duration-300 group-hover:shadow-lg backdrop-blur-sm text-sm sm:text-base"
+                      className="w-full bg-transparent border-b border-rule py-3 text-[0.9375rem] text-ink placeholder:text-ink-3/70 focus:outline-none focus:border-ink transition-colors"
                       placeholder="Your name"
                     />
-                    <div className="absolute inset-0 rounded-xl sm:rounded-2xl bg-gradient-to-r from-gray-800/0 to-blue-700/0 group-focus-within:from-gray-800/5 group-focus-within:to-blue-700/5 transition-all duration-300 pointer-events-none"></div>
                   </div>
                 </div>
 
                 {/* Email Field */}
                 <div className="group">
-                  <label htmlFor="email" className="flex items-center gap-2 text-sm font-bold text-gray-700 dark:text-gray-200 mb-2 sm:mb-3">
+                  <label htmlFor="email" className="t-label block mb-1">
                     <Mail className="w-4 h-4 text-gray-600 dark:text-blue-400" />
                     Email
                   </label>
@@ -104,16 +99,15 @@ export default function EnterpriseOffer() {
                       value={formData.email}
                       onChange={handleChange}
                       required
-                      className="w-full px-4 sm:px-6 py-3 sm:py-4 border border-gray-200 dark:border-gray-600 rounded-xl sm:rounded-2xl focus:ring-2 focus:ring-gray-500/20 focus:border-gray-500 dark:focus:border-blue-400 bg-white/90 dark:bg-gray-700/90 text-gray-800 dark:text-white placeholder-gray-400 dark:placeholder-gray-400 transition-all duration-300 group-hover:shadow-lg backdrop-blur-sm text-sm sm:text-base"
+                      className="w-full bg-transparent border-b border-rule py-3 text-[0.9375rem] text-ink placeholder:text-ink-3/70 focus:outline-none focus:border-ink transition-colors"
                       placeholder="Your email"
                     />
-                    <div className="absolute inset-0 rounded-xl sm:rounded-2xl bg-gradient-to-r from-gray-800/0 to-blue-700/0 group-focus-within:from-gray-800/5 group-focus-within:to-blue-700/5 transition-all duration-300 pointer-events-none"></div>
                   </div>
                 </div>
 
                 {/* Company Field */}
                 <div className="group">
-                  <label htmlFor="company" className="flex items-center gap-2 text-sm font-bold text-gray-700 dark:text-gray-200 mb-2 sm:mb-3">
+                  <label htmlFor="company" className="t-label block mb-1">
                     <Building2 className="w-4 h-4 text-gray-600 dark:text-blue-400" />
                     Company Name
                   </label>
@@ -125,16 +119,15 @@ export default function EnterpriseOffer() {
                       value={formData.company}
                       onChange={handleChange}
                       required
-                      className="w-full px-4 sm:px-6 py-3 sm:py-4 border border-gray-200 dark:border-gray-600 rounded-xl sm:rounded-2xl focus:ring-2 focus:ring-gray-500/20 focus:border-gray-500 dark:focus:border-blue-400 bg-white/90 dark:bg-gray-700/90 text-gray-800 dark:text-white placeholder-gray-400 dark:placeholder-gray-400 transition-all duration-300 group-hover:shadow-lg backdrop-blur-sm text-sm sm:text-base"
+                      className="w-full bg-transparent border-b border-rule py-3 text-[0.9375rem] text-ink placeholder:text-ink-3/70 focus:outline-none focus:border-ink transition-colors"
                       placeholder="Your company name"
                     />
-                    <div className="absolute inset-0 rounded-xl sm:rounded-2xl bg-gradient-to-r from-gray-800/0 to-blue-700/0 group-focus-within:from-gray-800/5 group-focus-within:to-blue-700/5 transition-all duration-300 pointer-events-none"></div>
                   </div>
                 </div>
 
                 {/* Project Field */}
                 <div className="group">
-                  <label htmlFor="project" className="flex items-center gap-2 text-sm font-bold text-gray-700 dark:text-gray-200 mb-2 sm:mb-3">
+                  <label htmlFor="project" className="t-label block mb-1">
                     <Brain className="w-4 h-4 text-gray-600 dark:text-blue-400" />
                     Tell us about your enterprise project
                   </label>
@@ -146,16 +139,15 @@ export default function EnterpriseOffer() {
                       onChange={handleChange}
                       required
                       rows={4}
-                      className="w-full px-4 sm:px-6 py-3 sm:py-4 border border-gray-200 dark:border-gray-600 rounded-xl sm:rounded-2xl focus:ring-2 focus:ring-gray-500/20 focus:border-gray-500 dark:focus:border-blue-400 bg-white/90 dark:bg-gray-700/90 text-gray-800 dark:text-white placeholder-gray-400 dark:placeholder-gray-400 transition-all duration-300 group-hover:shadow-lg backdrop-blur-sm resize-none text-sm sm:text-base"
+                      className="w-full bg-transparent border-b border-rule py-3 text-[0.9375rem] text-ink placeholder:text-ink-3/70 focus:outline-none focus:border-ink transition-colors resize-none"
                       placeholder="Describe your enterprise project and technical requirements"
                     />
-                    <div className="absolute inset-0 rounded-xl sm:rounded-2xl bg-gradient-to-r from-gray-800/0 to-blue-700/0 group-focus-within:from-gray-800/5 group-focus-within:to-blue-700/5 transition-all duration-300 pointer-events-none"></div>
                   </div>
                 </div>
 
                 {/* Outcome Field */}
                 <div className="group">
-                  <label htmlFor="outcome" className="flex items-center gap-2 text-sm font-bold text-gray-700 dark:text-gray-200 mb-2 sm:mb-3">
+                  <label htmlFor="outcome" className="t-label block mb-1">
                     <Target className="w-4 h-4 text-gray-600 dark:text-blue-400" />
                     What business outcomes are you looking to achieve?
                   </label>
@@ -167,16 +159,15 @@ export default function EnterpriseOffer() {
                       onChange={handleChange}
                       required
                       rows={3}
-                      className="w-full px-4 sm:px-6 py-3 sm:py-4 border border-gray-200 dark:border-gray-600 rounded-xl sm:rounded-2xl focus:ring-2 focus:ring-gray-500/20 focus:border-gray-500 dark:focus:border-blue-400 bg-white/90 dark:bg-gray-700/90 text-gray-800 dark:text-white placeholder-gray-400 dark:placeholder-gray-400 transition-all duration-300 group-hover:shadow-lg backdrop-blur-sm resize-none text-sm sm:text-base"
+                      className="w-full bg-transparent border-b border-rule py-3 text-[0.9375rem] text-ink placeholder:text-ink-3/70 focus:outline-none focus:border-ink transition-colors resize-none"
                       placeholder="Tell us about your business goals and success metrics"
                     />
-                    <div className="absolute inset-0 rounded-xl sm:rounded-2xl bg-gradient-to-r from-gray-800/0 to-blue-700/0 group-focus-within:from-gray-800/5 group-focus-within:to-blue-700/5 transition-all duration-300 pointer-events-none"></div>
                   </div>
                 </div>
 
                 {/* Budget Field */}
                 <div className="group">
-                  <label htmlFor="budget" className="flex items-center gap-2 text-sm font-bold text-gray-700 dark:text-gray-200 mb-2 sm:mb-3">
+                  <label htmlFor="budget" className="t-label block mb-1">
                     <CreditCard className="w-4 h-4 text-gray-600 dark:text-blue-400" />
                     Budget Range
                   </label>
@@ -186,7 +177,7 @@ export default function EnterpriseOffer() {
                       name="budget"
                       value={formData.budget}
                       onChange={handleChange}
-                      className="w-full px-4 sm:px-6 py-3 sm:py-4 border border-gray-200 dark:border-gray-600 rounded-xl sm:rounded-2xl focus:ring-2 focus:ring-gray-500/20 focus:border-gray-500 dark:focus:border-blue-400 bg-white/90 dark:bg-gray-700/90 text-gray-800 dark:text-white placeholder-gray-400 dark:placeholder-gray-400 transition-all duration-300 group-hover:shadow-lg backdrop-blur-sm text-sm sm:text-base appearance-none"
+                      className="w-full bg-transparent border-b border-rule py-3 text-[0.9375rem] text-ink placeholder:text-ink-3/70 focus:outline-none focus:border-ink transition-colors"
                     >
                     <option value="$50,000-$100,000">$50,000-$100,000</option>
                     <option value="$100,000-$250,000">$100,000-$250,000</option>
@@ -197,9 +188,8 @@ export default function EnterpriseOffer() {
                     <option value="$5,000,000-$10,000,000">$5,000,000-$10,000,000</option>
                     <option value="$10,000,000+">$10,000,000+</option>
                   </select>
-                  <div className="absolute inset-0 rounded-xl sm:rounded-2xl bg-gradient-to-r from-gray-800/0 to-blue-700/0 group-focus-within:from-gray-800/5 group-focus-within:to-blue-700/5 transition-all duration-300 pointer-events-none"></div>
                   <div className="absolute right-4 top-1/2 transform -translate-y-1/2 pointer-events-none">
-                    <ChevronDown className="w-5 h-5 text-gray-500 dark:text-gray-400" />
+                    <ChevronDown className="w-5 h-5 text-ink-3" />
                   </div>
                 </div>
                 </div>
@@ -208,7 +198,7 @@ export default function EnterpriseOffer() {
                 <button
                   type="submit"
                   disabled={status.type === 'sending'}
-                  className="group relative inline-flex items-center justify-center w-full gap-2 sm:gap-3 px-8 sm:px-12 py-3 sm:py-4 bg-gradient-to-r from-gray-800 to-blue-700 text-white font-bold rounded-xl sm:rounded-2xl transition-all duration-300 hover:from-gray-900 hover:to-blue-800 hover:scale-105 hover:shadow-xl disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100 transform text-sm sm:text-base"
+                  className="btn btn-solid group disabled:opacity-50"
                 >
                   <span className="relative z-10">
                     {status.type === 'sending' ? 'Submitting Request...' : 'Submit Request'}
@@ -216,7 +206,6 @@ export default function EnterpriseOffer() {
                   <Send className={`w-4 h-4 sm:w-5 sm:h-5 relative z-10 transition-transform duration-300 ${status.type === 'sending' ? 'animate-pulse' : 'group-hover:translate-x-1'}`} />
                   
                   {/* Button glow effect */}
-                  <div className="absolute inset-0 bg-gradient-to-r from-gray-800 to-blue-700 rounded-xl sm:rounded-2xl blur-xl opacity-0 group-hover:opacity-30 transition-opacity duration-300"></div>
                 </button>
                 
                 {/* Status Messages */}
@@ -239,58 +228,58 @@ export default function EnterpriseOffer() {
 
           {/* Package Details Section */}
           <div className="mt-20 sm:mt-24">
-            <h2 className="text-3xl sm:text-4xl font-bold text-center text-[#0f172a] dark:text-white mb-12 leading-snug pb-1">
+            <h2 className="font-display t-h2 text-ink mb-12 max-w-[18ch]">
               Enterprise Package Includes
             </h2>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
               {/* Enterprise Architecture */}
-              <div className="bg-white/80 dark:bg-gray-800/80 backdrop-blur-xl rounded-2xl sm:rounded-3xl shadow-xl p-6 sm:p-8 border border-white/50 dark:border-gray-700/50 relative overflow-hidden group hover:shadow-2xl hover:shadow-gray-500/10 transition-all duration-300 hover:-translate-y-1">
+              <div className="border border-rule bg-surface p-8">
                 <div className="flex justify-center mb-6">
-                  <div className="p-3 bg-gray-500/10 dark:bg-gray-500/20 rounded-full">
+                  <div className="hidden">
                     <Building2 className="w-8 h-8 text-gray-600 dark:text-blue-400" />
                   </div>
                 </div>
                 
-                <h3 className="text-xl font-bold text-gray-800 dark:text-white mb-4 text-center">
+                <h3 className="text-xl font-bold text-ink mb-4 text-center">
                   Enterprise Architecture
                 </h3>
                 
-                <p className="text-gray-600 dark:text-gray-300 text-center">
+                <p className="text-ink-2 text-center">
                   Scalable, secure, and compliant enterprise-grade solutions
                 </p>
               </div>
 
               {/* Strategic Consulting */}
-              <div className="bg-white/80 dark:bg-gray-800/80 backdrop-blur-xl rounded-2xl sm:rounded-3xl shadow-xl p-6 sm:p-8 border border-white/50 dark:border-gray-700/50 relative overflow-hidden group hover:shadow-2xl hover:shadow-gray-500/10 transition-all duration-300 hover:-translate-y-1">
+              <div className="border border-rule bg-surface p-8">
                 <div className="flex justify-center mb-6">
-                  <div className="p-3 bg-gray-500/10 dark:bg-gray-500/20 rounded-full">
+                  <div className="hidden">
                     <Brain className="w-8 h-8 text-gray-600 dark:text-blue-400" />
                   </div>
                 </div>
                 
-                <h3 className="text-xl font-bold text-gray-800 dark:text-white mb-4 text-center">
+                <h3 className="text-xl font-bold text-ink mb-4 text-center">
                   Strategic Consulting
                 </h3>
                 
-                <p className="text-gray-600 dark:text-gray-300 text-center">
+                <p className="text-ink-2 text-center">
                   Expert guidance on technology strategy and digital transformation
                 </p>
               </div>
 
               {/* 24/7 Support */}
-              <div className="bg-white/80 dark:bg-gray-800/80 backdrop-blur-xl rounded-2xl sm:rounded-3xl shadow-xl p-6 sm:p-8 border border-white/50 dark:border-gray-700/50 relative overflow-hidden group hover:shadow-2xl hover:shadow-gray-500/10 transition-all duration-300 hover:-translate-y-1">
+              <div className="border border-rule bg-surface p-8">
                 <div className="flex justify-center mb-6">
-                  <div className="p-3 bg-gray-500/10 dark:bg-gray-500/20 rounded-full">
+                  <div className="hidden">
                     <Clock className="w-8 h-8 text-gray-600 dark:text-blue-400" />
                   </div>
                 </div>
                 
-                <h3 className="text-xl font-bold text-gray-800 dark:text-white mb-4 text-center">
+                <h3 className="text-xl font-bold text-ink mb-4 text-center">
                   24/7 Support
                 </h3>
                 
-                <p className="text-gray-600 dark:text-gray-300 text-center">
+                <p className="text-ink-2 text-center">
                   Round-the-clock enterprise support and maintenance
                 </p>
               </div>
@@ -301,7 +290,7 @@ export default function EnterpriseOffer() {
           <div className="mt-16 sm:mt-20 text-center">
             <button
               onClick={scrollToForm}
-              className="group relative inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-gray-800 to-blue-700 text-white font-bold rounded-xl transition-all duration-300 hover:from-gray-900 hover:to-blue-800 hover:scale-105 hover:shadow-xl"
+              className="btn btn-solid group disabled:opacity-50"
             >
               <span>Explore Enterprise Solutions</span>
               <ArrowRight className="w-5 h-5 transition-transform duration-300 group-hover:translate-x-1" />

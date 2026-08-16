@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
+import { Inter, Inter_Tight } from "next/font/google";
 import "./globals.css";
 
 import { Suspense } from "react";
@@ -18,6 +19,24 @@ const geistMono = localFont({
   src: "./fonts/GeistMonoVF.woff",
   variable: "--font-geist-mono",
   weight: "100 900",
+});
+
+// The claim voice. Inter Tight set heavy and tightly tracked, so a headline
+// reads as a statement rather than as body copy scaled up.
+const interTight = Inter_Tight({
+  subsets: ["latin"],
+  variable: "--font-display",
+  weight: ["500", "600", "700"],
+  display: "swap",
+});
+
+// The reading voice.
+const inter = Inter({
+  subsets: ["latin"],
+  variable: "--font-body",
+  weight: ["400", "500", "600"],
+  style: ["normal", "italic"],
+  display: "swap",
 });
 
 export const metadata: Metadata = {
@@ -281,7 +300,7 @@ export default function RootLayout({
         <link rel="dns-prefetch" href="https://calendly.com" />
       </head>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} ${interTight.variable} ${inter.variable} antialiased`}
       >
         <script
           type="application/ld+json"

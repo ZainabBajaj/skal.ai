@@ -210,23 +210,23 @@ export default function ChatWidget() {
             if (step === 'intro') setStep('category');
           }}
           aria-label="Open chat"
-          className={`fixed bottom-24 right-6 z-50 group w-14 h-14 rounded-full bg-gradient-to-r from-[#009bd7] to-[#00E1FF] text-white shadow-xl shadow-[#009bd7]/30 hover:shadow-2xl hover:shadow-[#009bd7]/40 hover:scale-110 active:scale-95 transition-all duration-300 flex items-center justify-center ${liftForBanner}`}
+          className={`fixed bottom-24 right-6 z-50 group w-11 h-11 bg-ink text-paper border border-ink hover:bg-signal hover:border-signal transition-colors duration-200 flex items-center justify-center ${liftForBanner}`}
         >
           <MessageCircle className="w-6 h-6" />
           <span className="absolute -top-1 -right-1 flex h-3 w-3">
-            <span className="absolute inline-flex h-full w-full rounded-full bg-[#00E1FF] opacity-75 animate-ping"></span>
-            <span className="relative inline-flex h-3 w-3 rounded-full bg-[#00E1FF]"></span>
+            <span className="absolute inline-flex h-full w-full rounded-full bg-signal opacity-75 animate-ping"></span>
+            <span className="relative inline-flex h-2.5 w-2.5 rounded-full bg-signal"></span>
           </span>
         </button>
       )}
 
       {/* Chat panel */}
       {isOpen && (
-        <div className={`fixed bottom-24 right-6 z-50 w-[92vw] max-w-sm sm:max-w-md h-[min(600px,75vh)] flex flex-col rounded-3xl overflow-hidden shadow-2xl border border-gray-200/50 dark:border-gray-700/50 bg-white dark:bg-gray-900 backdrop-blur-xl transition-transform duration-300 ${liftForBanner}`}>
+        <div className={`fixed bottom-24 right-6 z-50 w-[92vw] max-w-sm sm:max-w-md h-[min(600px,75vh)] flex flex-col overflow-hidden border border-rule bg-surface transition-transform duration-300 ${liftForBanner}`}>
           {/* Header */}
-          <div className="relative flex items-center justify-between px-5 py-4 bg-gradient-to-r from-[#009bd7] to-[#00E1FF] text-white">
+          <div className="relative flex items-center justify-between px-5 py-4 bg-ink text-paper">
             <div className="flex items-center gap-3">
-              <div className="relative w-10 h-10 rounded-full bg-white/25 backdrop-blur-sm ring-2 ring-white/40 flex items-center justify-center shadow-lg">
+              <div className="relative w-9 h-9 bg-paper/15 border border-paper/25 flex items-center justify-center">
                 <Telescope className="w-5 h-5" strokeWidth={2.25} />
                 <span className="absolute -bottom-0.5 -right-0.5 w-3 h-3 rounded-full bg-green-400 ring-2 ring-white" />
               </div>
@@ -257,14 +257,14 @@ export default function ChatWidget() {
           </div>
 
           {/* Messages */}
-          <div className="flex-1 overflow-y-auto px-5 py-5 space-y-3 bg-gradient-to-b from-slate-50 to-white dark:from-gray-900 dark:to-gray-800">
+          <div className="flex-1 overflow-y-auto px-5 py-5 space-y-3 bg-paper">
             {messages.map((m, i) => (
               <div key={i} className={`flex ${m.role === 'user' ? 'justify-end' : 'justify-start'}`}>
                 <div
                   className={`max-w-[80%] px-4 py-2.5 rounded-2xl text-sm leading-relaxed ${
                     m.role === 'user'
-                      ? 'bg-gradient-to-r from-[#009bd7] to-[#00E1FF] text-white rounded-br-sm'
-                      : 'bg-white dark:bg-gray-700 text-gray-800 dark:text-gray-100 rounded-bl-sm shadow-sm border border-gray-100 dark:border-gray-600'
+                      ? 'bg-ink text-paper rounded-br-sm'
+                      : 'bg-surface text-ink rounded-bl-sm border border-rule'
                   }`}
                 >
                   {m.text}
@@ -275,27 +275,27 @@ export default function ChatWidget() {
           </div>
 
           {/* Actions */}
-          <div className="px-5 py-4 bg-white dark:bg-gray-900 border-t border-gray-100 dark:border-gray-800">
+          <div className="px-5 py-4 bg-surface border-t border-rule">
             {step === 'summary' ? (
               <div className="space-y-2">
                 <Link
                   href={BOOK_URL}
                   onClick={() => setIsOpen(false)}
-                  className="group flex items-center justify-between w-full px-4 py-3 bg-gradient-to-r from-[#009bd7] to-[#00E1FF] text-white font-bold rounded-xl hover:shadow-lg hover:shadow-[#009bd7]/25 transition-all"
+                  className="group flex items-center justify-between w-full px-4 py-3 bg-ink text-paper font-medium hover:bg-signal transition-colors"
                 >
                   <span>Book a discovery call</span>
                   <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                 </Link>
                 <button
                   onClick={scrollToContact}
-                  className="flex items-center justify-between w-full px-4 py-3 border-2 border-[#009bd7] dark:border-[#00E1FF] text-[#009bd7] dark:text-[#00E1FF] font-semibold rounded-xl hover:bg-[#009bd7]/5 transition-colors"
+                  className="flex items-center justify-between w-full px-4 py-3 border border-rule text-ink font-medium hover:border-ink transition-colors"
                 >
                   <span>Send details via form</span>
                   <ArrowRight className="w-4 h-4" />
                 </button>
                 <button
                   onClick={reset}
-                  className="w-full text-xs text-gray-500 dark:text-gray-400 hover:text-[#009bd7] py-1 transition-colors"
+                  className="w-full text-xs text-ink-3 hover:text-signal py-1 transition-colors"
                 >
                   Start over
                 </button>
@@ -314,26 +314,26 @@ export default function ChatWidget() {
                   onChange={(e) => setContact({ ...contact, name: e.target.value })}
                   placeholder="Your name"
                   autoFocus
-                  className="w-full px-4 py-2.5 text-sm rounded-xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 text-gray-800 dark:text-gray-100 focus:outline-none focus:ring-2 focus:ring-[#009bd7]/30 focus:border-[#009bd7]"
+                  className="w-full px-4 py-2.5 text-sm border border-rule bg-surface text-ink focus:outline-none focus:border-ink transition-colors"
                 />
                 <input
                   type="email"
                   value={contact.email}
                   onChange={(e) => setContact({ ...contact, email: e.target.value })}
                   placeholder="Email address"
-                  className="w-full px-4 py-2.5 text-sm rounded-xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 text-gray-800 dark:text-gray-100 focus:outline-none focus:ring-2 focus:ring-[#009bd7]/30 focus:border-[#009bd7]"
+                  className="w-full px-4 py-2.5 text-sm border border-rule bg-surface text-ink focus:outline-none focus:border-ink transition-colors"
                 />
                 <input
                   type="tel"
                   value={contact.phone}
                   onChange={(e) => setContact({ ...contact, phone: e.target.value })}
                   placeholder="Phone number (optional)"
-                  className="w-full px-4 py-2.5 text-sm rounded-xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 text-gray-800 dark:text-gray-100 focus:outline-none focus:ring-2 focus:ring-[#009bd7]/30 focus:border-[#009bd7]"
+                  className="w-full px-4 py-2.5 text-sm border border-rule bg-surface text-ink focus:outline-none focus:border-ink transition-colors"
                 />
                 <button
                   type="submit"
                   disabled={!contactValid}
-                  className="flex items-center justify-between w-full px-4 py-3 bg-gradient-to-r from-[#009bd7] to-[#00E1FF] text-white font-bold rounded-xl hover:shadow-lg hover:shadow-[#009bd7]/25 transition-all disabled:opacity-40 disabled:cursor-not-allowed"
+                  className="flex items-center justify-between w-full px-4 py-3 bg-ink text-paper font-medium hover:bg-signal transition-colors disabled:opacity-40 disabled:cursor-not-allowed"
                 >
                   <span>Submit details</span>
                   <ArrowRight className="w-4 h-4" />
@@ -353,13 +353,13 @@ export default function ChatWidget() {
                   onChange={(e) => setFreeInput(e.target.value)}
                   placeholder="Type a short message..."
                   autoFocus
-                  className="flex-1 px-4 py-2.5 text-sm rounded-xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 text-gray-800 dark:text-gray-100 focus:outline-none focus:ring-2 focus:ring-[#009bd7]/30 focus:border-[#009bd7]"
+                  className="flex-1 px-4 py-2.5 text-sm border border-rule bg-surface text-ink focus:outline-none focus:border-ink transition-colors"
                 />
                 <button
                   type="submit"
                   disabled={!freeInput.trim()}
                   aria-label="Send"
-                  className="w-10 h-10 flex-shrink-0 rounded-xl bg-gradient-to-r from-[#009bd7] to-[#00E1FF] text-white flex items-center justify-center disabled:opacity-40 disabled:cursor-not-allowed hover:shadow-lg transition-all"
+                  className="w-10 h-10 flex-shrink-0 bg-ink text-paper flex items-center justify-center disabled:opacity-40 disabled:cursor-not-allowed hover:bg-signal transition-colors"
                 >
                   <Send className="w-4 h-4" />
                 </button>
@@ -370,14 +370,14 @@ export default function ChatWidget() {
                   <button
                     key={opt.value}
                     onClick={() => onOptionClick(opt)}
-                    className="px-3.5 py-2 text-xs sm:text-sm font-semibold text-[#009bd7] dark:text-[#00E1FF] bg-[#009bd7]/8 dark:bg-[#00E1FF]/10 hover:bg-[#009bd7]/15 dark:hover:bg-[#00E1FF]/20 border border-[#009bd7]/20 dark:border-[#00E1FF]/30 rounded-full transition-all hover:scale-[1.02]"
+                    className="px-3.5 py-2 text-xs sm:text-sm font-semibold text-ink border border-rule hover:border-ink transition-colors"
                   >
                     {opt.label}
                   </button>
                 ))}
               </div>
             )}
-            <div className="mt-3 text-[10px] text-center text-gray-400 dark:text-gray-500">
+            <div className="mt-3 text-[10px] text-center text-ink-3">
               Not a live chat. This is a guided qualifier.
             </div>
           </div>
