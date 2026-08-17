@@ -21,21 +21,19 @@ const geistMono = localFont({
   weight: "100 900",
 });
 
-// The claim voice. Inter Tight set heavy and tightly tracked, so a headline
-// reads as a statement rather than as body copy scaled up.
+/* The two faces kept from the redesign. Inter Tight carries the headings,
+   set tight and heavy; Inter carries everything else. Geist stays loaded
+   because the mono variable is still referenced, and swapping the body face
+   is a variable change rather than a rewrite of every page. */
 const interTight = Inter_Tight({
   subsets: ["latin"],
   variable: "--font-display",
   weight: ["500", "600", "700"],
   display: "swap",
 });
-
-// The reading voice.
 const inter = Inter({
   subsets: ["latin"],
   variable: "--font-body",
-  weight: ["400", "500", "600"],
-  style: ["normal", "italic"],
   display: "swap",
 });
 
@@ -246,8 +244,8 @@ const professionalServiceSchema = {
         "@type": "Offer",
         "itemOffered": {
           "@type": "Service",
-          "name": "SKAL Sky",
-          "description": "A Chrome extension that captures a lead from any page you are reading, extracts it into structured fields and scores it against your ideal customer profile. Free to start.",
+          "name": "SKAL Scale",
+          "description": "Automated outbound infrastructure. AI prospecting, personalised sequences, and a proprietary contact database. Pay only when qualified meetings land on your calendar.",
           "url": "https://skal.ai/scale",
         },
       },

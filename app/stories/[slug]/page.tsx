@@ -39,8 +39,8 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
 }
 
 const accentChip: Record<string, string> = {
-  blue: 'bg-[#009bd7]/10 dark:bg-[#009bd7]/20 text-signal border-signal/20 dark:border-[#00E1FF]/30',
-  cyan: 'bg-[#00E1FF]/10 dark:bg-[#00E1FF]/20 text-signal border-[#00E1FF]/25 dark:border-[#00E1FF]/30',
+  blue: 'bg-[#009bd7]/10 dark:bg-[#009bd7]/20 text-[#009bd7] dark:text-[#00E1FF] border-[#009bd7]/20 dark:border-[#00E1FF]/30',
+  cyan: 'bg-[#00E1FF]/10 dark:bg-[#00E1FF]/20 text-[#009bd7] dark:text-[#00E1FF] border-[#00E1FF]/25 dark:border-[#00E1FF]/30',
   teal: 'bg-[#1DB5C5]/10 dark:bg-[#1DB5C5]/20 text-[#1DB5C5] dark:text-[#1DB5C5] border-[#1DB5C5]/25 dark:border-[#1DB5C5]/30',
 };
 
@@ -82,14 +82,14 @@ export default async function StoryPage({ params }: { params: Promise<{ slug: st
       pitch: 'The voice model is the easy part. SKAL Systems deploys AI receptionists with the knowledge, integrations, and escalation logic that actually hold up in production.',
     },
     'true-cost-of-missed-sales-call': {
-      href: '/sky',
-      label: 'SKAL Sky',
-      pitch: 'Stop leaking pipeline to slow response. SKAL Sky runs your outbound and inbound first-response, with five-minute reply at any hour, in any timezone.',
+      href: '/scale',
+      label: 'SKAL Scale',
+      pitch: 'Stop leaking pipeline to slow response. SKAL Scale runs your outbound and inbound first-response, with five-minute reply at any hour, in any timezone.',
     },
     'sdr-vs-ai-when-to-hire-when-to-deploy': {
-      href: '/sky',
-      label: 'SKAL Sky',
-      pitch: 'The hybrid pattern most companies should run starts with AI infrastructure for the top of funnel. SKAL Sky handles outbound on pay-per-qualified-meeting pricing.',
+      href: '/scale',
+      label: 'SKAL Scale',
+      pitch: 'The hybrid pattern most companies should run starts with AI infrastructure for the top of funnel. SKAL Scale handles outbound on pay-per-qualified-meeting pricing.',
     },
     'build-vs-buy-framework-for-b2b-ai': {
       href: '/services',
@@ -117,13 +117,13 @@ export default async function StoryPage({ params }: { params: Promise<{ slug: st
       pitch: 'Hire AI-native operators or run an AI-painted operation. SKAL Staffing embeds engineers who actually work the way this piece describes.',
     },
     'architecture-of-ai-sales-system-that-books-meetings': {
-      href: '/sky',
-      label: 'SKAL Sky',
+      href: '/scale',
+      label: 'SKAL Scale',
       pitch: 'The full seven-component architecture, run as managed infrastructure. Proprietary data, multi-channel sequencing, sub-60-second reply, pay per qualified meeting.',
     },
     'pay-per-meeting-contract-that-aligns-ai-sales': {
-      href: '/sky',
-      label: 'SKAL Sky',
+      href: '/scale',
+      label: 'SKAL Scale',
       pitch: 'The only AI sales product priced per qualified meeting that actually lands on your calendar. No retainer, no monthly minimum, no-shows do not count.',
     },
     'what-i-would-build-if-starting-saas-in-2026': {
@@ -165,7 +165,7 @@ export default async function StoryPage({ params }: { params: Promise<{ slug: st
   };
 
   return (
-    <main className="min-h-screen bg-paper">
+    <main className="relative min-h-screen">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }}
@@ -173,12 +173,12 @@ export default async function StoryPage({ params }: { params: Promise<{ slug: st
       <Navbar />
 
       {/* Article header */}
-      <section className="pt-28 lg:pt-36 pb-8 lg:pb-12">
-        <div className="shell">
-          <div className="max-w-[58ch]">
+      <section className="pt-28 pb-8 sm:pt-32 sm:pb-10 lg:pt-36 lg:pb-12 relative overflow-hidden bg-gradient-to-br from-slate-50 via-white to-blue-50 dark:from-gray-900 dark:via-gray-800 dark:to-blue-900">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <div className="max-w-3xl mx-auto">
             <Link
               href="/stories"
-              className="inline-flex items-center gap-2 text-sm font-semibold text-signal hover:underline mb-8"
+              className="inline-flex items-center gap-2 text-sm font-semibold text-[#009bd7] dark:text-[#00E1FF] hover:underline mb-8"
             >
               <ArrowLeft className="w-4 h-4" />
               All stories
@@ -188,18 +188,18 @@ export default async function StoryPage({ params }: { params: Promise<{ slug: st
               <span className={`inline-block px-3 py-1 rounded-full text-xs font-bold tracking-wider border ${accentChip[story.accent] ?? accentChip.blue}`}>
                 {story.tag.toUpperCase()}
               </span>
-              <div className="flex items-center gap-1.5 text-xs text-ink-3">
+              <div className="flex items-center gap-1.5 text-xs text-gray-500 dark:text-gray-400">
                 <Clock className="w-3.5 h-3.5" />
                 <span>{story.readTime} read</span>
               </div>
-              <span className="text-xs text-ink-3">{formattedDate}</span>
+              <span className="text-xs text-gray-500 dark:text-gray-400">{formattedDate}</span>
             </div>
 
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-ink leading-snug pb-1 mb-6">
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-[#0f172a] dark:text-white leading-snug pb-1 mb-6">
               {story.title}
             </h1>
 
-            <p className="t-lead max-w-[54ch]">
+            <p className="text-lg sm:text-xl text-gray-600 dark:text-gray-300 leading-relaxed">
               {story.excerpt}
             </p>
           </div>
@@ -207,36 +207,36 @@ export default async function StoryPage({ params }: { params: Promise<{ slug: st
       </section>
 
       {/* Article body */}
-      <section className="py-12 lg:py-16 relative bg-surface">
-        <div className="shell">
+      <section className="py-12 lg:py-16 relative bg-white dark:bg-gray-800">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           {slug === 'hidden-cost-of-agent-sprawl' && <SprawlBanner />}
           {slug === 'why-most-ai-pilots-fail' && <PilotGapBanner />}
           {slug === 'from-balance-sheet-to-build-plan' && <BuildPlanBanner />}
           {slug === 'hiring-the-top-five-percent' && <VettingBanner />}
           {story.pullQuote && (
-            <figure className="max-w-[58ch] mb-12 relative">
-              <div className="absolute left-0 top-0 bottom-0 w-px bg-signal" aria-hidden="true" />
+            <figure className="max-w-3xl mx-auto mb-12 relative">
+              <div className="absolute left-0 top-0 bottom-0 w-1 rounded-full bg-gradient-to-b from-[#009bd7] via-[#00E1FF] to-[#1DB5C5]" aria-hidden="true" />
               <blockquote className="pl-8 sm:pl-10">
-                <p className="text-2xl sm:text-3xl font-semibold italic text-ink leading-snug">
+                <p className="text-2xl sm:text-3xl font-semibold italic text-[#0f172a] dark:text-white leading-snug">
                   {story.pullQuote}
                 </p>
               </blockquote>
             </figure>
           )}
-          <article className="shell-tight prose-skal">
+          <article className="max-w-3xl mx-auto prose prose-lg dark:prose-invert prose-headings:text-[#0f172a] dark:prose-headings:text-white prose-headings:font-bold prose-h2:text-2xl sm:prose-h2:text-3xl prose-h2:mt-12 prose-h2:mb-4 prose-h3:text-xl sm:prose-h3:text-2xl prose-h3:mt-8 prose-h3:mb-3 prose-p:text-gray-700 dark:prose-p:text-gray-300 prose-p:leading-relaxed prose-a:text-[#009bd7] dark:prose-a:text-[#00E1FF] prose-a:no-underline hover:prose-a:underline prose-strong:text-[#0f172a] dark:prose-strong:text-white prose-code:text-[#009bd7] dark:prose-code:text-[#00E1FF] prose-code:bg-gray-100 dark:prose-code:bg-gray-900 prose-code:px-1.5 prose-code:py-0.5 prose-code:rounded prose-code:before:content-none prose-code:after:content-none prose-blockquote:border-l-[#009bd7] dark:prose-blockquote:border-l-[#00E1FF] prose-blockquote:text-gray-600 dark:prose-blockquote:text-gray-400">
             <ReactMarkdown remarkPlugins={[remarkGfm]}>{story.content}</ReactMarkdown>
           </article>
 
           {relatedProduct && (
-            <aside className="max-w-[58ch] mt-16 p-8 border border-rule bg-surface">
-              <div className="text-xs font-bold tracking-widest text-signal mb-3">RELATED</div>
-              <h2 className="text-xl sm:text-2xl font-bold text-ink mb-3 leading-snug">
+            <aside className="max-w-3xl mx-auto mt-16 p-8 rounded-3xl bg-gradient-to-br from-[#009bd7]/5 to-[#00E1FF]/5 dark:from-[#009bd7]/10 dark:to-[#00E1FF]/10 border border-[#009bd7]/20 dark:border-[#00E1FF]/20">
+              <div className="text-xs font-bold tracking-widest text-[#009bd7] dark:text-[#00E1FF] mb-3">RELATED</div>
+              <h2 className="text-xl sm:text-2xl font-bold text-[#0f172a] dark:text-white mb-3 leading-snug">
                 {relatedProduct.label}
               </h2>
-              <p className="text-ink-2 leading-relaxed mb-5">{relatedProduct.pitch}</p>
+              <p className="text-gray-700 dark:text-gray-300 leading-relaxed mb-5">{relatedProduct.pitch}</p>
               <Link
                 href={relatedProduct.href}
-                className="inline-flex items-center gap-2 text-signal font-semibold hover:gap-3 transition-all duration-300"
+                className="inline-flex items-center gap-2 text-[#009bd7] dark:text-[#00E1FF] font-semibold hover:gap-3 transition-all duration-300"
               >
                 Explore {relatedProduct.label} <ArrowRight className="w-4 h-4" />
               </Link>
@@ -246,26 +246,26 @@ export default async function StoryPage({ params }: { params: Promise<{ slug: st
       </section>
 
       {/* Bottom CTA */}
-      <section className="band">
-        <div className="shell">
-          <div className="max-w-[54ch]">
-            <h2 className="font-display t-h2 text-ink mb-5 max-w-[18ch]">
+      <section className="py-14 lg:py-20 relative bg-gradient-to-br from-slate-50 via-white to-blue-50 dark:from-gray-900 dark:via-gray-800 dark:to-blue-900">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="max-w-3xl mx-auto text-center">
+            <h2 className="text-3xl sm:text-4xl font-bold text-[#0f172a] dark:text-white mb-4 leading-snug pb-1">
               Working on something like this?
             </h2>
-            <p className="text-lg text-ink-2 mb-10">
+            <p className="text-lg text-gray-600 dark:text-gray-300 mb-10">
               Tell us what you are stuck on. We will tell you what it takes to ship it.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link
                 href="/book"
-                className="btn btn-solid group"
+                className="group inline-flex items-center justify-center gap-2 px-8 py-4 bg-gradient-to-r from-[#009bd7] to-[#00E1FF] text-white font-bold rounded-2xl transition-all duration-300 hover:shadow-xl hover:shadow-[#009bd7]/25 hover:scale-105"
               >
                 Talk to the team
                 <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
               </Link>
               <Link
                 href="/stories"
-                className="group inline-flex items-center justify-center gap-2 px-8 py-4 border-2 border-signal dark:border-[#00E1FF] text-signal font-bold rounded-none transition-all duration-300 hover:bg-[#009bd7] hover:text-white dark:hover:bg-[#00E1FF] dark:hover:text-[#0f172a]"
+                className="group inline-flex items-center justify-center gap-2 px-8 py-4 border-2 border-[#009bd7] dark:border-[#00E1FF] text-[#009bd7] dark:text-[#00E1FF] font-bold rounded-2xl transition-all duration-300 hover:bg-[#009bd7] hover:text-white dark:hover:bg-[#00E1FF] dark:hover:text-[#0f172a]"
               >
                 More stories
                 <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
@@ -283,7 +283,7 @@ export default async function StoryPage({ params }: { params: Promise<{ slug: st
 
 function SprawlBanner() {
   return (
-    <div className="max-w-[58ch] mb-10 relative overflow-hidden bg-band text-band-ink border border-gray-700/40 shadow-xl">
+    <div className="max-w-3xl mx-auto mb-10 relative rounded-2xl overflow-hidden bg-gradient-to-br from-[#0f172a] to-[#0c2d4a] border border-gray-700/40 shadow-xl">
       <svg
         viewBox="0 0 800 200"
         xmlns="http://www.w3.org/2000/svg"
@@ -363,7 +363,7 @@ function SprawlBanner() {
       </svg>
 
       {/* Caption strip */}
-      <div className="absolute left-4 bottom-3 sm:left-6 sm:bottom-4 text-[10px] sm:text-xs font-bold tracking-[0.18em] text-signal/80">
+      <div className="absolute left-4 bottom-3 sm:left-6 sm:bottom-4 text-[10px] sm:text-xs font-bold tracking-[0.18em] text-[#00E1FF]/80">
         AGENTS, MOSTLY UNCONNECTED
       </div>
     </div>
@@ -372,7 +372,7 @@ function SprawlBanner() {
 
 function PilotGapBanner() {
   return (
-    <div className="max-w-[58ch] mb-10 relative overflow-hidden bg-band text-band-ink border border-gray-700/40 shadow-xl">
+    <div className="max-w-3xl mx-auto mb-10 relative rounded-2xl overflow-hidden bg-gradient-to-br from-[#0f172a] to-[#0c2d4a] border border-gray-700/40 shadow-xl">
       <svg
         viewBox="0 0 800 220"
         xmlns="http://www.w3.org/2000/svg"
@@ -461,7 +461,7 @@ function PilotGapBanner() {
 
 function BuildPlanBanner() {
   return (
-    <div className="max-w-[58ch] mb-10 relative overflow-hidden bg-band text-band-ink border border-gray-700/40 shadow-xl">
+    <div className="max-w-3xl mx-auto mb-10 relative rounded-2xl overflow-hidden bg-gradient-to-br from-[#0f172a] to-[#0c2d4a] border border-gray-700/40 shadow-xl">
       <svg
         viewBox="0 0 800 220"
         xmlns="http://www.w3.org/2000/svg"
@@ -538,7 +538,7 @@ function BuildPlanBanner() {
 
 function VettingBanner() {
   return (
-    <div className="max-w-[58ch] mb-10 relative overflow-hidden bg-band text-band-ink border border-gray-700/40 shadow-xl">
+    <div className="max-w-3xl mx-auto mb-10 relative rounded-2xl overflow-hidden bg-gradient-to-br from-[#0f172a] to-[#0c2d4a] border border-gray-700/40 shadow-xl">
       <svg
         viewBox="0 0 800 220"
         xmlns="http://www.w3.org/2000/svg"

@@ -21,7 +21,7 @@ SKAL is a practitioner-led AI company building operational infrastructure for B2
 ## Pages
 
 ### Products
-- [SKAL Sky](https://skal.ai/sky): A Chrome extension that captures a lead from any page you are reading, extracts it into structured fields and scores it against your ideal customer profile. Free to start.
+- [SKAL Scale](https://skal.ai/scale): Automated outbound infrastructure for B2B pipeline. Pay-per-qualified-meeting pricing.
 - [SKAL Systems](https://skal.ai/systems): Deployable AI systems for support, sales, and operations. Sales, Support, and Receptionist systems available.
 - [SKAL Services](https://skal.ai/services): Custom AI systems and workflow automation built around your operations.
 - [SKAL Staffing](https://skal.ai/staffing): AI-native operators and engineers embedded into your workflow.

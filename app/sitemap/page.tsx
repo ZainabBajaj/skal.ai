@@ -1,5 +1,5 @@
 import Link from 'next/link';
-
+import { Map } from 'lucide-react';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import FloatingThemeToggle from '../components/FloatingThemeToggle';
@@ -80,33 +80,34 @@ export default function SitemapPage() {
   ];
 
   return (
-    <main className="min-h-screen bg-paper">
+    <main className="relative min-h-screen">
       <Navbar />
 
       {/* Header */}
-      <section className="pt-28 lg:pt-36 pb-10 lg:pb-14">
-        <div className="shell">
-          <div className="mb-6">
-            <span className="text-signal text-sm font-bold tracking-wider">SITEMAP</span>
+      <section className="pt-28 pb-10 sm:pt-32 sm:pb-12 lg:pt-36 lg:pb-14 relative overflow-hidden bg-gradient-to-br from-slate-50 via-white to-blue-50 dark:from-gray-900 dark:via-gray-800 dark:to-blue-900">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
+          <div className="inline-flex items-center space-x-2 bg-gradient-to-r from-[#009bd7]/10 to-[#00E1FF]/10 dark:from-[#009bd7]/20 dark:to-[#00E1FF]/20 rounded-full px-6 py-2 mb-6 backdrop-blur-sm border border-[#009bd7]/20 dark:border-[#00E1FF]/30">
+            <Map className="w-4 h-4 text-[#009bd7] dark:text-[#00E1FF]" />
+            <span className="text-[#009bd7] dark:text-[#00E1FF] text-sm font-bold tracking-wider">SITEMAP</span>
           </div>
 
-          <h1 className="font-display t-hero text-ink mb-4 max-w-[18ch]">
+          <h1 className="text-4xl sm:text-5xl font-bold text-[#0f172a] dark:text-white mb-4 leading-snug pb-1">
             Every page on skal.ai
           </h1>
 
-          <p className="text-lg text-ink-2 max-w-[54ch]">
+          <p className="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
             One scrollable list. Use it as a fast index when you know what you are looking for.
           </p>
         </div>
       </section>
 
       {/* Groups */}
-      <section className="py-12 lg:py-16 relative bg-surface">
-        <div className="shell">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12">
+      <section className="py-12 lg:py-16 relative bg-white dark:bg-gray-800">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12">
             {groups.map((group) => (
               <div key={group.heading}>
-                <h2 className="text-xl sm:text-2xl font-bold text-ink mb-4 leading-snug pb-1">
+                <h2 className="text-xl sm:text-2xl font-bold text-[#0f172a] dark:text-white mb-4 leading-snug pb-1">
                   {group.heading}
                 </h2>
                 <ul className="space-y-2.5">
@@ -114,7 +115,7 @@ export default function SitemapPage() {
                     <li key={link.href}>
                       <Link
                         href={link.href}
-                        className="text-ink-2 hover:text-signal hover:underline underline-offset-4 transition-colors"
+                        className="text-gray-700 dark:text-gray-300 hover:text-[#009bd7] dark:hover:text-[#00E1FF] hover:underline underline-offset-4 transition-colors"
                       >
                         {link.label}
                       </Link>

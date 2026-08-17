@@ -1,4 +1,4 @@
-
+import { FileText } from 'lucide-react';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import FloatingThemeToggle from '../components/FloatingThemeToggle';
@@ -13,30 +13,31 @@ export const metadata: Metadata = {
 
 export default function TermsPage() {
   return (
-    <main className="min-h-screen bg-paper">
+    <main className="relative min-h-screen">
       <Navbar />
 
       {/* Header */}
-      <section className="pt-28 lg:pt-36 pb-10 lg:pb-14">
-        <div className="shell">
-          <div className="max-w-[58ch]">
-            <div className="mb-6">
-              <span className="text-signal text-sm font-bold tracking-wider">LEGAL</span>
+      <section className="pt-28 pb-10 sm:pt-32 sm:pb-12 lg:pt-36 lg:pb-14 relative overflow-hidden bg-gradient-to-br from-slate-50 via-white to-blue-50 dark:from-gray-900 dark:via-gray-800 dark:to-blue-900">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <div className="max-w-3xl mx-auto">
+            <div className="inline-flex items-center space-x-2 bg-gradient-to-r from-[#009bd7]/10 to-[#00E1FF]/10 dark:from-[#009bd7]/20 dark:to-[#00E1FF]/20 rounded-full px-6 py-2 mb-6 backdrop-blur-sm border border-[#009bd7]/20 dark:border-[#00E1FF]/30">
+              <FileText className="w-4 h-4 text-[#009bd7] dark:text-[#00E1FF]" />
+              <span className="text-[#009bd7] dark:text-[#00E1FF] text-sm font-bold tracking-wider">LEGAL</span>
             </div>
 
-            <h1 className="font-display t-hero text-ink mb-4 max-w-[18ch]">
+            <h1 className="text-4xl sm:text-5xl font-bold text-[#0f172a] dark:text-white mb-4 leading-snug pb-1">
               Terms &amp; Conditions
             </h1>
 
-            <p className="text-sm text-ink-3">Last updated: 27 April 2026</p>
+            <p className="text-sm text-gray-500 dark:text-gray-400">Last updated: 27 April 2026</p>
           </div>
         </div>
       </section>
 
       {/* Body */}
-      <section className="py-12 lg:py-16 relative bg-surface">
-        <div className="shell">
-          <div className="shell-tight prose-skal">
+      <section className="py-12 lg:py-16 relative bg-white dark:bg-gray-800">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="max-w-3xl mx-auto prose prose-lg dark:prose-invert prose-headings:text-[#0f172a] dark:prose-headings:text-white prose-headings:font-bold prose-h2:text-2xl sm:prose-h2:text-3xl prose-h2:mt-10 prose-h2:mb-4 prose-p:text-gray-700 dark:prose-p:text-gray-300 prose-p:leading-relaxed prose-a:text-[#009bd7] dark:prose-a:text-[#00E1FF] prose-strong:text-[#0f172a] dark:prose-strong:text-white">
             <h2>1. Agreement</h2>
             <p>
               By using <a href="https://skal.ai">skal.ai</a> or engaging SKAL for any service, you agree to these terms.
@@ -45,7 +46,7 @@ export default function TermsPage() {
 
             <h2>2. Services</h2>
             <p>
-              SKAL offers four product lines: SKAL Sky (lead capture and scoring), SKAL Systems (AI agents), SKAL Services (custom builds), and SKAL Staffing (talent placement).
+              SKAL offers four product lines: SKAL Scale (outbound automation), SKAL Systems (AI agents), SKAL Services (custom builds), and SKAL Staffing (talent placement).
               The scope of any specific engagement is defined in a signed proposal or statement of work between you and SKAL.
             </p>
 
@@ -63,12 +64,12 @@ export default function TermsPage() {
 
             <h2>4. Payment and billing</h2>
             <p>
-              Pricing and payment terms for engagements are set out in the relevant proposal or statement of work. SKAL Sky is a subscription product with a free tier and paid plans metered in leads; its current plan limits and prices are published on the Sky pricing page.
+              Pricing and payment terms for engagements are set out in the relevant proposal or statement of work. SKAL Scale uses a per-qualified-meeting pricing model; details are confirmed before any work begins.
             </p>
 
             <h2>5. Intellectual property</h2>
             <p>
-              Subject to the terms of your engagement, deliverables built specifically for you under a paid SKAL engagement become your property on full payment. Pre-existing SKAL tools, frameworks, and the SKAL Sky software itself remain the property of SKAL. Lead records you create in SKAL Sky remain yours and are exportable.
+              Subject to the terms of your engagement, deliverables built specifically for you under a paid SKAL engagement become your property on full payment. Pre-existing SKAL tools, frameworks, and the proprietary contact database referenced in SKAL Scale remain the property of SKAL.
             </p>
 
             <h2>6. Linking and embedding</h2>
