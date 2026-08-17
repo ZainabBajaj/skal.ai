@@ -88,11 +88,23 @@ const nextConfig: NextConfig = {
         destination: '/',
         permanent: true,
       },
+      /* Sky has its own site now, and it is the one that gets updated. Every
+         "Sky" link on skal.ai still points at /sky — navbar, footer, sitemap
+         page, the product split, the comparison and story pages — so sending
+         the route itself is what makes all of them land on the product
+         without touching a single href. app/sky/ stays in the repo but stops
+         rendering; it was the older, thinner version of the same pitch. */
+      {
+        source: '/sky',
+        destination: 'https://sky.skal.ai',
+        permanent: true,
+      },
       /* The product shipped as Sky. /scale was live and is still linked from
-         the stories and comparison pages, so it redirects rather than 404s. */
+         the stories and comparison pages, so it redirects rather than 404s —
+         straight to Sky, not via /sky, so it is one hop and not two. */
       {
         source: '/scale',
-        destination: '/sky',
+        destination: 'https://sky.skal.ai',
         permanent: true,
       },
     ];
